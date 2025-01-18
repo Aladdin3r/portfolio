@@ -3,14 +3,98 @@ html, body {
     padding: 0;
     height: 100%;
     width: 100%;
+    background-image: url("../public/gradient4.svg");
+    background-size: cover;
+    background-position: center; 
+    display: flex;
+    flex-direction: column;
+    font-family: 'satoshi', sans-serif;
 }
 
-body {
-    background-image: url("../public/gradient4.svg");
-    background-size: 100%;
-    background-position: center; 
-    background-size: cover;
-    width: 100%;
-    height: 100%;
+.heading-job {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 2.5em;
     display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    flex-wrap: nowrap;
+    margin-left: 1.6em;
+}
+
+.title-name {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 11.5em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    flex-wrap: nowrap;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: center;
+    justify-self: center;
+    margin-top: auto;
+
+}
+
+#logo-name {
+    margin-right: 5em;
+
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: flex-end;
+}
+
+.main-flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    margin-left: 2.75em;
+    margin-top: auto;
+    padding-top: 1em;
+    font-weight: 300;
+    margin-bottom: -11em;
+    font-size: 15pt;
+}
+
+.main-link {
+    color: white;
+    text-decoration: underline;
+    font-size: 1.5em;
+    margin-right: 1.1em;
+}
+
+
+/* 
+media queries below for responsive design
+*/
+@media (max-width: 768px) {
+    .heading-job {
+        font-size: 1.5em;
+        margin-left: 0.5em;
+    }
+
+    .title-name {
+        font-size: 9.5vw;
+    }
+
+    .main-flex-row {
+        font-size: 1em;
+        margin-left: 0.5em;
+    }
 }
