@@ -16,10 +16,108 @@ html, body {
 header {
     display: flex;
     flex-direction: row;
-    align-items: baseline; /* Align items to the center */
-    justify-content: space-between;
+    align-items: baseline; /* Center align the content */
+    justify-content: space-between; /* Space out the elements */
     width: 100%;
     padding: 1em;
+    margin-right: 5%;
+    position: absolute;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column; /* Stack the lines vertically */
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 0.5em; /* Add spacing between the lines */
+    z-index: 1000;
+    margin-right: 5%;
+    margin-top: 4.6%;
+    right: 0;
+    position: fixed;
+    z-index: 1500;
+    cursor: pointer;
+}
+
+.line {
+    background-color: white; /* Set the color of the lines */
+    width: 50px; /* Set the desired width of the lines */
+    height: 3px; /* Set the height (thickness) of the lines */
+    margin: 2px 0;
+    transition: transform 0.3s ease-in-out; 
+}
+
+
+.full-page-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../public/gradient4.svg");
+    background-size: cover;
+    background-position: center; 
+    color: white;
+    display: flex;
+    text-transform: uppercase;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.full-page-menu.hidden {
+    display: none; /* Used only if you manually add the hidden class */
+    transition: transform 0.3s ease-in-out; 
+}
+
+.full-page-menu.visible {
+    opacity: 1;
+    pointer-events: all;
+    z-index: 1000;
+}
+
+.full-page-menu ul {
+    list-style: none;
+    margin: 5em;
+    padding: 0;
+}
+
+.full-page-menu li {
+    margin: 1em 0;
+    font-size: 8em;
+    font-weight: 300;
+}
+
+.full-page-menu a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.full-page-menu a:hover {
+    color: #ff6600;
+}
+
+.menu.open .line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+    transition: transform 0.3s ease-in-out;
+}
+
+.menu.open .line:nth-child(2) {
+    transform: rotate(-45deg) translate(5px, -5px);
+    transition: transform 0.3s ease-in-out;
+}
+
+.menu:not(.open) .line:nth-child(1),
+.menu:not(.open) .line:nth-child(2) {
+    transform: transform 0.3s ease-in-out;; /* Reset to default position */
+}
+
+.hidden {
+    display: none;
 }
 
 .heading-job {
@@ -40,7 +138,6 @@ header {
     padding: 0;
     margin-top: 0.5em;
     line-height: 1;
-    
 }
 
 .icons {
@@ -109,30 +206,62 @@ main {
     text-decoration: underline;
     font-size: 1.5em;
     margin-right: 1.1em;
+    cursor: pointer;
+    position: relative;
+}
+
+.rotated-image {
+    transform: translate(100%, -50%) rotate(270deg);
+    transition: transform 0.8s ease-in-out; /* Smooth transition */
+    top: 50%;
+    width: auto; /* Adjust width as needed */
+    height: 80%;
+    position: absolute;
+    float: right;
+    right: 0;
+    margin-right: -13em;
+    z-index: 0;
+}
+
+.rotated-image.enter {
+    transform: translate(0, -50%) rotate(270deg); /* Moves into the viewport */
+}
+
+.rotated-image.exit {
+    transform: translate(100%, -50%) rotate(270deg); /* Moves out to the right */
 }
 
 .about-blurb {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    padding-bottom: 25em;
+    margin-bottom: 25em;
+    padding: 20px;
+    padding-right: 20%; /* Add space for the image (adjust this based on image size) */
+    display: block;
+    position: relative; /* Allow text wrapping */
+    float: left;
+    z-index: 1;
 }
 
 .main-text {
     color: white;
     font-size: 1em;
     font-weight: 300;
-    width: 85%;
-    flex-wrap: wrap;
+    line-height: 1.5;
+    width: 80%; /* Ensure it spans the available space */
+    text-align: left; /* Align text to the left */
+    word-wrap: break-word; /* Ensure long words wrap properly */
+    margin-left: 7em;
 }
 
-strong .emphasis {
-    text-transform: capitalize;
+.emphasis {
+    text-transform: uppercase;
     font-weight: 500;
 }
 
+.popup-text {
+    text-decoration: underline;
+    font-weight: 500;
+    cursor: pointer;
+}
 
 /* 
 media queries below for responsive design
