@@ -47,6 +47,16 @@ header {
     transition: transform 0.3s ease-in-out; 
 }
 
+#cat-emoji {
+    cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><text x="0" y="16" font-size="16">😻</text></svg>') 30 30, auto;
+}
+
+#pic-emoji {
+    cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><text x="0" y="16" font-size="16">📸</text></svg>') 30 30, auto;
+}
+
+
+
 
 .full-page-menu {
     position: fixed;
@@ -210,6 +220,11 @@ main {
     position: relative;
 }
 
+.small-link {
+    text-decoration: none;
+    color: white;
+}
+
 .rotated-image {
     transform: translate(100%, -50%) rotate(270deg);
     transition: transform 0.8s ease-in-out; /* Smooth transition */
@@ -239,6 +254,7 @@ main {
     position: relative; /* Allow text wrapping */
     float: left;
     z-index: 1;
+    margin-top: 0.5em;
 }
 
 .main-text {
@@ -246,7 +262,7 @@ main {
     font-size: 1em;
     font-weight: 300;
     line-height: 1.5;
-    width: 80%; /* Ensure it spans the available space */
+    width: 75%; /* Ensure it spans the available space */
     text-align: left; /* Align text to the left */
     word-wrap: break-word; /* Ensure long words wrap properly */
     margin-left: 7em;
