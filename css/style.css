@@ -279,6 +279,51 @@ main {
     cursor: pointer;
 }
 
+#loading-container {
+    visibility: hidden; /* Initially hidden */
+    opacity: 0; /* Transparent */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000; /* On top of everything */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#loading-container.show {
+    visibility: visible; /* Visible only when showing */
+    opacity: 1;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent dark overlay */
+    z-index: 1000; /* Ensure it stays above everything */
+    visibility: hidden; /* Initially hidden */
+    opacity: 0; /* Transparent */
+    transition: visibility 0.3s, opacity 0.3s ease-in-out;
+}
+
+/* Show overlay when active */
+.overlay.show {
+    visibility: visible; /* Make it visible */
+    opacity: 1; /* Fully opaque */
+}
+
+/* Hide main content during animation */
+.hidden-content {
+    visibility: hidden; /* Make content inaccessible */
+    opacity: 0; /* Fade it out */
+    transition: opacity 0.3s ease-in-out;
+}
+
 /* 
 media queries below for responsive design
 */
@@ -352,3 +397,4 @@ media queries below for responsive design
         height: 1.75em;
     }
 }
+

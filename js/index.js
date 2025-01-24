@@ -14,9 +14,4 @@ function handlePageExit() {
     // Add the 'exit' class to trigger the transition
     image.classList.remove('enter');
     image.classList.add('exit');
-
-    // Optional: Delay navigation to let the animation complete
-    setTimeout(() => {
-        window.location.href = 'next-page.html'; // Change to the actual page URL
-    }, 800); // Match the transition duration
 }
