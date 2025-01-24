@@ -11,6 +11,7 @@ html, body {
     flex-direction: column;
     font-family: 'satoshi', sans-serif;
     overflow-x: hidden;
+    z-index: -11;
 }
 
 header {
@@ -75,7 +76,7 @@ header {
     flex-direction: column;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.5s ease-out, visibility 0s linear 0.5s; 
 }
 
 .full-page-menu.hidden {
@@ -287,7 +288,8 @@ main {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1000; /* On top of everything */
+    scale: 1.25;
+    z-index: -1; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -312,16 +314,16 @@ main {
 }
 
 /* Show overlay when active */
-.overlay.show {
-    visibility: visible; /* Make it visible */
-    opacity: 1; /* Fully opaque */
-}
+/* .overlay.show {
+    visibility: visible; 
+    opacity: 1; 
+} */
 
 /* Hide main content during animation */
 .hidden-content {
     visibility: hidden; /* Make content inaccessible */
     opacity: 0; /* Fade it out */
-    transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
 }
 
 /* 
@@ -367,6 +369,48 @@ media queries below for responsive design
         margin-bottom: 10em;
         width: 90%;
     }
+    .rotated-image {
+        top: 50%;
+        width: auto; /* Adjust width as needed */
+        height: 55%;
+        position: absolute;
+        float: right;
+        right: 0;
+        margin-right: -13em;
+        z-index: 0;
+    }
+    .about-blurb {
+        margin-bottom: 25em;
+        padding: 20px;
+        padding-right: 20%; /* Add space for the image (adjust this based on image size) */
+        display: block;
+        position: relative; /* Allow text wrapping */
+        float: left;
+        z-index: 1;
+        margin-top: -1em;
+    }
+    
+    .line {
+        background-color: white; /* Set the color of the lines */
+        width: 35px; /* Set the desired width of the lines */
+        height: 3px; /* Set the height (thickness) of the lines */
+        margin: 2px 0;
+        transition: transform 0.3s ease-in-out; 
+    }
+
+    .main-text {
+        color: white;
+        font-size: 1em;
+        font-weight: 300;
+        line-height: 1.5;
+        width: 75%; /* Ensure it spans the available space */
+        text-align: left; /* Align text to the left */
+        word-wrap: break-word; /* Ensure long words wrap properly */
+        margin-left: 1em;
+    }
+    
+    
+    
 }
 
 @media (max-width: 480px) {
@@ -395,6 +439,45 @@ media queries below for responsive design
 
     .icons img {
         height: 1.75em;
+    }
+    .rotated-image {
+        top: 50%;
+        width: auto; /* Adjust width as needed */
+        height: 43%;
+        position: absolute;
+        float: right;
+        right: 0;
+        margin-right: -13em;
+        z-index: 0;
+    }
+    .about-blurb {
+        margin-bottom: 25em;
+        padding: 20px;
+        padding-right: 20%; /* Add space for the image (adjust this based on image size) */
+        display: block;
+        position: relative; /* Allow text wrapping */
+        float: left;
+        z-index: 1;
+        margin-top: 0.05em;
+    }
+    
+    .line {
+        background-color: white; /* Set the color of the lines */
+        width: 35px; /* Set the desired width of the lines */
+        height: 3px; /* Set the height (thickness) of the lines */
+        margin: 2px 0;
+        transition: transform 0.3s ease-in-out; 
+    }
+
+    .main-text {
+        color: white;
+        font-size: 1em;
+        font-weight: 300;
+        line-height: 1.5;
+        width: 73%; /* Ensure it spans the available space */
+        text-align: left; /* Align text to the left */
+        word-wrap: break-word; /* Ensure long words wrap properly */
+        margin-left: 1em;
     }
 }
 

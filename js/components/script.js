@@ -44,15 +44,15 @@ window.addEventListener("load", () => {
   }, 2000); // Fallback
 });
 
-// Simulate Navigation with Loading
-document.addEventListener("click", (event) => {
-  if (event.target.matches(".main-link")) {
-    showLoading();
+// // Simulate Navigation with Loading
+// document.addEventListener("click", (event) => {
+//   if (event.target.matches(".main-link")) {
+//     showLoading();
 
-    setTimeout(() => {
-      hideLoading();
-      window.location.href = event.target.href;
-    }, 2000); // Delay
-    event.preventDefault();
-  }
-});
+//     setTimeout(() => {
+//       hideLoading();
+//       window.location.href = event.target.href;
+//     }, 2000); // Delay
+//     event.preventDefault();
+//   }
+// });
