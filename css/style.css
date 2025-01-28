@@ -326,6 +326,24 @@ main {
     transition: opacity 0.5s ease-in-out;
 }
 
+.hover-image {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    max-width: 400px; /* Maximum width for larger screens */
+    max-height: 400px; /* Maximum height to ensure it doesn't get too large */
+    object-fit: cover; /* Ensures the image covers the box without distortion */
+    border-radius: 10px; /* Optional */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Optional */
+    pointer-events: none;
+}
+
+#popup-link {
+    text-decoration: underline;
+    font-weight: 500;
+    cursor: pointer;
+}
+  
+
 /* 
 media queries below for responsive design
 */
