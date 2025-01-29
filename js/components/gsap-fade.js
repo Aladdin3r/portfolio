@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
             opacity: 1,  // Fade in to full opacity
             y: 0,        // Bring the element back to its normal position
             duration: 0.5, // Duration of the fade-in animation
-            stagger: 0.05 // Delay between each text element's animation
+            stagger: 0.09 // Delay between each text element's animation
         }
     );
 });
