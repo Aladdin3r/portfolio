@@ -30,20 +30,65 @@
         </div>
     </header>
     <main>
-        <div class="sticky-preview">
-            <video width="80%" height="auto" controls autoplay>
-                <source src="public/clip.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-              </video>
-        </div>
-        <div class="onward-content">
-            <div class="overview">
-
+        <!-- Sticky Media Container -->
+        <div class="sticky-container">
+            <div id="media-content">
+                <img src="public/ONWARD-main.png" alt="Overview Image">
+                <p class="media-caption">Overview Image Caption</p>
             </div>
         </div>
+    
+        <!-- Content Sections -->
+        <div class="content">
+            <section id="overview" class="case-section" data-media="video" data-src="public/clip.mp4" data-caption=" Image Caption">
+                <h2 class="section-title">Overview</h2>
+                <p>Onward is an AI-powered interview coaching app designed to help healthcare professionals, particularly those new to the Canadian system, excel in job interviews.</p>
+                <p>Onward is an AI-powered interview coaching app designed to help healthcare professionals, particularly those new to the Canadian system, excel in job interviews.</p>
+                <p>Onward is an AI-powered interview coaching app designed to help healthcare professionals, particularly those new to the Canadian system, excel in job interviews.</p>
+                <p>Onward is an AI-powered interview coaching app designed to help healthcare professionals, particularly those new to the Canadian system, excel in job interviews.</p>
+                <p>Onward is an AI-powered interview coaching app designed to help healthcare professionals, particularly those new to the Canadian system, excel in job interviews.</p>
+                <p>Onward is an AI-powered interview coaching app designed to help healthcare professionals, particularly those new to the Canadian system, excel in job interviews.</p>
+                <p>Onward is an AI-powered interview coaching app designed to help healthcare professionals, particularly those new to the Canadian system, excel in job interviews.</p>
+                <p>Onward is an AI-powered interview coaching app designed to help healthcare professionals, particularly those new to the Canadian system, excel in job interviews.</p>
+                <p>Onward is an AI-powered interview coaching app designed to help healthcare professionals, particularly those new to the Canadian system, excel in job interviews.</p>
+            </section>
+    
+            <section id="problem" class="case-section" data-media="image" data-src="public/onward-mockup-test1.png" data-caption="Problem Image Caption">
+                <h2 class="section-title">Problem</h2>
+                <p>Many internationally educated nurses struggle with job interviews due to unfamiliarity with Canadian healthcare expectations.</p>
+                <p>Many internationally educated nurses struggle with job interviews due to unfamiliarity with Canadian healthcare expectations.</p>
+                <p>Many internationally educated nurses struggle with job interviews due to unfamiliarity with Canadian healthcare expectations.</p>
+                <p>Many internationally educated nurses struggle with job interviews due to unfamiliarity with Canadian healthcare expectations.</p>
+                <p>Many internationally educated nurses struggle with job interviews due to unfamiliarity with Canadian healthcare expectations.</p>
+                <p>Many internationally educated nurses struggle with job interviews due to unfamiliarity with Canadian healthcare expectations.</p>
+                <p>Many internationally educated nurses struggle with job interviews due to unfamiliarity with Canadian healthcare expectations.</p>
+                <p>Many internationally educated nurses struggle with job interviews due to unfamiliarity with Canadian healthcare expectations.</p>
+                <p>Many internationally educated nurses struggle with job interviews due to unfamiliarity with Canadian healthcare expectations.</p>
+                <p>Many internationally educated nurses struggle with job interviews due to unfamiliarity with Canadian healthcare expectations.</p>
+                <p>Many internationally educated nurses struggle with job interviews due to unfamiliarity with Canadian healthcare expectations.</p>
+                <p>Many internationally educated nurses struggle with job interviews due to unfamiliarity with Canadian healthcare expectations.</p>
+                <p>Many internationally educated nurses struggle with job interviews due to unfamiliarity with Canadian healthcare expectations.</p>
+            </section>
+    
+            <section id="solution" class="case-section" data-media="image" data-src="public/ONWARD-main.png" data-caption="Solution Image Caption">
+                <h2 class="section-title">Solution</h2>
+                <p>Onward provides AI-driven mock interviews and real-time feedback, tailored for the Canadian healthcare job market.</p>
+            </section>
+        </div>
+    
+        <!-- Right-Side Guide -->
+        <nav class="guide">
+            <ul>
+                <li><a href="#overview" class="guide-link active">Overview</a></li>
+                <li><a href="#problem" class="guide-link">Problem</a></li>
+                <li><a href="#solution" class="guide-link">Solution</a></li>
+            </ul>
+        </nav>
     </main>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="js/components/menu.js"></script>
     <script src="js/components/gsap-fade.js"></script>
+    <script src="js/components/sticky-media.js"></script>
 </body>
 </html>
