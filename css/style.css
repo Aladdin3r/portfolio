@@ -347,7 +347,49 @@ main {
     font-weight: 500;
     cursor: pointer;
 }
-  
+
+.flex-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1em; /* Add some spacing between the items */
+}
+
+.flex-grid-item {
+    flex-basis: calc(50% - 1em); /* Each item takes up 50% of the width minus the gap */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.onward-case {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 1em;
+    margin: 1em 0;
+}
+
+.onward-case img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+}
+
+.case-title {
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    margin-top: 0.5em;
+}
+
+
+a {
+    text-decoration: none;
+}
+
 
 /* 
 media queries below for responsive design
