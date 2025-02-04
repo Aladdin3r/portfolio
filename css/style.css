@@ -29,6 +29,26 @@ header {
     position: relative;
 }
 
+.header-container {
+    display: flex;
+    align-items: baseline;
+
+}
+
+.back-arrow {
+    font-size: 5vw; /* Adjust size to match text */
+    color: white;
+    text-decoration: none;
+    line-height: 1; /* Ensures consistent alignment */
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    top: -0.25em;
+    margin-right: -1em;
+    margin-left: 0.5em;
+}
+
+
 .menu {
     display: flex;
     flex-direction: column; /* Stack the lines vertically */
@@ -152,6 +172,8 @@ header {
     margin-left: 1em;
     padding: 0;
     margin-top: 0.5em;
+    display: inline-block;
+    vertical-align: middle;
     line-height: 1;
 }
 
@@ -348,43 +370,81 @@ main {
     cursor: pointer;
 }
 
+/* Center content on the page */
 .flex-grid {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 1em; /* Add some spacing between the items */
+    flex-direction: column; /* Stack items in one column */
+    align-items: center; /* Center items horizontally */
+    width: 100%;
+    max-width: 900px; /* Set a max-width for readability */
+    margin: 0 auto; /* Center the column */
+    padding: 1em;
+
 }
 
+/* Ensure each item spans the full width */
 .flex-grid-item {
-    flex-basis: calc(50% - 1em); /* Each item takes up 50% of the width minus the gap */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-}
-
-.onward-case {
+    position: relative;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width: 100%;
+    text-align: left;
+    margin-bottom: 2em;
     padding: 1em;
-    margin: 1em 0;
+    border: white solid 1px;
+    border-radius: 8px;
+    overflow: hidden; /* Ensures smooth animation */
 }
 
-.onward-case img {
+.flex-grid-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Make images full-width while maintaining aspect ratio */
+.flex-grid-item img {
     width: 100%;
     height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove extra spacing below images */
 }
 
+.identification {
+    font-size: 1em;
+    width: 100%;
+    color: #ff6600;
+    text-transform: uppercase;
+    font-style: italic;
+}
+
+/* Left-align captions */
 .case-title {
     text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 300;
     color: white;
-    text-align: center;
-    margin-top: 0.5em;
+    text-align: left;
+    width: 100%;
+    padding-top: 0;
+    font-size: 2rem;
 }
 
+.arrow {
+    font-size: 3rem;
+    color: white;
+    position: absolute;
+    right: 1em;
+    opacity: 0.8;
+    transition: transform 0.3s ease-in-out;
+}
+
+.flex-grid-item:hover .arrow {
+    animation: bounceArrow 0.6s infinite alternate ease-in-out;
+}
+
+@keyframes bounceArrow {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-10px); }
+}
 
 a {
     text-decoration: none;
