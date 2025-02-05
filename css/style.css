@@ -116,13 +116,13 @@ header {
 
 .full-page-menu ul {
     list-style: none;
-    margin: 5em;
+    margin: 5rem;
     padding: 0;
 }
 
 .full-page-menu li {
     margin: 1em 0;
-    font-size: 8em;
+    font-size: 8rem;
     font-weight: 300;
 }
 
@@ -458,12 +458,18 @@ a {
     margin-left: auto;
     margin-right: auto;
     z-index: 999;
+    overflow: visible;
+    height: 425px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #media-content img, #media-content video {
     width: 100%;
-    height: auto;
+    height: 100%;
     border-radius: 10px;
+    object-fit: contain; /* Crops excess parts while maintaining aspect ratio */
 }
 
 .media-caption {
@@ -493,6 +499,7 @@ a {
     padding-top: 550px;
     overflow: hidden; /* Hides any overflowing text */
     clip-path: inset(0 0 0 0);
+    width: 90%;
 }
 
 .section-title {
@@ -608,7 +615,7 @@ media queries below for responsive design
     
     .line {
         background-color: white; /* Set the color of the lines */
-        width: 35px; /* Set the desired width of the lines */
+        width: 30px; /* Set the desired width of the lines */
         height: 3px; /* Set the height (thickness) of the lines */
         margin: 2px 0;
         transition: transform 0.3s ease-in-out; 
@@ -624,8 +631,31 @@ media queries below for responsive design
         word-wrap: break-word; /* Ensure long words wrap properly */
         margin-left: 1em;
     }
-    
-    
+    .full-page-menu ul {
+        margin: 3rem;
+    }
+
+    .full-page-menu li {
+        font-size: 4rem; /* Reduce font size for better fit */
+    }
+
+    .heading-page {
+        font-size: 5vw;
+    }
+
+    .menu {
+        margin-right: 3%;
+        margin-top: 5%;
+    }
+
+    .flex-grid {
+        width: 75%;
+    }
+
+    .flex-grid-item {
+        flex: 1 1 100%; /* One item per row on smaller screens */
+        max-width: 100%;
+    }
     
 }
 
@@ -679,7 +709,7 @@ media queries below for responsive design
     
     .line {
         background-color: white; /* Set the color of the lines */
-        width: 35px; /* Set the desired width of the lines */
+        width: 25px; /* Set the desired width of the lines */
         height: 3px; /* Set the height (thickness) of the lines */
         margin: 2px 0;
         transition: transform 0.3s ease-in-out; 
@@ -694,6 +724,46 @@ media queries below for responsive design
         text-align: left; /* Align text to the left */
         word-wrap: break-word; /* Ensure long words wrap properly */
         margin-left: 1em;
+    }
+
+    .full-page-menu {
+        align-items: flex-start;
+        text-align: center;
+    }
+
+    .full-page-menu ul {
+        margin: 2rem;
+        padding: 0;
+    }
+
+    .full-page-menu li {
+        font-size: 3rem;
+    }
+
+    .menu {
+        margin-right: 2%;
+        margin-top: 3%;
+    }
+
+    .flex-grid-item {
+        padding: 0.5em; /* Reduce padding */
+        font-size: 0.9em; /* Scale down text */
+    }
+
+    .identification {
+        font-size: 0.65em;
+        text-wrap: break-word;
+    }
+
+    .case-title {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        font-size: 1.5em;
+    }
+
+    .arrow {
+        margin-top: 1em;
+        font-size: 2rem;
     }
 }
 
