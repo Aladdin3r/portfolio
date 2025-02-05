@@ -16,6 +16,7 @@ animation.addEventListener("DOMLoaded", () => {
   console.log("Lottie animation loaded successfully!");
 });
 
+
 // Show Loading Animation
 function showLoading() {
   loadingContainer.classList.add("show");

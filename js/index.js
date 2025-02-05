@@ -15,3 +15,9 @@ function handlePageExit() {
     image.classList.remove('enter');
     image.classList.add('exit');
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll("img").forEach((img) => {
+        img.setAttribute("loading", "lazy");
+    });
+});
