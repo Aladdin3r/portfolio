@@ -552,6 +552,12 @@ a {
 /* 
 media queries below for responsive design
 */
+@media (max-width: 1370px) {
+    .main-flex-row {
+        margin-bottom: -6em;
+    }
+}
+
 @media (max-width: 768px) {
     .heading-job {
         font-size: 1.5em;
