@@ -454,6 +454,7 @@ a {
     position: sticky;
     top: 10vh;
     width: 45%;
+    bottom: -10vh;
     margin-left: auto;
     margin-right: auto;
     z-index: 999;
@@ -480,17 +481,18 @@ a {
     align-items: center;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 5vh; /* Dynamically adjusts spacing for responsiveness */
-    gap: 2rem; /* Creates consistent spacing between the elements */
+    margin-top: 5vh;
+    gap: 2rem;
+    position: relative;
 }
-
 
 .case-section {
     margin-bottom: 5rem;
     font-weight: 300;
     position: relative;
-    margin-top: 5vh;
-    padding-top: 550px; /* Adds space to push content below sticky */
+    padding-top: 550px;
+    overflow: hidden; /* Hides any overflowing text */
+    clip-path: inset(0 0 0 0);
 }
 
 .section-title {
