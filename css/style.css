@@ -71,14 +71,14 @@ header {
     margin: 2px 0;
     transition: transform 0.3s ease-in-out; 
 }
-
+/* 
 #cat-emoji {
     cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><text x="0" y="16" font-size="16">😻</text></svg>') 30 30, auto;
 }
 
 #pic-emoji {
     cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><text x="0" y="16" font-size="16">📸</text></svg>') 30 30, auto;
-}
+} */
 
 
 
