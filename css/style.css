@@ -474,9 +474,10 @@ a {
 
 .media-caption {
     text-align: center;
-    font-size: 0.9rem;
-    margin-top: 0.5rem;
-    color: gray;
+    font-size: 1rem;
+    margin-top: 0rem;
+    color: white;
+    background-color: rgb(0, 0, 31);
 }
 
 .content {
@@ -495,6 +496,7 @@ a {
 .case-section {
     margin-bottom: 5rem;
     font-weight: 300;
+    font-size: 1.25em;
     position: relative;
     padding-top: 550px;
     overflow: hidden; /* Hides any overflowing text */
@@ -502,6 +504,32 @@ a {
     width: 90%;
 }
 
+.overview-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 5em; /* Add some spacing between the columns */
+}
+
+.overview-column {
+    flex: 1 1 45%; /* Each column takes up approximately 45% of the container width */
+    box-sizing: border-box;
+}
+
+.overview-column ul {
+    padding-left: 1em; /* Add some padding to the left of the list */
+}
+
+.overview-column li {
+    list-style: none;
+    margin-bottom: 0.05em;
+}
+
+.boldened {
+    font-weight: 500;
+}
 .section-title {
     color: white;
     text-transform: uppercase;
@@ -547,6 +575,18 @@ a {
     width: 75%; /* Ensure it spans the available space */
     text-align: left; /* Align text to the left */
     word-wrap: break-word;
+}
+
+.comparison-slider {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: 425px;
+    padding: 2em 0; /* Add some padding for spacing */
 }
 
 /* 
