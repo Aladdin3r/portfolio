@@ -21,3 +21,17 @@ document.addEventListener("DOMContentLoaded", function () {
         img.setAttribute("loading", "lazy");
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    let lottieContainer = document.getElementById("lottie-container");
+
+    if (lottieContainer) {
+        let animation = lottie.loadAnimation({
+            container: lottieContainer,
+            renderer: "html", // or "canvas" / "html"
+            loop: true,
+            autoplay: true,
+            path: "public/clipinterview-results.json" // Ensure this path is correct
+        });
+    }
+});
