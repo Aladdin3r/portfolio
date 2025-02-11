@@ -14,85 +14,74 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         requestAnimationFrame(() => {
-            gsap.to(mediaContainer, { y: -50, opacity: 0, duration: 0.2, ease: "power2.out", onComplete: function () {
-                mediaContainer.innerHTML = '';
+            gsap.to(mediaContainer, {
+                y: -50,
+                opacity: 0,
+                duration: 0.2,
+                ease: "power2.out",
+                onComplete: function () {
+                    mediaContainer.innerHTML = '';
 
-                let mediaElement = null;
-                if (mediaType === "image") {
-                    mediaElement = document.createElement('img');
-                    mediaElement.src = mediaSrc;
-                    mediaElement.alt = 'Case Study Image';
-                    mediaElement.loading = "lazy";
-                } else if (mediaType === "video") {
-                    mediaElement = document.createElement('video');
-                    mediaElement.setAttribute('controls', true);
-                    mediaElement.setAttribute('autoplay', true);
-                    mediaElement.setAttribute('muted', ''); // Ensures the attribute is set
-                    mediaElement.muted = true; // Ensures the property is also set
-                    mediaElement.loading = "lazy";
-                
-                    const source = document.createElement('source');
-                    source.src = mediaSrc;
-                    source.type = 'video/mp4';
-                    mediaElement.appendChild(source);
-                }
-
-                if (mediaElement) {
-                    const captionElement = document.createElement('p');
-                    captionElement.classList.add('media-caption');
-                    captionElement.textContent = caption;
-
-                    mediaContainer.appendChild(mediaElement);
-                    mediaContainer.appendChild(captionElement);
-
+                    let mediaElement = null;
                     if (mediaType === "image") {
-                        const expandIcon = document.createElement('div');
-                        expandIcon.innerHTML = `
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="expand-icon-svg">
-                                <path d="M32 32C14.3 32 0 46.3 0 64l0 96c0 17.7 14.3 32 32 32s32-14.3 32-32l0-64 64 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L32 32zM64 352c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 96c0 17.7 14.3 32 32 32l96 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0 0-64zM320 32c-17.7 0-32 14.3-32 32s14.3 32 32 32l64 0 0 64c0 17.7 14.3 32 32 32s32-14.3 32-32l0-96c0-17.7-14.3-32-32-32l-96 0zM448 352c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 64-64 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l96 0c17.7 0 32-14.3 32-32l0-96z"/>
-                            </svg>
-                        `;
-                        expandIcon.classList.add('expand-icon');
-                        mediaContainer.appendChild(expandIcon);
-
-                        // Add event listener for full-screen toggle
-                        expandIcon.addEventListener('click', toggleFullScreen);
+                        mediaElement = document.createElement('img');
+                        mediaElement.src = mediaSrc;
+                        mediaElement.alt = 'Case Study Image';
+                        mediaElement.loading = "lazy";
+                    } else if (mediaType === "video") {
+                        mediaElement = document.createElement('video');
+                        mediaElement.setAttribute('controls', true);
+                        mediaElement.setAttribute('autoplay', true);
+                        mediaElement.setAttribute('muted', '');
+                        mediaElement.muted = true;
+                        mediaElement.loading = "lazy";
+                        
+                        const source = document.createElement('source');
+                        source.src = mediaSrc;
+                        source.type = 'video/mp4';
+                        mediaElement.appendChild(source);
                     }
 
-                    gsap.to(mediaContainer, { y: 0, opacity: 1, duration: 0.2, ease: "power2.inOut" });
+                    if (mediaElement) {
+                        const captionElement = document.createElement('p');
+                        captionElement.classList.add('media-caption');
+                        captionElement.textContent = caption;
 
-                    // Add event listener for full-screen toggle
-                    mediaElement.addEventListener('click', toggleFullScreen);
-                } else {
-                    console.error("Failed to create a valid media element.");
+                        mediaContainer.appendChild(mediaElement);
+                        mediaContainer.appendChild(captionElement);
+
+                        gsap.to(mediaContainer, { y: 0, opacity: 1, duration: 0.2, ease: "power2.inOut" });
+
+                        mediaElement.addEventListener('click', toggleFullScreen);
+                    }
                 }
-            }});
+            });
         });
     }
 
     function toggleFullScreen(event) {
         const element = event.target.tagName === "IMG" || event.target.tagName === "VIDEO" 
-    ? event.target 
-    : event.target.closest('#media-content')?.querySelector('img, video');
+            ? event.target 
+            : event.target.closest('#media-content')?.querySelector('img, video');
 
         if (!document.fullscreenElement) {
             if (element.requestFullscreen) {
                 element.requestFullscreen();
-            } else if (element.mozRequestFullScreen) { // Firefox
+            } else if (element.mozRequestFullScreen) {
                 element.mozRequestFullScreen();
-            } else if (element.webkitRequestFullscreen) { // Chrome, Safari and Opera
+            } else if (element.webkitRequestFullscreen) {
                 element.webkitRequestFullscreen();
-            } else if (element.msRequestFullscreen) { // IE/Edge
+            } else if (element.msRequestFullscreen) {
                 element.msRequestFullscreen();
             }
         } else {
             if (document.exitFullscreen) {
                 document.exitFullscreen();
-            } else if (document.mozCancelFullScreen) { // Firefox
+            } else if (document.mozCancelFullScreen) {
                 document.mozCancelFullScreen();
-            } else if (document.webkitExitFullscreen) { // Chrome, Safari and Opera
+            } else if (document.webkitExitFullscreen) {
                 document.webkitExitFullscreen();
-            } else if (document.msExitFullscreen) { // IE/Edge
+            } else if (document.msExitFullscreen) {
                 document.msExitFullscreen();
             }
         }
@@ -121,7 +110,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-    // Ensure the first section loads immediately
     if (sections.length > 0) {
         updateMedia(sections[0]);
         updateGuide(sections[0]);
@@ -147,7 +135,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Lazy load the rest of the guide
     if ('requestIdleCallback' in window) {
         requestIdleCallback(() => {
             sections.forEach(section => observer.observe(section));
@@ -155,26 +142,22 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
         sections.forEach(section => observer.observe(section));
     }
-});
 
-document.addEventListener('DOMContentLoaded', function() {
-    const guideLinks = document.querySelectorAll('.guide a');
+    /** 
+     * 🌟 Parallax Effect Implementation 
+     */
+    window.addEventListener("scroll", function () {
+        let scrollY = window.scrollY;
 
-    guideLinks.forEach(link => {
-        link.addEventListener('click', function(event) {
-            event.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
-            const offset = 100; // Adjust this value as needed
+        sections.forEach((section, index) => {
+            let speed = 0.3; // Adjust the parallax speed
+            let offset = (scrollY - section.offsetTop) * speed;
 
-            window.scrollTo({
-                top: targetElement.offsetTop - offset,
-                behavior: 'smooth'
+            gsap.to(section, {
+                y: offset,
+                ease: "power1.out",
+                duration: 0.3,
             });
         });
-    });
-
-    sections.forEach(section => {
-        section.addEventListener('mouseenter', () => updateMedia(section));
     });
 });
