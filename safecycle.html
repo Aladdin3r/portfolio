@@ -30,9 +30,105 @@
             </ul>
         </div>
     </header>
+    <main>
+        <button id="back-to-top" class="back-to-top">
+            ↑
+        </button>
+        <div class="sticky-container">
+            <div id="media-content">
+                <img src="public/ONWARD-main.png" alt="An Overview of Onward">
+                <p class="media-caption">Onward: nurse interview coaching</p>
+            </div>
+        </div>
+        <div class="content">
+            <section id="overview" class="case-section" data-media="image" data-src="public/safecycle-phone-mockup.webp" data-caption="SafeCycle: a pedestrian safety app">
+                <h2 class="section-title">Overview</h2>
+                <div class="overview-container">
+                    <div class="overview-column">
+                        <p>SafeCycle is a mobile map application catered toward cyclists and pedestrians with the goal of creating routes to destinations that are as safe as possible and can accommodate various mobility handicaps (ex: wheelchair accessibility).</p>
+                        <p><strong class="boldened">Role:</strong> Project manager, UX Designer, Lead Developer</p>
+                        <p><strong class="boldened">Duration:</strong> 4 months</p>
+                    </div>
+                    <div class="overview-column">
+                        <p class="boldened">Team:</p>
+                        <ul>
+                            <li>Nea Pieroelie</li>
+                            <li>Andrew Turitsa</li>
+                        </ul>
+                        <p class="boldened">Tech Stack:</p>
+                        <ul>
+                            <li>Figma</li>
+                            <li>NextJS</li>
+                            <li>Google Maps API</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="context" class="case-section" data-media="image" data-src="public/safecycle-persona.webp" data-caption="Sara Karim, a SafeCycle user">
+                <h2 class="section-title">Context</h2>
+                <p>
+                    SafeCycle was created in response to the increasing number of pedestrian and cyclist accidents in urban areas. 
+                    The app was designed to help users find the safest route to their destination by allowing users to input warnings for high-traffic areas, construction zones, and safety hazards.
+                </p>
+                <p>
+                    Since pedestrians include a wide-range of differently-abled people, SafeCycle had to have personalized navigation options for accessibility.
+                </p>
+            </section>
+
+            <section id="plan" class="case-section" data-media="image" data-src="public/safecycle-sitemap.webp" data-caption="Our sitemap to layout the features to make SafeCycle possible">
+                <h2 class="section-title">Plan</h2>
+                <p>
+                   To ensure that SafeCycle achieves its goal of providing safe routes for pedestrians and cyclists, the team decided to implement the following features:
+                   <ul>
+                          <li>Customizable route options</li>
+                          <li>Real-time traffic/safety updates (by user input)</li>
+                          <li>Knowledge of transportation safety through a quiz</li>
+                   </ul> 
+                </p>
+            </section>
+            <section id="action" class="case-section" data-media="image" data-src="public/safecycle-wireframes.webp" data-caption="SafeCycle's main features wireframed">
+                <h2 class="section-title">Action</h2>
+                <p>
+                    We started off wireframing the main features of the app, jumping straight to hi-fi prototypes to test with users. 
+                    Some initial issues pointed out through user testing were:
+                    <ul>
+                        <li>Difficulty navigating to the home page (Severe)</li>
+                        <li>Difficulty in finding the accessibility options with saved routes (moderate)</li>
+                    </ul>
+                </p>
+                <p>
+                    Having tackled these design issues, we moved on to developing the app using NextJS and Google Maps API.
+                    This is where many issues occurred, as this was the first time implementing an API into a project, and the API itself had many limitations. 
+                </p>
+            </section>
+
+            <section id="results" class="case-section" data-media="image" data-src="public/safecycle-results.webp" data-caption="SafeCycle's final design">
+                <h2 class="section-title">Results</h2>
+                <p>
+                    SafeCycle was able to provide a safe route for pedestrians and cyclists, but the app was not as user-friendly as we had hoped. 
+                    The app was able to provide routes that avoided high-traffic areas and construction zones, but the app was not able to provide accessibility options for differently-abled users.
+                </p>
+                <p>
+                    The app was also not able to provide real-time traffic updates, as the Google Maps API was not able to provide this feature.
+                </p>
+        </div>
+        <nav class="guide">
+            <ul>
+                <li><a href="#overview" class="guide-link active">Overview</a></li>
+                <li><a href="#context" class="guide-link">Context</a></li>
+                <li><a href="#plan" class="guide-link">Plan</a></li>
+                <li><a href="#action" class="guide-link">Action</a></li>
+                <li><a href="#results" class="guide-link">Results</a></li>
+                <li><a href="#tldr" class="guide-link">TL;DR</a></li>
+            </ul>
+        </nav>
+    </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="js/components/menu.js"></script>
     <script src="js/components/gsap-fade.js"></script>
+    <script src="js/components/sticky-media.js"></script>
     <script src="js/index.js"></script>
 </body>
 </html>
