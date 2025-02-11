@@ -3,7 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const mediaContainer = document.getElementById("media-content");
     const guideLinks = document.querySelectorAll(".guide-link");
     const parallaxContainer = document.querySelector(".parallax-container");
-
+    const backToTopButton = document.getElementById("back-to-top");
+    
     function updateMedia(section) {
         const mediaType = section.dataset.media;
         const mediaSrc = section.dataset.src;
@@ -16,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         requestAnimationFrame(() => {
             gsap.to(mediaContainer, {
-                y: -50,
+                y: -30,
                 opacity: 0,
                 duration: 0.2,
                 ease: "power2.out",
@@ -174,4 +175,21 @@ document.addEventListener("DOMContentLoaded", function () {
         },
     });
 
+    window.addEventListener("scroll", function () {
+        console.log("Window scroll position:", window.scrollY); // Check current scroll position
+        if (window.scrollY > 200) {
+            backToTopButton.style.opacity = "1";
+            console.log("Back to top button is now visible");
+        } else {
+            backToTopButton.style.opacity = "0";
+            console.log("Back to top button is hidden");
+        }
+    });
+    
+    backToTopButton.addEventListener("click", function () {
+        console.log("Back to top button clicked");
+        document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    });
+    
 });
