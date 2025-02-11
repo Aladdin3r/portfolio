@@ -484,7 +484,7 @@ a {
     width: 100%;
     height: 100%;
     border-radius: 10px;
-    object-fit: contain; /* Crops excess parts while maintaining aspect ratio */
+    object-fit: cover; /* Crops excess parts while maintaining aspect ratio */
 }
 
 .media-caption {
