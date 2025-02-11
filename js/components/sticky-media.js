@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const sections = document.querySelectorAll(".case-section");
     const mediaContainer = document.getElementById("media-content");
     const guideLinks = document.querySelectorAll(".guide-link");
+    const parallaxContainer = document.querySelector(".parallax-container");
 
     function updateMedia(section) {
         const mediaType = section.dataset.media;
@@ -35,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         mediaElement.setAttribute('muted', '');
                         mediaElement.muted = true;
                         mediaElement.loading = "lazy";
-                        
+
                         const source = document.createElement('source');
                         source.src = mediaSrc;
                         source.type = 'video/mp4';
@@ -144,20 +145,33 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     /** 
-     * 🌟 Parallax Effect Implementation 
+     * 🌟 Enhanced Parallax Effect with GSAP 
      */
-    window.addEventListener("scroll", function () {
-        let scrollY = window.scrollY;
+    gsap.registerPlugin(ScrollTrigger);
 
-        sections.forEach((section, index) => {
-            let speed = 0.3; // Adjust the parallax speed
-            let offset = (scrollY - section.offsetTop) * speed;
-
-            gsap.to(section, {
-                y: offset,
-                ease: "power1.out",
-                duration: 0.3,
-            });
+    sections.forEach((section, index) => {
+        gsap.to(section, {
+            y: "-20%",
+            opacity: 1,
+            scrollTrigger: {
+                trigger: section,
+                start: "top bottom",
+                end: "top center",
+                scrub: 1,
+                markers: false, // Set to true to debug positions
+            },
         });
     });
+
+    gsap.to(parallaxContainer, {
+        y: "-30%", 
+        scrollTrigger: {
+            trigger: parallaxContainer,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 2,
+            markers: false,
+        },
+    });
+
 });
