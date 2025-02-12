@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         requestAnimationFrame(() => {
             gsap.to(mediaContainer, {
-                y: -30,
+                y: -150,
                 opacity: 0,
                 duration: 0.2,
                 ease: "power2.out",

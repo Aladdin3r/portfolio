@@ -223,6 +223,7 @@ main {
     flex-direction: column;
     flex-grow: 1;
     justify-content: flex-end;
+    color: white;
 }
 
 .main-flex-row {
