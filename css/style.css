@@ -248,6 +248,7 @@ main {
     margin-right: 1.1em;
     cursor: pointer;
     position: relative;
+    z-index: 5;
 }
 
 .small-link {
