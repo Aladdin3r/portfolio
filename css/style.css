@@ -350,11 +350,6 @@ main {
 } */
 
 /* Hide main content during animation */
-.hidden-content {
-    visibility: hidden; /* Make content inaccessible */
-    opacity: 0; /* Fade it out */
-    transition: opacity 0.5s ease-in-out;
-}
 
 .hover-image {
     width: 100%;
@@ -467,20 +462,6 @@ a {
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-}
-
-.expand-icon {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-    z-index: 10;
-}
-
-.expand-icon-svg {
-    width: 24px;
-    height: 24px;
-    fill: grey;
 }
 
 #media-content img, #media-content video {
@@ -633,16 +614,6 @@ a {
     display: none; /* Hide by default */
     transition: opacity 0.3s ease-in-out;
     z-index: 9999999;
-}
-
-.case-text {
-    color: white;
-    font-size: 1em;
-    font-weight: 300;
-    line-height: 1.5;
-    width: 75%; /* Ensure it spans the available space */
-    text-align: left; /* Align text to the left */
-    word-wrap: break-word;
 }
 
 .comparison-slider {

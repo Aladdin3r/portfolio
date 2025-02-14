@@ -12,5 +12,10 @@
   "dependencies": {
     "gsap": "^3.12.7",
     "lottie-web": "^5.12.2"
+  },
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^7.0.2",
+    "postcss": "^8.5.2",
+    "purgecss": "^7.0.2"
   }
 }
