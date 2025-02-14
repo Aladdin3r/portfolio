@@ -352,14 +352,9 @@ main {
 /* Hide main content during animation */
 
 .hover-image {
-    width: 100%;
-    height: auto; /* Maintain aspect ratio */
-    max-width: 400px; /* Maximum width for larger screens */
-    max-height: 400px; /* Maximum height to ensure it doesn't get too large */
-    object-fit: cover; /* Ensures the image covers the box without distortion */
-    border-radius: 10px; /* Optional */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Optional */
-    pointer-events: none;
+    max-width: 400px; /* Ensure the image doesn't overflow */
+    max-height: 50vh; /* Limit height for mobile */
+    transition: opacity 0.3s ease;
 }
 
 #popup-link {
@@ -492,7 +487,7 @@ a {
     position: relative;
     position: relative;
     z-index: 1; /* Ensure text is above the sticky media */
-    margin-top: 100vh; /* Start below the sticky media */
+    margin-top: 5vh; /* Start below the sticky media */
     padding: 2rem; /* Add padding for spacing */
 }
 
@@ -624,6 +619,16 @@ media queries below for responsive design
 @media (max-width: 1370px) {
     .main-flex-row {
         margin-bottom: -6em;
+    }
+}
+
+@media (max-width: 978px) {
+    .flex-grid-item {
+        padding: 0.25em; /* Reduce padding */
+        font-size: 0.9em; /* Scale down text */
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
@@ -789,6 +794,20 @@ media queries below for responsive design
         font-size: 3em;
         top: 0.4em;
     }
+
+    .hover-image {
+        max-width: 50% !important; /* Ensure the image doesn't overflow */
+        max-height: 30vh !important; /* Limit height for mobile */
+        left: 50% !important; /* Center the image horizontally */
+        transform: translateX(-50%); /* Center the image horizontally */
+        top: 20% !important; /* Position the image vertically */
+    }
+
+    .hover-caption {
+        left: 50% !important; /* Center the caption horizontally */
+        transform: translateX(-50%); /* Center the caption horizontally */
+        top: calc(1% + 35vh + 10px) !important; /* Position the caption below the image */
+    }
 }
 
 @media (max-width: 480px) {
@@ -825,7 +844,7 @@ media queries below for responsive design
         position: absolute;
         float: right;
         right: 0;
-        margin-right: -13em;
+        margin-right: -10em;
         z-index: 0;
     }
     .about-blurb {
@@ -873,7 +892,7 @@ media queries below for responsive design
     }
 
     .menu {
-        margin-right: 2%;
+        margin-right: 4%;
         margin-top: 3%;
     }
 

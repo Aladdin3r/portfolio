@@ -19,7 +19,7 @@
     <title>Rawan Aladdin - SACABC</title>
     <style>
       /* New CSS for SACABC page only */
-.sticky-container-sacabc {
+.sacabc .sticky-container-sacabc {
     position: sticky;
     top: 0;
     z-index: 10; /* Lower z-index to allow the guide to be above it */
@@ -36,7 +36,7 @@
     object-fit: contain;
 }
 
-.sticky-container-sacabc .comparison-slider {
+.sacabc .sticky-container-sacabc .comparison-slider {
     position: relative;
     display: flex;
     align-items: center;
@@ -48,24 +48,24 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
 }
 
-.sticky-container-sacabc img-comparison-slider {
+.sacabc .sticky-container-sacabc img-comparison-slider {
     width: 100%; /* Make the slider fill the container */
     height: auto; /* Allow the slider to expand based on image height */
 }
 
-.sticky-container-sacabc img-comparison-slider img {
+.sacabc .sticky-container-sacabc img-comparison-slider img {
     width: 100%; /* Ensure images fill the slider width */
     height: auto; /* Allow images to maintain their aspect ratio */
     object-fit: contain; /* Ensure images are fully visible without cropping */
 }
 
-.slider-example-split-line {
+.sacabc .slider-example-split-line {
     --divider-width: 4px;
     --divider-color: #ff6600;
     --default-handle-opacity: 0;
   }
 
-.media-caption {
+.sacabc .media-caption {
     position: sticky;
     top: calc(12vh + 350px + 2.5rem); /* Position below the slider */
     text-align: center;
@@ -80,9 +80,44 @@
     z-index: 999; /* Ensure it's above other content */
 }
 
+    @media (max-width: 1024px) {
+        .sacabc .sticky-container-sacabc {
+            height: 400px; /* Slightly shorter for tablets */
+        }
+    }
+
+    /* Adjust height for smaller screens (e.g., mobile devices) */
+    @media (max-width: 768px) {
+        .sacabc .sticky-container-sacabc {
+            height: 300px; /* Much shorter for mobile devices */
+            width: 75%; /* Increase width for better use of space */
+        }
+
+        .sacabc .media-caption {
+            top: calc(12vh + 250px + 0.5rem); /* Adjust caption position for smaller height */
+            width: 75%; /* Match the width of the sticky container */
+        }
+    }
+
+    /* Adjust height for very small screens (e.g., small mobile devices) */
+    @media (max-width: 480px) {
+        .sacabc .sticky-container-sacabc {
+            top: calc(2vh + 10px + 0.5rem);
+            height: 250px; /* Even shorter for very small screens */
+        }
+
+        .sacabc .media-caption {
+            top: calc(12vh + 200px + 0.5rem); /* Adjust caption position for smaller height */
+        }
+        .sacabc-page #overview {
+            padding: 1em;
+            font-size: 0.7em;
+            padding-top: -300px;
+    }
+    }
     </style>
 </head>
-<body class="hidden">
+<body class="hidden sacabc">
     <header>
         <div class="header-container">
             <a href="projects.html" class="back-arrow">&#10229;</a>
@@ -114,15 +149,15 @@
                 </div>
             </div>
         </div>
-        <p class="media-caption">Before & After: About Page Redesign</p>
+        <p class="media-caption">Before & After: About Page Redesign (Drag orange slider to see difference)</p>
         <div class="content">
             <section id="overview" class="case-section" data-media="image" data-src="public/sacabc.ca_about-us_.png" data-caption="SACABC About Page Redesign">
                 <h2 class="section-title">Overview</h2>
                 <div class="overview-container">
                     <div class="overview-column">
-                        <p>The SACABC website redesign focused on improving user experience and visual consistency. The project addressed issues such as information overload, inconsistent design elements, and poor navigation.</p>
-                        <p><strong class="boldened">Role:</strong> UX Designer, Project Lead</p>
-                        <p><strong class="boldened">Duration:</strong> 3 months (Jan. 2024 - Mar. 2024)</p>
+                        <p>The SACABC website redesign focused on improving user experience and visual consistency. The project addressed issues such as information overload, inconsistent design elements, and poor navigation while also adding cultural elements to match the organization's goals.</p>
+                        <p><strong class="boldened">Role:</strong> Web Designer, Project Lead</p>
+                        <p><strong class="boldened">Duration:</strong> 3 months (Jul. 2023 - Sept. 2023)</p>
                     </div>
                     <div class="overview-column">
                         <p class="boldened">Tools:</p>
@@ -180,8 +215,8 @@
                     <ul>
                         <li>Conducting a thorough analysis of the existing website to identify pain points.</li>
                         <li>Creating wireframes and prototypes to test new design concepts.</li>
-                        <li>Iterating on the design based on feedback from stakeholders and users.</li>
-                        <li>Implementing the final design using HTML, CSS, and JavaScript.</li>
+                        <li>Iterating on the design based on feedback from stakeholders.</li>
+                        <li>Implementing the final design using HTML, CSS, and JavaScript through Wordpress.</li>
                     </ul>
                 </p>
             </section>
