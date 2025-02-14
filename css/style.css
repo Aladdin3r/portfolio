@@ -616,39 +616,7 @@ a {
     z-index: 9999999;
 }
 
-.comparison-slider {
-    position: relative;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%; /* Adjust this to control the width of the slider */
-    max-width: 800px; /* Optional: Set a maximum width to prevent it from getting too large */
-    height: 400px; /* Adjust this to control the height of the slider */
-    padding: 1em 0; /* Add some padding for spacing */
-    overflow: auto; /* Make the container scrollable */
-    border-radius: 8px; /* Optional: Adds rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
-}
 
-img-comparison-slider {
-    width: 100%; /* Make the slider fill the container */
-    height: auto; /* Allow the slider to expand based on image height */
-    min-width: 800px; /* Set a minimum width to ensure the slider is wider than the container */
-}
-
-img-comparison-slider img {
-    width: 100%; /* Ensure images fill the slider */
-    height: auto; /* Allow images to maintain their aspect ratio */
-    object-fit: contain; /* Ensure images are fully visible */
-}
-
-.slider-example-split-line {
-    --divider-width: 4px;
-    --divider-color: #ff6600;
-    --default-handle-opacity: 0;
-  }
 
 /* 
 media queries below for responsive design

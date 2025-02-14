@@ -14,9 +14,73 @@
         });
     </script>
     <link rel="stylesheet" href="css/style.css" />
-    <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">   
+    <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/styles.css" />
     <title>Rawan Aladdin - SACABC</title>
+    <style>
+      /* New CSS for SACABC page only */
+.sticky-container-sacabc {
+    position: sticky;
+    top: 0;
+    z-index: 10; /* Lower z-index to allow the guide to be above it */
+    padding: 1em 0; /* Add some padding for spacing */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 500px; /* Fixed height for the sticky container */
+    overflow-y: auto; /* Prevent scrolling outside the container */
+    width: 45%; /* Set the width to 45% */
+    margin-left: auto;
+    margin-right: auto;
+    background: transparent; /* Remove the background */
+    object-fit: contain;
+}
+
+.sticky-container-sacabc .comparison-slider {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* Make the slider fill the container */
+    height: auto; /* Make the slider fill the container height */
+    overflow-y: auto; /* Enable vertical scrolling */
+    border-radius: 8px; /* Optional: Adds rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
+}
+
+.sticky-container-sacabc img-comparison-slider {
+    width: 100%; /* Make the slider fill the container */
+    height: auto; /* Allow the slider to expand based on image height */
+}
+
+.sticky-container-sacabc img-comparison-slider img {
+    width: 100%; /* Ensure images fill the slider width */
+    height: auto; /* Allow images to maintain their aspect ratio */
+    object-fit: contain; /* Ensure images are fully visible without cropping */
+}
+
+.slider-example-split-line {
+    --divider-width: 4px;
+    --divider-color: #ff6600;
+    --default-handle-opacity: 0;
+  }
+
+.media-caption {
+    position: sticky;
+    top: calc(12vh + 350px + 2.5rem); /* Position below the slider */
+    text-align: center;
+    font-size: 1rem;
+    color: white;
+    background-color: rgb(0, 0, 31); /* Dark blue background */
+    padding: 0.5em 1em; /* Add padding for better readability */
+    border-radius: 5px; /* Optional: Adds rounded corners */
+    width: 44%; /* Match the width of the sticky container */
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 999; /* Ensure it's above other content */
+}
+
+    </style>
 </head>
 <body class="hidden">
     <header>
@@ -37,48 +101,121 @@
         </div>
     </header>
     <main>
-        <section class="project-intro">
-            <h1>SACABC Website Redesign</h1>
-            <p>As part of my internship, I led the redesign of the SACABC website, focusing on improving user experience and visual consistency. The project involved addressing issues such as information overload, inconsistent design elements, and poor navigation.</p>
-        </section>
-
-        <section class="comparison-section">
-            <h2>Before & After: About Page</h2>
-            <div class="comparison-slider">
-                <img-comparison-slider class="slider-example-split-line">
-                    <img slot="first" src="public/sacabc.ca_about-us-old_ (1).png" alt="Old About Page Design" />
-                    <img slot="second" src="public/sacabc.ca_about-us_.png" alt="New About Page Design" />
-                </img-comparison-slider>
+        <button id="back-to-top" class="back-to-top">
+            ↑
+        </button>
+        <div class="sticky-container-sacabc">
+            <div id="media-content">
+                <div class="comparison-slider">
+                    <img-comparison-slider class="slider-example-split-line">
+                        <img slot="first" src="public/sacabc.ca_about-us-old_ (1).png" alt="Old About Page Design" />
+                        <img slot="second" src="public/sacabc.ca_about-us_.png" alt="New About Page Design" />
+                    </img-comparison-slider>
+                </div>
             </div>
-        </section>
+        </div>
+        <p class="media-caption">Before & After: About Page Redesign</p>
+        <div class="content">
+            <section id="overview" class="case-section" data-media="image" data-src="public/sacabc.ca_about-us_.png" data-caption="SACABC About Page Redesign">
+                <h2 class="section-title">Overview</h2>
+                <div class="overview-container">
+                    <div class="overview-column">
+                        <p>The SACABC website redesign focused on improving user experience and visual consistency. The project addressed issues such as information overload, inconsistent design elements, and poor navigation.</p>
+                        <p><strong class="boldened">Role:</strong> UX Designer, Project Lead</p>
+                        <p><strong class="boldened">Duration:</strong> 3 months (Jan. 2024 - Mar. 2024)</p>
+                    </div>
+                    <div class="overview-column">
+                        <p class="boldened">Tools:</p>
+                        <ul>
+                            <li>Figma</li>
+                            <li>HTML/CSS</li>
+                            <li>JavaScript</li>
+                            <li>WordPress</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
 
-        <section class="key-changes">
-            <h2>Key Changes Implemented</h2>
-            <ul>
-                <li><strong>Consistent Design:</strong> Unified the design elements such as icons, CTA texts, and section titles across the website.</li>
-                <li><strong>Improved Navigation:</strong> Simplified the header by reducing clutter and adding dropdown menus for better user flow.</li>
-                <li><strong>Content Hierarchy:</strong> Adjusted the size and weight of titles to create a clear visual hierarchy.</li>
-                <li><strong>Accessibility:</strong> Improved readability by ensuring text contrasts well with the background and removing false affordances.</li>
-                <li><strong>Reduced White Space:</strong> Balanced the white space to make the content more engaging and less overwhelming.</li>
-            </ul>
-        </section>
+            <section id="tldr" class="case-section" data-media="image">
+                <h2 class="section-title">TL;DR</h2>
+                <ul>
+                    <li><strong class="boldened">Problem:</strong> The SACABC website suffered from inconsistent design, poor navigation, and information overload, making it difficult for users to find relevant information.</li>
+                    <li><strong class="boldened">Solution:</strong> A redesigned website with a focus on visual consistency, improved navigation, and better content hierarchy.</li>
+                    <li><strong class="boldened">Features:</strong>
+                        <ul>
+                            <li>Unified design elements (icons, CTA texts, section titles).</li>
+                            <li>Simplified header with dropdown menus for better navigation.</li>
+                            <li>Improved accessibility and readability.</li>
+                        </ul>
+                    </li>
+                    <li><strong class="boldened">Outcome:</strong> Delivered a redesigned website with improved usability and visual consistency, providing a better experience for users.</li>
+                </ul>
+            </section>
 
-        <section class="footer-analysis">
-            <h2>Footer Redesign</h2>
-            <p>The original footer suffered from information overload and lacked hierarchy. I streamlined the footer by:</p>
+            <section id="context" class="case-section" data-media="image" data-src="public/sacabc.ca_about-us_.png" data-caption="SACABC About Page Redesign">
+                <h2 class="section-title">Context</h2>
+                <p>
+                    The SACABC website was outdated and difficult to navigate, with inconsistent design elements and a lack of clear content hierarchy. 
+                    The redesign aimed to address these issues by creating a more user-friendly and visually consistent experience.
+                </p>
+            </section>
+
+            <section id="plan" class="case-section" data-media="image" data-src="public/sacabc.ca_about-us_.png" data-caption="SACABC About Page Redesign">
+                <h2 class="section-title">Plan</h2>
+                <p>
+                    To improve the website, the following changes were planned:
+                    <ul>
+                        <li>Unify design elements (icons, CTA texts, section titles).</li>
+                        <li>Simplify the header and add dropdown menus for better navigation.</li>
+                        <li>Improve accessibility and readability.</li>
+                        <li>Streamline the footer to reduce information overload.</li>
+                    </ul>
+                </p>
+            </section>
+
+            <section id="process" class="case-section" data-media="image" data-src="public/sacabc.ca_about-us_.png" data-caption="SACABC About Page Redesign">
+                <h2 class="section-title">Process</h2>
+                <p>
+                    The redesign process involved:
+                    <ul>
+                        <li>Conducting a thorough analysis of the existing website to identify pain points.</li>
+                        <li>Creating wireframes and prototypes to test new design concepts.</li>
+                        <li>Iterating on the design based on feedback from stakeholders and users.</li>
+                        <li>Implementing the final design using HTML, CSS, and JavaScript.</li>
+                    </ul>
+                </p>
+            </section>
+
+            <section id="results" class="case-section" data-media="image" data-src="public/sacabc.ca_about-us_.png" data-caption="SACABC About Page Redesign">
+                <h2 class="section-title">Results</h2>
+                <p>
+                    The redesigned website achieved its goals of improving usability and visual consistency. 
+                    Key outcomes included:
+                    <ul>
+                        <li>A more intuitive navigation structure.</li>
+                        <li>Improved accessibility and readability.</li>
+                        <li>A streamlined footer with reduced information overload.</li>
+                    </ul>
+                </p>
+            </section>
+        </div>
+        <nav class="guide">
             <ul>
-                <li>Reducing the number of links and organizing them into clear categories.</li>
-                <li>Removing redundant content and adding a link to the news archive.</li>
-                <li>Ensuring social media links were up-to-date and relevant.</li>
+                <li><a href="#overview" class="guide-link active">Overview</a></li>
+                <li><a href="#tldr" class="guide-link">TL;DR</a></li>
+                <li><a href="#context" class="guide-link">Context</a></li>
+                <li><a href="#plan" class="guide-link">Plan</a></li>
+                <li><a href="#process" class="guide-link">Process</a></li>
+                <li><a href="#results" class="guide-link">Results</a></li>
             </ul>
-        </section>
+        </nav>
     </main>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/index.js"></script>
     <script defer src="js/components/menu.js"></script>
     <script defer src="js/components/gsap-fade.js"></script>
-    <script defer src="js/components/sticky-media.js"></script>
+    <script defer src="js/components/sticky-media-sacabc.js"></script>
     <script defer src="js/index.js"></script>
 </body>
 </html>
