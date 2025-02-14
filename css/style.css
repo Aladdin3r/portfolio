@@ -454,17 +454,18 @@ a {
 
 .sticky-container {
     position: sticky;
-    top: 10vh;
+    top: 12vh;
     width: 45%;
     bottom: -10vh;
     margin-left: auto;
     margin-right: auto;
     z-index: 999;
     overflow: visible;
-    height: 425px;
+    height: 350px;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 10px;
 }
 
 .expand-icon {
@@ -505,8 +506,12 @@ a {
     margin-left: auto;
     margin-right: auto;
     margin-top: 10vh;
-    gap: 3rem;
+    gap: 1rem;
     position: relative;
+    position: relative;
+    z-index: 1; /* Ensure text is above the sticky media */
+    margin-top: 100vh; /* Start below the sticky media */
+    padding: 2rem; /* Add padding for spacing */
 }
 
 .case-section {
@@ -545,6 +550,19 @@ a {
 
 .boldened {
     font-weight: 500;
+}
+
+.tiny {
+    text-decoration: underline;
+    color: white;
+    font-size: 0.5em;
+}
+
+.product-link {
+    text-decoration: underline;
+    color: #ff6600;
+    font-size: 1em;
+    font-style: italic;
 }
 
 .highlight {
@@ -599,14 +617,14 @@ a {
 
 
 .guide-link.active {
-    color: #FF5733; /* Change to a color of your choice */
+    color: #ff6600;
 }
 
 #back-to-top {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    color: #FF5733;
+    color: #ff6600;
     border: none;
     padding: 15px;
     font-size: 20px;
@@ -629,16 +647,36 @@ a {
 .comparison-slider {
     position: relative;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
-    height: 425px;
-    padding: 2em 0; /* Add some padding for spacing */
+    width: 100%; /* Adjust this to control the width of the slider */
+    max-width: 800px; /* Optional: Set a maximum width to prevent it from getting too large */
+    height: 400px; /* Adjust this to control the height of the slider */
+    padding: 1em 0; /* Add some padding for spacing */
+    overflow: auto; /* Make the container scrollable */
+    border-radius: 8px; /* Optional: Adds rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
 }
 
+img-comparison-slider {
+    width: 100%; /* Make the slider fill the container */
+    height: auto; /* Allow the slider to expand based on image height */
+    min-width: 800px; /* Set a minimum width to ensure the slider is wider than the container */
+}
 
+img-comparison-slider img {
+    width: 100%; /* Ensure images fill the slider */
+    height: auto; /* Allow images to maintain their aspect ratio */
+    object-fit: contain; /* Ensure images are fully visible */
+}
+
+.slider-example-split-line {
+    --divider-width: 4px;
+    --divider-color: #ff6600;
+    --default-handle-opacity: 0;
+  }
 
 /* 
 media queries below for responsive design

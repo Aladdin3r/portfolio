@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Rawan Aladdin is a UX/UI Designer.">
     <link rel="canonical" href="https://rawanaladdin.com/" />
-    <meta property= og:image:all content="" />
+    <meta property="og:image" content="" />
     <meta name="author" content="Rawan Aladdin" />
     <link rel="icon" type="image/x-icon" href="/public/logo-orange.svg">
     <link rel="stylesheet" href="css/style.css" />
@@ -32,14 +32,41 @@
         </div>
     </header>
     <main>
-        <p>IN PRODUCTION</p>
-        <p>Will be released soon!</p>
-        <!-- <div class="comparison-slider">
-            <img-comparison-slider >
-                <img slot="first" src="public/sacabc.ca_about-us-old_ (1).png" />
-                <img slot="second" src="public/sacabc.ca_about-us_.png" />
-            </img-comparison-slider>
-        </div> -->
+        <section class="project-intro">
+            <h1>SACABC Website Redesign</h1>
+            <p>As part of my internship, I led the redesign of the SACABC website, focusing on improving user experience and visual consistency. The project involved addressing issues such as information overload, inconsistent design elements, and poor navigation.</p>
+        </section>
+
+        <section class="comparison-section">
+            <h2>Before & After: About Page</h2>
+            <div class="comparison-slider">
+                <img-comparison-slider class="slider-example-split-line">
+                    <img slot="first" src="public/sacabc.ca_about-us-old_ (1).png" alt="Old About Page Design" />
+                    <img slot="second" src="public/sacabc.ca_about-us_.png" alt="New About Page Design" />
+                </img-comparison-slider>
+            </div>
+        </section>
+
+        <section class="key-changes">
+            <h2>Key Changes Implemented</h2>
+            <ul>
+                <li><strong>Consistent Design:</strong> Unified the design elements such as icons, CTA texts, and section titles across the website.</li>
+                <li><strong>Improved Navigation:</strong> Simplified the header by reducing clutter and adding dropdown menus for better user flow.</li>
+                <li><strong>Content Hierarchy:</strong> Adjusted the size and weight of titles to create a clear visual hierarchy.</li>
+                <li><strong>Accessibility:</strong> Improved readability by ensuring text contrasts well with the background and removing false affordances.</li>
+                <li><strong>Reduced White Space:</strong> Balanced the white space to make the content more engaging and less overwhelming.</li>
+            </ul>
+        </section>
+
+        <section class="footer-analysis">
+            <h2>Footer Redesign</h2>
+            <p>The original footer suffered from information overload and lacked hierarchy. I streamlined the footer by:</p>
+            <ul>
+                <li>Reducing the number of links and organizing them into clear categories.</li>
+                <li>Removing redundant content and adding a link to the news archive.</li>
+                <li>Ensuring social media links were up-to-date and relevant.</li>
+            </ul>
+        </section>
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>

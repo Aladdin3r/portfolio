@@ -2,9 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const sections = document.querySelectorAll(".case-section");
     const mediaContainer = document.getElementById("media-content");
     const guideLinks = document.querySelectorAll(".guide-link");
-    const parallaxContainer = document.querySelector(".parallax-container");
     const backToTopButton = document.getElementById("back-to-top");
-    
+
     function updateMedia(section) {
         const mediaType = section.dataset.media;
         const mediaSrc = section.dataset.src;
@@ -15,49 +14,47 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        requestAnimationFrame(() => {
-            gsap.to(mediaContainer, {
-                y: -150,
-                opacity: 0,
-                duration: 0.2,
-                ease: "power2.out",
-                onComplete: function () {
-                    mediaContainer.innerHTML = '';
+        gsap.to(mediaContainer, {
+            y: -150,
+            opacity: 0,
+            duration: 0.2,
+            ease: "power2.out",
+            onComplete: function () {
+                mediaContainer.innerHTML = '';
 
-                    let mediaElement = null;
-                    if (mediaType === "image") {
-                        mediaElement = document.createElement('img');
-                        mediaElement.src = mediaSrc;
-                        mediaElement.alt = 'Case Study Image';
-                        mediaElement.loading = "lazy";
-                    } else if (mediaType === "video") {
-                        mediaElement = document.createElement('video');
-                        mediaElement.setAttribute('controls', true);
-                        mediaElement.setAttribute('autoplay', true);
-                        mediaElement.setAttribute('muted', '');
-                        mediaElement.muted = true;
-                        mediaElement.loading = "lazy";
+                let mediaElement = null;
+                if (mediaType === "image") {
+                    mediaElement = document.createElement('img');
+                    mediaElement.src = mediaSrc;
+                    mediaElement.alt = 'Case Study Image';
+                    mediaElement.loading = "lazy";
+                } else if (mediaType === "video") {
+                    mediaElement = document.createElement('video');
+                    mediaElement.setAttribute('controls', true);
+                    mediaElement.setAttribute('autoplay', true);
+                    mediaElement.setAttribute('muted', '');
+                    mediaElement.muted = true;
+                    mediaElement.loading = "lazy";
 
-                        const source = document.createElement('source');
-                        source.src = mediaSrc;
-                        source.type = 'video/mp4';
-                        mediaElement.appendChild(source);
-                    }
-
-                    if (mediaElement) {
-                        const captionElement = document.createElement('p');
-                        captionElement.classList.add('media-caption');
-                        captionElement.textContent = caption;
-
-                        mediaContainer.appendChild(mediaElement);
-                        mediaContainer.appendChild(captionElement);
-
-                        gsap.to(mediaContainer, { y: 0, opacity: 1, duration: 0.2, ease: "power2.inOut" });
-
-                        mediaElement.addEventListener('click', toggleFullScreen);
-                    }
+                    const source = document.createElement('source');
+                    source.src = mediaSrc;
+                    source.type = 'video/mp4';
+                    mediaElement.appendChild(source);
                 }
-            });
+
+                if (mediaElement) {
+                    const captionElement = document.createElement('p');
+                    captionElement.classList.add('media-caption');
+                    captionElement.textContent = caption;
+
+                    mediaContainer.appendChild(mediaElement);
+                    mediaContainer.appendChild(captionElement);
+
+                    gsap.to(mediaContainer, { y: 0, opacity: 1, duration: 0.2, ease: "power2.inOut" });
+
+                    mediaElement.addEventListener('click', toggleFullScreen);
+                }
+            }
         });
     }
 
@@ -137,14 +134,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    if ('requestIdleCallback' in window) {
-        requestIdleCallback(() => {
-            sections.forEach(section => observer.observe(section));
-        });
-    } else {
-        sections.forEach(section => observer.observe(section));
-    }
-
     /** 
      * 🌟 Enhanced Parallax Effect with GSAP 
      */
@@ -164,32 +153,16 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    gsap.to(parallaxContainer, {
-        y: "-30%", 
-        scrollTrigger: {
-            trigger: parallaxContainer,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: 2,
-            markers: false,
-        },
-    });
-
     window.addEventListener("scroll", function () {
-        console.log("Window scroll position:", window.scrollY); // Check current scroll position
         if (window.scrollY > 200) {
             backToTopButton.style.opacity = "1";
-            console.log("Back to top button is now visible");
         } else {
             backToTopButton.style.opacity = "0";
-            console.log("Back to top button is hidden");
         }
     });
     
     backToTopButton.addEventListener("click", function () {
-        console.log("Back to top button clicked");
         document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     });
-    
 });
