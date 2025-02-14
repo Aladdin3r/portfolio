@@ -856,6 +856,7 @@ media queries below for responsive design
         float: left;
         z-index: 1;
         margin-top: 0.05em;
+        margin-left: 30px;
     }
     
     .line {
