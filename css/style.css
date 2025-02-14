@@ -850,7 +850,7 @@ media queries below for responsive design
     .about-blurb {
         margin-bottom: 25em;
         padding: 20px;
-        padding-right: 17%; /* Add space for the image (adjust this based on image size) */
+        padding-right: 10%; /* Add space for the image (adjust this based on image size) */
         display: block;
         position: relative; /* Allow text wrapping */
         float: left;
