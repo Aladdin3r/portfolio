@@ -341,6 +341,7 @@ main {
     visibility: hidden; /* Initially hidden */
     opacity: 0; /* Transparent */
     transition: visibility 0.3s, opacity 0.3s ease-in-out;
+    pointer-events: none;
 }
 
 /* Show overlay when active */
