@@ -895,6 +895,7 @@ media queries below for responsive design
     .menu {
         margin-right: 4%;
         margin-top: 3%;
+        z-index: 999999;
     }
 
     .flex-grid-item {
