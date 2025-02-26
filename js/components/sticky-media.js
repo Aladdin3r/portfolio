@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         gsap.to(mediaContainer, {
-            y: -150,
+            y: -100,
             opacity: 0,
             duration: 0.2,
             ease: "power2.out",
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
             } else if (element.webkitRequestFullscreen) {
                 element.webkitRequestFullscreen();
             } else if (element.msRequestFullscreen) {
-                element.msRequestFullscreen();
+                element.msExitFullscreen();
             }
         } else {
             if (document.exitFullscreen) {
@@ -99,11 +99,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const observerCallback = (entries) => {
         let visibleSections = entries.filter(entry => entry.isIntersecting);
-        
+
         if (visibleSections.length > 0) {
-            let topVisibleSection = visibleSections[0].target; 
+            let topVisibleSection = visibleSections[0].target;
+
             updateMedia(topVisibleSection);
             updateGuide(topVisibleSection);
+
+            // Fade out the previous section
+            sections.forEach((section, index) => {
+                if (section === topVisibleSection) {
+                    gsap.to(section, { opacity: 1, duration: 0.3 });
+                    if (index > 0) {
+                        gsap.to(sections[index - 1], { opacity: 0, duration: 0.3 });
+                    }
+                }
+            });
         }
     };
 
@@ -141,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     sections.forEach((section, index) => {
         gsap.to(section, {
-            y: "-20%",
+            y: "-5%",
             opacity: 1,
             scrollTrigger: {
                 trigger: section,
@@ -154,13 +165,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     window.addEventListener("scroll", function () {
-        if (window.scrollY > 200) {
+        if (window.scrollY > 0) {
             backToTopButton.style.opacity = "1";
         } else {
             backToTopButton.style.opacity = "0";
         }
     });
-    
+
     backToTopButton.addEventListener("click", function () {
         document.body.scrollTop = 0; // For Safari
         document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera

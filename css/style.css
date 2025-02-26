@@ -447,14 +447,14 @@ a {
 
 .sticky-container {
     position: sticky;
-    top: 12vh;
+    top: 15vh;
     width: 45%;
-    bottom: -10vh;
+    bottom: -15vh;
     margin-left: auto;
     margin-right: auto;
     z-index: 999;
     overflow: visible;
-    height: 350px;
+    height: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -489,8 +489,8 @@ a {
     position: relative;
     position: relative;
     z-index: 1; /* Ensure text is above the sticky media */
-    margin-top: 5vh; /* Start below the sticky media */
-    padding: 2rem; /* Add padding for spacing */
+    margin-top: 1vh; /* Start below the sticky media */
+    padding: 1rem; /* Add padding for spacing */
 }
 
 .case-section {
@@ -501,7 +501,13 @@ a {
     padding-top: 700px;
     overflow: hidden; /* Hides any overflowing text */
     clip-path: inset(0 0 0 0);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
     width: 90%;
+}
+
+.case-section.visible {
+    opacity: 1;
 }
 
 .overview-container {
