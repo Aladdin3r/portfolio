@@ -27,16 +27,29 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Observer to update the guide based on visible sections
-    const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1 };
+    const observerOptions = { root: null, rootMargin: "0px", threshold: 0.2 };
 
+   
     const observerCallback = (entries) => {
         let visibleSections = entries.filter(entry => entry.isIntersecting);
-        
+
         if (visibleSections.length > 0) {
-            let topVisibleSection = visibleSections[0].target; 
+            let topVisibleSection = visibleSections[0].target;
+
             updateGuide(topVisibleSection);
+
+            // Fade out the previous section
+            sections.forEach((section, index) => {
+                if (section === topVisibleSection) {
+                    gsap.to(section, { opacity: 1, duration: 0.3 });
+                    if (index > 0) {
+                        gsap.to(sections[index - 1], { opacity: 0, duration: 0.3 });
+                    }
+                }
+            });
         }
     };
+    
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
 

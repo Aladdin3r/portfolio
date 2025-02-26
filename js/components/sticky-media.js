@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1 };
+    const observerOptions = { root: null, rootMargin: "0px", threshold: 0.6 };
 
     const observerCallback = (entries) => {
         let visibleSections = entries.filter(entry => entry.isIntersecting);
