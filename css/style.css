@@ -484,7 +484,7 @@ a {
     align-items: center;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 10vh;
+    margin-top: 5vh;
     gap: 1rem;
     position: relative;
     position: relative;
@@ -494,11 +494,11 @@ a {
 }
 
 .case-section {
-    margin-bottom: 5rem;
+    margin-bottom: 1rem;
     font-weight: 300;
     font-size: 1.25em;
     position: relative;
-    padding-top: 700px;
+    padding-top: 550px;
     overflow: hidden; /* Hides any overflowing text */
     clip-path: inset(0 0 0 0);
     opacity: 0;
