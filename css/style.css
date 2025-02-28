@@ -579,7 +579,7 @@ a {
 
 .guide {
     position: fixed;
-    right: 5rem;
+    left: 5rem;
     top: 50%;
     transform: translateY(-50%);
 }
