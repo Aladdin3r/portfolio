@@ -600,6 +600,11 @@ a {
     font-size: 2em;
 }
 
+.guide .button {
+    color: white;
+    text-decoration: underline;
+}
+
 
 .guide-link.active {
     color: #ff6600;
