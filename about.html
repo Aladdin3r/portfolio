@@ -40,29 +40,60 @@
     </header>
     <main>
         <article class="about-blurb">
+            <div class="audio-container">
+                <audio
+                    controls
+                    anonymous
+                    id="about-audio"
+                    preload="auto"
+                    src="public/about-audio-music.mp3"
+                    type="sound/mp3"
+                    onclick="playandLoopThroughText();"
+                    >
+                </audio>
+                <p>Listen to me narrate (and pronounce my name!)</p>
+            </div>
             <p class="main-text">
-                I’m <strong class="emphasis">Rawan Aladdin</strong> (yes, like the movie), 
-                a vibrant designer who’s an avid history fanatic, 
-                classic movie-lover, <strong class="popup-text" id="pic-emoji">amateur photographer&#8599;</strong> and a <strong class="popup-text" id="cat-emoji">big animal lover&#8599;.</strong>
+                <span id="blurb" data-nav="blurb1">I’m <strong class="emphasis">Rawan Aladdin</strong></span>
+                <span> (yes, like the movie),</span> 
+                <span>a vibrant designer</span>
+                <span> who’s an avid history fanatic, </span>
+                <span>classic movie-lover,</span>
+                <span><strong class="popup-text" id="pic-emoji">amateur photographer&#8599;</strong></span>  
+                <span>and a <strong class="popup-text" id="cat-emoji">big animal lover&#8599;.</strong></span>
             </p>
             <p class="main-text">
-                From the bustling corridors of the University of Toronto to the innovative labs 
-                at the British Columbia Institute of Technology, I’ve journeyed through the landscapes 
-                of Cognitive Science, Philosophy, Digital Humanities, and UX/UI Design. 
-                Armed with Figma, HTML, CSS, and a knack for Human-Computer Interaction, I craft experiences 
-                that delight and inspire. 
+                <span>From the bustling corridors of the University of Toronto</span> 
+                <span>to the innovative labs at the British Columbia Institute of Technology, </span>
+                <span>I’ve journeyed through the landscapes of Cognitive Science,</span>
+                <span>Philosophy, </span>
+                <span>Digital Humanities,</span> 
+                <span>and UX/UI Design. </span>
+                <span>Armed with Figma, </span>
+                <span>HTML, </span>
+                <span>CSS, </span>
+                <span>and a knack for Human-Computer Interaction, </span>
+                <span>I craft experiences that delight and inspire. </span>
             </p>
             <p class="main-text">
-                When I'm not tinkering with prototypes or fine-tuning pixels, 
-                you'll find me diving into the latest trends in Artificial Intelligence, Augmented Reality, 
-                and UX methodologies. My adventures have taken me from redesigning web layouts for cultural associations to 
-                leading digital media teams, always with a camera in hand and a vision in mind.
+                <span>When I'm not tinkering with prototypes </span>
+                <span>or fine-tuning pixels, </span>
+                <span>you'll find me diving into the latest trends in Artificial Intelligence, </span>
+                <span>Augmented Reality, </span>
+                <span>and UX methodologies. </span>
+                <span>My adventures have taken me from </span>
+                <span>redesigning web layouts for cultural associations </span>
+                <span>to leading digital media teams, </span>
+                <span>always with a camera in hand </span>
+                <span>and a vision in mind.</span>
             </p>
             <p class="main-text">
-                Let’s create something amazing together! 
-                <a href="/projects.html" class="small-link"><strong id="popup-link">Explore my work&#8599;</strong></a>, get inspired, and join me on this exciting journey of discovery and innovation.
+                <span>Let’s create something amazing together! </span>
+                <span><a href="/projects.html" class="small-link"><strong id="popup-link">Explore my work&#8599;</strong></a>, </span>
+                <span>get inspired, </span>
+                <span>and join me on this exciting journey </span>
+                <span>of discovery and innovation.</span>
             </p>
-
         </article>
         <img src="public/personalitypic1edited-mask.png" class="rotated-image"/>
     </main>

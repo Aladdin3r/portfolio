@@ -289,6 +289,31 @@ main {
     margin-top: -1em;
 }
 
+.audio-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: baseline;
+}
+
+.audio-container p {
+    color: #ff6600;
+    font-size: 1em;
+    margin-left: 1em;
+    text-transform: uppercase;
+}
+
+#about-audio {
+    display: block;
+    position: relative;
+    margin-left: 8%;
+}
+
+.highlight {
+    color: #ff6600;
+    font-weight: 300;
+    font-size: 1em;
+    transition: color 0.3s ease-in-out;
+}
 .main-text {
     color: white;
     font-size: 1em;
