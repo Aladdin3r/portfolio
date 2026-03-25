@@ -31,22 +31,28 @@ const {
   </script>
   <link rel="stylesheet" href="/css/style.css" />
   <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet" />
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script is:inline>
+    (function() {
+      var s = document.createElement('script');
+      s.src = 'https://identity.netlify.com/v1/netlify-identity-widget.js';
+      s.onload = function() {
+        if (window.netlifyIdentity) {
+          window.netlifyIdentity.on('init', function(user) {
+            if (!user) {
+              window.netlifyIdentity.on('login', function() {
+                document.location.href = '/admin/';
+              });
+            }
+          });
+        }
+      };
+      document.head.appendChild(s);
+    })();
+  </script>
   <slot name="head" />
   <title>{title}</title>
 </head>
 <body class={`hidden${bodyClass ? ' ' + bodyClass : ''}`}>
   <slot />
-  <script is:inline>
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", function (user) {
-        if (!user) {
-          window.netlifyIdentity.on("login", function () {
-            document.location.href = "/admin/";
-          });
-        }
-      });
-    }
-  </script>
 </body>
 </html>
