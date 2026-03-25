@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Rawan Aladdin">
+  <div id="overlay" class="overlay"></div>
+  <div id="loading-container">
+    <div id="loading-animation"></div>
+  </div>
+  <header>
+    <div><p class="heading-job">Digital Designer</p></div>
+    <div class="icons">
+      <a href="https://www.linkedin.com/in/rawan-aladdin" target="_blank">
+        <img src="/mdi_linkedin.png" alt="LinkedIn Link" />
+      </a>
+      <a href="https://www.instagram.com/rawan__aladdin/" target="_blank">
+        <img src="/mdi_instagram.png" alt="Instagram Link" />
+      </a>
+      <a href="mailto:aladdin.r.co@gmail.com">
+        <img src="/ic_outline-email.png" alt="Email Link" />
+      </a>
+    </div>
+  </header>
+  <main>
+    <article class="main-flex-row">
+      <a href="/about.html" class="main-link">learn about me &#8599;</a>
+      <a href="/projects.html" class="main-link">view my work &#8599;</a>
+    </article>
+  </main>
+  <footer>
+    <p class="title-name">Rawan Aladdin</p>
+    <img src="/logo-orange.svg" alt="logo" width="10%" height="22%" id="logo-name" />
+  </footer>
+
+  <script type="text/javascript" defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script type="text/javascript" defer src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+  <script type="text/javascript" defer src="/js/components/script.js"></script>
+  <script type="text/javascript" defer src="/js/components/gsap-fade.js"></script>
+  <script type="text/javascript" defer src="/js/index.js"></script>
+</BaseLayout>

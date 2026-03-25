@@ -1,0 +1,157 @@
+---
+import CaseStudyLayout from '../layouts/CaseStudyLayout.astro';
+
+const guide = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'tldr', label: 'TL;DR' },
+  { id: 'context', label: 'Context' },
+  { id: 'plan', label: 'Plan' },
+  { id: 'process', label: 'Process' },
+  { id: 'results', label: 'Results' },
+  { label: 'Visit Onward', href: 'https://onward-prep.ca/', isButton: true },
+];
+---
+<CaseStudyLayout
+  title="Rawan Aladdin - Onward"
+  pageTitle="Onward"
+  guide={guide}
+  extraScripts={['/js/components/sticky-media.js']}
+>
+  <div slot="sticky" class="sticky-container">
+    <div id="media-content">
+      <img src="/ONWARD-main.png" alt="An Overview of Onward" />
+      <p class="media-caption">Onward: nurse interview coaching</p>
+    </div>
+  </div>
+
+  <section id="overview" class="case-section" data-media="video" data-src="/clip.mp4" data-caption="My aunt's story: a struggle that many have endured in similar scenarios, but it doesn't need to be this hard">
+    <h2 class="section-title">Overview</h2>
+    <div class="overview-container">
+      <div class="overview-column">
+        <p>Onward is an AI-powered interview coaching app designed to help healthcare professionals, particularly those new to the Canadian system, excel in job interviews.</p>
+        <p><strong class="boldened">Role:</strong> Lead Developer, UX Architect</p>
+        <p><strong class="boldened">Duration:</strong> 4 months (Sept. 2024 - Dec. 2024)</p>
+        <p class="boldened">Team:</p>
+        <ul>
+          <li>Holden Budiman</li>
+          <li>Jasmine Putri</li>
+          <li>Jackson Saini</li>
+          <li>Angela Lee</li>
+          <li>Nea Pieroelie</li>
+          <li>Jerome Gache</li>
+        </ul>
+      </div>
+      <div class="overview-column">
+        <p class="boldened">Tech Stack:</p>
+        <ul>
+          <li>Figma</li>
+          <li>NextJS</li>
+          <li>React</li>
+          <li>Chakra UI</li>
+          <li>Uppy</li>
+          <li>Azure Speech-to-Text</li>
+          <li>Deepgram Text-to-Speech</li>
+          <li>Roughly AI</li>
+          <li>Supabase</li>
+          <li>Lottie</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="tldr" class="case-section" data-media="image" data-src="/ONWARD-main.webp" data-caption="Straight to business">
+    <h2 class="section-title">TL;DR</h2>
+    <ul>
+      <li><strong class="boldened">Problem:</strong> Many internationally-educated nurses struggle with job interviews in Canada due to language barriers and anxiety.</li>
+      <li><strong class="boldened">Solution:</strong> Onward, an AI-powered interview coaching app designed to help users practice and improve.</li>
+      <li><strong class="boldened">Features:</strong>
+        <ul>
+          <li>Practice interview sessions tailored to specific nursing roles.</li>
+          <li>AI-powered feedback using the STAR method and filler word analysis.</li>
+          <li>Review past interview sessions for continuous improvement.</li>
+        </ul>
+      </li>
+      <li><strong class="boldened">Outcome:</strong> Successfully presented to 200+ industry professionals, with ongoing development for future improvements.</li>
+    </ul>
+  </section>
+
+  <section id="context" class="case-section" data-media="image" data-src="/PersonaPrimary.webp" data-caption="Marco Dizon: our primary persona">
+    <h2 class="section-title">Context</h2>
+    <p>
+      During our research phase, we found:
+      <ul class="context-list">
+        <li class="context-items">
+          <strong class="highlight">44%</strong> of internationally-educated healthcare workers are overqualified
+          for their current position
+        </li>
+        <li class="context-items">
+          &amp; over <strong class="highlight">25%</strong> of immigrants experience severe interview anxiety
+        </li>
+        <a href="https://www150.statcan.gc.ca/n1/pub/75-006-x/2021001/article/00004-eng.htm" target="_blank" class="tiny"><li>Profile of Immigrants in Nursing and Health Care Support Occupations, Statistics Canada (2021)</li></a>
+      </ul>
+    </p>
+    <p>
+      With this in mind, we first crafted our primary persona, <strong class="subhighlight">Marco Dizon</strong>, a nurse from the Philippines who has been struggling to find work in Canada.
+    </p>
+    <p>
+      We aimed to create a solution to help Marco and others like him navigate the Canadian healthcare job market.
+    </p>
+  </section>
+
+  <section id="plan" class="case-section" data-media="image" data-src="/sitemap.webp" data-caption="Our structured site map with user flows for the main features">
+    <h2 class="section-title">Plan</h2>
+    <p>Based on Marco's major frustrations, we came up with our primary goals and values for Onward to try and solve them, including:
+      <ul>
+        <li>Encouraging nurse <strong class="subhighlight">growth</strong> by providing feedback</li>
+        <li>Allowing <strong class="subhighlight">confidence</strong> to flourish with tailored practice</li>
+        <li>Helping nurses tell their stories by growing their language and <strong class="subhighlight">communication</strong> skills</li>
+      </ul>
+    </p>
+    <p>
+      Establishing these goals, we crafted a structured site map with user flows for the main features of the app.
+      Due to time constraints, our primary focus was on the practice interview feature/flow,
+      which accomplished our goals to help Marco grow.
+    </p>
+  </section>
+
+  <section id="process" class="case-section" data-media="image" data-src="/clipstart.gif" data-caption="Navigating through Onward, with our call to action button to the main flows">
+    <h2 class="section-title">Process</h2>
+    <p>
+      On a tight schedule, I jumped straight into development, before the designs were even completed for the first iteration!
+      Because of this limitation, to ensure quality and consistency, we conducted usability tests with our target users during each feature sprint
+      to pinpoint any issues with our user flow.
+    </p>
+    <p>
+      To maintain efficiency and meeting our Agile goals for each sprint, which was rolling out a complete feature each week, we leveraged Chakra UI components
+      to quickly build out our app and maintain a consistent design system.
+    </p>
+    <p>
+      One of the main challenges we faced during development was simplifying the user interface in the
+      "practice interview" feature, to ensure that users could easily navigate through the flow to receive feedback.
+    </p>
+    <p>
+      Combining my roles as lead developer and UX architect, I consulted with our target users and outside mentors
+      to find a solution, which was to reduce the amount of buttons on the screen, and provide micro-interactive feedback to actions taken by the user.
+    </p>
+  </section>
+
+  <section id="results" class="case-section" data-media="image" data-src="/clipinterview-results.gif" data-caption="Our polished practice interview flow in action">
+    <h2 class="section-title">Results</h2>
+    <p>
+      After 4 months of development, we successfully launched Onward, and had the opportunity to present it live
+      to an audience of over 200 people, including industry professionals, government officials, and potential investors.
+    </p>
+    <p>
+      Over the course of the project, we were able to:
+      <ul>
+        <li>Structure practice interview sessions catered towards the role our users are applying to</li>
+        <li>Provide tailored feedback with prompt engineering through the STAR method and use AI to highlight filler words</li>
+        <li>Allow users to review their interview sessions and continue practicing!</li>
+      </ul>
+    </p>
+    <p>
+      While time constraints prevented us from implementing all planned features (e.g., native language practice) for our MVP, we continue to develop the app for future release.
+    </p>
+    <p>You can view Onward here: <a class="product-link" href="https://onward-prep.ca/" target="_blank">onward-prep.ca</a></p>
+  </section>
+</CaseStudyLayout>
