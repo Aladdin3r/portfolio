@@ -476,7 +476,7 @@ a {
     flex-direction: row;
     align-items: flex-start;
     gap: 3rem;
-    padding: 2rem 3rem 4rem 14rem;
+    padding: 2rem 3rem 4rem 20rem;
     width: 100%;
     box-sizing: border-box;
 }
@@ -508,6 +508,7 @@ a {
     min-height: 0;
     display: flex;
     flex-direction: column;
+    opacity: 0;
 }
 
 #media-content img, #media-content video {
@@ -546,15 +547,7 @@ a {
     font-size: 1.25em;
     position: relative;
     padding-top: 2rem;
-    overflow: hidden;
-    clip-path: inset(0 0 0 0);
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
     width: 100%;
-}
-
-.case-section.visible {
-    opacity: 1;
 }
 
 .overview-container {
@@ -805,31 +798,19 @@ media queries below for responsive design
         display: block; /* Show the button on small screens */
     }
 
-    /* Two-column stacks on mobile */
+    /* On mobile: hide sticky image, show content full-width */
     .case-study-columns {
         flex-direction: column;
         padding: 1rem 1.5rem;
-        gap: 1.5rem;
+        gap: 0;
     }
 
     .sticky-column {
-        flex: none;
-        width: 85%;
-        max-width: 85%;
-        margin: 0 auto;
+        display: none;
     }
 
     .content-column {
         width: 100%;
-    }
-
-    /* Sticky image: not sticky on mobile, just sits above content */
-    .sticky-container {
-        position: relative;
-        top: auto;
-        width: 100%;
-        height: 45vw;
-        max-height: 380px;
     }
 
     .content {
@@ -1001,11 +982,6 @@ media queries below for responsive design
 
     .case-study-columns {
         padding: 1rem;
-    }
-
-    .sticky-container {
-        height: 55vw;
-        max-height: 300px;
     }
 
     .case-section {
