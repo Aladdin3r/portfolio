@@ -470,53 +470,51 @@ a {
     text-decoration: none;
 }
 
-/* Two-column case study layout */
-.case-study-columns {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 3rem;
+/* Per-section sticky layout */
+.case-content-wrapper {
     padding: 2rem 3rem 4rem 20rem;
     width: 100%;
     box-sizing: border-box;
 }
 
-.sticky-column {
+.case-section {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 3rem;
+    min-height: 80vh;
+    padding-bottom: 6rem;
+    font-weight: 300;
+    font-size: 1.25em;
+    width: 100%;
+}
+
+/* Sticky image — locked to its own section */
+.section-media {
     flex: 0 0 42%;
     max-width: 42%;
-}
-
-.content-column {
-    flex: 1;
-    min-width: 0;
-}
-
-.sticky-container {
     position: sticky;
     top: 15vh;
-    width: 100%;
     height: 65vh;
     display: flex;
     flex-direction: column;
     border-radius: 12px;
     overflow: hidden;
-    z-index: 10;
 }
 
-#media-content {
-    flex: 1;
-    min-height: 0;
-    display: flex;
-    flex-direction: column;
-    opacity: 0;
-}
-
-#media-content img, #media-content video {
+.section-media img,
+.section-media video {
     flex: 1;
     width: 100%;
     min-height: 0;
-    border-radius: 12px;
     object-fit: cover;
+    border-radius: 12px;
+}
+
+.section-text {
+    flex: 1;
+    min-width: 0;
+    padding-top: 1rem;
 }
 
 .media-caption {
@@ -527,27 +525,6 @@ a {
     background: transparent;
     padding: 0;
     flex-shrink: 0;
-}
-
-.content {
-    width: 100%;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    z-index: 1;
-    padding: 0;
-    margin: 0;
-}
-
-.case-section {
-    min-height: 70vh;
-    margin-bottom: 4rem;
-    font-weight: 300;
-    font-size: 1.25em;
-    position: relative;
-    padding-top: 2rem;
-    width: 100%;
 }
 
 .overview-container {
@@ -798,24 +775,29 @@ media queries below for responsive design
         display: block; /* Show the button on small screens */
     }
 
-    /* On mobile: hide sticky image, show content full-width */
-    .case-study-columns {
-        flex-direction: column;
+    /* On mobile: sections stack, image sits above its text */
+    .case-content-wrapper {
         padding: 1rem 1.5rem;
-        gap: 0;
     }
 
-    .sticky-column {
-        display: none;
+    .case-section {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding-bottom: 3rem;
     }
 
-    .content-column {
+    .section-media {
+        position: relative;
+        top: auto;
+        flex: none;
         width: 100%;
+        max-width: 100%;
+        height: 50vw;
+        max-height: 320px;
     }
 
-    .content {
-        padding: 0;
-        font-size: 0.85em;
+    .section-text {
+        padding-top: 0;
     }
 
     .case-section {
@@ -980,7 +962,7 @@ media queries below for responsive design
         font-size: 0.75em;
     }
 
-    .case-study-columns {
+    .case-content-wrapper {
         padding: 1rem;
     }
 

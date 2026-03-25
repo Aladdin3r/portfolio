@@ -47,16 +47,8 @@ const {
   </header>
   <main>
     <button id="back-to-top" class="back-to-top">&#8593;</button>
-    <div class="case-study-columns">
-      <div class="sticky-column">
-        <slot name="sticky" />
-        <slot name="preContent" />
-      </div>
-      <div class="content-column">
-        <div class="content">
-          <slot />
-        </div>
-      </div>
+    <div class="case-content-wrapper">
+      <slot />
     </div>
     <nav class="guide">
       <ul>

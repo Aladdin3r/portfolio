@@ -16,102 +16,127 @@ const guide = [
   guide={guide}
   extraScripts={['/js/components/sticky-media.js']}
 >
-  <div slot="sticky" class="sticky-container">
-    <div id="media-content">
+  <section id="overview" class="case-section">
+    <div class="section-media">
       <img src="/safecycle-phone-mockup.webp" alt="SafeCycle: a pedestrian safety app" />
       <p class="media-caption">SafeCycle: a pedestrian safety app</p>
     </div>
-  </div>
-
-  <section id="overview" class="case-section" data-media="image" data-src="/safecycle-phone-mockup.webp" data-caption="SafeCycle: a pedestrian safety app">
-    <h2 class="section-title">Overview</h2>
-    <div class="overview-container">
-      <div class="overview-column">
-        <p>SafeCycle is a mobile map application catered toward cyclists and pedestrians with the goal of creating routes to destinations that are as safe as possible and can accommodate various mobility handicaps (ex: wheelchair accessibility).</p>
-        <p><strong class="boldened">Role:</strong> Project manager, UX Designer, Lead Developer</p>
-        <p><strong class="boldened">Duration:</strong> 4 months (Jan. 2024 - May 2024)</p>
-      </div>
-      <div class="overview-column">
-        <p class="boldened">Team:</p>
-        <ul>
-          <li>Nea Pieroelie</li>
-          <li>Andrew Turitsa</li>
-        </ul>
-        <p class="boldened">Tech Stack:</p>
-        <ul>
-          <li>Figma</li>
-          <li>NextJS</li>
-          <li>Google Maps API</li>
-        </ul>
+    <div class="section-text">
+      <h2 class="section-title">Overview</h2>
+      <div class="overview-container">
+        <div class="overview-column">
+          <p>SafeCycle is a mobile map application catered toward cyclists and pedestrians with the goal of creating routes to destinations that are as safe as possible and can accommodate various mobility handicaps (ex: wheelchair accessibility).</p>
+          <p><strong class="boldened">Role:</strong> Project manager, UX Designer, Lead Developer</p>
+          <p><strong class="boldened">Duration:</strong> 4 months (Jan. 2024 - May 2024)</p>
+        </div>
+        <div class="overview-column">
+          <p class="boldened">Team:</p>
+          <ul>
+            <li>Nea Pieroelie</li>
+            <li>Andrew Turitsa</li>
+          </ul>
+          <p class="boldened">Tech Stack:</p>
+          <ul>
+            <li>Figma</li>
+            <li>NextJS</li>
+            <li>Google Maps API</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="tldr" class="case-section" data-media="image">
-    <h2 class="section-title">TL;DR</h2>
-    <ul>
-      <li><strong class="boldened">Problem:</strong> Cyclists and pedestrians often struggle to find safe, accessible routes due to a lack of reliable navigation tools tailored to their needs.</li>
-      <li><strong class="boldened">Solution:</strong> SafeCycle, a mobile app designed to help users find safe and accessible routes with customizable options.</li>
-      <li><strong class="boldened">Features:</strong>
+  <section id="tldr" class="case-section">
+    <div class="section-text">
+      <h2 class="section-title">TL;DR</h2>
+      <ul>
+        <li><strong class="boldened">Problem:</strong> Cyclists and pedestrians often struggle to find safe, accessible routes due to a lack of reliable navigation tools tailored to their needs.</li>
+        <li><strong class="boldened">Solution:</strong> SafeCycle, a mobile app designed to help users find safe and accessible routes with customizable options.</li>
+        <li><strong class="boldened">Features:</strong>
+          <ul>
+            <li>Customizable routes based on user preferences for safety and accessibility.</li>
+            <li>Hazard markers to alert users of potential dangers along the way.</li>
+            <li>Accessibility options for users with specific mobility needs.</li>
+          </ul>
+        </li>
+        <li><strong class="boldened">Outcome:</strong> Delivered a static prototype with core functionality, providing key learnings in API integration and design-to-development translation.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="context" class="case-section">
+    <div class="section-media">
+      <img src="/safecycle-persona.webp" alt="Sara Karim, a SafeCycle user" />
+      <p class="media-caption">Sara Karim, a SafeCycle user</p>
+    </div>
+    <div class="section-text">
+      <h2 class="section-title">Context</h2>
+      <p>
+        SafeCycle was created in response to the increasing number of pedestrian and cyclist accidents in urban areas.
+        The app was designed to help users find the safest route to their destination by allowing users to input warnings for high-traffic areas, construction zones, and safety hazards.
+      </p>
+      <p>
+        Since pedestrians include a wide-range of differently-abled people, SafeCycle had to have personalized navigation options for accessibility.
+      </p>
+    </div>
+  </section>
+
+  <section id="plan" class="case-section">
+    <div class="section-media">
+      <img src="/safecycle-sitemap.webp" alt="Our sitemap to layout the features to make SafeCycle possible" />
+      <p class="media-caption">Our sitemap to layout the features to make SafeCycle possible</p>
+    </div>
+    <div class="section-text">
+      <h2 class="section-title">Plan</h2>
+      <p>
+        To ensure that SafeCycle achieves its goal of providing safe routes for pedestrians and cyclists, the team decided to implement the following features:
         <ul>
-          <li>Customizable routes based on user preferences for safety and accessibility.</li>
-          <li>Hazard markers to alert users of potential dangers along the way.</li>
-          <li>Accessibility options for users with specific mobility needs.</li>
+          <li>Customizable route options</li>
+          <li>Real-time traffic/safety updates (by user input)</li>
+          <li>Knowledge of transportation safety through a quiz</li>
         </ul>
-      </li>
-      <li><strong class="boldened">Outcome:</strong> Delivered a static prototype with core functionality, providing key learnings in API integration and design-to-development translation.</li>
-    </ul>
+      </p>
+    </div>
   </section>
 
-  <section id="context" class="case-section" data-media="image" data-src="/safecycle-persona.webp" data-caption="Sara Karim, a SafeCycle user">
-    <h2 class="section-title">Context</h2>
-    <p>
-      SafeCycle was created in response to the increasing number of pedestrian and cyclist accidents in urban areas.
-      The app was designed to help users find the safest route to their destination by allowing users to input warnings for high-traffic areas, construction zones, and safety hazards.
-    </p>
-    <p>
-      Since pedestrians include a wide-range of differently-abled people, SafeCycle had to have personalized navigation options for accessibility.
-    </p>
+  <section id="process" class="case-section">
+    <div class="section-media">
+      <img src="/safecycle-wireframes.webp" alt="SafeCycle's main features wireframed" />
+      <p class="media-caption">SafeCycle's main features wireframed</p>
+    </div>
+    <div class="section-text">
+      <h2 class="section-title">Process</h2>
+      <p>
+        We started off wireframing the main features of the app, jumping straight to hi-fi prototypes to test with users.
+        Some initial issues pointed out through user testing were:
+        <ul>
+          <li>Difficulty navigating to the home page (Severe)</li>
+          <li>Difficulty in finding the accessibility options with saved routes (moderate)</li>
+        </ul>
+      </p>
+      <p>
+        Having tackled these design issues, we moved on to developing the app using NextJS and Google Maps API.
+        This is where many issues occurred, as this was the first time implementing an API into a project, and the API itself had many limitations.
+      </p>
+    </div>
   </section>
 
-  <section id="plan" class="case-section" data-media="image" data-src="/safecycle-sitemap.webp" data-caption="Our sitemap to layout the features to make SafeCycle possible">
-    <h2 class="section-title">Plan</h2>
-    <p>
-      To ensure that SafeCycle achieves its goal of providing safe routes for pedestrians and cyclists, the team decided to implement the following features:
-      <ul>
-        <li>Customizable route options</li>
-        <li>Real-time traffic/safety updates (by user input)</li>
-        <li>Knowledge of transportation safety through a quiz</li>
-      </ul>
-    </p>
-  </section>
-
-  <section id="process" class="case-section" data-media="image" data-src="/safecycle-wireframes.webp" data-caption="SafeCycle's main features wireframed">
-    <h2 class="section-title">Process</h2>
-    <p>
-      We started off wireframing the main features of the app, jumping straight to hi-fi prototypes to test with users.
-      Some initial issues pointed out through user testing were:
-      <ul>
-        <li>Difficulty navigating to the home page (Severe)</li>
-        <li>Difficulty in finding the accessibility options with saved routes (moderate)</li>
-      </ul>
-    </p>
-    <p>
-      Having tackled these design issues, we moved on to developing the app using NextJS and Google Maps API.
-      This is where many issues occurred, as this was the first time implementing an API into a project, and the API itself had many limitations.
-    </p>
-  </section>
-
-  <section id="results" class="case-section" data-media="image" data-src="/safecycle-coded.gif" data-caption="SafeCycle's coded prototype">
-    <h2 class="section-title">Results</h2>
-    <p>
-      The final product was mostly static and not fully functioning, as the API itself could not accomplish the features we wanted to implement.
-      We were able to load the map and show hazard markers, but the coded app did not reflect the initial design as we had hoped.
-    </p>
-    <p>
-      Through the coding process, we learned a lot about restructuring our design to fit into the limitations of development and the timeline.
-      This project allowed me to explore how to implement APIs for the first time, which aided me when creating Onward.
-    </p>
-    <p>You can view SafeCycle here: <a class="product-link" href="https://safecycle.vercel.app/" target="_blank">safecycle.vercel.app</a></p>
+  <section id="results" class="case-section">
+    <div class="section-media">
+      <img src="/safecycle-coded.gif" alt="SafeCycle's coded prototype" />
+      <p class="media-caption">SafeCycle's coded prototype</p>
+    </div>
+    <div class="section-text">
+      <h2 class="section-title">Results</h2>
+      <p>
+        The final product was mostly static and not fully functioning, as the API itself could not accomplish the features we wanted to implement.
+        We were able to load the map and show hazard markers, but the coded app did not reflect the initial design as we had hoped.
+      </p>
+      <p>
+        Through the coding process, we learned a lot about restructuring our design to fit into the limitations of development and the timeline.
+        This project allowed me to explore how to implement APIs for the first time, which aided me when creating Onward.
+      </p>
+      <p>You can view SafeCycle here: <a class="product-link" href="https://safecycle.vercel.app/" target="_blank">safecycle.vercel.app</a></p>
+    </div>
   </section>
 </CaseStudyLayout>
