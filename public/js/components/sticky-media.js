@@ -9,15 +9,12 @@ document.addEventListener("DOMContentLoaded", function () {
         const mediaSrc = section.dataset.src;
         const caption = section.dataset.caption;
 
-        if (!mediaType || !mediaSrc) {
-            console.error("Missing mediaType or mediaSrc for section", section);
-            return;
-        }
+        if (!mediaType || !mediaSrc) return;
 
+        // Crossfade: fade out, swap content, fade in
         gsap.to(mediaContainer, {
-            y: -100,
             opacity: 0,
-            duration: 0.2,
+            duration: 0.25,
             ease: "power2.out",
             onComplete: function () {
                 mediaContainer.innerHTML = '';
@@ -34,7 +31,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     mediaElement.setAttribute('autoplay', true);
                     mediaElement.setAttribute('muted', '');
                     mediaElement.muted = true;
-                    mediaElement.loading = "lazy";
 
                     const source = document.createElement('source');
                     source.src = mediaSrc;
@@ -50,7 +46,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     mediaContainer.appendChild(mediaElement);
                     mediaContainer.appendChild(captionElement);
 
-                    gsap.to(mediaContainer, { y: 0, opacity: 1, duration: 0.2, ease: "power2.inOut" });
+                    gsap.fromTo(mediaContainer,
+                        { opacity: 0 },
+                        { opacity: 1, duration: 0.5, ease: "power2.out" }
+                    );
 
                     mediaElement.addEventListener('click', toggleFullScreen);
                 }
@@ -59,30 +58,18 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function toggleFullScreen(event) {
-        const element = event.target.tagName === "IMG" || event.target.tagName === "VIDEO" 
-            ? event.target 
+        const element = event.target.tagName === "IMG" || event.target.tagName === "VIDEO"
+            ? event.target
             : event.target.closest('#media-content')?.querySelector('img, video');
 
         if (!document.fullscreenElement) {
-            if (element.requestFullscreen) {
-                element.requestFullscreen();
-            } else if (element.mozRequestFullScreen) {
-                element.mozRequestFullScreen();
-            } else if (element.webkitRequestFullscreen) {
-                element.webkitRequestFullscreen();
-            } else if (element.msRequestFullscreen) {
-                element.msExitFullscreen();
-            }
+            if (element.requestFullscreen) element.requestFullscreen();
+            else if (element.mozRequestFullScreen) element.mozRequestFullScreen();
+            else if (element.webkitRequestFullscreen) element.webkitRequestFullscreen();
         } else {
-            if (document.exitFullscreen) {
-                document.exitFullscreen();
-            } else if (document.mozCancelFullScreen) {
-                document.mozCancelFullScreen();
-            } else if (document.webkitExitFullscreen) {
-                document.webkitExitFullscreen();
-            } else if (document.msExitFullscreen) {
-                document.msExitFullscreen();
-            }
+            if (document.exitFullscreen) document.exitFullscreen();
+            else if (document.mozCancelFullScreen) document.mozCancelFullScreen();
+            else if (element.webkitExitFullscreen) document.webkitExitFullscreen();
         }
     }
 
@@ -95,85 +82,72 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    const observerOptions = { root: null, rootMargin: "0px", threshold: 0.6 };
+    // Trigger when a section crosses the middle 40% of the viewport
+    const observerOptions = {
+        root: null,
+        rootMargin: "-30% 0px -30% 0px",
+        threshold: 0
+    };
 
     const observerCallback = (entries) => {
-        let visibleSections = entries.filter(entry => entry.isIntersecting);
-
-        if (visibleSections.length > 0) {
-            let topVisibleSection = visibleSections[0].target;
-
-            updateMedia(topVisibleSection);
-            updateGuide(topVisibleSection);
-
-            // Fade out the previous section
-            sections.forEach((section, index) => {
-                if (section === topVisibleSection) {
-                    gsap.to(section, { opacity: 1, duration: 0.3 });
-                    if (index > 0) {
-                        gsap.to(sections[index - 1], { opacity: 0, duration: 0.3 });
-                    }
-                }
-            });
-        }
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const section = entry.target;
+                updateMedia(section);
+                updateGuide(section);
+                gsap.to(section, { opacity: 1, duration: 0.4 });
+            }
+        });
     };
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
 
+    // Initialize with first section
     if (sections.length > 0) {
         updateMedia(sections[0]);
         updateGuide(sections[0]);
-
-        guideLinks.forEach((link) => {
-            if (link.getAttribute("href") === `#${sections[0].id}`) {
-                link.classList.add("ready", "active");
-            }
-        });
+        gsap.set(sections[0], { opacity: 1 });
     }
 
     sections.forEach((section) => observer.observe(section));
 
+    // Guide link clicks
     guideLinks.forEach(link => {
         link.addEventListener("click", function (event) {
             event.preventDefault();
             const targetId = this.getAttribute("href").substring(1);
             const targetSection = document.getElementById(targetId);
             targetSection.scrollIntoView({ behavior: "smooth", block: "center" });
-
             updateMedia(targetSection);
             updateGuide(targetSection);
         });
     });
 
-    /** 
-     * 🌟 Enhanced Parallax Effect with GSAP 
-     */
+    // Subtle parallax on sections as they enter
     gsap.registerPlugin(ScrollTrigger);
 
-    sections.forEach((section, index) => {
-        gsap.to(section, {
-            y: "-5%",
-            opacity: 1,
-            scrollTrigger: {
-                trigger: section,
-                start: "top bottom",
-                end: "top center",
-                scrub: 1,
-                markers: false, // Set to true to debug positions
-            },
-        });
+    sections.forEach((section) => {
+        gsap.fromTo(section,
+            { y: 30 },
+            {
+                y: 0,
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top bottom",
+                    end: "top 60%",
+                    scrub: 1,
+                },
+            }
+        );
     });
 
+    // Back to top
     window.addEventListener("scroll", function () {
-        if (window.scrollY > 0) {
-            backToTopButton.style.opacity = "1";
-        } else {
-            backToTopButton.style.opacity = "0";
-        }
+        backToTopButton.style.opacity = window.scrollY > 200 ? "1" : "0";
     });
 
     backToTopButton.addEventListener("click", function () {
-        document.body.scrollTop = 0; // For Safari
-        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
     });
 });

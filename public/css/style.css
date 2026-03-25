@@ -470,65 +470,87 @@ a {
     text-decoration: none;
 }
 
+/* Two-column case study layout */
+.case-study-columns {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 3rem;
+    padding: 2rem 3rem 4rem 14rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.sticky-column {
+    flex: 0 0 42%;
+    max-width: 42%;
+}
+
+.content-column {
+    flex: 1;
+    min-width: 0;
+}
+
 .sticky-container {
     position: sticky;
     top: 15vh;
-    width: 45%;
-    bottom: -15vh;
-    margin-left: auto;
-    margin-right: auto;
-    z-index: 999;
-    overflow: visible;
-    height: 200px;
+    width: 100%;
+    height: 65vh;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
+    flex-direction: column;
+    border-radius: 12px;
+    overflow: hidden;
+    z-index: 10;
+}
+
+#media-content {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 #media-content img, #media-content video {
+    flex: 1;
     width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    object-fit: cover; /* Crops excess parts while maintaining aspect ratio */
+    min-height: 0;
+    border-radius: 12px;
+    object-fit: cover;
 }
 
 .media-caption {
     text-align: center;
-    font-size: 1rem;
-    margin-top: 0rem;
-    color: white;
-    background-color: rgb(0, 0, 31);
+    font-size: 0.85rem;
+    margin-top: 0.6rem;
+    color: rgba(255, 255, 255, 0.6);
+    background: transparent;
+    padding: 0;
+    flex-shrink: 0;
 }
 
 .content {
-    width: 50%;
+    width: 100%;
     color: white;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5vh;
-    gap: 1rem;
     position: relative;
-    position: relative;
-    z-index: 1; /* Ensure text is above the sticky media */
-    margin-top: 1vh; /* Start below the sticky media */
-    padding: 1rem; /* Add padding for spacing */
+    z-index: 1;
+    padding: 0;
+    margin: 0;
 }
 
 .case-section {
-    margin-bottom: 1rem;
+    min-height: 70vh;
+    margin-bottom: 4rem;
     font-weight: 300;
     font-size: 1.25em;
     position: relative;
-    padding-top: 550px;
-    overflow: hidden; /* Hides any overflowing text */
+    padding-top: 2rem;
+    overflow: hidden;
     clip-path: inset(0 0 0 0);
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
-    width: 90%;
+    width: 100%;
 }
 
 .case-section.visible {
@@ -783,37 +805,44 @@ media queries below for responsive design
         display: block; /* Show the button on small screens */
     }
 
-    /* Adjust Content */
-    .content {
-        padding: 1em;
-        font-size: 0.7em;
+    /* Two-column stacks on mobile */
+    .case-study-columns {
+        flex-direction: column;
+        padding: 1rem 1.5rem;
+        gap: 1.5rem;
     }
 
-    /* Adjust Sticky Media */
+    .sticky-column {
+        flex: none;
+        width: 85%;
+        max-width: 85%;
+        margin: 0 auto;
+    }
+
+    .content-column {
+        width: 100%;
+    }
+
+    /* Sticky image: not sticky on mobile, just sits above content */
     .sticky-container {
-        position: sticky;
-        top: 10vh;
-        width: 70%;
-        bottom: -10vh;
-        margin-left: auto;
-        margin-right: auto;
-        z-index: 999;
-        overflow: visible;
-        height: 425px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        position: relative;
+        top: auto;
+        width: 100%;
+        height: 45vw;
+        max-height: 380px;
+    }
+
+    .content {
+        padding: 0;
+        font-size: 0.85em;
     }
 
     .case-section {
-        margin-bottom: 5rem;
-        font-weight: 300;
-        font-size: 1.5em;
-        position: relative;
-        padding-top: 150px;
-        overflow: hidden; /* Hides any overflowing text */
-        clip-path: inset(0 0 0 0);
-        width: 90%;
+        min-height: auto;
+        margin-bottom: 3rem;
+        padding-top: 1.5rem;
+        font-size: 1.1em;
+        width: 100%;
     }
     .section-title {
         color: white;
@@ -965,51 +994,26 @@ media queries below for responsive design
         display: block; /* Show the button on small screens */
     }
 
-    /* Adjust Content for small screens */
     .content {
-        padding: 0.8em;
-        font-size: 0.65em;
-        width: 73%;
-        margin-left: auto;
-        margin-right: auto;
+        padding: 0;
+        font-size: 0.75em;
     }
 
-    .media-caption {
-        font-size: 0.65em;
+    .case-study-columns {
+        padding: 1rem;
     }
 
-    /* Adjust Sticky Media for small screens */
     .sticky-container {
-        position: sticky;
-        top: 10vh;
-        width:80%;
-        bottom: -10vh;
-        margin-left: auto;
-        margin-right: auto;
-        z-index: 999;
-        overflow: visible;
-        height: 425px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    #media-content img, #media-content video {
-        width: 100%;
-        height: 100%;
-        border-radius: 10px;
-        object-fit: contain; /* Crops excess parts while maintaining aspect ratio */
+        height: 55vw;
+        max-height: 300px;
     }
 
     .case-section {
-        margin-bottom: 5rem;
-        font-weight: 300;
-        font-size: 1.25em;
-        position: relative;
-        padding-top: 100px;
-        overflow: hidden; /* Hides any overflowing text */
-        clip-path: inset(0 0 0 0);
-        width: 90%;
+        min-height: auto;
+        margin-bottom: 2.5rem;
+        padding-top: 1rem;
+        font-size: 1em;
+        width: 100%;
     }
     .section-title {
         color: white;
