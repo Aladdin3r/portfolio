@@ -495,14 +495,18 @@ a {
     max-width: 42%;
     position: sticky;
     top: 15vh;
+    height: 65vh;
     display: flex;
     flex-direction: column;
 }
 
 .section-media img,
 .section-media video {
+    flex: 1;
     width: 100%;
-    height: auto;
+    min-height: 0;
+    object-fit: contain;
+    object-position: top;
     border-radius: 12px;
     display: block;
 }
@@ -788,6 +792,14 @@ media queries below for responsive design
         flex: none;
         width: 100%;
         max-width: 100%;
+        height: auto;
+    }
+
+    .section-media img,
+    .section-media video {
+        flex: none;
+        height: auto;
+        max-height: 55vw;
     }
 
     .section-text {
