@@ -628,14 +628,15 @@ a {
 }
 
 .case-section {
-    display: none;
-    opacity: 0;
-    transition: opacity 0.4s ease-in-out;
+    display: block;
+    opacity: 1;
+    transition: background-color 0.3s ease;
+    padding-bottom: 1.5rem;
 }
 
 .case-section.active {
-    display: block;
-    opacity: 1;
+    background: rgba(255, 255, 255, 0.02);
+    border-left: 3px solid rgba(255, 102, 0, 0.8);
 }
 
 .guide {

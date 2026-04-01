@@ -80,27 +80,39 @@ const {
 
       if (!sections.length || !links.length) return;
 
-      const setActiveSection = (id) => {
-        sections.forEach((s) => {
-          s.classList.toggle('active', s.id === id);
-        });
+      const setActiveLink = (id) => {
         links.forEach((l) => {
           const target = l.getAttribute('href')?.replace('#', '');
           l.classList.toggle('active', target === id);
         });
       };
 
-      setActiveSection(sections[0].id);
-
       links.forEach((link) => {
         link.addEventListener('click', (event) => {
           event.preventDefault();
           const targetId = link.getAttribute('href')?.replace('#', '');
-          if (targetId) {
-            setActiveSection(targetId);
+          if (!targetId) return;
+
+          const targetSection = document.getElementById(targetId);
+          if (targetSection) {
+            targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            setActiveLink(targetId);
           }
         });
       });
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setActiveLink(entry.target.id);
+            }
+          });
+        },
+        { threshold: 0.45 }
+      );
+
+      sections.forEach((section) => observer.observe(section));
     });
   </script>
 

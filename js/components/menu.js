@@ -3,11 +3,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const fullPageMenu = document.querySelector(".full-page-menu");
 
     menu.addEventListener("click", () => {
-        console.log("Menu clicked");
         // Toggle the "open" class to animate the lines into an X
         menu.classList.toggle("open");
+
         // Toggle the visibility of the full-page menu
-        fullPageMenu.classList.toggle("visible");
+        const isVisible = fullPageMenu.classList.toggle("visible");
+
+        // In desktop mode, hide the background blob animation when full-page menu is open
+        if (window.dynamicGradientInstance && typeof window.dynamicGradientInstance.setVisible === 'function') {
+            window.dynamicGradientInstance.setVisible(!isVisible);
+        }
     });
 
     const menuLinks = document.querySelectorAll(".full-page-menu a");
@@ -15,6 +20,10 @@ document.addEventListener("DOMContentLoaded", () => {
       link.addEventListener("click", () => {
         fullPageMenu.classList.remove("visible");
         menu.classList.remove("open");
+
+        if (window.dynamicGradientInstance && typeof window.dynamicGradientInstance.setVisible === 'function') {
+          window.dynamicGradientInstance.setVisible(true);
+        }
       });
     });
 });

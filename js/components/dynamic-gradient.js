@@ -115,6 +115,12 @@ class DynamicGradient {
     this.blobs[2].targetY = 0.8 + Math.cos(this.time * 0.6 + 4) * 0.15;
   }
 
+  setVisible(isVisible) {
+    this.canvas.style.opacity = isVisible ? '1' : '0';
+    this.canvas.style.pointerEvents = isVisible ? 'none' : 'none';
+    this.canvas.style.transition = 'opacity 0.25s ease-in-out';
+  }
+
   animate() {
     if (this.isMobile) {
       this.updateMobileAnimation();
@@ -125,11 +131,16 @@ class DynamicGradient {
   }
 }
 
+if (typeof window !== 'undefined') {
+  window.DynamicGradient = DynamicGradient;
+  window.dynamicGradientInstance = null;
+}
+
 // Initialize when DOM is ready
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => {
-    new DynamicGradient();
+    window.dynamicGradientInstance = new DynamicGradient();
   });
 } else {
-  new DynamicGradient();
+  window.dynamicGradientInstance = new DynamicGradient();
 }
