@@ -1,11 +1,14 @@
+:root {
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+}
+
 html, body {
     margin: 0;
     padding: 0;
     height: 100%;
     width: 100%;
-    background-image: url("../public/gradient4.svg");
-    background-size: cover;
-    background-position: center; 
+    background-color: #0a0a0a;
     display: flex;
     align-items: space-between;
     flex-direction: column;
@@ -93,7 +96,7 @@ header {
     height: 100vh;
     background-image: url("../public/gradient4.svg");
     background-size: cover;
-    background-position: center; 
+    background-position: center;
     color: white;
     display: flex;
     text-transform: uppercase;
@@ -602,34 +605,122 @@ a {
     line-height: 1;
 }
 
+.case-study-main {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 2rem;
+    width: 100%;
+    padding: 1rem 3rem 3rem;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.case-study-main .case-content-wrapper {
+    width: calc(100% - 260px);
+    max-width: calc(100% - 260px);
+    background: rgba(18, 18, 18, 0.35);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    min-height: 75vh;
+}
+
+.case-section {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.case-section.active {
+    display: block;
+    opacity: 1;
+}
+
 .guide {
-    position: fixed;
-    left: 5rem;
-    top: 50%;
-    transform: translateY(-50%);
+    width: 240px;
+    position: sticky;
+    top: 20vh;
+    align-self: flex-start;
+    background: rgba(20, 20, 20, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 12px;
+    padding: 1rem 1rem 1.2rem;
+    margin-left: 1rem;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 
 .guide ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .guide li {
-    margin-bottom: 1rem;
+    margin: 0.55rem 0;
 }
 
+.guide-link,
 .guide a {
     text-decoration: none;
-    color: gray;
+    color: white;
     font-weight: 300;
-    font-size: 2em;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.guide-link::before {
+    content: "•";
+    color: #ff6600;
+    margin-right: 0.45rem;
+    opacity: 0;
+    transform: translateX(-3px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.guide-link:hover,
+.guide-link.active {
+    color: #ff6600;
+    font-weight: 400;
+    transform: translateX(2px);
+}
+
+.guide-link:hover::before,
+.guide-link.active::before {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .guide .button {
-    color: white;
-    text-decoration: underline;
+    display: inline-block;
+    margin-top: 0.8rem;
+    border: 1px solid #ff6600;
+    color: #ff6600;
+    padding: 0.5rem 0.7rem;
+    border-radius: 8px;
+    text-transform: none;
+    font-weight: 400;
 }
 
+.guide .button:hover {
+    background: #ff6600;
+    color: #0a0a0a;
+    text-decoration: none;
+}
+
+.case-section {
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+    font-size: 1.1rem;
+    width: 100%;
+    opacity: 1;
+    padding-top: 1.5rem;
+}
 
 .guide-link.active {
     color: #ff6600;

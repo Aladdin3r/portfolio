@@ -12,6 +12,9 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@anthropic-ai/claude-agent-sdk": "^0.2.89",
+    "@composio/claude-agent-sdk": "^0.6.7",
+    "@composio/core": "^0.6.7",
     "astro": "^4.16.19",
     "gsap": "^3.12.7",
     "lottie-web": "^5.12.2"

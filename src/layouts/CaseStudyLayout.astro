@@ -45,11 +45,8 @@ const {
       </ul>
     </div>
   </header>
-  <main>
+  <main class="case-study-main">
     <button id="back-to-top" class="back-to-top">&#8593;</button>
-    <div class="case-content-wrapper">
-      <slot />
-    </div>
     <nav class="guide">
       <ul>
         {guide.map((item, i) =>
@@ -63,8 +60,7 @@ const {
             <li>
               <a
                 href={`#${item.id}`}
-                class={`guide-link${i === 0 ? ' active' : ''}`}
-              >
+                class={`guide-link${i === 0 ? ' active' : ''}`}>
                 {item.label}
               </a>
             </li>
@@ -72,7 +68,41 @@ const {
         )}
       </ul>
     </nav>
+    <div class="case-content-wrapper">
+      <slot />
+    </div>
   </main>
+
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      const links = Array.from(document.querySelectorAll('.guide-link'));
+      const sections = Array.from(document.querySelectorAll('.case-section'));
+
+      if (!sections.length || !links.length) return;
+
+      const setActiveSection = (id) => {
+        sections.forEach((s) => {
+          s.classList.toggle('active', s.id === id);
+        });
+        links.forEach((l) => {
+          const target = l.getAttribute('href')?.replace('#', '');
+          l.classList.toggle('active', target === id);
+        });
+      };
+
+      setActiveSection(sections[0].id);
+
+      links.forEach((link) => {
+        link.addEventListener('click', (event) => {
+          event.preventDefault();
+          const targetId = link.getAttribute('href')?.replace('#', '');
+          if (targetId) {
+            setActiveSection(targetId);
+          }
+        });
+      });
+    });
+  </script>
 
   <script type="text/javascript" defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script type="text/javascript" defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>

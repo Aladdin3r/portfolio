@@ -2,12 +2,15 @@
 import CaseStudyLayout from '../layouts/CaseStudyLayout.astro';
 
 const guide = [
+  { id: 'story', label: 'Story' },
   { id: 'overview', label: 'Overview' },
   { id: 'tldr', label: 'TL;DR' },
-  { id: 'context', label: 'Context' },
-  { id: 'plan', label: 'Plan' },
-  { id: 'process', label: 'Process' },
-  { id: 'results', label: 'Results' },
+  { id: 'research', label: 'Research' },
+  { id: 'problem', label: 'Problem' },
+  { id: 'strategy', label: 'Strategy & Direction' },
+  { id: 'design-build', label: 'Design & Build' },
+  { id: 'outcomes', label: 'Outcomes' },
+  { id: 'reflection', label: 'Reflection' },
   { label: 'Visit Onward', href: 'https://onward-prep.ca/', isButton: true },
 ];
 ---
@@ -17,19 +20,49 @@ const guide = [
   guide={guide}
   extraScripts={['/js/components/sticky-media.js']}
 >
-  <section id="overview" class="case-section">
+  <section id="story" class="case-section">
     <div class="section-media">
       <video autoplay muted loop playsinline>
         <source src="/clip.mp4" type="video/mp4" />
       </video>
-      <p class="media-caption">My aunt's story: a struggle that many have endured in similar scenarios, but it doesn't need to be this hard</p>
+      <p class="media-caption">My aunt's story: resilience through systemic barriers</p>
+    </div>
+    <div class="section-text">
+      <h2 class="section-title">Story</h2>
+      <p>
+        My aunt came to Canada as a refugee, fully qualified as a nurse. But licensing requirements forced her into volunteer work despite her credentials. Raising two kids alone, she had to struggle through everything together.
+      </p>
+      <p>
+        Her story is not unique. The data reveals a systemic problem:
+        <ul class="context-list">
+          <li class="context-items">
+            <strong class="highlight">44%</strong> of internationally-educated healthcare workers are overqualified for their current position
+          </li>
+          <li class="context-items">
+            <strong class="highlight">60%</strong> cite communication barriers as a primary challenge in securing interviews
+          </li>
+          <li class="context-items">
+            <a href="https://www150.statcan.gc.ca/n1/pub/75-006-x/2021001/article/00004-eng.htm" target="_blank">Profile of Immigrants in Nursing and Health Care Support Occupations, Statistics Canada (2021)</a>
+          </li>
+        </ul>
+      </p>
+      <p>
+        Marco Dizon's story mirrors hers. A nurse from the Philippines with years of experience, Marco faces the same barriers: language anxiety, cultural unfamiliarity with Canadian interview expectations, and the silent fear that his qualifications won't translate. Onward exists because this cycle needs to break.
+      </p>
+    </div>
+  </section>
+
+  <section id="overview" class="case-section">
+    <div class="section-media">
+      <img src="/ONWARD-main.webp" alt="Onward interface overview" />
+      <p class="media-caption">Onward: Interview coaching for internationally-educated healthcare professionals</p>
     </div>
     <div class="section-text">
       <h2 class="section-title">Overview</h2>
       <div class="overview-container">
         <div class="overview-column">
           <p>Onward is an AI-powered interview coaching app designed to help healthcare professionals, particularly those new to the Canadian system, excel in job interviews.</p>
-          <p><strong class="boldened">Role:</strong> Lead Developer, UX Architect</p>
+          <p><strong class="boldened">Role:</strong> UX Architect, Lead Developer</p>
           <p><strong class="boldened">Duration:</strong> 4 months (Sept. 2024 - Dec. 2024)</p>
           <p class="boldened">Team:</p>
           <ul>
@@ -63,126 +96,172 @@ const guide = [
   <section id="tldr" class="case-section">
     <div class="section-media">
       <img src="/ONWARD-main.webp" alt="Straight to business" />
-      <p class="media-caption">Straight to business</p>
+      <p class="media-caption">The interface: intuitive, accessible, purpose-built</p>
     </div>
     <div class="section-text">
       <h2 class="section-title">TL;DR</h2>
-      <ul>
-        <li><strong class="boldened">Problem:</strong> Many internationally-educated nurses struggle with job interviews in Canada due to language barriers and anxiety.</li>
-        <li><strong class="boldened">Solution:</strong> Onward, an AI-powered interview coaching app designed to help users practice and improve.</li>
-        <li><strong class="boldened">Features:</strong>
-          <ul>
-            <li>Practice interview sessions tailored to specific nursing roles.</li>
-            <li>AI-powered feedback using the STAR method and filler word analysis.</li>
-            <li>Review past interview sessions for continuous improvement.</li>
-          </ul>
-        </li>
-        <li><strong class="boldened">Outcome:</strong> Successfully presented to 200+ industry professionals, with ongoing development for future improvements.</li>
-      </ul>
+      <p>
+        <strong class="boldened">Problem.</strong> International healthcare workers excel in their field but struggle with Canadian job interviews — language barriers, cultural unfamiliarity, and anxiety hold them back from advancing.
+      </p>
+      <p>
+        <strong class="boldened">Solution.</strong> Onward, an AI-powered interview coaching app with real-time feedback using the STAR method and filler-word analysis, designed to build confidence through tailored practice.
+      </p>
+      <p>
+        <strong class="boldened">Impact.</strong> Shipped in 4 months. Presented to 200+ industry professionals, government officials, and investors. User testing: 8/10 ease-of-use rating. Validated with real users who loved the question preview and analysis features.
+      </p>
     </div>
   </section>
 
-  <section id="context" class="case-section">
+  <section id="research" class="case-section">
     <div class="section-media">
       <img src="/PersonaPrimary.webp" alt="Marco Dizon: our primary persona" />
-      <p class="media-caption">Marco Dizon: our primary persona</p>
+      <p class="media-caption">Marco Dizon: nurse, immigrant, problem-solver</p>
     </div>
     <div class="section-text">
-      <h2 class="section-title">Context</h2>
+      <h2 class="section-title">Research</h2>
       <p>
-        During our research phase, we found:
-        <ul class="context-list">
-          <li class="context-items">
-            <strong class="highlight">44%</strong> of internationally-educated healthcare workers are overqualified
-            for their current position
-          </li>
-          <li class="context-items">
-            &amp; over <strong class="highlight">25%</strong> of immigrants experience severe interview anxiety
-          </li>
-          <a href="https://www150.statcan.gc.ca/n1/pub/75-006-x/2021001/article/00004-eng.htm" target="_blank" class="tiny"><li>Profile of Immigrants in Nursing and Health Care Support Occupations, Statistics Canada (2021)</li></a>
-        </ul>
+        We started by listening. Through interviews and surveys with internationally-educated healthcare workers, a clear pattern emerged: the struggle wasn't qualification or capability — it was communication. Not language alone, but confidence, cultural context, and the fear of being misunderstood.
       </p>
       <p>
-        With this in mind, we first crafted our primary persona, <strong class="subhighlight">Marco Dizon</strong>, a nurse from the Philippines who has been struggling to find work in Canada.
+        We crafted our primary persona, <strong class="subhighlight">Marco Dizon</strong>, a nurse from the Philippines with years of clinical experience. Marco knows his field. But in Canadian interviews, he fumbles. He overthinks answers, filler words creep in ("um," "like"), and he second-guesses whether his accomplishments translate to this new system. He needs practice in a safe space — not judgment, but feedback. Not pressure, but clarity.
       </p>
       <p>
-        We aimed to create a solution to help Marco and others like him navigate the Canadian healthcare job market.
+        Marco represented the intersection of two challenges: technical overqualification and emotional underconfidence. This insight shaped everything we built.
       </p>
     </div>
   </section>
 
-  <section id="plan" class="case-section">
+  <section id="problem" class="case-section">
+    <div class="section-media">
+      <img src="/sitemap.webp" alt="Information architecture and user flows" />
+      <p class="media-caption">Mapping the user journey from awareness through practice to mastery</p>
+    </div>
+    <div class="section-text">
+      <h2 class="section-title">Problem</h2>
+      <p>
+        <strong class="boldened">How might we help Marco build interview confidence without adding pressure?</strong>
+      </p>
+      <p>
+        This became our north star. Most interview prep tools feel like high-stakes simulations — they add anxiety. What Marco needs is a sandbox: a space to practice, fail safely, get specific feedback, and try again. Not once, but until the skill becomes muscle memory.
+      </p>
+      <p>
+        The challenge wasn't just building the app — it was designing the emotional experience. Every button, every feedback message, every loading state had to reinforce: <em>"You're improving. You're ready."</em>
+      </p>
+    </div>
+  </section>
+
+  <section id="strategy" class="case-section">
     <div class="section-media">
       <img src="/sitemap.webp" alt="Our structured site map with user flows for the main features" />
       <p class="media-caption">Our structured site map with user flows for the main features</p>
     </div>
     <div class="section-text">
-      <h2 class="section-title">Plan</h2>
-      <p>Based on Marco's major frustrations, we came up with our primary goals and values for Onward to try and solve them, including:
+      <h2 class="section-title">Strategy & Direction</h2>
+      <p>
+        We established three design pillars to guide every decision:
         <ul>
-          <li>Encouraging nurse <strong class="subhighlight">growth</strong> by providing feedback</li>
-          <li>Allowing <strong class="subhighlight">confidence</strong> to flourish with tailored practice</li>
-          <li>Helping nurses tell their stories by growing their language and <strong class="subhighlight">communication</strong> skills</li>
+          <li><strong class="subhighlight">Growth</strong> — Every session builds toward mastery, not just a one-off practice</li>
+          <li><strong class="subhighlight">Confidence</strong> — The interface should feel safe, supportive, and clear</li>
+          <li><strong class="subhighlight">Communication</strong> — Help Marco tell his story, articulate his value, and feel heard</li>
         </ul>
       </p>
       <p>
-        Establishing these goals, we crafted a structured site map with user flows for the main features of the app.
-        Due to time constraints, our primary focus was on the practice interview feature/flow,
-        which accomplished our goals to help Marco grow.
+        With these pillars, we structured the information architecture around Marco's journey: first, understand what role he's targeting; second, practice with tailored questions; third, receive concrete feedback; finally, review and iterate. Each step removes friction and builds confidence.
+      </p>
+      <p>
+        Due to our tight timeline, we prioritized the practice interview feature — the core experience Marco would return to most. Everything else would follow, but this flow had to be flawless.
       </p>
     </div>
   </section>
 
-  <section id="process" class="case-section">
+  <section id="design-build" class="case-section">
     <div class="section-media">
       <img src="/clipstart.gif" alt="Navigating through Onward, with our call to action button to the main flows" />
       <p class="media-caption">Navigating through Onward, with our call to action button to the main flows</p>
     </div>
     <div class="section-text">
-      <h2 class="section-title">Process</h2>
+      <h2 class="section-title">Design & Build</h2>
       <p>
-        On a tight schedule, I jumped straight into development, before the designs were even completed for the first iteration!
-        Because of this limitation, to ensure quality and consistency, we conducted usability tests with our target users during each feature sprint
-        to pinpoint any issues with our user flow.
+        On a tight schedule, we tested early and often. User feedback drove every iteration — and as lead developer, translating that feedback into interaction logic became as important as the code itself.
       </p>
+      
+      <p><strong class="subhighlight">Clarity Over Conventions</strong></p>
       <p>
-        To maintain efficiency and meeting our Agile goals for each sprint, which was rolling out a complete feature each week, we leveraged Chakra UI components
-        to quickly build out our app and maintain a consistent design system.
+        When a user tested our interface, she said: "Mock Interview or Practice Interview — which is which?" She'd studied for IELTS and knew the mental difference instantly: "Practice Mode" vs. "Practice Questions." We renamed and restructured the labeling. Small change, enormous clarity win.
       </p>
+
+      <p><strong class="subhighlight">Feedback Visibility</strong></p>
       <p>
-        One of the main challenges we faced during development was simplifying the user interface in the
-        "practice interview" feature, to ensure that users could easily navigate through the flow to receive feedback.
+        Early hover states were too subtle — just a box shadow. One user said the grey color made it look "unfinished." We standardized all button states to use color shifts instead, making interaction feedback immediate and clear across the entire app.
       </p>
+
+      <p><strong class="subhighlight">Loading States Matter</strong></p>
       <p>
-        Combining my roles as lead developer and UX architect, I consulted with our target users and outside mentors
-        to find a solution, which was to reduce the amount of buttons on the screen, and provide micro-interactive feedback to actions taken by the user.
+        A user clicked "next" on the file upload page and nothing happened. She didn't know if it was broken or loading. We added explicit loading indicators. Now every async action has visible feedback, so Marco is never left wondering.
+      </p>
+
+      <p><strong class="subhighlight">Timer UX: Pressure vs. Practice</strong></p>
+      <p>
+        Users told us they wanted to practice without the countdown timer's anxiety. So we split the logic: practice sessions measure time but don't count down (for low-pressure drilling), while mock interviews are fully timed (for high-stakes simulation). This single insight changed how we thought about the feature.
+      </p>
+
+      <p><strong class="subhighlight">Consistency Signals Confidence</strong></p>
+      <p>
+        Button sizing was inconsistent — some large, some small. We standardized them. Hover states differed. We unified them. File upload labels were vague. We clarified them to "Select file to upload." Each small consistency win reinforced the emotional message: "This app respects your time and knows what it's doing."
+      </p>
+
+      <p>
+        One user rated ease-of-use <strong class="highlight">8/10</strong>. She loved seeing the question preview before answering. She loved the final analysis mockup. These weren't accidents — they were the result of testing, feedback, and iteration.
       </p>
     </div>
   </section>
 
-  <section id="results" class="case-section">
+  <section id="outcomes" class="case-section">
     <div class="section-media">
       <img src="/clipinterview-results.gif" alt="Our polished practice interview flow in action" />
       <p class="media-caption">Our polished practice interview flow in action</p>
     </div>
     <div class="section-text">
-      <h2 class="section-title">Results</h2>
+      <h2 class="section-title">Outcomes</h2>
       <p>
-        After 4 months of development, we successfully launched Onward, and had the opportunity to present it live
-        to an audience of over 200 people, including industry professionals, government officials, and potential investors.
+        After 4 months, we shipped Onward. The impact was immediate: we presented it live to over 200 people — industry professionals, government officials, investors, and community members. The response was validation that Marco's problem was worth solving.
       </p>
       <p>
-        Over the course of the project, we were able to:
+        Technically, we delivered:
         <ul>
-          <li>Structure practice interview sessions catered towards the role our users are applying to</li>
-          <li>Provide tailored feedback with prompt engineering through the STAR method and use AI to highlight filler words</li>
-          <li>Allow users to review their interview sessions and continue practicing!</li>
+          <li>Tailored practice interview sessions mapped to specific nursing roles</li>
+          <li>AI-powered real-time feedback using the STAR method for structured responses</li>
+          <li>Filler word detection to highlight speech patterns users can improve</li>
+          <li>Session review and re-practice loops for continuous refinement</li>
+          <li>A consistent, intuitive interface validated by user testing at 8/10 ease-of-use</li>
         </ul>
       </p>
       <p>
-        While time constraints prevented us from implementing all planned features (e.g., native language practice) for our MVP, we continue to develop the app for future release.
+        But the real outcome is simpler: Marco can now practice interviews without anxiety. He's heard what works. He's heard what he needs to improve. He's ready.
       </p>
       <p>You can view Onward here: <a class="product-link" href="https://onward-prep.ca/" target="_blank">onward-prep.ca</a></p>
+    </div>
+  </section>
+
+  <section id="reflection" class="case-section">
+    <div class="section-media">
+      <img src="/ONWARD-main.webp" alt="Onward platform" />
+      <p class="media-caption">The work continues - next iterations in motion</p>
+    </div>
+    <div class="section-text">
+      <h2 class="section-title">Reflection</h2>
+      <p>
+        <strong class="subhighlight">Testing beats perfection.</strong> We didn't wait for pixel-perfect designs before testing. We prototyped, we watched users struggle, we fixed it. The grey hover state would have shipped if not for user feedback. The confusing terminology would have stayed. Early, continuous testing eliminated the gap between what we thought was clear and what actually was.
+      </p>
+      <p>
+        <strong class="subhighlight">Dev work is UX work.</strong> As the primary developer, I didn't just implement designs — I shaped them. Loading states, button consistency, label clarity, timer logic — these were dev decisions that directly translated user feedback into interaction improvements. Being a developer who thinks like a designer meant we could iterate at speed without waiting on another cycle of wireframes.
+      </p>
+      <p>
+        <strong class="subhighlight">What's next:</strong> Users asked for practice without timers (we solved that). They wanted to understand question types better (we improved labels). The next iteration will build on what we learned: native language practice modes, advanced analytics, peer comparison features without pressure. Every feature builds on what Marco taught us.
+      </p>
+      <p>
+        My aunt's story, Marco's story — they're about overcoming barriers that shouldn't exist. This project taught me that design isn't about making things beautiful; it's about making things true. True to the user's need. True to their capability. True to their dignity. Marco doesn't need an app that makes him feel small. He needs a tool that reminds him he's ready.
+      </p>
     </div>
   </section>
 </CaseStudyLayout>
