@@ -23,7 +23,7 @@ const {
   backUrl = "/projects.html",
   guide,
   extraScripts = [],
-  bodyClass = "",
+  bodyClass = "case-study",   // gives body.case-study — scopes scroll-snap + reveal CSS
 } = Astro.props;
 ---
 <BaseLayout title={title} bodyClass={bodyClass}>
@@ -120,7 +120,9 @@ const {
   <script type="text/javascript" defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script type="text/javascript" defer src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
   <script type="text/javascript" defer src="/js/components/menu.js"></script>
-  <script type="text/javascript" defer src="/js/components/gsap-fade.js"></script>
+  <!-- gsap-fade removed: case-scroll-reveal handles all entrance animations -->
+  <!-- case-scroll-reveal loaded on every case study page -->
+  <script type="text/javascript" defer src="/js/components/case-scroll-reveal.js"></script>
   {extraScripts.map((src) => (
     <script type="text/javascript" defer src={src}></script>
   ))}

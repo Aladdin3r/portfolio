@@ -605,52 +605,61 @@ a {
     line-height: 1;
 }
 
+/* ─── Scroll snap: case study pages only ─────────────────────── */
+html:has(body.case-study) {
+    /* mandatory = viewport always snaps to a section boundary.
+       You can never stop mid-scroll between two sections. */
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+/* ─── Case study main layout ─────────────────────────────────── */
 .case-study-main {
     display: flex;
     align-items: flex-start;
-    justify-content: flex-start;
-    gap: 2rem;
+    gap: 1.5rem;
     width: 100%;
-    padding: 1rem 3rem 3rem;
-    min-height: 100vh;
+    padding: 1rem 2rem 3rem 1.5rem;
     box-sizing: border-box;
 }
 
 .case-study-main .case-content-wrapper {
-    width: calc(100% - 260px);
-    max-width: calc(100% - 260px);
+    /* flex: 1 + min-width: 0 is the correct way to fill remaining space
+       without overflowing past the guide nav */
+    flex: 1;
+    min-width: 0;
     background: rgba(18, 18, 18, 0.35);
     border: 1px solid rgba(255,255,255,0.2);
     border-radius: 12px;
-    padding: 1.5rem;
+    padding: 0 1.5rem;
     box-sizing: border-box;
-    min-height: 75vh;
 }
 
 .case-section {
-    display: block;
-    opacity: 1;
-    transition: background-color 0.3s ease;
-    padding-bottom: 1.5rem;
+    opacity: 1; /* GSAP overrides to 0 for scroll reveal */
+    transition: none;
 }
 
 .case-section.active {
-    background: rgba(255, 255, 255, 0.02);
-    border-left: 3px solid rgba(255, 102, 0, 0.8);
+    background: transparent;
+    border-left: none;
 }
 
 .guide {
-    width: 240px;
+    width: 175px;           /* compact — fits longest label without overflow */
+    flex-shrink: 0;         /* never compress the guide */
     position: sticky;
-    top: 20vh;
+    top: 6rem;
     align-self: flex-start;
     background: rgba(20, 20, 20, 0.75);
     border: 1px solid rgba(255, 255, 255, 0.25);
     border-radius: 12px;
-    padding: 1rem 1rem 1.2rem;
-    margin-left: 1rem;
+    padding: 1rem 0.8rem 1.2rem;
     backdrop-filter: blur(12px);
     box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    /* z-index 200: GSAP transforms on sections create stacking contexts
+       ordered by DOM position — guide must explicitly sit above them */
+    z-index: 200;
 }
 
 .guide ul {
@@ -668,7 +677,7 @@ a {
     text-decoration: none;
     color: white;
     font-weight: 300;
-    font-size: 1rem;
+    font-size: 0.875rem;    /* slightly smaller so "Strategy & Direction" fits */
     letter-spacing: 0.02em;
     display: inline-flex;
     align-items: center;
@@ -714,44 +723,60 @@ a {
     text-decoration: none;
 }
 
+/* ─── Case section: fullscreen + scroll snap ─────────────────── */
 .case-section {
-    margin-bottom: 1.5rem;
-    font-weight: 300;
-    font-size: 1.1rem;
-    width: 100%;
-    opacity: 1;
-    padding-top: 1.5rem;
-}
+    /* Each section fills the viewport — only one is ever "on screen" */
+    min-height: 100vh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;   /* never skip a section, even on fast scroll */
 
-/* ─── Case section two-column layout ─────────────────────────── */
-.case-section {
+    /* Two-column grid: image left, text right */
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "media text";
-    gap: 2.5rem;
+    gap: 3rem;
+    /* start = both columns pin to the top of the section.
+       Caption always sits directly below its image —
+       never floats to vertical-centre of a tall column. */
     align-items: start;
+
+    font-weight: 300;
+    font-size: 1.1rem;
+    padding: 4rem 0 3rem;       /* breathing room at top, less at bottom */
+    box-sizing: border-box;
 }
 
 .section-media {
     grid-area: media;
-    position: sticky;
-    top: 6rem;
+    align-self: start;          /* image + caption stay together at column top */
 }
 
-.section-media img,
+.section-media img {
+    width: 100%;
+    height: auto;
+    max-height: 420px;
+    border-radius: 10px;
+    display: block;
+    object-fit: contain;
+}
+
 .section-media video {
     width: 100%;
+    height: auto;
+    max-height: 340px;
     border-radius: 10px;
     display: block;
     object-fit: cover;
 }
 
 .section-media .media-caption {
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.45);
-    margin-top: 0.6rem;
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.4);
+    margin-top: 0.5rem;
+    margin-bottom: 0;
     font-style: italic;
     letter-spacing: 0.02em;
+    line-height: 1.4;
 }
 
 .section-text {

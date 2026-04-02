@@ -1,9 +1,9 @@
 /**
  * case-scroll-reveal.js
- * Scroll-triggered reveal animations for case study pages.
- * Inspired by Trang Cao's clean, section-by-section fade-up style.
+ * Sections start invisible. Each one fades + slides up as it enters the viewport.
+ * Inspired by Trang Cao's clean per-section scroll reveals.
  *
- * Requires: GSAP + ScrollTrigger (loaded via CaseStudyLayout.astro CDN scripts)
+ * Requires: GSAP + ScrollTrigger (loaded via CaseStudyLayout CDN)
  */
 
 (function waitForGSAP() {
@@ -14,141 +14,57 @@
 
   gsap.registerPlugin(ScrollTrigger);
 
-  // ─── Per-section reveals ──────────────────────────────────────────────────
-  document.querySelectorAll('.case-section').forEach((section) => {
-    const media   = section.querySelector('.section-media');
-    const title   = section.querySelector('.section-title');
-    const paras   = Array.from(section.querySelectorAll('.section-text > p'));
-    const lists   = Array.from(section.querySelectorAll('.section-text ul'));
-    const highlights = Array.from(section.querySelectorAll('.highlight'));
-    const subHighlights = Array.from(section.querySelectorAll('.subhighlight'));
+  const sections = document.querySelectorAll('.case-section');
 
-    // Media pane — fade up from slightly below
-    if (media) {
-      gsap.fromTo(
-        media,
-        { opacity: 0, y: 22 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.7,
-          ease: 'power3.out',
-          overwrite: 'auto',
-          scrollTrigger: {
-            trigger: section,
-            start: 'top 82%',
-            toggleActions: 'play none none none',
-          },
-        }
-      );
-    }
+  // ─── Step 1: immediately hide every section ───────────────────
+  // GSAP sets opacity/transform before the browser paints, so there's
+  // no flash of visible content.
+  gsap.set(sections, { opacity: 0, y: 48 });
 
-    // Section title — slightly ahead of body text
-    if (title) {
-      gsap.fromTo(
-        title,
-        { opacity: 0, y: 18 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.55,
-          ease: 'power3.out',
-          overwrite: 'auto',
-          scrollTrigger: {
-            trigger: section,
-            start: 'top 80%',
-            toggleActions: 'play none none none',
-          },
-        }
-      );
-    }
-
-    // Body paragraphs — staggered fade-up
-    if (paras.length) {
-      gsap.fromTo(
-        paras,
-        { opacity: 0, y: 24 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.55,
-          stagger: 0.11,
-          ease: 'power2.out',
-          overwrite: 'auto',
-          scrollTrigger: {
-            trigger: section,
-            start: 'top 76%',
-            toggleActions: 'play none none none',
-          },
-        }
-      );
-    }
-
-    // Lists — fade-up slightly after paras
-    if (lists.length) {
-      gsap.fromTo(
-        lists,
-        { opacity: 0, y: 18 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.5,
-          stagger: 0.09,
-          ease: 'power2.out',
-          overwrite: 'auto',
-          scrollTrigger: {
-            trigger: section,
-            start: 'top 70%',
-            toggleActions: 'play none none none',
-          },
-        }
-      );
-    }
-
-    // Stat callouts (.highlight) — scale punch for impact numbers
-    if (highlights.length) {
-      gsap.fromTo(
-        highlights,
-        { opacity: 0, scale: 0.72 },
-        {
-          opacity: 1,
-          scale: 1,
-          duration: 0.45,
-          stagger: 0.12,
-          ease: 'back.out(1.6)',
-          overwrite: 'auto',
-          scrollTrigger: {
-            trigger: section,
-            start: 'top 78%',
-            toggleActions: 'play none none none',
-          },
-        }
-      );
-    }
-
-    // Design & Build subheadings (.subhighlight) — slide in from left
-    if (subHighlights.length) {
-      gsap.fromTo(
-        subHighlights,
-        { opacity: 0, x: -14 },
-        {
-          opacity: 1,
-          x: 0,
-          duration: 0.42,
-          stagger: 0.1,
-          ease: 'power2.out',
-          overwrite: 'auto',
-          scrollTrigger: {
-            trigger: section,
-            start: 'top 78%',
-            toggleActions: 'play none none none',
-          },
-        }
-      );
-    }
+  // ─── Step 2: reveal each section as it enters the viewport ────
+  sections.forEach((section) => {
+    gsap.to(section, {
+      opacity: 1,
+      y: 0,
+      duration: 0.72,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: section,
+        // Fires when the section's top edge crosses 88% down the viewport
+        // — so it's nearly fully off-screen before it animates in.
+        start: 'top 88%',
+        toggleActions: 'play none none none',
+      },
+    });
   });
 
-  // ─── Guide nav entrance (stagger in on load) ────────────────────────────
+  // ─── Step 3: stagger the stat callouts inside each section ────
+  // These animate a beat after the section itself appears, giving
+  // the numbers a little punch that draws the eye.
+  sections.forEach((section) => {
+    const highlights = section.querySelectorAll('.highlight');
+    if (!highlights.length) return;
+
+    gsap.fromTo(
+      highlights,
+      { opacity: 0, scale: 0.7 },
+      {
+        opacity: 1,
+        scale: 1,
+        duration: 0.4,
+        stagger: 0.1,
+        ease: 'back.out(1.7)',
+        overwrite: 'auto',
+        scrollTrigger: {
+          trigger: section,
+          start: 'top 75%',
+          toggleActions: 'play none none none',
+        },
+      }
+    );
+  });
+
+  // ─── Step 4: guide nav items stagger in on load ───────────────
   const guideItems = document.querySelectorAll('.guide li');
   if (guideItems.length) {
     gsap.fromTo(
@@ -157,11 +73,10 @@
       {
         opacity: 1,
         x: 0,
-        duration: 0.4,
+        duration: 0.38,
         stagger: 0.07,
         ease: 'power2.out',
-        delay: 0.2,
-        overwrite: 'auto',
+        delay: 0.15,
       }
     );
   }
