@@ -723,6 +723,60 @@ a {
     padding-top: 1.5rem;
 }
 
+/* ─── Case section two-column layout ─────────────────────────── */
+.case-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "media text";
+    gap: 2.5rem;
+    align-items: start;
+}
+
+.section-media {
+    grid-area: media;
+    position: sticky;
+    top: 6rem;
+}
+
+.section-media img,
+.section-media video {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+    object-fit: cover;
+}
+
+.section-media .media-caption {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.45);
+    margin-top: 0.6rem;
+    font-style: italic;
+    letter-spacing: 0.02em;
+}
+
+.section-text {
+    grid-area: text;
+}
+
+/* ─── Scroll-reveal initial states ────────────────────────────── */
+.sr-hidden {
+    opacity: 0;
+    transform: translateY(28px);
+    will-change: opacity, transform;
+}
+
+.sr-hidden-left {
+    opacity: 0;
+    transform: translateX(-18px);
+    will-change: opacity, transform;
+}
+
+.sr-scale {
+    opacity: 0;
+    transform: scale(0.82);
+    will-change: opacity, transform;
+}
+
 .guide-link.active {
     color: #ff6600;
 }

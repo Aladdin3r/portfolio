@@ -18,7 +18,7 @@ const guide = [
   title="Rawan Aladdin - Onward"
   pageTitle="Onward"
   guide={guide}
-  extraScripts={['/js/components/sticky-media.js']}
+  extraScripts={['/js/components/sticky-media.js', '/js/components/case-scroll-reveal.js']}
 >
   <section id="story" class="case-section">
     <div class="section-media">
@@ -36,13 +36,11 @@ const guide = [
         Her story is not unique. The data reveals a systemic problem:
         <ul class="context-list">
           <li class="context-items">
-            <strong class="highlight">44%</strong> of internationally-educated healthcare workers are overqualified for their current position
+            <strong class="highlight">44%</strong> of internationally-educated healthcare workers are overqualified for their current position —
+            <a href="https://www150.statcan.gc.ca/n1/pub/75-006-x/2021001/article/00004-eng.htm" target="_blank" class="tiny">Statistics Canada (2021)</a>
           </li>
           <li class="context-items">
-            <strong class="highlight">60%</strong> cite communication barriers as a primary challenge in securing interviews
-          </li>
-          <li class="context-items">
-            <a href="https://www150.statcan.gc.ca/n1/pub/75-006-x/2021001/article/00004-eng.htm" target="_blank">Profile of Immigrants in Nursing and Health Care Support Occupations, Statistics Canada (2021)</a>
+            <strong class="highlight">60%</strong> cited communication as their biggest barrier to employment in Canada — from our primary research survey of internationally-educated nurses
           </li>
         </ul>
       </p>
@@ -62,7 +60,7 @@ const guide = [
       <div class="overview-container">
         <div class="overview-column">
           <p>Onward is an AI-powered interview coaching app designed to help healthcare professionals, particularly those new to the Canadian system, excel in job interviews.</p>
-          <p><strong class="boldened">Role:</strong> UX Architect, Lead Developer</p>
+          <p><strong class="boldened">Role:</strong> Product Designer &amp; Lead Developer</p>
           <p><strong class="boldened">Duration:</strong> 4 months (Sept. 2024 - Dec. 2024)</p>
           <p class="boldened">Team:</p>
           <ul>
@@ -120,13 +118,13 @@ const guide = [
     <div class="section-text">
       <h2 class="section-title">Research</h2>
       <p>
-        We started by listening. Through interviews and surveys with internationally-educated healthcare workers, a clear pattern emerged: the struggle wasn't qualification or capability — it was communication. Not language alone, but confidence, cultural context, and the fear of being misunderstood.
+        We started by listening. Through interviews and surveys with internationally-educated healthcare workers, a clear pattern emerged: the struggle wasn't qualification — it was communication. Not language alone, but confidence, cultural context, and the quiet fear of being misunderstood in a system that wasn't built with you in mind.
       </p>
       <p>
-        We crafted our primary persona, <strong class="subhighlight">Marco Dizon</strong>, a nurse from the Philippines with years of clinical experience. Marco knows his field. But in Canadian interviews, he fumbles. He overthinks answers, filler words creep in ("um," "like"), and he second-guesses whether his accomplishments translate to this new system. He needs practice in a safe space — not judgment, but feedback. Not pressure, but clarity.
+        From that research, we built our primary persona: <strong class="subhighlight">Marco Dizon</strong>, a nurse from the Philippines with years of clinical experience. Marco knows his field deeply. But in Canadian interviews, he falters. He overthinks his answers. Filler words creep in — "um," "like," "you know." He second-guesses whether his accomplishments will translate. He doesn't need more skills. He needs a safe space to practice the ones he already has.
       </p>
       <p>
-        Marco represented the intersection of two challenges: technical overqualification and emotional underconfidence. This insight shaped everything we built.
+        Marco sat at the intersection of two distinct challenges: technical overqualification and emotional underconfidence. That combination became the design brief.
       </p>
     </div>
   </section>
@@ -139,10 +137,10 @@ const guide = [
     <div class="section-text">
       <h2 class="section-title">Problem</h2>
       <p>
-        <strong class="boldened">How might we help Marco build interview confidence without adding pressure?</strong>
+        <strong class="boldened">How might we use AI-powered practice and feedback to help internationally-educated nurses bridge communication gaps in the Canadian hiring process?</strong>
       </p>
       <p>
-        This became our north star. Most interview prep tools feel like high-stakes simulations — they add anxiety. What Marco needs is a sandbox: a space to practice, fail safely, get specific feedback, and try again. Not once, but until the skill becomes muscle memory.
+        This became our north star. The core tension: how do you build confidence without adding pressure? Most interview prep tools are high-stakes simulations — they amplify anxiety. What Marco needs is a sandbox: a space to practice, fail safely, get specific feedback, and try again. Not once, but until the skill becomes muscle memory.
       </p>
       <p>
         The challenge wasn't just building the app — it was designing the emotional experience. Every button, every feedback message, every loading state had to reinforce: <em>"You're improving. You're ready."</em>
@@ -227,17 +225,16 @@ const guide = [
         After 4 months, we shipped Onward. The impact was immediate: we presented it live to over 200 people — industry professionals, government officials, investors, and community members. The response was validation that Marco's problem was worth solving.
       </p>
       <p>
-        Technically, we delivered:
+        What we shipped:
         <ul>
-          <li>Tailored practice interview sessions mapped to specific nursing roles</li>
-          <li>AI-powered real-time feedback using the STAR method for structured responses</li>
-          <li>Filler word detection to highlight speech patterns users can improve</li>
-          <li>Session review and re-practice loops for continuous refinement</li>
-          <li>A consistent, intuitive interface validated by user testing at 8/10 ease-of-use</li>
+          <li>Role-specific practice interview sessions tailored to the Canadian nursing job market</li>
+          <li>Real-time AI feedback structured around the STAR method, with filler word detection</li>
+          <li>Session history and re-practice loops so improvement compounds over time</li>
+          <li>A consistent, accessible interface — validated by usability testing, rated <strong class="highlight">8/10</strong> for ease of use</li>
         </ul>
       </p>
       <p>
-        But the real outcome is simpler: Marco can now practice interviews without anxiety. He's heard what works. He's heard what he needs to improve. He's ready.
+        But the real outcome is simpler: Marco can now practice without anxiety. He knows what works. He knows what to sharpen. He goes into interviews ready.
       </p>
       <p>You can view Onward here: <a class="product-link" href="https://onward-prep.ca/" target="_blank">onward-prep.ca</a></p>
     </div>
