@@ -470,9 +470,14 @@ a {
     text-decoration: none;
 }
 
-/* Per-section sticky layout */
+/* Presentation-slide scroll — case study pages only */
+html:has(.case-study-main) {
+    scroll-snap-type: y mandatory;
+}
+
+/* Per-section layout */
 .case-content-wrapper {
-    padding: 2rem 3rem 4rem 20rem;
+    padding: 0 3rem 0 20rem;
     width: 100%;
     box-sizing: border-box;
 }
@@ -482,20 +487,22 @@ a {
     flex-direction: row;
     align-items: flex-start;
     gap: 3rem;
-    min-height: 80vh;
-    padding-bottom: 6rem;
+    height: 100vh;
+    padding: 5rem 0 2rem;
     font-weight: 300;
     font-size: 1.25em;
     width: 100%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
-/* Sticky image — locked to its own section */
 .section-media {
     flex: 0 0 42%;
     max-width: 42%;
-    position: sticky;
-    top: 15vh;
-    height: 65vh;
+    position: relative;
+    height: calc(100vh - 7rem);
     display: flex;
     flex-direction: column;
 }
@@ -514,7 +521,12 @@ a {
 .section-text {
     flex: 1;
     min-width: 0;
-    padding-top: 1rem;
+    padding-top: 0;
+    height: calc(100vh - 7rem);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+    padding-right: 0.5rem;
 }
 
 .media-caption {
@@ -596,7 +608,7 @@ a {
 
 .guide {
     position: fixed;
-    left: 5rem;
+    left: 2rem;
     top: 50%;
     transform: translateY(-50%);
 }
@@ -607,14 +619,14 @@ a {
 }
 
 .guide li {
-    margin-bottom: 1rem;
+    margin-bottom: 0.6rem;
 }
 
 .guide a {
     text-decoration: none;
     color: gray;
     font-weight: 300;
-    font-size: 2em;
+    font-size: 1.1em;
 }
 
 .guide .button {
@@ -775,7 +787,11 @@ media queries below for responsive design
         display: block; /* Show the button on small screens */
     }
 
-    /* On mobile: sections stack, image sits above its text */
+    /* On mobile: disable snap, sections stack naturally */
+    html:has(.case-study-main) {
+        scroll-snap-type: unset;
+    }
+
     .case-content-wrapper {
         padding: 1rem 1.5rem;
     }
@@ -783,12 +799,15 @@ media queries below for responsive design
     .case-section {
         flex-direction: column;
         gap: 1.5rem;
-        padding-bottom: 3rem;
+        height: auto;
+        padding: 2rem 0;
+        scroll-snap-align: unset;
+        scroll-snap-stop: unset;
+        overflow: visible;
     }
 
     .section-media {
         position: relative;
-        top: auto;
         flex: none;
         width: 100%;
         max-width: 100%;
@@ -803,7 +822,9 @@ media queries below for responsive design
     }
 
     .section-text {
-        padding-top: 0;
+        height: auto;
+        overflow-y: visible;
+        padding-right: 0;
     }
 
     .case-section {
