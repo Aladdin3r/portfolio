@@ -1,7 +1,9 @@
 /**
  * case-scroll-reveal.js
- * Sections start invisible. Each one fades + slides up as it enters the viewport.
- * Inspired by Trang Cao's clean per-section scroll reveals.
+ * Natural-scroll section reveals, Pixmob / Trang Cao style.
+ *
+ * Sections start invisible. Each one fades + slides up as it enters
+ * the viewport. No scroll snap — just smooth natural browser scroll.
  *
  * Requires: GSAP + ScrollTrigger (loaded via CaseStudyLayout CDN)
  */
@@ -16,31 +18,27 @@
 
   const sections = document.querySelectorAll('.case-section');
 
-  // ─── Step 1: immediately hide every section ───────────────────
-  // GSAP sets opacity/transform before the browser paints, so there's
-  // no flash of visible content.
-  gsap.set(sections, { opacity: 0, y: 48 });
+  // ─── Immediately hide every section ──────────────────────────
+  gsap.set(sections, { opacity: 0, y: 40 });
 
-  // ─── Step 2: reveal each section as it enters the viewport ────
+  // ─── Reveal each section as it enters the viewport ───────────
   sections.forEach((section) => {
     gsap.to(section, {
       opacity: 1,
       y: 0,
-      duration: 0.72,
+      duration: 0.8,
       ease: 'power3.out',
       scrollTrigger: {
         trigger: section,
-        // Fires when the section's top edge crosses 88% down the viewport
-        // — so it's nearly fully off-screen before it animates in.
+        // Start animating in when the section top hits 88% down the viewport
         start: 'top 88%',
-        toggleActions: 'play none none none',
+        // Reverse (fade back out) when scrolling back up past this point
+        toggleActions: 'play none none reverse',
       },
     });
   });
 
-  // ─── Step 3: stagger the stat callouts inside each section ────
-  // These animate a beat after the section itself appears, giving
-  // the numbers a little punch that draws the eye.
+  // ─── Stat callout punch ───────────────────────────────────────
   sections.forEach((section) => {
     const highlights = section.querySelectorAll('.highlight');
     if (!highlights.length) return;
@@ -58,13 +56,13 @@
         scrollTrigger: {
           trigger: section,
           start: 'top 75%',
-          toggleActions: 'play none none none',
+          toggleActions: 'play none none reverse',
         },
       }
     );
   });
 
-  // ─── Step 4: guide nav items stagger in on load ───────────────
+  // ─── Guide nav items stagger in on load ──────────────────────
   const guideItems = document.querySelectorAll('.guide li');
   if (guideItems.length) {
     gsap.fromTo(

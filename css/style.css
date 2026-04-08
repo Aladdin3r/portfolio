@@ -521,18 +521,7 @@ a {
     padding: 1rem; /* Add padding for spacing */
 }
 
-.case-section {
-    margin-bottom: 1rem;
-    font-weight: 300;
-    font-size: 1.25em;
-    position: relative;
-    padding-top: 550px;
-    overflow: hidden; /* Hides any overflowing text */
-    clip-path: inset(0 0 0 0);
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-    width: 90%;
-}
+/* Legacy .case-section rules removed — replaced by the full rule ~line 727 */
 
 .case-section.visible {
     opacity: 1;
@@ -605,11 +594,11 @@ a {
     line-height: 1;
 }
 
-/* ─── Scroll snap: case study pages only ─────────────────────── */
+/* ─── Case study pages: natural scrolling, no snap ───────────── */
+/* Pixmob-style: sections flow naturally, content reveals via GSAP.
+   No scroll-snap — the "one section at a time" feel comes from
+   each section being min-height:100vh + scroll-triggered opacity. */
 html:has(body.case-study) {
-    /* mandatory = viewport always snaps to a section boundary.
-       You can never stop mid-scroll between two sections. */
-    scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
 }
 
@@ -723,12 +712,12 @@ html:has(body.case-study) {
     text-decoration: none;
 }
 
-/* ─── Case section: fullscreen + scroll snap ─────────────────── */
+/* ─── Case section: full-viewport, natural scroll ────────────── */
 .case-section {
-    /* Each section fills the viewport — only one is ever "on screen" */
+    /* Each section fills at least the full viewport height.
+       With natural scrolling + GSAP opacity reveals, only the
+       current section is visible as you read through the page. */
     min-height: 100vh;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;   /* never skip a section, even on fast scroll */
 
     /* Two-column grid: image left, text right */
     display: grid;
@@ -736,13 +725,12 @@ html:has(body.case-study) {
     grid-template-areas: "media text";
     gap: 3rem;
     /* start = both columns pin to the top of the section.
-       Caption always sits directly below its image —
-       never floats to vertical-centre of a tall column. */
+       Caption always sits directly below its image. */
     align-items: start;
 
     font-weight: 300;
     font-size: 1.1rem;
-    padding: 4rem 0 3rem;       /* breathing room at top, less at bottom */
+    padding: 4rem 0 5rem;       /* breathing room top and bottom */
     box-sizing: border-box;
 }
 
@@ -979,12 +967,7 @@ media queries below for responsive design
     .case-section {
         margin-bottom: 5rem;
         font-weight: 300;
-        font-size: 1.5em;
-        position: relative;
-        padding-top: 150px;
-        overflow: hidden; /* Hides any overflowing text */
-        clip-path: inset(0 0 0 0);
-        width: 90%;
+        font-size: 1.25em;
     }
     .section-title {
         color: white;
@@ -1176,11 +1159,6 @@ media queries below for responsive design
         margin-bottom: 5rem;
         font-weight: 300;
         font-size: 1.25em;
-        position: relative;
-        padding-top: 100px;
-        overflow: hidden; /* Hides any overflowing text */
-        clip-path: inset(0 0 0 0);
-        width: 90%;
     }
     .section-title {
         color: white;
