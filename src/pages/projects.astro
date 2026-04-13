@@ -6,6 +6,10 @@ const allProjects = await getCollection('projects');
 const projects = allProjects
   .filter((p) => p.data.visible)
   .sort((a, b) => a.data.order - b.data.order);
+
+const allTags = [...new Set(
+  projects.flatMap(p => p.data.tags.split(' | ').map((t: string) => t.trim()))
+)];
 ---
 <BaseLayout title="Rawan Aladdin - Projects">
   <header>
@@ -22,13 +26,23 @@ const projects = allProjects
         <li><a href="/index.html">Home&#8599;</a></li>
         <li><a href="/projects.html">Works&#8599;</a></li>
         <li><a href="/about.html">About&#8599;</a></li>
+        <li><a href="/playground.html">Playground&#8599;</a></li>
       </ul>
     </div>
   </header>
   <main>
+    <div class="filter-row">
+      <div class="filter-pills">
+        <button class="pill active" data-filter="all">All</button>
+        {allTags.map((tag) => (
+          <button class="pill" data-filter={tag}>{tag}</button>
+        ))}
+      </div>
+      <a href="/playground.html" class="playground-link">&#9829; Playground &#8599;</a>
+    </div>
     <div class="flex-grid">
       {projects.map((project) => (
-        <a href={project.data.url}>
+        <a href={project.data.url} class="project-card" data-tags={project.data.tags}>
           <div class="flex-grid-item">
             <div class={`${project.slug}-case`}>
               <p class="identification">{project.data.tags}</p>
@@ -51,4 +65,19 @@ const projects = allProjects
   <script type="text/javascript" defer src="/js/components/menu.js"></script>
   <script type="text/javascript" defer src="/js/components/gsap-fade.js"></script>
   <script type="text/javascript" defer src="/js/index.js"></script>
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.pill').forEach(pill => {
+        pill.addEventListener('click', () => {
+          document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+          pill.classList.add('active');
+          const filter = pill.dataset.filter;
+          document.querySelectorAll('.project-card').forEach(card => {
+            const show = filter === 'all' || card.dataset.tags.includes(filter);
+            card.style.display = show ? '' : 'none';
+          });
+        });
+      });
+    });
+  </script>
 </BaseLayout>

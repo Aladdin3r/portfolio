@@ -1,0 +1,141 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Rawan Aladdin - Playground" bodyClass="playground">
+  <header>
+    <div class="header-container">
+      <a href="/projects.html" class="back-arrow">&#10229;</a>
+      <p class="heading-page">Playground</p>
+    </div>
+    <div class="menu">
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+    <div class="full-page-menu">
+      <ul class="menu-links">
+        <li><a href="/index.html">Home&#8599;</a></li>
+        <li><a href="/projects.html">Works&#8599;</a></li>
+        <li><a href="/about.html">About&#8599;</a></li>
+        <li><a href="/playground.html">Playground&#8599;</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="playground-main">
+
+    <!-- Heart clip-path definition (hidden, scales with any element via objectBoundingBox) -->
+    <svg width="0" height="0" style="position:absolute; overflow:hidden;">
+      <defs>
+        <clipPath id="heart-clip" clipPathUnits="objectBoundingBox">
+          <path d="M0.5,0.88 C0.27,0.74 0,0.56 0,0.34
+                   C0,0.14 0.14,0 0.3,0
+                   C0.4,0 0.48,0.09 0.5,0.11
+                   C0.52,0.09 0.6,0 0.7,0
+                   C0.86,0 1,0.14 1,0.34
+                   C1,0.56 0.73,0.74 0.5,0.88Z" />
+        </clipPath>
+      </defs>
+    </svg>
+
+    <!-- Card fan -->
+    <div class="card-deck">
+
+      <!-- Ace — The Companion -->
+      <div class="playing-card card-ace"
+           data-img="/playground-companion.png"
+           data-title="The Companion — Beverage Packaging">
+        <div class="card-corner card-top-left">
+          <span class="rank">A</span>
+          <span class="suit">&#9829;</span>
+        </div>
+        <div class="card-heart-window">
+          <img src="/playground-companion.png" alt="The Companion" />
+        </div>
+        <div class="card-corner card-bottom-right">
+          <span class="rank">A</span>
+          <span class="suit">&#9829;</span>
+        </div>
+      </div>
+
+      <!-- King — Metropolis -->
+      <div class="playing-card card-king"
+           data-img="/playground-metropolis.png"
+           data-title="Metropolis — Poster Redesign">
+        <div class="card-corner card-top-left">
+          <span class="rank">K</span>
+          <span class="suit">&#9829;</span>
+        </div>
+        <div class="card-heart-window">
+          <img src="/playground-metropolis.png" alt="Metropolis Poster" />
+        </div>
+        <div class="card-corner card-bottom-right">
+          <span class="rank">K</span>
+          <span class="suit">&#9829;</span>
+        </div>
+      </div>
+
+      <!-- Jack — ARC VAN -->
+      <div class="playing-card card-jack"
+           data-img="/playground-arcvan.png"
+           data-title="ARC VAN — Merch Design">
+        <div class="card-corner card-top-left">
+          <span class="rank">J</span>
+          <span class="suit">&#9829;</span>
+        </div>
+        <div class="card-heart-window">
+          <img src="/playground-arcvan.png" alt="ARC VAN Merch" />
+        </div>
+        <div class="card-corner card-bottom-right">
+          <span class="rank">J</span>
+          <span class="suit">&#9829;</span>
+        </div>
+      </div>
+
+      <!-- Queen — Ancient Retrospect -->
+      <div class="playing-card card-queen"
+           data-img="/playground-retrospect.png"
+           data-title="Ancient Retrospect — Editorial Design">
+        <div class="card-corner card-top-left">
+          <span class="rank">Q</span>
+          <span class="suit">&#9829;</span>
+        </div>
+        <div class="card-heart-window">
+          <img src="/playground-retrospect.png" alt="Ancient Retrospect Editorial" />
+        </div>
+        <div class="card-corner card-bottom-right">
+          <span class="rank">Q</span>
+          <span class="suit">&#9829;</span>
+        </div>
+      </div>
+
+    </div><!-- /.card-deck -->
+
+    <!-- Modal overlay with card flip + gallery nav -->
+    <div class="playground-modal" id="playground-modal" aria-hidden="true">
+      <div class="modal-backdrop" id="modal-backdrop"></div>
+      <div class="pg-flipper">
+        <button class="modal-close" id="modal-close" aria-label="Close">&#10005;</button>
+        <div class="pg-flipper-card-row">
+          <button class="pg-nav pg-nav-prev" id="pg-prev" aria-label="Previous">&#8592;</button>
+          <div class="pg-flipper-inner" id="pg-flipper-inner">
+            <!-- Front: card back design (shown first) -->
+            <div class="pg-flipper-front">
+              <span class="pg-card-back-heart">&#9829;</span>
+            </div>
+            <!-- Back: full project image (revealed after flip) -->
+            <div class="pg-flipper-back">
+              <img class="modal-image" id="modal-image" src="" alt="" />
+            </div>
+          </div>
+          <button class="pg-nav pg-nav-next" id="pg-next" aria-label="Next">&#8594;</button>
+        </div>
+        <p class="modal-title" id="modal-title"></p>
+      </div>
+    </div>
+
+  </main>
+
+  <script type="text/javascript" defer src="/js/components/menu.js"></script>
+  <script type="text/javascript" defer src="/js/components/playground.js"></script>
+  <script type="text/javascript" defer src="/js/index.js"></script>
+</BaseLayout>
