@@ -1,0 +1,300 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Rawan Aladdin — For Anthropic"
+  description="A targeted mini-portfolio: why Rawan Aladdin belongs on Anthropic's design team."
+  bodyClass="anthropic-pitch"
+>
+  <Fragment slot="head">
+    <link rel="stylesheet" href="/css/anthropic.css" />
+  </Fragment>
+
+  <main>
+
+    <!-- ═══════════════════════════════════════════
+         HERO
+    ═══════════════════════════════════════════ -->
+    <section id="hero" class="pitch-section" style="min-height: 100vh; justify-content: flex-end; padding-bottom: 9rem;">
+      <p class="pitch-hero-label">For Anthropic — April 2026</p>
+      <h1 class="pitch-hero-h1">Hi Anthropic,<br>I'm Rawan.</h1>
+      <p class="pitch-hero-sub">
+        UX designer who's shipped AI products, studied how humans trust machines,
+        and thinks the best AI experiences feel less like software and more like
+        understanding.
+      </p>
+      <div class="pitch-hero-links">
+        <a href="https://rawanaladdin.com" target="_blank" rel="noopener" class="main-link">rawanaladdin.com ↗</a>
+        <a href="mailto:aladdin.r.co@gmail.com" class="main-link">aladdin.r.co@gmail.com ↗</a>
+      </div>
+    </section>
+
+    <div class="pitch-divider"></div>
+
+    <!-- ═══════════════════════════════════════════
+         WHY ANTHROPIC
+    ═══════════════════════════════════════════ -->
+    <section id="why-anthropic" class="pitch-section">
+      <p class="pitch-section-label">Why Anthropic</p>
+      <h2 class="pitch-h2">Three reasons<br>I belong here.</h2>
+      <div class="pitch-cards">
+
+        <div class="pitch-card">
+          <p class="pitch-card-num">01</p>
+          <h3>I've already designed for AI trust.</h3>
+          <p>
+            Onward uses Azure Speech-to-Text and real-time ML feedback to coach users through high-stakes conversations.
+            Designing that system meant thinking hard about when AI should intervene, how to surface uncertainty without
+            eroding confidence, and what a "safe" interaction state looks like. That's not hypothetical — it shipped.
+          </p>
+        </div>
+
+        <div class="pitch-card">
+          <p class="pitch-card-num">02</p>
+          <h3>I started in CS, chose design — and never looked back.</h3>
+          <p>
+            I began in Computer Science, left because it felt disconnected from people, and found my way to BCIT's
+            Digital Design & Development program where I fell in love with UX. Now finishing a Bachelor of Creative
+            Industries — a program that fuses design practice, emerging tech, and creative strategy. I chose this path
+            deliberately, not by default.
+          </p>
+        </div>
+
+        <div class="pitch-card">
+          <p class="pitch-card-num">03</p>
+          <h3>I work at the intersection on purpose.</h3>
+          <p>
+            Not a researcher who wishes they could design, or a designer who's read about AI. I've built with it,
+            studied it, and taught others about it. The space between human cognition and AI capability is where
+            I do my best work.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="pitch-divider"></div>
+
+    <!-- ═══════════════════════════════════════════
+         PROJECT 01: ONWARD
+    ═══════════════════════════════════════════ -->
+    <section id="onward" class="pitch-section">
+      <p class="pitch-section-label">Project 01 — AI Interview Coaching App</p>
+      <div class="pitch-two-col">
+
+        <div class="pitch-media-col">
+          <img src="/ONWARD-main.webp" alt="Onward app interface showing interview coaching session" loading="lazy" />
+          <div class="pitch-stats">
+            <div class="pitch-stat-block">
+              <span class="pitch-stat" data-count="200" data-suffix="+">200+</span>
+              <span class="pitch-stat-label">Professionals presented to, live</span>
+            </div>
+            <div class="pitch-stat-block">
+              <span class="pitch-stat" data-static="true">8/10</span>
+              <span class="pitch-stat-label">Ease of use in user testing</span>
+            </div>
+          </div>
+          <img
+            src="/presentation.webp"
+            alt="Rawan presenting Onward to an audience"
+            loading="lazy"
+            class="pitch-presentation-photo"
+          />
+        </div>
+
+        <div class="pitch-text-col">
+          <h2 class="pitch-h2">Onward</h2>
+
+          <p class="pitch-sub-label">The Problem</p>
+          <p>
+            Internationally-educated healthcare workers — fully qualified, years of experience — fail Canadian job
+            interviews not because of skill gaps, but communication barriers: language anxiety, cultural unfamiliarity
+            with STAR-method expectations, the quiet fear of being misunderstood.
+          </p>
+
+          <p class="pitch-sub-label">The AI Design Challenge</p>
+          <p>
+            How do you build an AI feedback system that builds confidence instead of amplifying anxiety? Most coaching
+            tools feel like surveillance. Onward had to feel like a safe space. Every design decision was an answer
+            to that question.
+          </p>
+
+          <p class="pitch-sub-label">Key AI Design Decisions</p>
+          <ul class="pitch-decisions">
+            <li>
+              <strong style="color: white; font-weight: 500;">Split the timer.</strong> Practice mode shows elapsed
+              time — no pressure. Mock mode counts down — real stakes. One insight, two modes, zero ambiguity.
+            </li>
+            <li>
+              <strong style="color: white; font-weight: 500;">Real-time filler word detection</strong> via Azure
+              Speech-to-Text surfaces patterns without shaming — the feedback is data, not judgment.
+            </li>
+            <li>
+              <strong style="color: white; font-weight: 500;">STAR method scaffolding</strong> guides without
+              restricting. The AI leads structure, the user decides content.
+            </li>
+            <li>
+              <strong style="color: white; font-weight: 500;">Loading states for every async action.</strong> When
+              Azure processes speech, Onward shows it. Trust is built in the micro-moments.
+            </li>
+          </ul>
+
+          <div class="pitch-outcome">
+            <p>
+              <strong>Shipped in 4 months.</strong> Presented live to 200+ professionals, investors, and government
+              officials. Continues in active development at onward-prep.ca.
+            </p>
+          </div>
+
+          <a href="/onward" class="pitch-case-link">Read the full case study ↗</a>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="pitch-divider"></div>
+
+    <!-- ═══════════════════════════════════════════
+         PROJECT 02: ECHOLOOP
+    ═══════════════════════════════════════════ -->
+    <section id="echoloop" class="pitch-section">
+      <p class="pitch-section-label">Project 02 — FIFA Smart Wristband Concept</p>
+      <div class="pitch-two-col">
+
+        <div class="pitch-media-col">
+          <div class="pitch-media-block pitch-video-wrapper" title="Click to watch with sound">
+            <video id="echoloop-video" autoplay muted loop playsinline>
+              <source src="/echoloop-promo.mp4" type="video/mp4" />
+            </video>
+            <div class="pitch-video-hint">▶ click for sound &amp; fullscreen</div>
+          </div>
+        </div>
+
+        <div class="pitch-text-col">
+          <h2 class="pitch-h2">EchoLoop</h2>
+
+          <p class="pitch-sub-label">The Concept</p>
+          <p>
+            EchoLoop is a speculative wearable designed for FIFA fans: a smart wristband that responds to live match
+            events — vibrating on goals, pulsing with crowd energy, syncing emotion across stadiums and living rooms.
+            The concept explores what AI-driven embodied feedback feels like when you're watching, not playing.
+          </p>
+
+          <p class="pitch-sub-label">AI as Design Material</p>
+          <p>
+            The promo video was produced using AI generation tools — not as a shortcut, but as a deliberate design
+            choice. Using AI to create the film meant making intentional decisions about how the product should feel:
+            its pace, its emotional register, its visual language. The result shows AI as a medium, not just a subject.
+          </p>
+
+          <p class="pitch-sub-label">Why This Matters for Anthropic</p>
+          <p>
+            AI safety isn't only about text interfaces. It's about how AI-mediated experiences shape human perception,
+            emotion, and trust. EchoLoop asked: what happens when AI is embedded in the body, in real time, in moments
+            of peak human emotion? That's a question worth designing for.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="pitch-divider"></div>
+
+    <!-- ═══════════════════════════════════════════
+         CRITERION LEVELS (brief)
+    ═══════════════════════════════════════════ -->
+    <section id="criterion" class="pitch-section" style="min-height: auto; padding-top: 6rem; padding-bottom: 6rem;">
+      <p class="pitch-section-label">Also in progress</p>
+      <div class="pitch-criterion-inner" style="max-width: 100%;">
+        <h2 class="pitch-h2">The Criterion Levels</h2>
+        <p>
+          A multi-floor cinema hotel experience in downtown Vancouver. Each floor presents films in a different way —
+          the building itself is the interface. Guests don't just watch; they inhabit.
+        </p>
+        <p>
+          Still in development, but the question driving it is the same one I keep returning to: how do you design
+          an experience that feels like a place?
+        </p>
+        <div class="pitch-tech-chips" style="margin-bottom: 2rem;">
+          <span class="pitch-tech-chip">React</span>
+          <span class="pitch-tech-chip">Three.js</span>
+          <span class="pitch-tech-chip">React Three Fiber</span>
+          <span class="pitch-tech-chip">GSAP</span>
+          <span class="pitch-tech-chip">Tailwind CSS</span>
+        </div>
+        <div class="pitch-criterion-embed">
+          <iframe
+            src="https://criterion-levels.vercel.app/"
+            title="The Criterion Levels — interactive preview"
+            loading="lazy"
+            allowfullscreen
+          ></iframe>
+          <div class="pitch-criterion-overlay">
+            <span>Drag to explore</span>
+          </div>
+        </div>
+        <a href="https://criterion-levels.vercel.app/" target="_blank" rel="noopener" class="pitch-case-link" style="margin-top: 1rem;">
+          Open full experience ↗
+        </a>
+      </div>
+    </section>
+
+    <div class="pitch-divider"></div>
+
+    <!-- ═══════════════════════════════════════════
+         ABOUT
+    ═══════════════════════════════════════════ -->
+    <section id="about" class="pitch-section" style="min-height: auto; padding-top: 6rem; padding-bottom: 6rem;">
+      <p class="pitch-section-label">About</p>
+      <div class="pitch-about-inner">
+        <p>
+          I'm a Vancouver-based UX designer who found her way to design the long way around. I started in Computer
+          Science, realised I cared far more about people than programs, and eventually landed at BCIT — where
+          I discovered UX and didn't look back.
+        </p>
+        <p>
+          I completed a Diploma in Digital Design & Development at BCIT, and I'm now finishing a Bachelor of Creative
+          Industries — a program that sits at the intersection of design practice, creative strategy, and emerging
+          technology. I've shipped a live AI product, redesigned websites for cultural organisations, led a digital
+          media team, and built enough in code to understand why implementation constraints matter.
+        </p>
+        <p>
+          I run a design page — <a href="https://www.instagram.com/rawan.designs4u" target="_blank" rel="noopener" style="color: rgba(255,255,255,0.7); text-decoration: underline; text-underline-offset: 3px;">@rawan.designs4u</a> —
+          where I keep up with emerging tech, explore new tools, and share what I'm learning about the edges of
+          design. It's less a portfolio and more a running experiment.
+        </p>
+        <p>
+          I'm genuinely interested in what it means to design AI systems that people trust — not just use. How
+          interfaces communicate uncertainty. How feedback loops shape behaviour. How design can make people feel
+          more capable, not more dependent.
+        </p>
+      </div>
+    </section>
+
+    <div class="pitch-divider"></div>
+
+    <!-- ═══════════════════════════════════════════
+         CTA
+    ═══════════════════════════════════════════ -->
+    <section id="cta" class="pitch-section pitch-cta" style="min-height: 70vh;">
+      <h2 class="pitch-cta-h2">Let's talk.</h2>
+      <p class="pitch-cta-sub">
+        I'd love to discuss how my background in AI-driven UX and product design could contribute to
+        Anthropic's design team.
+      </p>
+      <a href="mailto:aladdin.r.co@gmail.com" class="pitch-email-link">aladdin.r.co@gmail.com ↗</a>
+      <p class="pitch-secondary-links">
+        <a href="https://rawanaladdin.com" target="_blank" rel="noopener">rawanaladdin.com</a>
+        &nbsp;·&nbsp;
+        <a href="https://linkedin.com/in/rawan-aladdin" target="_blank" rel="noopener">linkedin.com/in/rawan-aladdin</a>
+      </p>
+    </section>
+
+  </main>
+
+  <!-- GSAP (same CDN version used across the portfolio) -->
+  <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js"></script>
+  <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/ScrollTrigger.min.js"></script>
+  <script defer src="/js/anthropic.js"></script>
+
+</BaseLayout>
