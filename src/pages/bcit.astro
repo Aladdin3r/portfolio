@@ -1,0 +1,197 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Rawan Aladdin — BCIT Portfolio"
+  description="BCIT Digital Design & Development projects by Rawan Aladdin."
+  bodyClass="bcit-pitch"
+>
+  <Fragment slot="head">
+    <link rel="stylesheet" href="/css/bcit.css" />
+  </Fragment>
+
+  <main>
+
+    <!-- ═══════════════════════════════════════════
+         HERO
+    ═══════════════════════════════════════════ -->
+    <section id="hero" class="bp-section bp-hero">
+      <p class="bp-label">BCIT · Digital Design & Development — Class of 2025</p>
+      <h1 class="bp-h1">Rawan<br>Aladdin</h1>
+      <p class="bp-hero-sub">UX designer and developer. Here's what I built.</p>
+      <div class="bp-hero-links">
+        <a href="https://rawanaladdin.com" target="_blank" rel="noopener" class="main-link">rawanaladdin.com ↗</a>
+        <a href="mailto:aladdin.r.co@gmail.com" class="main-link">aladdin.r.co@gmail.com ↗</a>
+      </div>
+    </section>
+
+    <div class="bp-divider"></div>
+
+    <!-- ═══════════════════════════════════════════
+         PROJECT 01: ONWARD
+    ═══════════════════════════════════════════ -->
+    <section id="onward" class="bp-section bp-slide">
+      <div class="bp-slide-grid">
+
+        <div class="bp-slide-media">
+          <img src="/ONWARD-main.webp" alt="Onward app interface" loading="lazy" />
+          <img src="/presentation.webp" alt="Rawan presenting Onward" loading="lazy" class="bp-slide-media-sub" />
+        </div>
+
+        <div class="bp-slide-content">
+          <p class="bp-project-num">01</p>
+          <h2 class="bp-project-title">Onward</h2>
+          <p class="bp-project-type">AI Interview Coaching App</p>
+          <div class="bp-chips">
+            <span class="bp-chip">UX Design</span>
+            <span class="bp-chip">Development</span>
+            <span class="bp-chip">AI</span>
+          </div>
+          <div class="bp-meta">
+            <span>Product Designer & Lead Developer</span>
+            <span>Sept – Dec 2024</span>
+          </div>
+          <p class="bp-description">
+            AI coaching app helping internationally-educated healthcare workers navigate Canadian job interviews — built with Azure Speech-to-Text and shipped live.
+          </p>
+          <div class="bp-stats">
+            <div class="bp-stat-block">
+              <span class="bp-stat" data-count="200" data-suffix="+">200+</span>
+              <span class="bp-stat-label">Professionals presented to</span>
+            </div>
+            <div class="bp-stat-block">
+              <span class="bp-stat" data-static="true">8/10</span>
+              <span class="bp-stat-label">Ease of use in testing</span>
+            </div>
+          </div>
+          <a href="/onward" class="bp-case-link">View case study ↗</a>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="bp-divider"></div>
+
+    <!-- ═══════════════════════════════════════════
+         PROJECT 02: SAFECYCLE
+    ═══════════════════════════════════════════ -->
+    <section id="safecycle" class="bp-section bp-slide">
+      <div class="bp-slide-grid bp-slide-grid--flip">
+
+        <div class="bp-slide-content">
+          <p class="bp-project-num">02</p>
+          <h2 class="bp-project-title">SafeCycle</h2>
+          <p class="bp-project-type">Pedestrian Safety App</p>
+          <div class="bp-chips">
+            <span class="bp-chip">UX Design</span>
+            <span class="bp-chip">Development</span>
+          </div>
+          <div class="bp-meta">
+            <span>PM, UX Designer & Lead Developer</span>
+            <span>Jan – May 2024</span>
+          </div>
+          <p class="bp-description">
+            Mobile routing app directing cyclists and pedestrians through Vancouver's safest paths, with hazard markers and accessibility for varied mobility needs.
+          </p>
+          <a href="/safecycle" class="bp-case-link">View case study ↗</a>
+        </div>
+
+        <div class="bp-slide-media bp-slide-media--phone">
+          <img src="/safecycle-phone-mockup.webp" alt="SafeCycle app on phone" loading="lazy" />
+        </div>
+
+      </div>
+    </section>
+
+    <div class="bp-divider"></div>
+
+    <!-- ═══════════════════════════════════════════
+         PROJECT 03: ECHOLOOP
+    ═══════════════════════════════════════════ -->
+    <section id="echoloop" class="bp-section bp-slide">
+      <div class="bp-slide-grid">
+
+        <div class="bp-slide-media">
+          <div class="bp-video-wrapper" title="Click for sound & fullscreen">
+            <video id="echoloop-video" autoplay muted loop playsinline>
+              <source src="/echoloop-promo.mp4" type="video/mp4" />
+            </video>
+            <div class="bp-video-hint">▶ click for sound & fullscreen</div>
+          </div>
+        </div>
+
+        <div class="bp-slide-content">
+          <p class="bp-project-num">03</p>
+          <h2 class="bp-project-title">EchoLoop</h2>
+          <p class="bp-project-type">FIFA Smart Wristband Concept</p>
+          <div class="bp-chips">
+            <span class="bp-chip">Speculative Design</span>
+            <span class="bp-chip">AI</span>
+          </div>
+          <div class="bp-meta">
+            <span>Concept & Film Direction</span>
+          </div>
+          <p class="bp-description">
+            Wearable concept that vibrates on goals and pulses with crowd energy — exploring AI-driven embodied feedback in live sports. Promo film produced with AI generation tools.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="bp-divider"></div>
+
+    <!-- ═══════════════════════════════════════════
+         PROJECT 04: THE CRITERION LEVELS
+    ═══════════════════════════════════════════ -->
+    <section id="criterion" class="bp-section bp-slide bp-slide--single">
+      <div class="bp-single-header">
+        <p class="bp-project-num">04</p>
+        <h2 class="bp-project-title">The Criterion Levels</h2>
+        <p class="bp-project-type">Multi-floor Cinema Hotel Experience</p>
+        <div class="bp-chips">
+          <span class="bp-chip">React</span>
+          <span class="bp-chip">Three.js</span>
+          <span class="bp-chip">GSAP</span>
+          <span class="bp-chip">In Progress</span>
+        </div>
+        <p class="bp-description" style="max-width: 600px;">
+          Each floor presents films differently — the building is the interface. Guests don't just watch; they inhabit.
+        </p>
+      </div>
+      <div class="bp-criterion-embed">
+        <iframe
+          src="https://criterion-levels.vercel.app/"
+          title="The Criterion Levels — interactive preview"
+          loading="lazy"
+          allowfullscreen
+        ></iframe>
+        <div class="bp-criterion-overlay">Drag to explore</div>
+      </div>
+      <a href="https://criterion-levels.vercel.app/" target="_blank" rel="noopener" class="bp-case-link" style="margin-top: 1.5rem;">
+        Open full experience ↗
+      </a>
+    </section>
+
+    <div class="bp-divider"></div>
+
+    <!-- ═══════════════════════════════════════════
+         CTA
+    ═══════════════════════════════════════════ -->
+    <section id="contact" class="bp-section bp-cta">
+      <h2 class="bp-cta-h2">Let's connect.</h2>
+      <a href="mailto:aladdin.r.co@gmail.com" class="bp-email-link">aladdin.r.co@gmail.com ↗</a>
+      <p class="bp-secondary-links">
+        <a href="https://rawanaladdin.com" target="_blank" rel="noopener">rawanaladdin.com</a>
+        &nbsp;·&nbsp;
+        <a href="https://linkedin.com/in/rawan-aladdin" target="_blank" rel="noopener">linkedin.com/in/rawan-aladdin</a>
+      </p>
+    </section>
+
+  </main>
+
+  <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js"></script>
+  <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/ScrollTrigger.min.js"></script>
+  <script defer src="/js/bcit.js"></script>
+
+</BaseLayout>
