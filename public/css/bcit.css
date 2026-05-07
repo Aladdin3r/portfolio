@@ -45,6 +45,13 @@ body.bcit-pitch {
   font-weight: 400;
 }
 
+.bp-label-sub {
+  display: block;
+  opacity: 0.5;
+  margin-top: 0.35rem;
+  letter-spacing: 0.15em;
+}
+
 .bp-h1 {
   font-size: clamp(3.2rem, 9vw, 8rem);
   font-weight: 300;
