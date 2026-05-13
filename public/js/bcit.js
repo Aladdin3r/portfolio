@@ -1,5 +1,6 @@
 // BCIT Portfolio — scroll animations, autoplay, sticky header
 
+// Hero entrance (GSAP)
 (function waitForGSAP() {
   if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
     setTimeout(waitForGSAP, 60);
@@ -8,7 +9,6 @@
 
   gsap.registerPlugin(ScrollTrigger);
 
-  // Hero entrance
   gsap.fromTo(
     ['#hero .bp-label', '#hero .bp-h1', '#hero .bp-hero-sub', '#hero .bp-hero-links'],
     { opacity: 0, y: 28 },
@@ -22,37 +22,17 @@
     }
   );
 
-  // Slide sections: fade + rise on scroll — once only, never reverses
-  document.querySelectorAll('.bp-section:not(#hero)').forEach((section) => {
-    gsap.fromTo(
-      section,
-      { opacity: 0, y: 36 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.85,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: section,
-          start: 'top 95%',
-          once: true,
-        },
-      }
-    );
-  });
-
   // Stat count-up
-  document.querySelectorAll('.bp-stat[data-count]').forEach((el) => {
-    const target = parseInt(el.dataset.count, 10);
-    const suffix = el.dataset.suffix || '';
+  document.querySelectorAll('.bp-stat[data-count]').forEach(function (el) {
+    var target = parseInt(el.dataset.count, 10);
+    var suffix = el.dataset.suffix || '';
     if (isNaN(target)) return;
-
-    const obj = { val: 0 };
+    var obj = { val: 0 };
     gsap.to(obj, {
       val: target,
       duration: 1.4,
       ease: 'power2.out',
-      onUpdate() {
+      onUpdate: function () {
         el.textContent = Math.round(obj.val) + suffix;
       },
       scrollTrigger: {
@@ -64,60 +44,71 @@
   });
 })();
 
+// Section reveals via IntersectionObserver — fires reliably on any scroll
+// (programmatic scrollIntoView included), never reverses once visible
+(function initSectionReveals() {
+  var obs = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-revealed');
+          obs.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.08 }
+  );
+
+  document.querySelectorAll('.bp-section:not(#hero)').forEach(function (section) {
+    obs.observe(section);
+  });
+})();
+
 // EchoLoop: click to unmute + fullscreen
 (function initVideo() {
-  const wrapper = document.querySelector('.bp-video-wrapper');
-  const video = document.getElementById('echoloop-video');
-  const hint = document.querySelector('.bp-video-hint');
+  var wrapper = document.querySelector('.bp-video-wrapper');
+  var video = document.getElementById('echoloop-video');
+  var hint = document.querySelector('.bp-video-hint');
   if (!wrapper || !video) return;
 
   wrapper.addEventListener('click', function () {
     video.muted = false;
     video.loop = false;
-
-    const req =
+    var req =
       video.requestFullscreen ||
       video.webkitRequestFullscreen ||
       video.mozRequestFullScreen ||
       video.msRequestFullscreen;
-
-    if (req) req.call(video).catch(() => {});
-
-    if (hint) {
-      hint.style.opacity = '0';
-      hint.style.pointerEvents = 'none';
-    }
+    if (req) req.call(video).catch(function () {});
+    if (hint) { hint.style.opacity = '0'; hint.style.pointerEvents = 'none'; }
   });
 
   document.addEventListener('fullscreenchange', function () {
     if (!document.fullscreenElement) {
       video.muted = true;
       video.loop = true;
-      if (hint) {
-        hint.style.opacity = '';
-        hint.style.pointerEvents = '';
-      }
+      if (hint) { hint.style.opacity = ''; hint.style.pointerEvents = ''; }
     }
   });
 })();
 
 // Sticky header, slide counter, and autoplay
 (function initPresentation() {
-  const docHeader = document.getElementById('bp-doc-header');
-  const counter = document.getElementById('bp-slide-counter');
-  const counterText = counter ? counter.querySelector('.bp-slide-counter-text') : null;
-  const hero = document.getElementById('hero');
+  var docHeader = document.getElementById('bp-doc-header');
+  var counter = document.getElementById('bp-slide-counter');
+  var counterText = counter ? counter.querySelector('.bp-slide-counter-text') : null;
+  var hero = document.getElementById('hero');
 
-  const slideIds = ['#onward', '#safecycle', '#echoloop', '#criterion', '#trondek', '#contact'];
-  const slideEls = slideIds.map((id) => document.querySelector(id)).filter(Boolean);
-  const projectEls = slideEls.slice(0, 5);
-  const TOTAL = 5;
+  var slideIds = ['#onward', '#echoloop', '#criterion', '#trondek', '#contact'];
+  var slideEls = slideIds.map(function (id) { return document.querySelector(id); }).filter(Boolean);
+  var projectEls = slideEls.slice(0, 4);
+  var TOTAL = 4;
 
-  let playIdx = 0;
-  let currentVisibleIdx = 0;
-  let manualPaused = false;
-  let autoplayTimer = null;
-  let scrollResumeTimer = null;
+  var playIdx = 0;
+  var currentVisibleIdx = 0;
+  var manualPaused = false;
+  var autoplayTimer = null;
+  var scrollResumeTimer = null;
 
   function updateCounter(idx) {
     if (!counterText) return;
@@ -127,7 +118,7 @@
 
   function goTo(idx) {
     playIdx = ((idx % slideEls.length) + slideEls.length) % slideEls.length;
-    const el = slideEls[playIdx];
+    var el = slideEls[playIdx];
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
@@ -182,7 +173,7 @@
     heroObs.observe(hero);
   }
 
-  // Track which project is most visible
+  // Track which project is most visible for counter sync
   var ratioMap = new Map();
   projectEls.forEach(function (el) { ratioMap.set(el, 0); });
 
@@ -191,17 +182,12 @@
       entries.forEach(function (entry) {
         ratioMap.set(entry.target, entry.intersectionRatio);
       });
-
       var bestEl = null;
       var bestRatio = 0;
       ratioMap.forEach(function (ratio, el) {
-        if (ratio > bestRatio) {
-          bestRatio = ratio;
-          bestEl = el;
-        }
+        if (ratio > bestRatio) { bestRatio = ratio; bestEl = el; }
       });
-
-      if (bestEl && bestRatio > 0.25) {
+      if (bestEl && bestRatio > 0.2) {
         var idx = projectEls.indexOf(bestEl);
         if (idx !== -1) {
           currentVisibleIdx = idx;
@@ -209,12 +195,12 @@
         }
       }
     },
-    { threshold: [0, 0.1, 0.25, 0.5, 0.75, 1.0] }
+    { threshold: [0, 0.1, 0.2, 0.5, 0.75, 1.0] }
   );
 
   projectEls.forEach(function (el) { sectionObs.observe(el); });
 
-  // Kick off autoplay after hero entrance
+  // Start autoplay after hero entrance
   setTimeout(function () {
     if (!manualPaused) scheduleNext();
   }, 3000);
