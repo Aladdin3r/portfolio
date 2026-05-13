@@ -36,6 +36,12 @@ html {
   height: 44px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+}
+
+.bp-doc-right {
+  display: flex;
+  align-items: center;
 }
 
 .bp-doc-name {
@@ -48,8 +54,8 @@ html {
 
 .bp-doc-sep {
   color: #ff6600;
-  margin: 0 0.75rem;
-  opacity: 0.55;
+  margin: 0 0.6rem;
+  opacity: 0.45;
   font-size: 0.68rem;
 }
 
@@ -521,8 +527,7 @@ html {
     padding: 0 1.5rem;
   }
 
-  .bp-doc-program,
-  .bp-doc-sep:last-of-type {
+  .bp-doc-right {
     display: none;
   }
 }

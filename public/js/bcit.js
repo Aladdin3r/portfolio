@@ -22,7 +22,7 @@
     }
   );
 
-  // Slide sections: fade + rise on scroll
+  // Slide sections: fade + rise on scroll — once only, never reverses
   document.querySelectorAll('.bp-section:not(#hero)').forEach((section) => {
     gsap.fromTo(
       section,
@@ -34,8 +34,8 @@
         ease: 'power3.out',
         scrollTrigger: {
           trigger: section,
-          start: 'top 60%',
-          toggleActions: 'play none none reverse',
+          start: 'top 95%',
+          once: true,
         },
       }
     );
