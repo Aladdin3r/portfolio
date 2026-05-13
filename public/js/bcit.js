@@ -44,14 +44,24 @@
   });
 })();
 
-// Section reveals via IntersectionObserver — fires reliably on any scroll
-// (programmatic scrollIntoView included), never reverses once visible
+// Section reveals via IntersectionObserver + inline styles
+// Inline styles bypass CSS specificity issues entirely
 (function initSectionReveals() {
+  var transition = 'opacity 0.85s cubic-bezier(0.22,1,0.36,1), transform 0.85s cubic-bezier(0.22,1,0.36,1)';
+
+  var sections = document.querySelectorAll('.bp-section:not(#hero)');
+  sections.forEach(function (s) {
+    s.style.opacity = '0';
+    s.style.transform = 'translateY(32px)';
+    s.style.transition = transition;
+  });
+
   var obs = new IntersectionObserver(
     function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-          entry.target.classList.add('is-revealed');
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
           obs.unobserve(entry.target);
         }
       });
@@ -59,9 +69,7 @@
     { threshold: 0.08 }
   );
 
-  document.querySelectorAll('.bp-section:not(#hero)').forEach(function (section) {
-    obs.observe(section);
-  });
+  sections.forEach(function (s) { obs.observe(s); });
 })();
 
 // EchoLoop: click to unmute + fullscreen

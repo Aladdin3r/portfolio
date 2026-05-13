@@ -99,19 +99,6 @@ html {
   opacity: 0.45;
 }
 
-/* ── Section reveal (CSS transition, triggered by IntersectionObserver) ── */
-body.bcit-pitch .bp-section:not(#hero) {
-  opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-body.bcit-pitch .bp-section.is-revealed {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 /* ── Section base ── */
 .bp-section {
   padding: 8rem 6rem;
