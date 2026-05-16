@@ -1,0 +1,298 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Rawan Aladdin — For Islands"
+  description="A targeted mini-portfolio: why Rawan Aladdin belongs on the Islands team."
+  bodyClass="islands-pitch"
+>
+  <Fragment slot="head">
+    <link rel="stylesheet" href="/css/islands.css" />
+  </Fragment>
+
+  <main>
+
+    <!-- ═══════════════════════════════════════════
+         HERO
+    ═══════════════════════════════════════════ -->
+    <section id="hero" class="ip-section" style="min-height: 100vh; justify-content: flex-end; padding-bottom: 9rem;">
+      <p class="ip-hero-label">For Islands — May 2026</p>
+      <h1 class="ip-hero-h1">Hi Islands,<br>I'm Rawan.</h1>
+      <p class="ip-hero-sub">
+        UX designer and developer who ships AI products — and moves at startup speed.
+      </p>
+      <div class="ip-hero-links">
+        <a href="https://rawanaladdin.com" target="_blank" rel="noopener" class="main-link">rawanaladdin.com ↗</a>
+        <a href="mailto:hello@rawanaladdin.com" class="main-link">hello@rawanaladdin.com ↗</a>
+      </div>
+    </section>
+
+    <div class="ip-divider"></div>
+
+    <!-- ═══════════════════════════════════════════
+         WHY ISLANDS
+    ═══════════════════════════════════════════ -->
+    <section id="why-islands" class="ip-section">
+      <p class="ip-section-label">Why Islands</p>
+      <h2 class="ip-h2">Three reasons<br>I belong here.</h2>
+      <div class="ip-cards">
+
+        <div class="ip-card">
+          <p class="ip-card-num">01</p>
+          <h3>I designed it and built it.</h3>
+          <p>
+            On Onward, I was lead developer and designer. I made the architecture decisions,
+            wrote the code, and shipped the product. When something needed to change,
+            I didn't wait — I changed it.
+          </p>
+        </div>
+
+        <div class="ip-card">
+          <p class="ip-card-num">02</p>
+          <h3>I come from both sides of the screen.</h3>
+          <p>
+            Started in Computer Science, moved to design at BCIT. I prototype in Figma
+            and write the code that ships it. That means I speak developer fluently
+            and hand off work that actually builds.
+          </p>
+        </div>
+
+        <div class="ip-card">
+          <p class="ip-card-num">03</p>
+          <h3>My design decisions have data behind them.</h3>
+          <p>
+            Onward scored 8/10 in usability testing with 12 users. That number drove
+            a redesign of the feedback flow before we shipped. I ask "how do we know?"
+            before I call something done.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="ip-divider"></div>
+
+    <!-- ═══════════════════════════════════════════
+         PROJECT 01: ONWARD
+    ═══════════════════════════════════════════ -->
+    <section id="onward" class="ip-section">
+      <p class="ip-section-label">Project 01 — AI Interview Coaching App</p>
+      <div class="ip-two-col">
+
+        <div class="ip-media-col">
+          <img src="/clipstart.gif" alt="Onward app — interview session starting" loading="lazy" />
+          <div class="ip-stats">
+            <div class="ip-stat-block">
+              <span class="ip-stat" data-count="200" data-suffix="+">200+</span>
+              <span class="ip-stat-label">Professionals presented to, live</span>
+            </div>
+            <div class="ip-stat-block">
+              <span class="ip-stat" data-static="true">8/10</span>
+              <span class="ip-stat-label">Ease of use in user testing</span>
+            </div>
+          </div>
+          <img
+            src="/clipinterview-results.gif"
+            alt="Onward app — interview results screen"
+            loading="lazy"
+            style="margin-top: 1.75rem;"
+          />
+        </div>
+
+        <div class="ip-text-col">
+          <h2 class="ip-h2">Onward</h2>
+
+          <p class="ip-sub-label">The Problem</p>
+          <p>
+            Internationally-educated healthcare workers — fully qualified, years of experience —
+            fail Canadian job interviews not because of skill gaps, but communication barriers:
+            language anxiety, cultural unfamiliarity with STAR-method expectations,
+            the quiet fear of being misunderstood.
+          </p>
+
+          <p class="ip-sub-label">My Role</p>
+          <p>
+            Lead developer and designer. I owned the product end-to-end — architecture decisions,
+            design system, user research, and the final pitch to angel investors at VANTEC Network.
+          </p>
+
+          <p class="ip-sub-label">Key Decisions</p>
+          <ul class="ip-decisions">
+            <li>
+              <strong style="color: white; font-weight: 500;">Split the timer.</strong> Practice mode
+              shows elapsed time — no pressure. Mock mode counts down — real stakes. One insight,
+              two modes, zero ambiguity.
+            </li>
+            <li>
+              <strong style="color: white; font-weight: 500;">Real-time filler word detection</strong>
+              via Azure Speech-to-Text surfaces patterns without shaming — the feedback is data,
+              not judgment.
+            </li>
+            <li>
+              <strong style="color: white; font-weight: 500;">STAR method scaffolding</strong> guides
+              without restricting. The AI leads structure, the user decides content.
+            </li>
+            <li>
+              <strong style="color: white; font-weight: 500;">Loading states for every async action.</strong>
+              When Azure processes speech, Onward shows it. Trust is built in the micro-moments.
+            </li>
+          </ul>
+
+          <div class="ip-outcome">
+            <p>
+              <strong>Shipped in 4 months.</strong> Pitched to VANTEC Network angel investors.
+              Presented live to 200+ professionals, investors, and government officials.
+              Continues in active development at onward-prep.ca.
+            </p>
+          </div>
+
+          <a href="/onward" class="ip-case-link">Read the full case study ↗</a>
+        </div>
+
+      </div>
+
+      <!-- Aunt interview: the human story behind Onward -->
+      <div class="ip-clip-block">
+        <p class="ip-sub-label">Hear why we built this</p>
+        <div class="ip-clip-row">
+          <div class="ip-media-block ip-video-wrapper" title="Click to watch with sound">
+            <video id="onward-clip-video" autoplay muted loop playsinline>
+              <source src="/clip.mp4" type="video/mp4" />
+            </video>
+            <div class="ip-video-hint">▶ click for sound &amp; fullscreen</div>
+          </div>
+          <div class="ip-clip-photo-wrap">
+            <div class="ip-clip-caption">Pitching live to 200+ professionals</div>
+            <img src="/presentation.webp" alt="Rawan pitching Onward live" class="ip-clip-photo" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ip-divider"></div>
+
+    <!-- ═══════════════════════════════════════════
+         PROJECT 02: SAFECYCLE
+    ═══════════════════════════════════════════ -->
+    <section id="safecycle" class="ip-section">
+      <p class="ip-section-label">Project 02 — Cycling Safety MVP</p>
+      <div class="ip-two-col">
+
+        <div class="ip-media-col">
+          <img src="/safecycle-coded.gif" alt="SafeCycle app — live coded prototype" loading="lazy" />
+          <div class="ip-stats">
+            <div class="ip-stat-block">
+              <span class="ip-stat" data-static="true">4</span>
+              <span class="ip-stat-label">Months to MVP</span>
+            </div>
+            <div class="ip-stat-block">
+              <span class="ip-stat" data-static="true">3</span>
+              <span class="ip-stat-label">Roles — PM, Design, Dev</span>
+            </div>
+          </div>
+          <img
+            src="/safecycle-wireframes.webp"
+            alt="SafeCycle wireframes"
+            loading="lazy"
+            style="margin-top: 1.75rem;"
+          />
+        </div>
+
+        <div class="ip-text-col">
+          <h2 class="ip-h2">SafeCycle</h2>
+
+          <p class="ip-sub-label">The Problem</p>
+          <p>
+            Cyclists and pedestrians in Vancouver — especially those with mobility needs —
+            have no routing tool built around safety. Existing apps optimise for speed,
+            not hazard avoidance or accessibility.
+          </p>
+
+          <p class="ip-sub-label">My Role</p>
+          <p>
+            Project manager, UX designer, and lead developer. Three hats, one four-month sprint.
+            The goal was a functional MVP — not a production app — so every decision was about
+            validating the concept with working code, not over-engineering it.
+          </p>
+
+          <p class="ip-sub-label">Key Decisions</p>
+          <ul class="ip-decisions">
+            <li>
+              <strong style="color: white; font-weight: 500;">Scoped ruthlessly.</strong>
+              An MVP only works if you ship it. We cut every feature that wasn't core to the
+              safety routing problem and shipped something testable in 4 months.
+            </li>
+            <li>
+              <strong style="color: white; font-weight: 500;">Google Maps API over custom routing.</strong>
+              Building our own routing infrastructure would have taken the whole semester.
+              Using an existing API meant we could focus on the UX problem, not the plumbing.
+            </li>
+            <li>
+              <strong style="color: white; font-weight: 500;">Accessibility as the core thesis,</strong>
+              not a stretch goal. Wheelchair routing and hazard avoidance were first-class
+              requirements — if we cut those, we'd built the wrong product entirely.
+            </li>
+          </ul>
+
+          <a href="/safecycle" class="ip-case-link">Read the full case study ↗</a>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="ip-divider"></div>
+
+    <!-- ═══════════════════════════════════════════
+         ABOUT
+    ═══════════════════════════════════════════ -->
+    <section id="about" class="ip-section" style="min-height: auto; padding-top: 6rem; padding-bottom: 6rem;">
+      <p class="ip-section-label">About</p>
+      <div class="ip-about-inner">
+        <p>
+          Vancouver-based UX designer and developer. Started in Computer Science,
+          found design, and never looked back.
+        </p>
+        <p>
+          I completed a Diploma in Digital Design & Development at BCIT and I'm finishing
+          a Bachelor of Creative Industries — design practice, emerging tech, creative strategy.
+          I've shipped live AI products as lead developer, led a digital media team, and built
+          enough in code to know why implementation constraints are design constraints.
+        </p>
+        <p>
+          I care about the whole product — not just the interface. When I open Figma,
+          I already know what the dev handoff looks like.
+        </p>
+      </div>
+    </section>
+
+    <div class="ip-divider"></div>
+
+    <!-- ═══════════════════════════════════════════
+         CTA
+    ═══════════════════════════════════════════ -->
+    <section id="cta" class="ip-section ip-cta" style="min-height: 70vh;">
+      <h2 class="ip-cta-h2">Let's build something.</h2>
+      <p class="ip-cta-sub">
+        I'd love to work with Islands on products that move fast without losing
+        what makes them good.
+      </p>
+      <a href="mailto:hello@rawanaladdin.com" class="ip-email-link">hello@rawanaladdin.com ↗</a>
+      <p class="ip-secondary-links">
+        <a href="https://rawanaladdin.com" target="_blank" rel="noopener">rawanaladdin.com</a>
+        &nbsp;·&nbsp;
+        <a href="https://linkedin.com/in/rawan-aladdin" target="_blank" rel="noopener">linkedin.com/in/rawan-aladdin</a>
+      </p>
+      <div class="ip-also">
+        <p class="ip-also-label">Also worth a look</p>
+        <a href="/playground" class="ip-also-link">Playground — where I experiment when no one's watching ↗</a>
+        <a href="/projects" class="ip-also-link">Full portfolio ↗</a>
+      </div>
+    </section>
+
+  </main>
+
+  <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js"></script>
+  <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/ScrollTrigger.min.js"></script>
+  <script defer src="/js/islands.js"></script>
+
+</BaseLayout>

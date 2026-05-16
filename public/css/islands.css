@@ -1,0 +1,508 @@
+/* ============================================================
+   Islands Mini-Portfolio — scoped under body.islands-pitch
+   ============================================================ */
+
+body.islands-pitch {
+  overflow-x: hidden;
+}
+
+/* ── Section base ── */
+.ip-section {
+  min-height: 100vh;
+  padding: 8rem 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  font-weight: 300;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ── Divider ── */
+.ip-divider {
+  width: 40px;
+  height: 1px;
+  background: #1DB88E;
+  margin: 0 auto;
+  opacity: 0.4;
+}
+
+/* ── Labels & headings ── */
+.ip-hero-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #1DB88E;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+
+.ip-section-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+
+.ip-hero-h1 {
+  font-size: clamp(3.2rem, 9vw, 8rem);
+  font-weight: 300;
+  line-height: 1.0;
+  text-transform: uppercase;
+  margin: 0 0 1.75rem;
+  color: white;
+}
+
+.ip-h2 {
+  font-size: clamp(2rem, 4.5vw, 4rem);
+  font-weight: 300;
+  text-transform: uppercase;
+  line-height: 1.05;
+  margin: 0 0 2rem;
+  color: white;
+}
+
+.ip-hero-sub {
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
+  font-weight: 300;
+  opacity: 0.8;
+  line-height: 1.65;
+  max-width: 640px;
+  margin-bottom: 2.5rem;
+}
+
+/* ── Hero links ── */
+.ip-hero-links {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* ── Why Islands cards ── */
+.ip-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.ip-card {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 2rem 1.75rem;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.ip-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.ip-card-num {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #1DB88E;
+  margin-bottom: 0.75rem;
+  font-weight: 400;
+}
+
+.ip-card h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0 0 0.85rem;
+  line-height: 1.35;
+  color: white;
+}
+
+.ip-card p {
+  font-size: 0.92rem;
+  font-weight: 300;
+  opacity: 0.75;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ── Two-column layout ── */
+.ip-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+  margin-top: 1rem;
+}
+
+.ip-media-col {
+  position: sticky;
+  top: 6rem;
+}
+
+.ip-media-col img {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
+}
+
+.ip-stats {
+  margin-top: 2rem;
+  display: flex;
+  gap: 2.5rem;
+}
+
+.ip-stat-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.ip-stat {
+  font-size: 3rem;
+  font-weight: 300;
+  color: #1DB88E;
+  line-height: 1;
+}
+
+.ip-stat-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.5;
+  margin-top: 0.3rem;
+  font-weight: 400;
+}
+
+/* ── Project text col ── */
+.ip-text-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.ip-sub-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.45);
+  margin: 1.75rem 0 0.5rem;
+  font-weight: 400;
+}
+
+.ip-text-col p {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.72;
+  opacity: 0.82;
+  margin: 0 0 0.5rem;
+}
+
+/* ── Decisions list ── */
+.ip-decisions {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 1.5rem;
+}
+
+.ip-decisions li {
+  padding: 0.85rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+  font-size: 0.95rem;
+  font-weight: 300;
+  opacity: 0.8;
+  line-height: 1.6;
+}
+
+.ip-decisions li:last-child {
+  border-bottom: none;
+}
+
+/* ── Video / media block ── */
+.ip-media-block {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.35);
+  aspect-ratio: 16 / 9;
+}
+
+.ip-media-block video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Aunt interview clip block (below two-col) ── */
+.ip-clip-block {
+  margin-top: 4rem;
+  width: 100%;
+}
+
+.ip-clip-block .ip-sub-label {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.ip-clip-row {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.ip-clip-row .ip-media-block {
+  aspect-ratio: unset;
+  height: 100%;
+  min-height: 260px;
+}
+
+.ip-clip-row .ip-media-block video {
+  height: 100%;
+}
+
+.ip-clip-photo-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.ip-clip-caption {
+  position: absolute;
+  top: 0.85rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  pointer-events: none;
+  white-space: nowrap;
+  font-weight: 400;
+  z-index: 1;
+}
+
+.ip-clip-photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  display: block;
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+/* ── About section ── */
+.ip-about-inner {
+  max-width: 700px;
+}
+
+.ip-about-inner p {
+  font-size: 1.05rem;
+  font-weight: 300;
+  line-height: 1.8;
+  opacity: 0.82;
+  margin: 0 0 1.4rem;
+}
+
+.ip-about-inner p:last-child {
+  margin-bottom: 0;
+}
+
+/* ── CTA section ── */
+.ip-cta {
+  align-items: center;
+  text-align: center;
+}
+
+.ip-cta-h2 {
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-weight: 300;
+  text-transform: uppercase;
+  margin: 0 0 1rem;
+  color: white;
+  line-height: 1;
+}
+
+.ip-cta-sub {
+  opacity: 0.6;
+  max-width: 480px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.65;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.ip-email-link {
+  display: inline-block;
+  color: #1DB88E;
+  font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+  font-style: italic;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  margin-bottom: 1.75rem;
+  transition: opacity 0.2s ease;
+}
+
+.ip-email-link:hover {
+  opacity: 0.75;
+}
+
+.ip-secondary-links {
+  opacity: 0.4;
+  font-size: 0.85rem;
+  font-weight: 300;
+}
+
+.ip-secondary-links a {
+  color: white;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.2s ease;
+}
+
+.ip-secondary-links a:hover {
+  opacity: 0.7;
+}
+
+/* ── Outcome callout ── */
+.ip-outcome {
+  margin-top: 1.75rem;
+  padding: 1.25rem 1.5rem;
+  border-left: 2px solid #1DB88E;
+  background: rgba(29, 184, 142, 0.06);
+  border-radius: 0 8px 8px 0;
+}
+
+.ip-outcome p {
+  font-size: 0.92rem;
+  opacity: 0.85;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.ip-outcome strong {
+  color: #1DB88E;
+  font-weight: 500;
+}
+
+/* ── Case study link ── */
+.ip-case-link {
+  display: inline-block;
+  margin-top: 2rem;
+  color: white;
+  font-size: 0.9rem;
+  font-style: italic;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  opacity: 0.65;
+  transition: opacity 0.2s ease;
+}
+
+.ip-case-link:hover {
+  opacity: 1;
+}
+
+/* ── Video: click hint overlay ── */
+.ip-video-wrapper {
+  position: relative;
+  cursor: pointer;
+}
+
+.ip-video-wrapper:hover .ip-video-hint {
+  opacity: 1;
+}
+
+.ip-video-hint {
+  position: absolute;
+  bottom: 0.85rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  white-space: nowrap;
+  font-weight: 400;
+}
+
+/* ── Also worth a look ── */
+.ip-also {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.ip-also-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 400;
+  margin-bottom: 0.2rem;
+}
+
+.ip-also-link {
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 300;
+  transition: color 0.2s ease;
+}
+
+.ip-also-link:hover {
+  color: white;
+}
+
+/* ── Mobile ── */
+@media (max-width: 900px) {
+  .ip-section {
+    padding: 6rem 2.5rem;
+  }
+
+  .ip-cards {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .ip-two-col {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .ip-media-col {
+    position: static;
+  }
+
+  .ip-clip-row {
+    grid-template-columns: 1fr;
+  }
+
+  .ip-hero-links {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ip-section {
+    padding: 5rem 1.5rem;
+  }
+
+  .ip-stats {
+    gap: 1.5rem;
+  }
+}
