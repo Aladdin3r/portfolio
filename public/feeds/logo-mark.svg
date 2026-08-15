@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160" role="img" aria-label="feeds mark">
+  <defs>
+    <linearGradient id="markGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2f7d57"/>
+      <stop offset="1" stop-color="#173f2e"/>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="144" height="144" rx="34" fill="url(#markGrad)"/>
+  <g fill="none" stroke="#eafff4" stroke-width="13" stroke-linecap="round">
+    <path d="M52 86 A22 22 0 0 1 74 108"/>
+    <path d="M52 64 A44 44 0 0 1 96 108"/>
+  </g>
+  <circle cx="52" cy="108" r="11" fill="#eafff4"/>
+</svg>

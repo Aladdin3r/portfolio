@@ -1,0 +1,329 @@
+/* ============================================================
+   Thinkingbox Mini-Portfolio — scoped under body.tb-pitch
+   Brand: Rawan Aladdin — #FF6701 / #1E293B / #000
+   ============================================================ */
+
+body.tb-pitch {
+  overflow-x: hidden;
+}
+
+/* ── Section base ── */
+.tb-section {
+  padding: 7rem 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+  font-weight: 300;
+  max-width: 1180px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.tb-divider {
+  width: 40px;
+  height: 1px;
+  background: #FF6701;
+  margin: 0 auto;
+  opacity: 0.5;
+}
+
+/* ── Labels & headings ── */
+.tb-hero-label,
+.tb-section-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  margin-bottom: 1.2rem;
+  font-weight: 400;
+}
+.tb-hero-label { color: #FF6701; }
+.tb-section-label { color: rgba(255, 255, 255, 0.45); }
+
+.tb-hero-h1 {
+  font-size: clamp(3rem, 8.5vw, 7.5rem);
+  font-weight: 300;
+  line-height: 1.0;
+  text-transform: uppercase;
+  margin: 0 0 1.75rem;
+  color: #fff;
+}
+
+.tb-h2 {
+  font-size: clamp(1.9rem, 4.2vw, 3.6rem);
+  font-weight: 300;
+  text-transform: uppercase;
+  line-height: 1.05;
+  margin: 0 0 1.5rem;
+  color: #fff;
+}
+
+.tb-hero-sub {
+  font-size: clamp(1rem, 1.8vw, 1.28rem);
+  font-weight: 300;
+  opacity: 0.82;
+  line-height: 1.65;
+  max-width: 660px;
+  margin-bottom: 2.5rem;
+}
+
+.tb-lede {
+  font-size: 1.02rem;
+  font-weight: 300;
+  opacity: 0.78;
+  line-height: 1.75;
+  max-width: 660px;
+  margin: 0 0 2.5rem;
+}
+
+.tb-hero-links {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* ── Reason cards ── */
+.tb-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  margin-top: 2.5rem;
+}
+
+.tb-card {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 2rem 1.75rem;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+.tb-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 103, 1, 0.4);
+}
+
+.tb-card-num {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #FF6701;
+  margin-bottom: 0.75rem;
+  font-weight: 400;
+}
+
+.tb-card h3 {
+  font-size: 1.08rem;
+  font-weight: 500;
+  margin: 0 0 0.85rem;
+  line-height: 1.35;
+  color: #fff;
+}
+
+.tb-card p {
+  font-size: 0.9rem;
+  font-weight: 300;
+  opacity: 0.75;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ── Project blocks ── */
+.tb-project-head {
+  display: flex;
+  align-items: baseline;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.4rem;
+}
+
+.tb-project-title {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 300;
+  text-transform: uppercase;
+  line-height: 1;
+  margin: 0;
+  color: #fff;
+}
+
+.tb-meta {
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #FF6701;
+  font-weight: 400;
+}
+
+.tb-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin: 1.25rem 0 2rem;
+}
+
+.tb-tag {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.4rem 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 100px;
+  opacity: 0.8;
+}
+
+/* ── Detail rows ── */
+.tb-detail {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 1.5rem;
+  padding: 1.15rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tb-detail-k {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  opacity: 0.5;
+  padding-top: 0.2rem;
+}
+
+.tb-detail-v {
+  font-size: 0.97rem;
+  font-weight: 300;
+  line-height: 1.75;
+  opacity: 0.86;
+}
+
+.tb-detail-v strong {
+  font-weight: 500;
+  opacity: 1;
+}
+
+/* ── Stats ── */
+.tb-stats {
+  display: flex;
+  gap: 3.5rem;
+  flex-wrap: wrap;
+  margin: 2rem 0 0;
+}
+
+.tb-stat-n {
+  font-size: 2.6rem;
+  font-weight: 300;
+  color: #FF6701;
+  line-height: 1;
+}
+
+.tb-stat-l {
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  opacity: 0.6;
+  margin-top: 0.5rem;
+}
+
+/* ── Media ── */
+.tb-media {
+  margin: 2.5rem 0 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.tb-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.tb-media-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.tb-caption {
+  font-size: 0.8rem;
+  opacity: 0.55;
+  line-height: 1.6;
+  margin: 0.7rem 0 0;
+  font-weight: 300;
+}
+
+/* ── Studio grid ── */
+.tb-studio {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.tb-studio-item img {
+  display: block;
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tb-studio-item h4 {
+  font-size: 0.98rem;
+  font-weight: 500;
+  margin: 0.9rem 0 0.3rem;
+  color: #fff;
+}
+
+.tb-studio-item p {
+  font-size: 0.84rem;
+  opacity: 0.65;
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 300;
+}
+
+/* ── Note ── */
+.tb-note {
+  border-left: 2px solid #FF6701;
+  padding: 0.3rem 0 0.3rem 1.25rem;
+  margin: 2rem 0 0;
+  font-size: 0.92rem;
+  line-height: 1.75;
+  opacity: 0.72;
+  font-weight: 300;
+  max-width: 660px;
+}
+
+/* ── CTA ── */
+.tb-cta-links {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  align-items: center;
+}
+
+.tb-footnote {
+  font-size: 0.8rem;
+  opacity: 0.45;
+  margin-top: 3rem;
+  font-weight: 300;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .tb-section { padding: 4.5rem 1.75rem; }
+  .tb-cards,
+  .tb-studio,
+  .tb-media-grid { grid-template-columns: 1fr; }
+  .tb-detail { grid-template-columns: 1fr; gap: 0.4rem; }
+  .tb-stats { gap: 2rem; }
+  .tb-studio-item img { height: 240px; }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .tb-card { transition: none; }
+}
