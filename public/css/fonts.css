@@ -1,0 +1,35 @@
+/* ============================================================
+   Satoshi — self-hosted.
+   Replaces fonts.cdnfonts.com, which was returning 404 for all
+   three weights and was blocked by cross-origin policy, so the
+   brand typeface was never actually rendering.
+   ============================================================ */
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi-Variable.woff') format('woff-variations'),
+       url('/fonts/Satoshi-Variable.woff') format('woff');
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi-VariableItalic.woff') format('woff-variations'),
+       url('/fonts/Satoshi-VariableItalic.woff') format('woff');
+  font-weight: 300 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Named aliases kept so existing rules that ask for the old
+   family names still resolve to the real typeface. */
+@font-face {
+  font-family: 'Satoshi Variable';
+  src: url('/fonts/Satoshi-Variable.woff') format('woff-variations'),
+       url('/fonts/Satoshi-Variable.woff') format('woff');
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}

@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const menu = document.querySelector(".menu");
     const fullPageMenu = document.querySelector(".full-page-menu");
+    if (!menu || !fullPageMenu) return;
 
     menu.addEventListener("click", () => {
         console.log("Menu clicked");

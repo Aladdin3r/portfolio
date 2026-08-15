@@ -3,7 +3,7 @@ html, body {
     padding: 0;
     height: 100%;
     width: 100%;
-    background-image: url("/gradient4.svg");
+    background-image: linear-gradient(180deg, #1a1410 0%, #2a1815 30%, #2a1a25 60%, #1a0f08 100%);
     background-size: cover;
     background-position: center; 
     display: flex;
@@ -91,7 +91,7 @@ header {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-image: url("/gradient4.svg");
+    background-image: linear-gradient(180deg, #1a1410 0%, #2a1815 30%, #2a1a25 60%, #1a0f08 100%);
     background-size: cover;
     background-position: center; 
     color: white;
@@ -189,7 +189,10 @@ header {
 }
 
 .icons img {
+    width: 2.5em;
     height: 2.5em;
+    display: block;
+    object-fit: contain;
 }
 
 .title-name {
@@ -323,6 +326,15 @@ main {
     text-align: left; /* Align text to the left */
     word-wrap: break-word; /* Ensure long words wrap properly */
     margin-left: 7em;
+}
+
+.main-text > span {
+    transition: color 0.2s ease-in-out;
+}
+
+.main-text > span.narration-active,
+.main-text > span.narration-active .small-link {
+    color: #ff6600;
 }
 
 .emphasis {
@@ -699,6 +711,7 @@ media queries below for responsive design
     }
 
     .icons img{
+        width: 2em;
         height: 2em;
     }
 
@@ -893,6 +906,7 @@ media queries below for responsive design
     }
 
     .icons img {
+        width: 1.75em;
         height: 1.75em;
     }
     .rotated-image {
@@ -1381,3 +1395,20 @@ body.playground {
     .card-queen:hover { transform: rotate(22deg)  translateY(-55px); }
 }
 
+
+/* ── Lighthouse: tap targets were 60% compliant; .main-link measured 25px high ── */
+.main-link,
+.small-link,
+.playground-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 48px;
+}
+
+.icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 48px;
+    min-height: 48px;
+}

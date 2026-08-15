@@ -3,12 +3,16 @@ interface Props {
   title: string;
   description?: string;
   bodyClass?: string;
+  canonical?: string;
 }
 const {
   title,
   description = "Rawan Aladdin is a UX/UI Designer.",
   bodyClass = "",
+  canonical,
 } = Astro.props;
+
+const canonicalURL = canonical ?? "https://rawanaladdin.com/";
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -16,30 +20,43 @@ const {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content={description} />
-  <link rel="canonical" href="https://rawanaladdin.com/" />
+  <link rel="canonical" href={canonicalURL} />
   <meta property="og:image" content="/logo-orange.svg" />
   <meta name="author" content="Rawan Aladdin" />
+  <meta name="theme-color" content="#0a0a0a" />
   <link rel="icon" type="image/x-icon" href="/logo-orange.svg" />
-  <link rel="preload" href="/css/style.css" as="style" />
-  <link rel="preload" href="https://fonts.cdnfonts.com/s/satoshi-bold.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
-  <link rel="preload" href="https://fonts.cdnfonts.com/s/satoshi-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
-  <link rel="preload" href="https://fonts.cdnfonts.com/s/satoshi-medium.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+  <link rel="apple-touch-icon" href="/logo-orange.svg" />
+
+  <!-- Self-hosted Satoshi. Previously loaded from fonts.cdnfonts.com,
+       where all three weights 404'd and the stylesheet was CORS-blocked
+       while still costing ~1.2s of render-blocking time. -->
+  <link rel="preload" href="/fonts/Satoshi-Variable.woff" as="font" type="font/woff" crossorigin="anonymous" />
+  <link rel="stylesheet" href="/css/fonts.css" />
+
+  <link rel="stylesheet" href="/css/style.css" />
+
   <script is:inline>
     document.addEventListener('DOMContentLoaded', function () {
       document.body.classList.remove('hidden');
     });
   </script>
-  <link rel="stylesheet" href="/css/style.css" />
-  <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet" />
+
+  <!-- Netlify Identity is only needed for the CMS at /admin, or when an
+       invite/recovery token is present. Loading it everywhere cost 55KB
+       and ~83ms of script time on every page view. -->
   <script is:inline>
-    (function() {
+    (function () {
+      var needsIdentity =
+        location.pathname.indexOf('/admin') === 0 ||
+        /(invite_token|recovery_token|confirmation_token|email_change_token)/.test(location.hash);
+      if (!needsIdentity) return;
       var s = document.createElement('script');
       s.src = 'https://identity.netlify.com/v1/netlify-identity-widget.js';
-      s.onload = function() {
+      s.onload = function () {
         if (window.netlifyIdentity) {
-          window.netlifyIdentity.on('init', function(user) {
+          window.netlifyIdentity.on('init', function (user) {
             if (!user) {
-              window.netlifyIdentity.on('login', function() {
+              window.netlifyIdentity.on('login', function () {
                 document.location.href = '/admin/';
               });
             }
@@ -49,6 +66,7 @@ const {
       document.head.appendChild(s);
     })();
   </script>
+
   <slot name="head" />
   <title>{title}</title>
 </head>

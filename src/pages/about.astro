@@ -22,55 +22,74 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="audio-container">
         <audio
           controls
-          anonymous
           id="about-audio"
           preload="auto"
           src="/about-audio-music.mp3"
-          type="sound/mp3"
-          onclick="playandLoopThroughText();"
+          type="audio/mpeg"
         ></audio>
         <p>Listen to me narrate (and pronounce my name!)</p>
       </div>
       <p class="main-text">
-        <span id="blurb" data-nav="blurb1">I'm <strong class="emphasis">Rawan Aladdin</strong></span>
-        <span> (yes, like the movie),</span>
-        <span>a vibrant designer</span>
-        <span> who's an avid history fanatic, </span>
-        <span>classic movie-lover,</span>
-        <span><strong class="popup-text" id="pic-emoji">amateur photographer&#8599;</strong></span>
-        <span>and a <strong class="popup-text" id="cat-emoji">big animal lover&#8599;.</strong></span>
+        <span id="blurb" data-nav="blurb1" data-start="0" data-end="1.72">I'm <strong class="emphasis">Rawan Aladdin</strong></span>
+        <span data-start="1.98" data-end="3.40"> (yes, like the movie),</span>
+        <span data-start="4.10" data-end="5.18"> a vibrant designer</span>
+        <span data-start="5.18" data-end="7.00"> who's an avid history fanatic,</span>
+        <span data-start="7.36" data-end="8.52"> classic movie-lover,</span>
+        <span data-start="9.06" data-end="9.98"> <strong class="popup-text" id="pic-emoji">amateur photographer&#8599;</strong></span>
+        <span data-start="10.64" data-end="12.98"> and a <strong class="popup-text" id="cat-emoji">big animal lover&#8599;.</strong></span>
       </p>
       <p class="main-text">
-        <span>From the bustling corridors of the University of Toronto</span>
-        <span>to the innovative labs at the British Columbia Institute of Technology, </span>
-        <span>I've journeyed through the landscapes of Cognitive Science,</span>
-        <span>Philosophy, </span>
-        <span>Digital Humanities,</span>
-        <span>and UX/UI Design. </span>
-        <span>Armed with Figma, </span>
-        <span>HTML, </span>
-        <span>CSS, </span>
-        <span>and a knack for Human-Computer Interaction, </span>
-        <span>I craft experiences that delight and inspire. </span>
+        <span data-start="13.58" data-end="16.30">My path into design has not been straightforward.</span>
+        <span data-start="16.86" data-end="19.38"> I moved from studying Cognitive Science,</span>
+        <span data-start="19.78" data-end="21.60"> Philosophy, and Digital Humanities</span>
+        <span data-start="21.60" data-end="26.40"> at the University of Toronto into UX/UI Design at BCIT.</span>
+        <span data-start="27.10" data-end="29.76"> Yet none of those shifts felt wasted;</span>
+        <span data-start="30.18" data-end="32.76"> each one shaped how I understand people,</span>
+        <span data-start="33.28" data-end="35.16"> technology, and the quiet details</span>
+        <span data-start="35.16" data-end="36.88"> that can transform an experience.</span>
       </p>
       <p class="main-text">
-        <span>When I'm not tinkering with prototypes </span>
-        <span>or fine-tuning pixels, </span>
-        <span>you'll find me diving into the latest trends in Artificial Intelligence, </span>
-        <span>Augmented Reality, </span>
-        <span>and UX methodologies. </span>
-        <span>My adventures have taken me from </span>
-        <span>redesigning web layouts for cultural associations </span>
-        <span>to leading digital media teams, </span>
-        <span>always with a camera in hand </span>
-        <span>and a vision in mind.</span>
+        <span data-start="37.80" data-end="42.38">I've always been infatuated with the space between creativity and logic.</span>
+        <span data-start="42.88" data-end="44.44"> So whether I'm conducting research,</span>
+        <span data-start="45.02" data-end="46.34"> mapping a user journey,</span>
+        <span data-start="46.72" data-end="47.84"> prototyping in Figma,</span>
+        <span data-start="48.40" data-end="50.78"> or bringing an idea to life through code,</span>
+        <span data-start="51.14" data-end="52.94"> I return to the same question:</span>
+        <span data-start="53.52" data-end="54.74"> how can I make this clearer,</span>
+        <span data-start="55.36" data-end="56.82"> more thoughtful, and more human?</span>
       </p>
       <p class="main-text">
-        <span>Let's create something amazing together! </span>
-        <span><a href="/projects.html" class="small-link"><strong id="popup-link">Explore my work&#8599;</strong></a>, </span>
-        <span>get inspired, </span>
-        <span>and join me on this exciting journey </span>
-        <span>of discovery and innovation.</span>
+        <span data-start="57.72" data-end="62.02">Social media has also become another space for me to design with purpose.</span>
+        <span data-start="62.84" data-end="64.56"> Through <a href="https://www.instagram.com/rawan.designs4u/" class="small-link" target="_blank" rel="noopener noreferrer"><strong>my design Instagram page&#8599;</strong></a>,</span>
+        <span data-start="64.68" data-end="65.88"> I share my creative work</span>
+        <span data-start="65.88" data-end="68.86"> and experiment with communicating ideas visually.</span>
+      </p>
+      <p class="main-text">
+        <span data-start="69.68" data-end="71.56">As a Syrian in the diaspora,</span>
+        <span data-start="71.86" data-end="73.44"> I also created <a href="https://www.instagram.com/syria.tek/" class="small-link" target="_blank" rel="noopener noreferrer"><strong>Syriatek&#8599;</strong></a>,</span>
+        <span data-start="74.04" data-end="77.16"> a social project dedicated to educating Syrians</span>
+        <span data-start="77.16" data-end="79.72"> about technology after years of war.</span>
+        <span data-start="80.62" data-end="84.84"> It grew from something deeply personal&mdash;my belief that digital knowledge</span>
+        <span data-start="84.84" data-end="87.50"> can rebuild opportunity.</span>
+        <span data-start="88.22" data-end="90.26"> Through Syriatek, I hope to make technology</span>
+        <span data-start="90.26" data-end="91.44"> more approachable,</span>
+        <span data-start="91.84" data-end="94.26"> while helping build and strengthen</span>
+        <span data-start="94.26" data-end="96.32"> a digital economy for Syria.</span>
+      </p>
+      <p class="main-text">
+        <span data-start="96.94" data-end="98.12">Outside of design,</span>
+        <span data-start="98.28" data-end="99.68"> I'm probably reading about history,</span>
+        <span data-start="100.26" data-end="101.70"> watching a classic film,</span>
+        <span data-start="101.94" data-end="104.52"> taking photos of moments I want immortalized,</span>
+        <span data-start="105.02" data-end="108.38"> or stopping to say hello to every animal I meet.</span>
+      </p>
+      <p class="main-text">
+        <span data-start="109.16" data-end="109.70">In the end,</span>
+        <span data-start="110.16" data-end="112.48"> I believe good design should do more than simply work.</span>
+        <span data-start="113.48" data-end="115.02"> It should educate, empower,</span>
+        <span data-start="115.52" data-end="117.08"> and leave people with something they can feel.</span>
+        <span data-start="117.76" data-end="118.66"> <a href="/projects.html" class="small-link"><strong id="popup-link">Explore my work&#8599;</strong></a>,</span>
+        <span data-start="118.82" data-end="121.72"> and perhaps we can create something memorable together.</span>
       </p>
     </article>
     <img src="/personalitypic1edited-mask.png" class="rotated-image" />

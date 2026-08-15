@@ -94,7 +94,7 @@ header {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-image: url("../public/gradient4.svg");
+    background-image: linear-gradient(180deg, #1a1410 0%, #2a1815 30%, #2a1a25 60%, #1a0f08 100%);
     background-size: cover;
     background-position: center;
     color: white;

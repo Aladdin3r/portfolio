@@ -9,7 +9,7 @@ const animation = lottie.loadAnimation({
   renderer: "svg",
   loop: false,
   autoplay: false,
-  path: "public/transitions.json",
+  path: "/transitions.json",
 });
 
 animation.addEventListener("DOMLoaded", () => {
