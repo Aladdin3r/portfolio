@@ -1,0 +1,39 @@
+---
+/*
+  Page transition curtain.
+
+  The four strokes below are Rawan's own paths, converted straight out of
+  public/transitions.json — same beziers, same #ff6600, same 20px weight.
+  Drawing them with stroke-dashoffset instead of lottie-web keeps this at
+  about 2KB with no library on any page.
+
+  Safety model, which matters here because the old loading overlay used to
+  blank the whole site:
+
+    • The curtain is a separate fixed overlay. It never hides <body>.
+    • Its default state is invisible. It only appears when a state class is
+      added, so no JS means no curtain — not a blank page.
+    • Path lengths are baked in as --len below, measured offline, so the
+      dash animation does not wait on getTotalLength() at runtime. They
+      are in user units, so the viewBox can be retuned without touching
+      them.
+    • prefers-reduced-motion removes it entirely.
+
+  The viewBox is the drawing's own bounding box, zoomed in about 8% so
+  the stroke ends fall just outside the frame and every line bleeds off
+  an edge. It was originally -1400 -950 3700 2200 — far larger than the
+  artwork — so the empty margin landed on-screen and the whole top-left
+  of the viewport had no strokes in it.
+*/
+---
+<div id="page-transition" aria-hidden="true">
+  <div class="pt-panel"></div>
+  <svg viewBox="-202 -243 2245 1364" preserveAspectRatio="xMidYMid slice" focusable="false">
+    <g transform="translate(888 444) rotate(-6.301)">
+      <path style="--len:3835" d="M 1122.00 580.00 C 1069.52 602.79 -244.00 652.00 -46.00 200.00 C 40.14 3.37 372.00 28.00 354.00 294.00 C 333.99 589.73 -32.57 527.68 -374.00 350.00 C -715.43 172.32 -912.00 -438.00 -912.00 -438.00"/>
+      <path style="--len:3835" d="M 1341.68 139.45 C 1289.19 162.24 -24.32 211.45 173.68 -240.55 C 259.81 -437.18 591.68 -412.55 573.68 -146.55 C 553.67 149.18 187.11 87.13 -154.32 -90.55 C -495.75 -268.23 -692.32 -878.55 -692.32 -878.55"/>
+      <path style="--len:2171" d="M 1073.05 464.24 C 1073.05 464.24 -853.82 -535.59 -853.82 -535.59"/>
+      <path style="--len:1891" d="M 328.00 828.00 C 328.00 828.00 -1272.00 -180.00 -1272.00 -180.00"/>
+    </g>
+  </svg>
+</div>

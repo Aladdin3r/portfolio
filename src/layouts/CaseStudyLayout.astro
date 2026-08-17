@@ -1,5 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import SiteMenu from '../components/SiteMenu.astro';
 
 interface GuideItem {
   id?: string;
@@ -11,6 +12,9 @@ interface GuideItem {
 interface Props {
   title: string;
   pageTitle: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
   backUrl?: string;
   guide: GuideItem[];
   extraScripts?: string[];
@@ -20,34 +24,33 @@ interface Props {
 const {
   title,
   pageTitle,
+  description,
+  canonical,
+  ogImage,
   backUrl = "/projects.html",
   guide,
   extraScripts = [],
   bodyClass = "case-study",   // gives body.case-study — scopes scroll-snap + reveal CSS
 } = Astro.props;
 ---
-<BaseLayout title={title} bodyClass={bodyClass}>
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogImage={ogImage}
+  ogType="article"
+  bodyClass={bodyClass}
+>
   <slot name="head" slot="head" />
   <header>
     <div class="header-container">
-      <a href={backUrl} class="back-arrow">&#10229;</a>
-      <p class="heading-page">{pageTitle}</p>
+      <a href={backUrl} class="back-arrow" data-transition aria-label="Back to work">&#10229;</a>
+      <h1 class="heading-page">{pageTitle}</h1>
     </div>
-    <div class="menu">
-      <div class="line"></div>
-      <div class="line"></div>
-    </div>
-    <div class="full-page-menu">
-      <ul class="menu-links">
-        <li><a href="/index.html">Home&#8599;</a></li>
-        <li><a href="/projects.html">Works&#8599;</a></li>
-        <li><a href="/about.html">About&#8599;</a></li>
-        <li><a href="/playground.html">Playground&#8599;</a></li>
-      </ul>
-    </div>
+    <SiteMenu current="works" />
   </header>
   <main class="case-study-main">
-    <button id="back-to-top" class="back-to-top">&#8593;</button>
+    <button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top">&#8593;</button>
     <nav class="guide">
       <ul>
         {guide.map((item, i) =>

@@ -1,24 +1,19 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteMenu from '../components/SiteMenu.astro';
 ---
-<BaseLayout title="Rawan Aladdin - Playground" bodyClass="playground">
+<BaseLayout
+  title="Visual Playground — Rawan Aladdin"
+  description="Posters, packaging, editorial and merch design by Rawan Aladdin — the visual work alongside the product case studies."
+  canonical="https://rawanaladdin.com/playground"
+  bodyClass="playground"
+>
   <header>
     <div class="header-container">
-      <a href="/projects.html" class="back-arrow">&#10229;</a>
-      <p class="heading-page">Playground</p>
+      <a href="/projects.html" class="back-arrow" data-transition aria-label="Back to work">&#10229;</a>
+      <h1 class="heading-page">Playground</h1>
     </div>
-    <div class="menu">
-      <div class="line"></div>
-      <div class="line"></div>
-    </div>
-    <div class="full-page-menu">
-      <ul class="menu-links">
-        <li><a href="/index.html">Home&#8599;</a></li>
-        <li><a href="/projects.html">Works&#8599;</a></li>
-        <li><a href="/about.html">About&#8599;</a></li>
-        <li><a href="/playground.html">Playground&#8599;</a></li>
-      </ul>
-    </div>
+    <SiteMenu current="playground" />
   </header>
 
   <main class="playground-main">

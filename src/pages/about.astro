@@ -1,21 +1,18 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteMenu from '../components/SiteMenu.astro';
 ---
-<BaseLayout title="Rawan Aladdin - About Me">
-  <div id="overlay" class="overlay"></div>
+<BaseLayout
+  title="About — Rawan Aladdin"
+  description="Rawan Aladdin on the path from Cognitive Science and Philosophy at the University of Toronto to UX/UI design at BCIT, and on Syriatek — narrated in her own voice."
+  canonical="https://rawanaladdin.com/about"
+>
   <header>
     <div>
-      <a href="/index.html" class="back-arrow">&#10229;</a>
-      <p class="heading-page">About Me</p>
+      <a href="/index.html" class="back-arrow" data-transition aria-label="Back to home">&#10229;</a>
+      <h1 class="heading-page">About Me</h1>
     </div>
-    <div class="full-page-menu">
-      <ul class="menu-links">
-        <li><a href="/index.html">Home&#8599;</a></li>
-        <li><a href="/projects.html">Works&#8599;</a></li>
-        <li><a href="/about.html">About&#8599;</a></li>
-        <li><a href="/playground.html">Playground&#8599;</a></li>
-      </ul>
-    </div>
+    <SiteMenu current="about" />
   </header>
   <main>
     <article class="about-blurb">
@@ -23,7 +20,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <audio
           controls
           id="about-audio"
-          preload="auto"
+          preload="metadata"
           src="/about-audio-music.mp3"
           type="audio/mpeg"
         ></audio>
@@ -92,7 +89,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <span data-start="118.82" data-end="121.72"> and perhaps we can create something memorable together.</span>
       </p>
     </article>
-    <img src="/personalitypic1edited-mask.png" class="rotated-image" />
+    <img src="/personalitypic1edited-mask.png" class="rotated-image" alt="Portrait of Rawan Aladdin" width="600" height="800" />
   </main>
 
   <script type="text/javascript" defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>

@@ -1,0 +1,48 @@
+---
+/*
+  Shared site navigation.
+
+  Replaces the `<div class="menu">` trigger that was duplicated across
+  projects, playground and every case study — and that About was missing
+  entirely, leaving four permanently-invisible links stuck in the tab order
+  with no way to ever reveal them.
+
+  The trigger is a real <button> with aria-expanded/aria-controls, and the
+  closed panel carries `inert` so its links leave the focus order.
+*/
+interface Props {
+  /** Marks the current page in the menu. */
+  current?: 'home' | 'works' | 'about' | 'playground';
+}
+const { current } = Astro.props;
+
+const links = [
+  { key: 'home',       label: 'Home',       href: '/index.html' },
+  { key: 'works',      label: 'Works',      href: '/projects.html' },
+  { key: 'about',      label: 'About',      href: '/about.html' },
+  { key: 'playground', label: 'Playground', href: '/playground.html' },
+];
+---
+<button
+  type="button"
+  class="menu"
+  id="menu-toggle"
+  aria-expanded="false"
+  aria-controls="site-menu"
+  aria-label="Open navigation"
+>
+  <span class="line" aria-hidden="true"></span>
+  <span class="line" aria-hidden="true"></span>
+</button>
+
+<nav class="full-page-menu" id="site-menu" aria-label="Main" inert>
+  <ul class="menu-links">
+    {links.map((link) => (
+      <li>
+        <a href={link.href} data-transition aria-current={current === link.key ? 'page' : undefined}>
+          {link.label}&#8599;
+        </a>
+      </li>
+    ))}
+  </ul>
+</nav>

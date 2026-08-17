@@ -101,8 +101,9 @@ header {
     align-items: flex-start;
     flex-direction: column;
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
-    transition: opacity 0.5s ease-out, visibility 0s linear 0.5s; 
+    transition: opacity 0.5s ease-out, visibility 0s linear 0.5s;
 }
 
 .full-page-menu.hidden {
@@ -112,7 +113,9 @@ header {
 
 .full-page-menu.visible {
     opacity: 1;
+    visibility: visible;
     pointer-events: all;
+    transition: opacity 0.5s ease-out, visibility 0s linear 0s;
     z-index: 1000;
 }
 
@@ -150,7 +153,7 @@ header {
 
 .menu:not(.open) .line:nth-child(1),
 .menu:not(.open) .line:nth-child(2) {
-    transform: transform 0.3s ease-in-out;; /* Reset to default position */
+    transform: none; /* Reset to default position */
 }
 
 .hidden {
@@ -1411,4 +1414,115 @@ body.playground {
     justify-content: center;
     min-width: 48px;
     min-height: 48px;
+}
+
+
+/* ============================================================
+   Batch 1 + 2 — accessibility, semantics and motion baseline.
+   Added 2026-08-15. Kept in one block so it is easy to review
+   or revert as a unit.
+   ============================================================ */
+
+/* ── The hamburger is now a real <button>, so strip UA chrome ─────
+   It was a <div>, which meant keyboard users could not open the nav
+   at all. The visual result here is identical to before. */
+button.menu {
+    -webkit-appearance: none;
+    appearance: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+}
+
+button.menu .line {
+    display: block;
+}
+
+/* Lock scroll behind the full-screen nav. */
+body.menu-open {
+    overflow: hidden;
+}
+
+/* ── Visible focus. There were no :focus rules anywhere in any
+      stylesheet, so keyboard users got the UA default outline on a
+      near-black background. ─────────────────────────────────────── */
+:focus-visible {
+    outline: 3px solid #ff6600;
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+/* Only remove the default ring where we've replaced it. */
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+.full-page-menu a:focus-visible,
+.back-arrow:focus-visible,
+.main-link:focus-visible {
+    outline-offset: 6px;
+}
+
+/* ── Heading semantics ────────────────────────────────────────────
+   These classes were previously only ever applied to <p>. They now
+   carry the page's single <h1>; these margins reproduce the old
+   paragraph spacing exactly so nothing shifts. */
+h1.heading-job,
+h1.heading-page {
+    font-weight: 300;
+}
+
+h1.heading-job {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+h1.heading-page {
+    margin-bottom: 1em;
+}
+
+/* ── Utilities ──────────────────────────────────────────────────── */
+
+/* Project filtering now toggles [hidden] instead of inline display,
+   so it stays in sync with assistive tech. Beat the layout rules. */
+[hidden] {
+    display: none !important;
+}
+
+/* Announcements for screen readers only (filter result counts). */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ── Reduced motion ──────────────────────────────────────────────
+   There was previously no prefers-reduced-motion handling anywhere,
+   while the site ran a canvas gradient, scroll reveals, card flips,
+   a pulsing link and a full-page text stagger. */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    /* Never let a reveal leave content invisible when motion is off. */
+    .case-section,
+    [data-reveal] {
+        opacity: 1 !important;
+        transform: none !important;
+    }
 }

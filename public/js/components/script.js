@@ -1,59 +1,15 @@
-// Select elements
-const loadingContainer = document.getElementById("loading-container");
-const loadingAnimation = document.getElementById("loading-animation");
-const overlay = document.getElementById("overlay"); // This is the overlay element
+/* ============================================================
+   DEPRECATED — no longer loaded by any page.
 
-// Initialize Lottie Animation
-const animation = lottie.loadAnimation({
-  container: loadingAnimation,
-  renderer: "svg",
-  loop: false,
-  autoplay: false,
-  path: "/transitions.json",
-});
+   This drove a Lottie "loading" overlay on the homepage that was
+   triggered by `window.load`, meaning it only appeared *after* the
+   page had already finished rendering, and held the view for up to
+   2000ms via a fallback timer. It added delay and communicated
+   nothing, so index.astro no longer includes it.
 
-animation.addEventListener("DOMLoaded", () => {
-  console.log("Lottie animation loaded successfully!");
-});
-
-
-// Show Loading Animation
-function showLoading() {
-  loadingContainer.classList.add("show");
-  overlay.classList.add("show"); // Show the overlay (updated class)
-  console.log("Loading animation started");
-  animation.play();
-}
-
-// Hide Loading Animation
-function hideLoading() {
-  animation.stop();
-  loadingContainer.classList.remove("show");
-  overlay.classList.remove("show"); // Hide the overlay (updated class)
-}
-
-// On Page Load
-window.addEventListener("load", () => {
-  showLoading();
-
-  animation.addEventListener("complete", () => {
-    hideLoading();
-  });
-
-  setTimeout(() => {
-    hideLoading();
-  }, 2000); // Fallback
-});
-
-// // Simulate Navigation with Loading
-// document.addEventListener("click", (event) => {
-//   if (event.target.matches(".main-link")) {
-//     showLoading();
-
-//     setTimeout(() => {
-//       hideLoading();
-//       window.location.href = event.target.href;
-//     }, 2000); // Delay
-//     event.preventDefault();
-//   }
-// });
+   If a page transition is wanted later, the right shape is the
+   commented-out outbound-click handler that used to sit at the
+   bottom of this file: intercept a same-origin link click, play the
+   animation, then navigate. Kept here as a starting point rather
+   than restoring the on-load behaviour.
+   ============================================================ */

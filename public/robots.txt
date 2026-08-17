@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# The targeted mini-portfolios (/thinkingbox, /islands, /anthropic, /bcit)
+# carry <meta name="robots" content="noindex, follow"> instead of being
+# disallowed here — a disallowed URL can still be indexed from an external
+# link, because the crawler never gets to read the noindex.
+
+Sitemap: https://rawanaladdin.com/sitemap.xml

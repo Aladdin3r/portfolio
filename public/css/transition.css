@@ -1,0 +1,134 @@
+/* ============================================================
+   Page transition — the orange line-draw from transitions.json,
+   rebuilt as SVG + CSS so no animation library ships with it.
+
+   Timing lives in these two properties. Change them here and both
+   halves follow.
+   ============================================================ */
+
+:root {
+    --pt-out: 380ms;   /* cover the page you are leaving */
+    --pt-in:  460ms;   /* uncover the page you arrived on */
+}
+
+#page-transition {
+    position: fixed;
+    inset: 0;
+    z-index: 2147483000; /* above .menu (99999), #back-to-top and the playground modal */
+    pointer-events: none;
+    display: grid;
+    place-items: center;
+
+    /* Default state is invisible and inert. Nothing reveals this except an
+       explicit state class, so a failed script can never leave it covering
+       the page — which is exactly what the old loading overlay did. */
+    opacity: 0;
+    visibility: hidden;
+}
+
+#page-transition .pt-panel {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, #1a1410 0%, #2a1815 30%, #2a1a25 60%, #1a0f08 100%);
+    transform: scaleY(0);
+    transform-origin: bottom;
+}
+
+/* The artwork has to cover the viewport corner to corner. Sizing the
+   svg to the viewport and letting `slice` scale the viewBox up is what
+   does that — previously it was 130vmax wide with auto height, so on a
+   wide screen only the bottom-right of the drawing was on-screen and
+   the top-left corner had no strokes in it at all. */
+#page-transition svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#page-transition path {
+    fill: none;
+    stroke: #ff6600;
+    stroke-width: 28;
+    stroke-linecap: round;
+    stroke-dasharray: var(--len);
+    stroke-dashoffset: var(--len);
+}
+
+/* ── Leaving: strokes rip across, the panel rises behind them ───── */
+
+#page-transition.pt-out {
+    opacity: 1;
+    visibility: visible;
+}
+
+#page-transition.pt-out .pt-panel {
+    animation: pt-panel-up var(--pt-out) cubic-bezier(.7, 0, .3, 1) forwards;
+}
+
+#page-transition.pt-out path {
+    animation: pt-draw calc(var(--pt-out) * .62) cubic-bezier(.6, 0, .35, 1) forwards;
+}
+
+#page-transition.pt-out path:nth-child(1) { animation-delay: 0ms; }
+#page-transition.pt-out path:nth-child(2) { animation-delay: 34ms; }
+#page-transition.pt-out path:nth-child(3) { animation-delay: 62ms; }
+#page-transition.pt-out path:nth-child(4) { animation-delay: 88ms; }
+
+/* ── Arriving: the panel drops away, strokes retract ─────────────
+   `html.pt-enter` is set by an inline script in <head> before first
+   paint, so the new page is already covered when it renders. It is
+   only ever set when the visitor arrived through an intercepted
+   link, never on a direct visit or a Back navigation. */
+
+.pt-enter #page-transition {
+    opacity: 1;
+    visibility: visible;
+}
+
+.pt-enter #page-transition .pt-panel {
+    transform: scaleY(1);
+    transform-origin: top;
+    animation: pt-panel-down var(--pt-in) cubic-bezier(.7, 0, .3, 1) forwards;
+}
+
+.pt-enter #page-transition path {
+    stroke-dashoffset: 0;
+    animation: pt-undraw calc(var(--pt-in) * .58) cubic-bezier(.6, 0, .35, 1) forwards;
+}
+
+.pt-enter #page-transition path:nth-child(1) { animation-delay: 70ms; }
+.pt-enter #page-transition path:nth-child(2) { animation-delay: 46ms; }
+.pt-enter #page-transition path:nth-child(3) { animation-delay: 24ms; }
+.pt-enter #page-transition path:nth-child(4) { animation-delay: 0ms; }
+
+@keyframes pt-panel-up   { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+@keyframes pt-panel-down { from { transform: scaleY(1); } to { transform: scaleY(0); } }
+@keyframes pt-draw       { to { stroke-dashoffset: 0; } }
+@keyframes pt-undraw     { to { stroke-dashoffset: calc(var(--len) * -1); } }
+
+/* ── Reduced motion: no curtain at all, navigation stays instant ── */
+@media (prefers-reduced-motion: reduce) {
+    #page-transition {
+        display: none !important;
+    }
+}
+
+/* ── Portrait ────────────────────────────────────────────────────
+   The drawing is 1.65 wide; a phone is about 0.46. Cropping a centre
+   slice out of it left the top fifth of the screen with no strokes,
+   and stretching it squashed the two loops into ellipses. Rotating a
+   quarter turn runs the composition down the screen instead — the
+   loops stay round, and the box is sized in swapped units so it still
+   covers the viewport exactly. */
+@media (orientation: portrait) {
+    #page-transition svg {
+        inset: auto;
+        top: 50%;
+        left: 50%;
+        width: 100vh;
+        height: 100vw;
+        transform: translate(-50%, -50%) rotate(90deg);
+        transform-origin: center;
+    }
+}

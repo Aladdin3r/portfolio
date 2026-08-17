@@ -1,29 +1,62 @@
 ---
+import PageTransition from '../components/PageTransition.astro';
+
 interface Props {
   title: string;
   description?: string;
   bodyClass?: string;
   canonical?: string;
+  /** Absolute-from-root path to a 1200x630 raster preview image. */
+  ogImage?: string;
+  ogType?: string;
+  /** Targeted pitch pages should not be indexed. */
+  noindex?: boolean;
 }
+
+const SITE = "https://rawanaladdin.com";
+
 const {
   title,
-  description = "Rawan Aladdin is a UX/UI Designer.",
+  description = "Rawan Aladdin is a designer who builds what she designs — brand identity, digital design, and the code that ships it.",
   bodyClass = "",
   canonical,
+  ogImage = "/og-default.png",
+  ogType = "website",
+  noindex = false,
 } = Astro.props;
 
-const canonicalURL = canonical ?? "https://rawanaladdin.com/";
+const canonicalURL = canonical ?? new URL(Astro.url.pathname, SITE).href;
+const ogImageURL = new URL(ogImage, SITE).href;
 ---
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={canonicalURL} />
-  <meta property="og:image" content="/logo-orange.svg" />
+  {noindex && <meta name="robots" content="noindex, follow" />}
   <meta name="author" content="Rawan Aladdin" />
   <meta name="theme-color" content="#0a0a0a" />
+
+  <!-- Open Graph. Previously only og:image was present, and it pointed at an
+       SVG, which LinkedIn, Slack and X all refuse to render. -->
+  <meta property="og:type" content={ogType} />
+  <meta property="og:site_name" content="Rawan Aladdin" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:image" content={ogImageURL} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content={title} />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImageURL} />
+
   <link rel="icon" type="image/x-icon" href="/logo-orange.svg" />
   <link rel="apple-touch-icon" href="/logo-orange.svg" />
 
@@ -34,11 +67,32 @@ const canonicalURL = canonical ?? "https://rawanaladdin.com/";
   <link rel="stylesheet" href="/css/fonts.css" />
 
   <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/transition.css" />
 
+  <!-- Inbound half of the page transition. This has to run before first
+       paint so the arriving page is already covered, which is why it is
+       inline rather than in page-transition.js.
+
+       It only ever fires when the visitor got here through a link we
+       intercepted — a direct visit, a refresh or a Back navigation sets
+       nothing, so the curtain stays invisible. It cannot blank the page:
+       the curtain is a separate overlay and <body> is never hidden. -->
   <script is:inline>
-    document.addEventListener('DOMContentLoaded', function () {
-      document.body.classList.remove('hidden');
-    });
+    (function () {
+      try {
+        if (!sessionStorage.getItem('pt:navigating')) return;
+        sessionStorage.removeItem('pt:navigating');
+      } catch (e) { return; }
+
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      var root = document.documentElement;
+      root.classList.add('pt-enter');
+
+      // Tidy up once the reveal has finished. The animation is
+      // fill-forwards, so this is housekeeping rather than a safety net.
+      setTimeout(function () { root.classList.remove('pt-enter'); }, 900);
+    })();
   </script>
 
   <!-- Netlify Identity is only needed for the CMS at /admin, or when an
@@ -68,10 +122,14 @@ const canonicalURL = canonical ?? "https://rawanaladdin.com/";
   </script>
 
   <slot name="head" />
-  <title>{title}</title>
 </head>
-<body class={`hidden${bodyClass ? ' ' + bodyClass : ''}`}>
+<!-- The body used to render with class="hidden" (display:none) and was only
+     revealed by JS on DOMContentLoaded. A blocked or slow script left the
+     whole site blank and it pushed LCP out for everyone. Now it renders. -->
+<body class={bodyClass}>
   <slot />
+  <PageTransition />
   <script defer src="/js/components/dynamic-gradient.js"></script>
+  <script defer src="/js/components/page-transition.js"></script>
 </body>
 </html>
