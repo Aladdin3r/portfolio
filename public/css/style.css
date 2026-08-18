@@ -1132,14 +1132,6 @@ body.playground {
     height: 100vh;
 }
 
-.playground-lede {
-    max-width: 56ch;
-    margin: 0.6rem 0 0;
-    font-size: 0.95rem;
-    line-height: 1.5;
-    opacity: 0.7;
-}
-
 /* Fan container */
 .card-deck {
     position: relative;
@@ -1394,10 +1386,6 @@ body.playground {
 
 /* Playground mobile */
 @media (max-width: 768px) {
-    .playground-lede {
-        max-width: 100%;
-        font-size: 0.82rem;
-    }
     .card-deck {
         width: 340px;
         height: 260px;
