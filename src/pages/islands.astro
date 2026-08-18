@@ -82,7 +82,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="ip-two-col">
 
         <div class="ip-media-col">
-          <img src="/clipstart.gif" alt="Onward app — interview session starting" loading="lazy" />
+          <video autoplay muted loop playsinline preload="metadata" poster="/clipstart-poster.jpg" aria-label="Onward app — interview session starting">
+            <source src="/clipstart.webm" type="video/webm" />
+            <source src="/clipstart.mp4" type="video/mp4" />
+          </video>
           <div class="ip-stats">
             <div class="ip-stat-block">
               <span class="ip-stat" data-count="200" data-suffix="+">200+</span>
@@ -93,12 +96,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <span class="ip-stat-label">Ease of use in user testing</span>
             </div>
           </div>
-          <img
-            src="/clipinterview-results.gif"
-            alt="Onward app — interview results screen"
-            loading="lazy"
+          <video
+            autoplay muted loop playsinline preload="metadata"
+            poster="/clipinterview-results-poster.jpg"
+            aria-label="Onward app — interview results screen"
             style="margin-top: 1.75rem;"
-          />
+          >
+            <source src="/clipinterview-results.webm" type="video/webm" />
+            <source src="/clipinterview-results.mp4" type="video/mp4" />
+          </video>
         </div>
 
         <div class="ip-text-col">
@@ -181,7 +187,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="ip-two-col">
 
         <div class="ip-media-col">
-          <img src="/safecycle-coded.gif" alt="SafeCycle app — live coded prototype" loading="lazy" />
+          <video autoplay muted loop playsinline preload="metadata" poster="/safecycle-coded-poster.jpg" aria-label="SafeCycle app — live coded prototype">
+            <source src="/safecycle-coded.webm" type="video/webm" />
+            <source src="/safecycle-coded.mp4" type="video/mp4" />
+          </video>
           <div class="ip-stats">
             <div class="ip-stat-block">
               <span class="ip-stat" data-static="true">4</span>

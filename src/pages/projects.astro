@@ -37,20 +37,49 @@ const allTags = [...new Set(
     <p class="visually-hidden" id="filter-status" role="status" aria-live="polite"></p>
     <div class="flex-grid">
       {projects.map((project) => (
-        <a href={project.data.url} class="project-card" data-tags={project.data.tags}>
-          <div class="flex-grid-item">
-            <div class={`${project.slug}-case`}>
-              <p class="identification">{project.data.tags}</p>
-              <p class="case-title">{project.data.title}</p>
+        <a
+          href={project.data.url}
+          class="project-card"
+          data-tags={project.data.tags}
+          data-transition
+        >
+          <article class="pc">
+            <div class="pc-media">
               <img
                 src={project.data.image}
                 alt={project.data.imageAlt}
-                width="50%"
-                height="50%"
+                loading="lazy"
+                decoding="async"
               />
             </div>
-            <span class="arrow" aria-hidden="true">&#10230;</span>
-          </div>
+            <div class="pc-body">
+              <p class="pc-tags">
+                {project.data.tags}
+                {project.data.year && <span class="pc-year"> &middot; {project.data.year}</span>}
+              </p>
+              <h2 class="pc-title">{project.data.title}</h2>
+              {project.data.summary && <p class="pc-summary">{project.data.summary}</p>}
+              {(project.data.role || project.data.outcome) && (
+                <dl class="pc-meta">
+                  {project.data.role && (
+                    <div class="pc-meta-row">
+                      <dt>Role</dt>
+                      <dd>{project.data.role}</dd>
+                    </div>
+                  )}
+                  {project.data.outcome && (
+                    <div class="pc-meta-row">
+                      <dt>Outcome</dt>
+                      <dd>{project.data.outcome}</dd>
+                    </div>
+                  )}
+                </dl>
+              )}
+              <span class="pc-cta">
+                Read the case study <span class="pc-arrow" aria-hidden="true">&#10230;</span>
+              </span>
+            </div>
+          </article>
         </a>
       ))}
     </div>

@@ -1,0 +1,483 @@
+/* ============================================================
+   Feeds case study — scoped under body.feeds-case
+   Site chrome: Rawan Aladdin (#FF6701 on the dark gradient).
+   Inside the media blocks, the Feeds palette speaks for itself.
+   ============================================================ */
+
+body.feeds-case {
+  overflow-x: hidden;
+}
+
+/* Feeds brand palette — used only inside swatches and brand surfaces */
+body.feeds-case {
+  --feeds-ink: #11110F;
+  --feeds-sage: #7D8A79;
+  --feeds-sage-dark: #515A4F;
+  --feeds-sage-light: #B8BFB5;
+  --feeds-paper: #EFF1EF;
+  --accent: #FF6701;
+  --rule: rgba(255, 255, 255, 0.12);
+}
+
+/* ── Hero: booth reel, full bleed ───────────────────────────── */
+.fd-hero {
+  position: relative;
+  width: 100%;
+  min-height: 78vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.fd-hero-media,
+.fd-hero-media video,
+.fd-hero-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* The booth photo is portrait; hold the table, runners and screen in
+     frame rather than the ceiling. */
+  object-position: center 62%;
+}
+
+.fd-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* Two scrims: one down the frame so the section below joins seamlessly,
+     one across it so the type has a dark side to sit on regardless of what
+     the photograph is doing behind it. */
+  background:
+    linear-gradient(
+      90deg,
+      rgba(10, 8, 6, 0.88) 0%,
+      rgba(10, 8, 6, 0.62) 38%,
+      rgba(10, 8, 6, 0.15) 72%,
+      rgba(10, 8, 6, 0) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(10, 8, 6, 0.45) 0%,
+      rgba(10, 8, 6, 0.15) 38%,
+      rgba(10, 8, 6, 0.70) 72%,
+      rgba(10, 8, 6, 0.96) 100%
+    );
+}
+
+.fd-hero-inner {
+  position: relative;
+  z-index: 2;
+  padding: 0 6rem 4.5rem;
+  max-width: 1180px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.fd-hero-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  margin: 0 0 1rem;
+  font-weight: 400;
+}
+
+.fd-hero-title {
+  font-size: clamp(3.4rem, 11vw, 9rem);
+  font-weight: 300;
+  line-height: 0.92;
+  text-transform: lowercase;
+  margin: 0 0 1.25rem;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+
+.fd-hero-sub {
+  font-size: clamp(1rem, 1.7vw, 1.25rem);
+  font-weight: 300;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 640px;
+  margin: 0;
+}
+
+.fd-hero-meta {
+  margin-top: 1.75rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* ── Sections ───────────────────────────────────────────────── */
+.fd-section {
+  padding: 6rem;
+  max-width: 1180px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+  color: #fff;
+  font-weight: 300;
+}
+
+.fd-section-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.45);
+  margin: 0 0 1.1rem;
+}
+
+.fd-h2 {
+  font-size: clamp(1.8rem, 4vw, 3.2rem);
+  font-weight: 300;
+  text-transform: uppercase;
+  line-height: 1.05;
+  margin: 0 0 1.5rem;
+  color: #fff;
+}
+
+.fd-lede {
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 660px;
+  margin: 0 0 2rem;
+}
+
+.fd-body {
+  font-size: 0.98rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.76);
+  max-width: 660px;
+}
+
+.fd-body strong { font-weight: 500; color: #fff; }
+
+.fd-divider {
+  width: 40px;
+  height: 1px;
+  background: var(--accent);
+  opacity: 0.5;
+  margin: 0 auto;
+}
+
+/* ── Ownership callout ──────────────────────────────────────── */
+.fd-ownership {
+  border-left: 2px solid var(--accent);
+  padding: 0.25rem 0 0.25rem 1.5rem;
+  margin: 0 0 2.5rem;
+  max-width: 660px;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+/* ── Tag row ────────────────────────────────────────────────── */
+.fd-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0 0 2.5rem;
+}
+
+.fd-tag {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid var(--rule);
+  border-radius: 100px;
+  padding: 0.4rem 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ── Key/value detail rows ──────────────────────────────────── */
+.fd-detail {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 2rem;
+  padding: 1.6rem 0;
+  border-top: 1px solid var(--rule);
+}
+
+.fd-detail:last-of-type { border-bottom: 1px solid var(--rule); }
+
+.fd-detail-k {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  padding-top: 0.2rem;
+}
+
+.fd-detail-v {
+  font-size: 0.98rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.fd-detail-v strong { font-weight: 500; color: #fff; }
+
+/* ── Media ──────────────────────────────────────────────────── */
+.fd-media {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--rule);
+  background: rgba(255, 255, 255, 0.03);
+  margin-top: 2.5rem;
+}
+
+.fd-media img,
+.fd-media video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.fd-caption {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0.85rem 0 0;
+  line-height: 1.6;
+  max-width: 660px;
+}
+
+.fd-media-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.fd-media-grid .fd-media { margin-top: 0; }
+
+/* ── Brand surfaces: mark + wordmark on Feeds paper/ink ─────── */
+.fd-marks {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.fd-mark-tile {
+  border-radius: 14px;
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  min-height: 190px;
+  border: 1px solid var(--rule);
+}
+
+.fd-mark-tile img {
+  width: 100%;
+  max-width: 170px;
+  height: auto;
+  display: block;
+}
+
+.fd-mark-tile .fd-tile-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.fd-on-paper { background: var(--feeds-paper); }
+.fd-on-paper .fd-tile-label { color: var(--feeds-sage-dark); }
+
+.fd-on-ink { background: var(--feeds-ink); }
+.fd-on-ink .fd-tile-label { color: var(--feeds-sage-light); }
+
+.fd-on-sage { background: var(--feeds-sage); }
+.fd-on-sage .fd-tile-label { color: var(--feeds-paper); }
+
+/* ── Palette swatches ───────────────────────────────────────── */
+.fd-swatches {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.fd-swatch {
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.fd-swatch-chip {
+  height: 110px;
+  display: block;
+}
+
+.fd-swatch-meta {
+  padding: 0.9rem 1rem 1.1rem;
+}
+
+.fd-swatch-name {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #fff;
+  margin: 0 0 0.25rem;
+}
+
+.fd-swatch-hex {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.04em;
+}
+
+.fd-swatch-role {
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Usage-ratio bar, straight from the guidelines */
+.fd-ratio {
+  display: flex;
+  height: 34px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 2rem;
+  border: 1px solid var(--rule);
+}
+
+.fd-ratio span { display: block; height: 100%; }
+
+.fd-ratio-key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 0.9rem;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.fd-ratio-key i {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  margin-right: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+/* ── Guidelines spreads ─────────────────────────────────────── */
+.fd-spreads {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+.fd-spread {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--rule);
+  background: var(--feeds-paper);
+}
+
+.fd-spread img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ── Outcome list ───────────────────────────────────────────── */
+.fd-list {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0 0;
+  max-width: 720px;
+}
+
+.fd-list li {
+  padding: 0.85rem 0 0.85rem 1.6rem;
+  border-top: 1px solid var(--rule);
+  position: relative;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.fd-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1.5rem;
+  width: 7px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.fd-list li:last-child { border-bottom: 1px solid var(--rule); }
+
+/* ── Links ──────────────────────────────────────────────────── */
+.fd-links {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 2.5rem;
+}
+
+.fd-link {
+  color: var(--accent);
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  border-bottom: 1px solid rgba(255, 103, 1, 0.35);
+  padding-bottom: 2px;
+  transition: border-color 0.25s ease, color 0.25s ease;
+}
+
+.fd-link:hover {
+  color: #fff;
+  border-color: #fff;
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .fd-section { padding: 4.5rem 3rem; }
+  .fd-hero-inner { padding: 0 3rem 3.5rem; }
+  .fd-marks { grid-template-columns: 1fr; }
+  .fd-swatches { grid-template-columns: repeat(2, 1fr); }
+  .fd-spreads { grid-template-columns: repeat(2, 1fr); }
+  .fd-detail { grid-template-columns: 1fr; gap: 0.6rem; }
+}
+
+@media (max-width: 640px) {
+  .fd-section { padding: 3.5rem 1.5rem; }
+  .fd-hero { min-height: 68vh; }
+  .fd-hero-inner { padding: 0 1.5rem 2.5rem; }
+  .fd-media-grid { grid-template-columns: 1fr; }
+  .fd-swatches { grid-template-columns: 1fr; }
+  .fd-links { gap: 1.25rem; }
+}
+
+/* The hero reel is decorative motion, so it's swapped for a still.
+   In-page videos keep their controls and poster — they're content,
+   not decoration, and hiding them would remove the work itself. */
+@media (prefers-reduced-motion: reduce) {
+  .fd-hero-media video {
+    display: none;
+  }
+  .fd-hero-media .fd-hero-fallback {
+    display: block;
+  }
+}
+
+.fd-hero-media .fd-hero-fallback { display: none; }
+
+/* A texture loop is a band, not a feature image. */
+.fd-media-band video,
+.fd-media-band img {
+  max-height: 340px;
+  object-fit: cover;
+}

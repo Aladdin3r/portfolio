@@ -33,7 +33,7 @@
         // Start animating in when the section top hits 88% down the viewport
         start: 'top 88%',
         // Reverse (fade back out) when scrolling back up past this point
-        toggleActions: 'play none none reverse',
+        toggleActions: 'play none none none',
       },
     });
   });
@@ -56,7 +56,7 @@
         scrollTrigger: {
           trigger: section,
           start: 'top 75%',
-          toggleActions: 'play none none reverse',
+          toggleActions: 'play none none none',
         },
       }
     );

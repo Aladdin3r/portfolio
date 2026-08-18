@@ -485,9 +485,11 @@ a {
     text-decoration: none;
 }
 
-/* Presentation-slide scroll — case study pages only */
+/* Presentation-slide scroll — case study pages only.
+   `proximity`, not `mandatory`: a section taller than the viewport must be
+   allowed to scroll past its own snap point, or its lower half is unreachable. */
 html:has(.case-study-main) {
-    scroll-snap-type: y mandatory;
+    scroll-snap-type: y proximity;
 }
 
 /* Per-section layout */
@@ -502,22 +504,27 @@ html:has(.case-study-main) {
     flex-direction: row;
     align-items: flex-start;
     gap: 3rem;
-    height: 100vh;
+    /* min-height, not height: the section grows with its content instead of
+       clipping it at 13", at OS scaling, or at browser zoom. */
+    min-height: 100vh;
     padding: 5rem 0 2rem;
     font-weight: 300;
     font-size: 1.25em;
     width: 100%;
     scroll-snap-align: start;
-    scroll-snap-stop: always;
-    overflow: hidden;
+    overflow: visible;
     box-sizing: border-box;
 }
 
 .section-media {
     flex: 0 0 42%;
     max-width: 42%;
-    position: relative;
-    height: calc(100vh - 7rem);
+    /* sticky, not a fixed-height box: the image holds its place beside the
+       text while a long section scrolls, instead of being squeezed to fit. */
+    position: sticky;
+    top: 7rem;
+    align-self: flex-start;
+    max-height: calc(100vh - 9rem);
     display: flex;
     flex-direction: column;
 }
@@ -526,7 +533,7 @@ html:has(.case-study-main) {
 .section-media video {
     width: 100%;
     height: auto;
-    max-height: calc(100vh - 9rem);
+    max-height: calc(100vh - 12rem);
     object-fit: contain;
     object-position: top;
     border-radius: 12px;
@@ -538,11 +545,11 @@ html:has(.case-study-main) {
     flex: 1;
     min-width: 0;
     padding-top: 0;
-    height: calc(100vh - 7rem);
-    overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+    /* was height + overflow-y:auto — a nested scrollbar inside a snap
+       container that most people never notice. The page scrolls instead. */
+    min-height: calc(100vh - 7rem);
     padding-right: 0.5rem;
+    padding-bottom: 4rem;
 }
 
 .media-caption {
@@ -825,10 +832,12 @@ media queries below for responsive design
 
     .section-media {
         position: relative;
+        top: auto;
         flex: none;
         width: 100%;
         max-width: 100%;
         height: auto;
+        max-height: none;
     }
 
     .section-media img,
@@ -839,9 +848,11 @@ media queries below for responsive design
     }
 
     .section-text {
+        min-height: 0;
         height: auto;
         overflow-y: visible;
         padding-right: 0;
+        padding-bottom: 0;
     }
 
     .case-section {
@@ -1524,5 +1535,327 @@ h1.heading-page {
     [data-reveal] {
         opacity: 1 !important;
         transform: none !important;
+    }
+}
+
+/* ============================================================
+   Homepage — body.home
+   The name was previously a 10vw line in the <footer> while the
+   <h1> said "Digital Designer" in 2.5em. The biggest type on the
+   page is now the H1, and the sentence that was only reachable on
+   an unlisted pitch page is on the front door.
+   ============================================================ */
+
+body.home main.home-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+    padding: 0 clamp(1.5rem, 6vw, 6rem);
+    gap: 1.75rem;
+}
+
+body.home .home-header {
+    align-items: center;
+    padding: 1.5rem clamp(1.5rem, 6vw, 6rem);
+    margin-right: 0;
+}
+
+body.home .home-header .icons {
+    margin-right: 0;
+    gap: 0.75rem;
+}
+
+body.home .home-header .icons img {
+    width: 1.9em;
+    height: 1.9em;
+}
+
+h1.home-name {
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: clamp(3.4rem, 13vw, 11rem);
+    line-height: 0.88;
+    letter-spacing: -0.015em;
+    margin: 0;
+}
+
+.home-line {
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 300;
+    font-size: clamp(1.05rem, 2vw, 1.5rem);
+    line-height: 1.55;
+    max-width: 36ch;
+    margin: 0;
+    position: relative;
+    z-index: 5;
+}
+
+body.home .main-flex-row {
+    justify-content: flex-start;
+    gap: clamp(1.5rem, 5vw, 4rem);
+    width: auto;
+    margin: 0.75rem 0 0;
+    padding-top: 0;
+    font-size: 1rem;
+}
+
+body.home .main-link {
+    margin-right: 0;
+    font-size: 1.15rem;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    padding-bottom: 3px;
+    transition: border-color 0.25s ease, color 0.25s ease;
+}
+
+body.home .main-link:hover {
+    color: #ff6600;
+    border-color: #ff6600;
+}
+
+/* Featured strip — the front door to the newest case study */
+body.home .home-footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 1.5rem clamp(1.5rem, 6vw, 6rem) 2rem;
+    margin-top: auto;
+}
+
+.home-featured {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+    color: #fff;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-top: 1rem;
+    flex: 1;
+    min-width: 0;
+    transition: border-color 0.25s ease;
+}
+
+.home-featured:hover { border-color: #ff6600; }
+
+.home-featured-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #ff6600;
+}
+
+.home-featured-title {
+    font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.home-featured-arrow {
+    margin-left: auto;
+    color: #ff6600;
+    transition: transform 0.25s ease;
+}
+
+.home-featured:hover .home-featured-arrow { transform: translateX(4px); }
+
+body.home #logo-name {
+    margin-right: 0;
+    height: 44px;
+    width: auto;
+    flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+    body.home .home-footer {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1.25rem;
+    }
+    body.home .main-flex-row { flex-direction: column; gap: 1rem; }
+    .home-featured-arrow { margin-left: 0; }
+}
+
+/* ============================================================
+   Project cards — .pc-*
+   The old card was discipline + title + image + arrow, which
+   answers none of the three questions a visitor actually has:
+   what is it, what did she own, and what happened.
+   ============================================================ */
+
+.flex-grid { max-width: 1000px; }
+
+.project-card {
+    display: block;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.pc {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+    align-items: start;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.project-card:hover .pc,
+.project-card:focus-visible .pc {
+    background-color: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 102, 0, 0.55);
+}
+
+.pc-media {
+    border-radius: 8px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.04);
+    aspect-ratio: 4 / 3;
+}
+
+.pc-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.pc-body { min-width: 0; }
+
+.pc-tags {
+    font-size: 0.78rem;
+    color: #ff6600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin: 0 0 0.5rem;
+}
+
+.pc-year { color: rgba(255, 255, 255, 0.45); }
+
+.pc-title {
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    line-height: 1.05;
+    margin: 0 0 0.75rem;
+}
+
+.pc-summary {
+    color: rgba(255, 255, 255, 0.86);
+    font-weight: 300;
+    font-size: 1.02rem;
+    line-height: 1.6;
+    margin: 0 0 1.25rem;
+    max-width: 52ch;
+}
+
+.pc-meta { margin: 0 0 1.25rem; }
+
+.pc-meta-row {
+    display: grid;
+    grid-template-columns: 84px 1fr;
+    gap: 1rem;
+    padding: 0.6rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.pc-meta-row dt {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(255, 255, 255, 0.45);
+    padding-top: 0.15rem;
+}
+
+.pc-meta-row dd {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.78);
+    font-weight: 300;
+}
+
+.pc-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #ff6600;
+    font-size: 0.92rem;
+    letter-spacing: 0.02em;
+}
+
+.pc-arrow {
+    display: inline-block;
+    transition: transform 0.25s ease;
+}
+
+.project-card:hover .pc-arrow { transform: translateX(5px); }
+
+@media (max-width: 780px) {
+    .pc {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+        padding: 1.15rem;
+    }
+    .pc-media { aspect-ratio: 16 / 9; }
+    .pc-meta-row { grid-template-columns: 1fr; gap: 0.15rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .pc-arrow,
+    .home-featured-arrow {
+        transition: none;
+    }
+    .project-card:hover .pc-arrow,
+    .home-featured:hover .home-featured-arrow {
+        transform: none;
+    }
+}
+
+/* Homepage mobile — the legacy rules absolutely-position .icons with a
+   48em top margin and right-align the links. Neither survives the new
+   layout, so the homepage opts out of both. */
+@media (max-width: 768px) {
+    body.home .home-header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 1.25rem 1.5rem;
+    }
+
+    body.home .home-header .icons {
+        position: static;
+        margin-top: 0;
+        width: auto;
+        order: 0;
+        padding-top: 0;
+        justify-content: flex-start;
+    }
+
+    body.home .main-flex-row {
+        align-items: flex-start;
+        margin-left: 0;
+        margin-bottom: 0;
+        width: auto;
+    }
+
+    body.home main.home-main {
+        justify-content: center;
+        gap: 1.5rem;
+    }
+
+    body.home .home-footer {
+        padding-bottom: 2.5rem;
+    }
+
+    body.home #logo-name {
+        align-self: flex-start;
     }
 }

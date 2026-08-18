@@ -1,0 +1,385 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteMenu from '../components/SiteMenu.astro';
+
+const palette = [
+  { name: 'Ink',        hex: '#11110F', role: 'Primary. Logo, headlines, body text.' },
+  { name: 'Sage',       hex: '#7D8A79', role: 'Secondary. Backgrounds, accents, icons.' },
+  { name: 'Sage Dark',  hex: '#515A4F', role: 'Shade. Deep backgrounds, captions.' },
+  { name: 'Sage Light', hex: '#B8BFB5', role: 'Tint. Borders, dividers, muted fills.' },
+  { name: 'Paper',      hex: '#EFF1EF', role: 'Neutral. Page and card backgrounds.' },
+];
+
+const spreads = [
+  { src: '/feeds/guidelines-05.webp', alt: 'Guidelines page 5 — logo usage: the three approved background combinations, and four explicit don’ts.' },
+  { src: '/feeds/guidelines-06.webp', alt: 'Guidelines page 6 — the colour palette with hex and RGB values, plus the usage-ratio bar.' },
+  { src: '/feeds/guidelines-07.webp', alt: 'Guidelines page 7 — typography: Bricolage Grotesque weights and type scale.' },
+  { src: '/feeds/guidelines-08.webp', alt: 'Guidelines page 8 — the custom line-icon system.' },
+];
+---
+<BaseLayout
+  title="Feeds — Brand Identity, Product UI & Launch | Rawan Aladdin"
+  description="Feeds: a brand identity, an 11-page guidelines system, the product front-end it was applied to, and the booth it launched from. Brand, UI, print and motion for a self-hosted reader built by a developer."
+  canonical="https://rawanaladdin.com/feeds"
+  ogImage="/og-default.png"
+  ogType="article"
+  bodyClass="feeds-case"
+>
+  <link rel="stylesheet" href="/css/feeds.css" slot="head" />
+
+  <header>
+    <div class="header-container">
+      <a href="/projects.html" class="back-arrow" data-transition aria-label="Back to work">&#10229;</a>
+    </div>
+    <SiteMenu current="works" />
+  </header>
+
+  <main>
+    <!-- ══════════════════════ HERO — THE BOOTH ══════════════════════ -->
+    <section class="fd-hero">
+      <div class="fd-hero-media">
+        <img src="/feeds/feeds-booth.webp"
+             alt="The Feeds booth at the showcase — two printed table runners carrying the mark and tagline, die-cut stickers and business cards on the table, a laptop looping the brand-identity reel, and the live product site on the screen behind."
+             fetchpriority="high" />
+      </div>
+      <div class="fd-hero-inner">
+        <p class="fd-hero-label">Project 01 — Integrated</p>
+        <h1 class="fd-hero-title">feeds</h1>
+        <p class="fd-hero-sub">
+          A brand identity, the guidelines that made it repeatable, the product
+          front-end it was applied to, and the booth it launched from.
+        </p>
+        <p class="fd-hero-meta">Brand Identity · Product UI · Launch Campaign · 2026</p>
+      </div>
+    </section>
+
+    <!-- ══════════════════════ WHAT IT IS ══════════════════════ -->
+    <section class="fd-section">
+      <p class="fd-section-label">The work</p>
+      <h2 class="fd-h2">One system, seven surfaces</h2>
+
+      <p class="fd-ownership">
+        Feeds is a self-hosted reader and digest engine for developers — one Go
+        binary, a local database, no accounts and no telemetry. I didn't write the
+        engine; the developer I worked with did. But more or less everything you
+        can <em>see</em>, I made: the identity, the guidelines, the applied
+        front-end, the digest email, the marketing site and the whole launch.
+      </p>
+
+      <div class="fd-tags">
+        <span class="fd-tag">Brand Identity</span>
+        <span class="fd-tag">Guidelines</span>
+        <span class="fd-tag">Product UI</span>
+        <span class="fd-tag">Front-end</span>
+        <span class="fd-tag">Print</span>
+        <span class="fd-tag">Motion</span>
+        <span class="fd-tag">Environmental</span>
+      </div>
+
+      <div class="fd-detail">
+        <div class="fd-detail-k">The brief</div>
+        <div class="fd-detail-v">
+          A working product with no face. It had to look credible next to
+          enterprise threat-intelligence platforms costing tens of thousands a
+          year, while staying honest about what it is — a local-first tool that
+          runs on your own disk. The positioning line the identity had to carry:
+          <strong>"Your feeds. Your disk. Your loop."</strong>
+        </div>
+      </div>
+
+      <div class="fd-detail">
+        <div class="fd-detail-k">My constraint</div>
+        <div class="fd-detail-v">
+          The person applying the identity day-to-day would be a developer, not a
+          designer. So the deliverable couldn't be a logo file — it had to be a
+          system specific enough to be followed without me in the room, and I had
+          to prove it worked by applying it into the product myself first.
+        </div>
+      </div>
+
+      <div class="fd-detail">
+        <div class="fd-detail-k">What I owned</div>
+        <div class="fd-detail-v">
+          Mark, wordmark and palette · an 11-page guidelines document · the
+          product interface and icon set in CSS and JavaScript · the digest email
+          · the marketing site · the demo recording · and the launch booth —
+          runners, stickers, cards and both screen reels.
+        </div>
+      </div>
+    </section>
+
+    <div class="fd-divider"></div>
+
+    <!-- ══════════════════════ THE LAUNCH ══════════════════════ -->
+    <section class="fd-section">
+      <p class="fd-section-label">01 — The launch</p>
+      <h2 class="fd-h2">It had to hold a room</h2>
+      <p class="fd-lede">
+        Feeds launched from a live booth at the capstone showcase. A booth is the
+        hardest test a young identity gets: it's seen from three metres away, in
+        bad light, next to twenty others, by people who will not read anything.
+        Everything on and around that table came out of the same brand kit.
+      </p>
+
+      <div class="fd-detail">
+        <div class="fd-detail-k">On the table</div>
+        <div class="fd-detail-v">
+          Two printed table runners carrying the mark and the tagline, die-cut
+          mark stickers in <strong>four colourways</strong>, and business cards —
+          all printed straight from the brand kit, which is the real test of
+          whether a kit is finished.
+        </div>
+      </div>
+
+      <div class="fd-detail">
+        <div class="fd-detail-k">On the screens</div>
+        <div class="fd-detail-v">
+          A product reel and a brand-identity reel, looping. Both are cut to be
+          legible from three metres away and to loop without a visible seam,
+          because nobody watches a booth video from the beginning.
+        </div>
+      </div>
+
+      <div class="fd-media">
+        <video controls muted loop playsinline preload="none"
+               poster="/feeds/feeds-booth-reel-poster.jpg"
+               aria-label="The product reel that looped on the screens behind the Feeds booth.">
+          <source src="/feeds/feeds-booth-reel.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <p class="fd-caption">
+        The reel from the screens — the product, cut to read at a glance.
+      </p>
+    </section>
+
+    <div class="fd-divider"></div>
+
+    <!-- ══════════════════════ THE IDENTITY ══════════════════════ -->
+    <section class="fd-section">
+      <p class="fd-section-label">02 — The identity</p>
+      <h2 class="fd-h2">A spark, held</h2>
+      <p class="fd-lede">
+        A four-point spark framed by two curved strokes — the signal, and the
+        loop that catches it. The wordmark is lowercase Bricolage Grotesque,
+        never capitalised and never reset. The lockup flexes across backgrounds,
+        but only in three approved combinations.
+      </p>
+
+      <div class="fd-marks">
+        <div class="fd-mark-tile fd-on-paper">
+          <img src="/feeds/feeds-lockup-ink.svg" alt="The Feeds lockup — spark mark and lowercase wordmark — in ink on paper." />
+          <span class="fd-tile-label">On paper</span>
+        </div>
+        <div class="fd-mark-tile fd-on-ink">
+          <img src="/feeds/feeds-lockup-paper.svg" alt="The Feeds lockup in paper on ink." />
+          <span class="fd-tile-label">On ink</span>
+        </div>
+        <div class="fd-mark-tile fd-on-sage">
+          <img src="/feeds/feeds-lockup-paper.svg" alt="The Feeds lockup in paper on sage." />
+          <span class="fd-tile-label">On sage</span>
+        </div>
+      </div>
+      <p class="fd-caption">
+        Three approved combinations. Everything else — recolouring it, tilting it,
+        stretching it, or dropping it where contrast falls below AA — is one of
+        the four named don'ts.
+      </p>
+
+      <h3 class="fd-section-label" style="margin-top:3.5rem;">The palette</h3>
+      <p class="fd-body">
+        Paper and ink, with one signature sage. The point of specifying it this
+        tightly wasn't restriction — it was so that sage stays an accent instead
+        of drifting into a background colour the first time someone reaches for it.
+      </p>
+
+      <div class="fd-swatches">
+        {palette.map((c) => (
+          <div class="fd-swatch">
+            <span class="fd-swatch-chip" style={`background:${c.hex}`}></span>
+            <div class="fd-swatch-meta">
+              <p class="fd-swatch-name">{c.name}</p>
+              <p class="fd-swatch-hex">{c.hex}</p>
+              <p class="fd-swatch-role">{c.role}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="fd-ratio" role="img" aria-label="Usage ratio: paper 50 percent, ink 28 percent, sage 15 percent, sage tints 7 percent.">
+        <span style="background:#EFF1EF; width:50%"></span>
+        <span style="background:#11110F; width:28%"></span>
+        <span style="background:#7D8A79; width:15%"></span>
+        <span style="background:#B8BFB5; width:7%"></span>
+      </div>
+      <div class="fd-ratio-key">
+        <span><i style="background:#EFF1EF"></i>Paper 50%</span>
+        <span><i style="background:#11110F"></i>Ink 28%</span>
+        <span><i style="background:#7D8A79"></i>Sage 15%</span>
+        <span><i style="background:#B8BFB5"></i>Sage tints 7%</span>
+      </div>
+
+      <h3 class="fd-section-label" style="margin-top:3.5rem;">The guidelines</h3>
+      <p class="fd-body">
+        Eleven pages, written for the person who'd be applying it without me:
+        construction and clear space, the three approved lockups, four explicit
+        don'ts, the palette down to the ratio each colour should occupy on a
+        page, a five-step type scale on one variable font, fifteen custom icons
+        sharing one grammar — 2px strokes, no fill, rounded joins, one grid —
+        three supporting textures, and an AA contrast floor that isn't optional.
+      </p>
+
+      <div class="fd-spreads">
+        {spreads.map((s) => (
+          <figure class="fd-spread" style="margin:0;">
+            <img src={s.src} alt={s.alt} loading="lazy" />
+          </figure>
+        ))}
+      </div>
+      <p class="fd-caption">Four of the eleven pages: logo usage, colour, type, icons.</p>
+
+      <h3 class="fd-section-label" style="margin-top:3.5rem;">Motion</h3>
+      <p class="fd-body">
+        A ripple built from the mark's own curve, for transitions, loading states
+        and hero backgrounds — so the brand has something to do while the product
+        is thinking.
+      </p>
+
+      <div class="fd-media fd-media-band">
+        <video autoplay muted loop playsinline preload="none"
+               poster="/feeds/feeds-pattern-topographic.webp"
+               aria-label="The ripple animation from the Feeds brand kit — a soft gradient wave built from the mark's curve.">
+          <source src="/feeds/feeds-ripple.webm" type="video/webm" />
+          <source src="/feeds/feeds-ripple.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <p class="fd-caption">Ripple, from the brand kit's motion set.</p>
+    </section>
+
+    <div class="fd-divider"></div>
+
+    <!-- ══════════════════════ INTO THE PRODUCT ══════════════════════ -->
+    <section class="fd-section">
+      <p class="fd-section-label">03 — Into the product</p>
+      <h2 class="fd-h2">I applied it myself</h2>
+      <p class="fd-lede">
+        A guidelines PDF handed over at the door tends to survive about two
+        weeks. So I took the system into the codebase and applied it in CSS and
+        JavaScript — the interface, the icon set, the Smart Inbox navigation —
+        and left the result as the reference implementation.
+      </p>
+
+      <div class="fd-media-grid">
+        <div>
+          <div class="fd-media">
+            <img src="/feeds/feeds-ui-articles.webp"
+                 alt="The Feeds article list after the brand refresh, showing inline CVE, malware and actor chips extracted locally at view time."
+                 loading="lazy" />
+          </div>
+          <p class="fd-caption">The article list — inline CVE, malware and actor chips.</p>
+        </div>
+        <div>
+          <div class="fd-media">
+            <img src="/feeds/feeds-ui-smartinbox.webp"
+                 alt="The Feeds Smart Inbox — saved filters returning only matching articles, in the refreshed interface."
+                 loading="lazy" />
+          </div>
+          <p class="fd-caption">Smart Inbox — saved filters, restyled against the system.</p>
+        </div>
+      </div>
+
+      <div class="fd-detail" style="margin-top:3rem;">
+        <div class="fd-detail-k">Design calls</div>
+        <div class="fd-detail-v">
+          Moving <strong>Run Audit</strong> inside the digest card, where the
+          thing it audits actually lives, and simplifying its toggle. Fixing the
+          empty-list states, which were losing to a CSS specificity conflict and
+          rendering unstyled.
+        </div>
+      </div>
+
+      <div class="fd-detail">
+        <div class="fd-detail-k">Working with the engineer</div>
+        <div class="fd-detail-v">
+          My front-end went through his code review like anyone else's, and I
+          revised against his notes. That's the part I'd point at: the identity
+          didn't arrive as a deck, it arrived as merged commits.
+        </div>
+      </div>
+
+      <div class="fd-media" style="margin-top:3rem;">
+        <video controls muted loop playsinline preload="none"
+               poster="/feeds/feeds-demo-poster.jpg"
+               aria-label="The Feeds product demo, re-recorded against the rebranded interface.">
+          <source src="/feeds/feeds-demo.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <p class="fd-caption">
+        The product demo, re-recorded against the new UI — it's what runs on the
+        marketing site and in the README.
+      </p>
+    </section>
+
+    <div class="fd-divider"></div>
+
+    <!-- ══════════════════════ OUTWARD ══════════════════════ -->
+    <section class="fd-section">
+      <p class="fd-section-label">04 — Outward</p>
+      <h2 class="fd-h2">The same system, everywhere else</h2>
+      <p class="fd-lede">
+        Once the product carried the identity, everything pointing at it had to
+        agree: the marketing site, the digest email that lands in someone's inbox
+        every morning, and the README that is, for a developer tool, the actual
+        front door.
+      </p>
+
+      <div class="fd-media">
+        <img src="/feeds/feeds-site-hero.webp"
+             alt="The Feeds hero — the lockup in paper over the topographic pattern, the tagline, and three capability pills."
+             loading="lazy" />
+      </div>
+      <p class="fd-caption">
+        The hero, built from the kit — topographic pattern, the paper lockup,
+        and the positioning line the whole identity was drawn to carry. It runs
+        on the site and at the top of the README.
+      </p>
+
+      <ul class="fd-list">
+        <li>Digest email reskinned so the daily send looks like the product it came from.</li>
+        <li>Marketing site rebuilt on the palette, type scale and patterns.</li>
+        <li>README hero and app screenshots re-shot against the refreshed UI.</li>
+        <li>Favicon, social card and the brand-kit icon set, drawn to the same grid.</li>
+      </ul>
+    </section>
+
+    <div class="fd-divider"></div>
+
+    <!-- ══════════════════════ REFLECTION ══════════════════════ -->
+    <section class="fd-section">
+      <p class="fd-section-label">05 — What I'd take from it</p>
+      <h2 class="fd-h2">Handover is the design problem</h2>
+      <p class="fd-body">
+        The interesting constraint on Feeds wasn't drawing the mark. It was that
+        the system had to keep working after I stopped touching it, in the hands
+        of someone whose job is the engine, not the interface. Every decision on
+        this project bent toward that — ratios instead of vibes, four named
+        don'ts instead of "use good judgement", a contrast floor instead of a
+        preference, and a reference implementation in the repo instead of a PDF.
+      </p>
+      <p class="fd-body" style="margin-top:1.5rem;">
+        It's also the clearest case I have for working across the whole thing.
+        The same spark ended up on a screen, in an inbox, on a sticker, and on a
+        printed runner at a booth — and the only reason it holds together is that
+        one person specified it and then went and applied it.
+      </p>
+
+      <div class="fd-links">
+        <a class="fd-link" href="/projects.html" data-transition>All work &#8599;</a>
+        <a class="fd-link" href="mailto:hello@rawanaladdin.com">Ask me about this one &#8599;</a>
+      </div>
+    </section>
+  </main>
+
+  <script type="text/javascript" defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script type="text/javascript" defer src="/js/components/menu.js"></script>
+  <script type="text/javascript" defer src="/js/components/gsap-fade.js"></script>
+</BaseLayout>
