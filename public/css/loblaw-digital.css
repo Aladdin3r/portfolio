@@ -1,0 +1,446 @@
+/* ============================================================
+   Loblaw Digital Mini-Portfolio — scoped under body.ld-pitch
+   Brand: Rawan Aladdin — #FF6701 / #1E293B / #000
+
+   Not a reskin of robots-and-pencils.css. That page argues process,
+   so its spine is a numbered ladder. This posting names six distinct
+   practice areas and asks for evidence in each, so the spine here is
+   a two-column practice matrix (.ld-map): their discipline on the
+   left, the artefact that proves it on the right. The other new
+   component is .ld-check, a countable list of accessibility changes —
+   the Inclusive Design bullet needs specifics, not a claim.
+   ============================================================ */
+
+body.ld-pitch {
+  overflow-x: hidden;
+}
+
+/* ── Section base ── */
+.ld-section {
+  padding: 7rem 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+  font-weight: 300;
+  max-width: 1180px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ld-divider {
+  width: 40px;
+  height: 1px;
+  background: #FF6701;
+  margin: 0 auto;
+  opacity: 0.5;
+}
+
+/* ── Labels & headings ── */
+.ld-hero-label,
+.ld-section-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  margin-bottom: 1.2rem;
+  font-weight: 400;
+}
+.ld-hero-label { color: #FF6701; }
+.ld-section-label { color: rgba(255, 255, 255, 0.45); }
+
+.ld-hero-h1 {
+  font-size: clamp(2.6rem, 7.5vw, 6.6rem);
+  font-weight: 300;
+  line-height: 1.02;
+  text-transform: uppercase;
+  margin: 0 0 1.75rem;
+  color: #fff;
+}
+
+.ld-h2 {
+  font-size: clamp(1.9rem, 4.2vw, 3.6rem);
+  font-weight: 300;
+  text-transform: uppercase;
+  line-height: 1.05;
+  margin: 0 0 1.5rem;
+  color: #fff;
+}
+
+.ld-hero-sub {
+  font-size: clamp(1rem, 1.8vw, 1.28rem);
+  font-weight: 300;
+  opacity: 0.82;
+  line-height: 1.65;
+  max-width: 700px;
+  margin-bottom: 2.5rem;
+}
+
+.ld-lede {
+  font-size: 1.02rem;
+  font-weight: 300;
+  opacity: 0.78;
+  line-height: 1.75;
+  max-width: 690px;
+  margin: 0 0 1.6rem;
+}
+.ld-lede:last-of-type { margin-bottom: 2.5rem; }
+
+.ld-hero-links,
+.ld-cta-links {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.ld-cta-links { margin-top: 2rem; }
+
+/* ── Practice matrix ──
+   The spine. Their six practice areas on the left, the specific thing
+   I made on the right, so the mapping is readable before any prose is. */
+.ld-map {
+  margin: 2.5rem 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.ld-map-row {
+  display: grid;
+  grid-template-columns: 15.5rem 1fr;
+  gap: 2.5rem;
+  padding: 1.7rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  align-items: start;
+}
+
+.ld-map-k {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #FF6701;
+  font-weight: 400;
+  line-height: 1.55;
+  margin: 0;
+  padding-top: 0.15rem;
+}
+
+.ld-map-v {
+  font-size: 0.98rem;
+  font-weight: 300;
+  opacity: 0.82;
+  line-height: 1.75;
+  margin: 0;
+  max-width: 660px;
+}
+
+.ld-map-v strong {
+  font-weight: 500;
+  opacity: 1;
+}
+
+/* ── Project heads ── */
+.ld-project-head {
+  display: flex;
+  align-items: baseline;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.9rem;
+}
+
+.ld-project-title {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 300;
+  text-transform: uppercase;
+  line-height: 1;
+  margin: 0;
+  color: #fff;
+}
+
+.ld-meta {
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #FF6701;
+  font-weight: 400;
+}
+
+.ld-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin: 1.25rem 0 2rem;
+}
+
+.ld-tag {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.4rem 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 100px;
+  opacity: 0.8;
+}
+
+/* ── Body blocks inside a case ── */
+.ld-block {
+  margin: 2.5rem 0 0;
+  max-width: 690px;
+}
+
+.ld-block h3 {
+  font-size: 1.18rem;
+  font-weight: 500;
+  margin: 0 0 0.7rem;
+  line-height: 1.35;
+  color: #fff;
+}
+
+.ld-block-n {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #FF6701;
+  font-weight: 400;
+  margin: 0 0 0.5rem;
+}
+
+.ld-block p {
+  font-size: 0.97rem;
+  font-weight: 300;
+  opacity: 0.78;
+  line-height: 1.75;
+  margin: 0 0 0.8rem;
+}
+.ld-block p:last-child { margin-bottom: 0; }
+
+.ld-block strong { font-weight: 500; opacity: 1; }
+
+/* ── Decision callout — one judgement call per case ── */
+.ld-decision {
+  border-left: 2px solid #FF6701;
+  background: rgba(255, 103, 1, 0.045);
+  border-radius: 0 10px 10px 0;
+  padding: 1.5rem 1.75rem;
+  margin: 1.5rem 0 0;
+  max-width: 700px;
+}
+
+.ld-decision-k {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #FF6701;
+  margin: 0 0 0.7rem;
+  font-weight: 400;
+}
+
+.ld-decision p {
+  font-size: 1rem;
+  line-height: 1.75;
+  margin: 0;
+  font-weight: 300;
+  opacity: 0.9;
+}
+
+/* ── Honest callout — deliberately NOT orange.
+   The KPI gap should read as a statement of fact, not a highlight. ── */
+.ld-honest {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+  padding: 1.75rem 1.9rem;
+  margin: 2.5rem 0 0;
+  max-width: 720px;
+}
+
+.ld-honest-k {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0 0 0.8rem;
+  font-weight: 400;
+}
+
+.ld-honest p {
+  font-size: 1rem;
+  line-height: 1.75;
+  margin: 0 0 0.9rem;
+  font-weight: 300;
+  opacity: 0.85;
+}
+.ld-honest p:last-child { margin-bottom: 0; }
+
+/* ── Accessibility checklist ──
+   Specific changes, countable. A claim of "accessible" is worth nothing;
+   a list of the six things that were missing is worth reading. */
+.ld-check {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0 0;
+  max-width: 720px;
+}
+
+.ld-check li {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 1rem;
+  font-size: 0.97rem;
+  font-weight: 300;
+  opacity: 0.8;
+  line-height: 1.7;
+}
+.ld-check li:last-child { margin-bottom: 0; }
+
+.ld-check li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  width: 9px;
+  height: 9px;
+  border: 1px solid #FF6701;
+  border-radius: 2px;
+  background: rgba(255, 103, 1, 0.35);
+}
+
+.ld-check strong { font-weight: 500; opacity: 1; color: #fff; }
+
+.ld-check code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.86em;
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #FF6701;
+  white-space: nowrap;
+}
+
+/* ── Spec strip — design-system evidence, made countable ── */
+.ld-spec {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 2.5rem 0 0;
+}
+
+.ld-spec div {
+  background: #1a1013;
+  padding: 1.6rem 1.4rem;
+}
+
+.ld-spec-n {
+  font-size: 1.9rem;
+  font-weight: 300;
+  color: #FF6701;
+  line-height: 1;
+}
+
+.ld-spec-l {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  opacity: 0.6;
+  margin-top: 0.6rem;
+  line-height: 1.5;
+}
+
+/* ── Stats ── */
+.ld-stats {
+  display: flex;
+  gap: 3.5rem;
+  flex-wrap: wrap;
+  margin: 2.5rem 0 0;
+}
+
+.ld-stat-n {
+  font-size: 2.6rem;
+  font-weight: 300;
+  color: #FF6701;
+  line-height: 1;
+}
+
+.ld-stat-l {
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  opacity: 0.6;
+  margin-top: 0.5rem;
+}
+
+/* ── Media ── */
+.ld-media {
+  margin: 2.5rem 0 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.ld-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.ld-media-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+.ld-media-grid .ld-media { margin-top: 0; }
+
+.ld-caption {
+  font-size: 0.8rem;
+  opacity: 0.55;
+  line-height: 1.6;
+  margin: 0.7rem 0 0;
+  font-weight: 300;
+}
+
+/* ── Note ── */
+.ld-note {
+  border-left: 2px solid rgba(255, 255, 255, 0.25);
+  padding: 0.3rem 0 0.3rem 1.25rem;
+  margin: 2.5rem 0 0;
+  font-size: 0.92rem;
+  line-height: 1.75;
+  opacity: 0.72;
+  font-weight: 300;
+  max-width: 690px;
+}
+
+.ld-footnote {
+  font-size: 0.8rem;
+  opacity: 0.45;
+  margin-top: 3rem;
+  font-weight: 300;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .ld-section { padding: 4.5rem 1.75rem; }
+  .ld-media-grid { grid-template-columns: 1fr; }
+  .ld-spec { grid-template-columns: repeat(2, 1fr); }
+  .ld-stats { gap: 2rem; }
+  .ld-map-row {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+    padding: 1.4rem 0;
+  }
+  .ld-map-k { padding-top: 0; }
+  .ld-decision { padding: 1.25rem 1.35rem; }
+  .ld-honest { padding: 1.35rem 1.4rem; }
+}
+
+@media (max-width: 520px) {
+  .ld-spec { grid-template-columns: 1fr; }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .ld-decision, .ld-honest { transition: none; }
+}
