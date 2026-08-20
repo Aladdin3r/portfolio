@@ -1,0 +1,349 @@
+/* ============================================================
+   Robots & Pencils Mini-Portfolio — scoped under body.rp-pitch
+   Brand: Rawan Aladdin — #FF6701 / #1E293B / #000
+
+   Deliberately NOT a copy of thinkingbox.css. That page argues range,
+   so it leans on a 3-up card grid and a studio wall. This one argues
+   process, so the load-bearing components are a numbered process
+   ladder, a decision callout, and a spec strip for design-system work.
+   ============================================================ */
+
+body.rp-pitch {
+  overflow-x: hidden;
+}
+
+/* ── Section base ── */
+.rp-section {
+  padding: 7rem 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+  font-weight: 300;
+  max-width: 1180px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.rp-divider {
+  width: 40px;
+  height: 1px;
+  background: #FF6701;
+  margin: 0 auto;
+  opacity: 0.5;
+}
+
+/* ── Labels & headings ── */
+.rp-hero-label,
+.rp-section-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  margin-bottom: 1.2rem;
+  font-weight: 400;
+}
+.rp-hero-label { color: #FF6701; }
+.rp-section-label { color: rgba(255, 255, 255, 0.45); }
+
+.rp-hero-h1 {
+  font-size: clamp(2.6rem, 7.5vw, 6.6rem);
+  font-weight: 300;
+  line-height: 1.02;
+  text-transform: uppercase;
+  margin: 0 0 1.75rem;
+  color: #fff;
+}
+
+.rp-h2 {
+  font-size: clamp(1.9rem, 4.2vw, 3.6rem);
+  font-weight: 300;
+  text-transform: uppercase;
+  line-height: 1.05;
+  margin: 0 0 1.5rem;
+  color: #fff;
+}
+
+.rp-hero-sub {
+  font-size: clamp(1rem, 1.8vw, 1.28rem);
+  font-weight: 300;
+  opacity: 0.82;
+  line-height: 1.65;
+  max-width: 680px;
+  margin-bottom: 2.5rem;
+}
+
+.rp-lede {
+  font-size: 1.02rem;
+  font-weight: 300;
+  opacity: 0.78;
+  line-height: 1.75;
+  max-width: 680px;
+  margin: 0 0 2.5rem;
+}
+
+.rp-hero-links,
+.rp-cta-links {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.rp-cta-links { margin-top: 2rem; }
+
+/* ── Project heads ── */
+.rp-project-head {
+  display: flex;
+  align-items: baseline;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.9rem;
+}
+
+.rp-project-title {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 300;
+  text-transform: uppercase;
+  line-height: 1;
+  margin: 0;
+  color: #fff;
+}
+
+.rp-meta {
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #FF6701;
+  font-weight: 400;
+}
+
+.rp-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin: 1.25rem 0 2rem;
+}
+
+.rp-tag {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.4rem 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 100px;
+  opacity: 0.8;
+}
+
+/* ── Process ladder ──
+   The spine of this page. A numbered vertical rail so the reader can see
+   the shape of the work — research through to what shipped — without
+   reading a word of it. */
+.rp-ladder {
+  margin: 2.5rem 0 0;
+  border-left: 1px solid rgba(255, 255, 255, 0.14);
+  padding-left: 2.25rem;
+}
+
+.rp-step {
+  position: relative;
+  padding-bottom: 2.5rem;
+}
+.rp-step:last-child { padding-bottom: 0; }
+
+.rp-step::before {
+  content: "";
+  position: absolute;
+  left: -2.6rem;
+  top: 0.45rem;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #FF6701;
+}
+
+.rp-step-n {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #FF6701;
+  font-weight: 400;
+  margin: 0 0 0.5rem;
+}
+
+.rp-step h3 {
+  font-size: 1.18rem;
+  font-weight: 500;
+  margin: 0 0 0.7rem;
+  line-height: 1.35;
+  color: #fff;
+}
+
+.rp-step p {
+  font-size: 0.97rem;
+  font-weight: 300;
+  opacity: 0.78;
+  line-height: 1.75;
+  margin: 0 0 0.8rem;
+  max-width: 660px;
+}
+.rp-step p:last-child { margin-bottom: 0; }
+
+.rp-step strong {
+  font-weight: 500;
+  opacity: 1;
+}
+
+/* ── Decision callout ──
+   For the one judgement call on a project that a reviewer should
+   remember. Orange rule, quieter than a card, louder than body copy. */
+.rp-decision {
+  border-left: 2px solid #FF6701;
+  background: rgba(255, 103, 1, 0.045);
+  border-radius: 0 10px 10px 0;
+  padding: 1.5rem 1.75rem;
+  margin: 1.5rem 0 0;
+  max-width: 700px;
+}
+
+.rp-decision-k {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #FF6701;
+  margin: 0 0 0.7rem;
+  font-weight: 400;
+}
+
+.rp-decision p {
+  font-size: 1rem;
+  line-height: 1.75;
+  margin: 0;
+  font-weight: 300;
+  opacity: 0.9;
+}
+
+/* ── Spec strip — for design-system evidence ── */
+.rp-spec {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 2.5rem 0 0;
+}
+
+.rp-spec div {
+  background: #1a1013;
+  padding: 1.6rem 1.4rem;
+}
+
+.rp-spec-n {
+  font-size: 1.9rem;
+  font-weight: 300;
+  color: #FF6701;
+  line-height: 1;
+}
+
+.rp-spec-l {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  opacity: 0.6;
+  margin-top: 0.6rem;
+  line-height: 1.5;
+}
+
+/* ── Stats ── */
+.rp-stats {
+  display: flex;
+  gap: 3.5rem;
+  flex-wrap: wrap;
+  margin: 2.5rem 0 0;
+}
+
+.rp-stat-n {
+  font-size: 2.6rem;
+  font-weight: 300;
+  color: #FF6701;
+  line-height: 1;
+}
+
+.rp-stat-l {
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  opacity: 0.6;
+  margin-top: 0.5rem;
+}
+
+/* ── Media ── */
+.rp-media {
+  margin: 2.5rem 0 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.rp-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.rp-media-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+.rp-media-grid .rp-media { margin-top: 0; }
+
+.rp-caption {
+  font-size: 0.8rem;
+  opacity: 0.55;
+  line-height: 1.6;
+  margin: 0.7rem 0 0;
+  font-weight: 300;
+}
+
+/* ── Note ── */
+.rp-note {
+  border-left: 2px solid rgba(255, 255, 255, 0.25);
+  padding: 0.3rem 0 0.3rem 1.25rem;
+  margin: 2.5rem 0 0;
+  font-size: 0.92rem;
+  line-height: 1.75;
+  opacity: 0.72;
+  font-weight: 300;
+  max-width: 680px;
+}
+
+.rp-footnote {
+  font-size: 0.8rem;
+  opacity: 0.45;
+  margin-top: 3rem;
+  font-weight: 300;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .rp-section { padding: 4.5rem 1.75rem; }
+  .rp-media-grid { grid-template-columns: 1fr; }
+  .rp-spec { grid-template-columns: repeat(2, 1fr); }
+  .rp-stats { gap: 2rem; }
+  .rp-ladder { padding-left: 1.5rem; }
+  .rp-step::before { left: -1.85rem; }
+  .rp-decision { padding: 1.25rem 1.35rem; }
+}
+
+@media (max-width: 520px) {
+  .rp-spec { grid-template-columns: 1fr; }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .rp-step, .rp-decision { transition: none; }
+}

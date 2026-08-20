@@ -1,0 +1,362 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Rawan Aladdin — For Robots & Pencils"
+  description="A targeted mini-portfolio: user research, design systems, and shipped AI product work by Rawan Aladdin, for the Robots & Pencils UX/UI Designer role."
+  bodyClass="rp-pitch"
+  canonical="https://rawanaladdin.com/robots-and-pencils"
+  noindex
+>
+  <Fragment slot="head">
+    <link rel="stylesheet" href="/css/robots-and-pencils.css" />
+  </Fragment>
+
+  <main>
+
+    <!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
+    <section id="hero" class="rp-section" style="min-height: 100vh; justify-content: flex-end; padding-bottom: 8rem;">
+      <p class="rp-hero-label">For Robots &amp; Pencils — August 2026</p>
+      <h1 class="rp-hero-h1">Hi Robots &amp;<br>Pencils, I'm Rawan.</h1>
+      <p class="rp-hero-sub">
+        A designer who starts with the person and stays with the work through build —
+        user research, design systems, and the interfaces that carry them.
+      </p>
+      <div class="rp-hero-links">
+        <a href="mailto:hello@rawanaladdin.com" class="main-link">hello@rawanaladdin.com &#8599;</a>
+        <a href="/projects.html" class="main-link">full portfolio &#8599;</a>
+      </div>
+    </section>
+
+    <div class="rp-divider"></div>
+
+    <!-- ═══════════════════════════════ WHY ═══════════════════════════════ -->
+    <section id="why" class="rp-section">
+      <p class="rp-section-label">Why me, for this role</p>
+      <h2 class="rp-h2">Three things<br>I'd bring.</h2>
+
+      <div class="rp-ladder">
+
+        <div class="rp-step">
+          <p class="rp-step-n">01</p>
+          <h3>I've designed an AI product, not just an interface for one.</h3>
+          <p>
+            On Onward, the hard problem was never the model. It was the moment its
+            output landed on someone who was already nervous. That is the same problem
+            as an agent sitting inside a person's actual workflow — the thing has to be
+            useful to them at the moment it speaks, or it is a demo.
+          </p>
+        </div>
+
+        <div class="rp-step">
+          <p class="rp-step-n">02</p>
+          <h3>I build design systems that survive production.</h3>
+          <p>
+            For Feeds I wrote an eleven-page system and then applied it into the product
+            myself, in the engineer's codebase, through his code review. A system nobody
+            applies isn't a system — it's a PDF. Being the one who lands it means I know
+            what a component costs before I propose it.
+          </p>
+        </div>
+
+        <div class="rp-step">
+          <p class="rp-step-n">03</p>
+          <h3>I research first, then decide quickly.</h3>
+          <p>
+            Interviews and surveys, a persona, a how-might-we, three design pillars — and
+            then, because the timeline was tight, a decision to make one flow flawless and
+            let the rest follow. Speed doesn't come from cutting the research. It comes
+            from knowing which decision the research is actually for.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="rp-divider"></div>
+
+    <!-- ═══════════════════════════ PROJECT 01 — ONWARD ═══════════════════════════ -->
+    <section id="onward" class="rp-section">
+      <p class="rp-section-label">Project 01 — Shipped AI product</p>
+      <div class="rp-project-head">
+        <h2 class="rp-project-title">Onward</h2>
+        <span class="rp-meta">Product Designer &amp; Lead Developer · Sept – Dec 2024</span>
+      </div>
+      <p class="rp-lede">
+        An AI interview coach for internationally educated healthcare professionals —
+        nurses, mostly, arriving into a hiring system that expects them to interview in
+        a register nobody teaches them. I designed it and led the build.
+      </p>
+
+      <div class="rp-tags">
+        <span class="rp-tag">User Research</span>
+        <span class="rp-tag">Personas</span>
+        <span class="rp-tag">Information Architecture</span>
+        <span class="rp-tag">Product UI</span>
+        <span class="rp-tag">Usability Testing</span>
+        <span class="rp-tag">Front-end</span>
+      </div>
+
+      <div class="rp-ladder">
+
+        <div class="rp-step">
+          <p class="rp-step-n">01 — Research</p>
+          <h3>The struggle wasn't qualification. It was communication.</h3>
+          <p>
+            We started by listening — interviews and surveys with internationally educated
+            healthcare workers. A clear pattern came back: not language alone, but
+            confidence, cultural context, and the quiet fear of being misunderstood by a
+            system that wasn't built with you in mind.
+          </p>
+          <p>
+            That became <strong>Marco Dizon</strong>, our primary persona: a nurse from the
+            Philippines with years of clinical experience who falters in Canadian
+            interviews. Technically overqualified, emotionally underconfident. That
+            combination was the design brief.
+          </p>
+        </div>
+
+        <div class="rp-step">
+          <p class="rp-step-n">02 — The brief</p>
+          <h3>How do you build confidence without adding pressure?</h3>
+          <p>
+            Most interview prep tools are high-stakes simulations, so they amplify the
+            anxiety they were meant to relieve. Marco needed a sandbox instead — a place to
+            practice, fail safely, get specific feedback, and go again. The challenge wasn't
+            building the app. It was designing the emotional experience: every button, every
+            feedback message, every loading state had to say <em>you're improving</em>.
+          </p>
+        </div>
+
+        <div class="rp-step">
+          <p class="rp-step-n">03 — Structure</p>
+          <h3>Three pillars, then an architecture around Marco's journey.</h3>
+          <p>
+            <strong>Growth</strong>, <strong>confidence</strong> and
+            <strong>communication</strong> guided every call. The information architecture
+            followed the journey: understand the role he's targeting, practice with tailored
+            questions, get concrete feedback, review and iterate.
+          </p>
+          <p>
+            The timeline was tight, so we prioritised the practice-interview flow — the one
+            Marco would return to most — and accepted that everything else would follow it.
+          </p>
+        </div>
+
+        <div class="rp-step">
+          <p class="rp-step-n">04 — The decision</p>
+          <h3>Data, not judgment.</h3>
+          <p>
+            The system detects filler words in real time. The obvious move was to flag
+            them — tell someone the instant they say "um."
+          </p>
+          <div class="rp-decision">
+            <p class="rp-decision-k">The call I'd defend</p>
+            <p>
+              I didn't. Someone rehearsing for a high-stakes interview does not need a
+              machine scoring them mid-sentence. So the detection became a pattern they read
+              back afterward, in their own speech, next to STAR-method scaffolding — and the
+              timer was split, counting up while they practise and down only when they ask
+              for a real mock.
+            </p>
+          </div>
+        </div>
+
+        <div class="rp-step">
+          <p class="rp-step-n">05 — The test</p>
+          <h3>Twelve users, and one thing they told us to fix.</h3>
+          <p>
+            Ease of use came back at 8 out of 10. What they wanted changed was the feedback
+            flow, so we redesigned it before launch rather than shipping and promising to
+            revisit it.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="rp-media-grid">
+        <div>
+          <div class="rp-media">
+            <img src="/PersonaPrimary.webp" alt="Marco Dizon, the primary persona — a nurse from the Philippines with years of clinical experience, profiled with goals, frustrations and interview anxieties." loading="lazy" />
+          </div>
+          <p class="rp-caption">Marco Dizon — built from the interviews, not from a template.</p>
+        </div>
+        <div>
+          <div class="rp-media">
+            <img src="/sitemap.webp" alt="Onward's information architecture and user flows, mapping the journey from awareness through practice to review." loading="lazy" />
+          </div>
+          <p class="rp-caption">The architecture, mapped to his journey rather than to our feature list.</p>
+        </div>
+      </div>
+
+      <div class="rp-stats">
+        <div>
+          <div class="rp-stat-n">8/10</div>
+          <div class="rp-stat-l">Ease of use, 12 users</div>
+        </div>
+        <div>
+          <div class="rp-stat-n">4</div>
+          <div class="rp-stat-l">Months to shipped</div>
+        </div>
+        <div>
+          <div class="rp-stat-n">200+</div>
+          <div class="rp-stat-l">Presented to, live</div>
+        </div>
+      </div>
+
+      <div class="rp-media">
+        <img src="/ONWARD-main.webp" alt="The Onward dashboard — practice and mock interview entry points, saved resumes, and interview history." loading="lazy" />
+      </div>
+
+      <p class="rp-note">
+        Onward was pitched to VANTEC Network angel investors and presented live to a room
+        of professionals, investors and government officials. It was a team project; the
+        product design, the design system, the research and the pitch were mine.
+      </p>
+
+      <div class="rp-cta-links">
+        <a href="https://onward-p2.vercel.app/" target="_blank" rel="noopener" class="main-link">see it running &#8599;</a>
+        <a href="/onward.html" class="main-link">read the full case study &#8599;</a>
+      </div>
+    </section>
+
+    <div class="rp-divider"></div>
+
+    <!-- ═══════════════════════════ PROJECT 02 — FEEDS ═══════════════════════════ -->
+    <section id="feeds" class="rp-section">
+      <p class="rp-section-label">Project 02 — Design system in production</p>
+      <div class="rp-project-head">
+        <h2 class="rp-project-title">Feeds</h2>
+        <span class="rp-meta">Brand Identity · Product UI · 2026</span>
+      </div>
+      <p class="rp-lede">
+        A self-hosted reader and digest engine for security analysts. I didn't write the
+        engine — an engineer I work with did — but more or less everything you can see,
+        I made.
+      </p>
+
+      <div class="rp-tags">
+        <span class="rp-tag">Design System</span>
+        <span class="rp-tag">Guidelines</span>
+        <span class="rp-tag">Product UI</span>
+        <span class="rp-tag">Accessibility</span>
+        <span class="rp-tag">Front-end</span>
+        <span class="rp-tag">Client Collaboration</span>
+      </div>
+
+      <div class="rp-spec">
+        <div>
+          <div class="rp-spec-n">11</div>
+          <div class="rp-spec-l">Pages of<br>guidelines</div>
+        </div>
+        <div>
+          <div class="rp-spec-n">5</div>
+          <div class="rp-spec-l">Colours, with<br>usage ratios</div>
+        </div>
+        <div>
+          <div class="rp-spec-n">AA</div>
+          <div class="rp-spec-l">Contrast floor,<br>specified</div>
+        </div>
+        <div>
+          <div class="rp-spec-n">4</div>
+          <div class="rp-spec-l">Surfaces it<br>shipped into</div>
+        </div>
+      </div>
+
+      <div class="rp-ladder">
+
+        <div class="rp-step">
+          <p class="rp-step-n">01 — The system</p>
+          <h3>Specified down to the ratio.</h3>
+          <p>
+            A four-point spark held between two curved strokes, and a wordmark set in
+            lowercase Bricolage Grotesque — never capitalised, never reset. Five colours,
+            each with the proportion of a page it should occupy, and an AA contrast floor
+            written in rather than assumed. Delivered as an eleven-page document to the
+            developer building the product.
+          </p>
+        </div>
+
+        <div class="rp-step">
+          <p class="rp-step-n">02 — Into the product</p>
+          <h3>I applied it myself, and took the code review.</h3>
+          <p>
+            The interface, the icon set, the Smart Inbox navigation — written in CSS and
+            JavaScript, inside his repository, reviewed like anyone else's. Some of the UX
+            calls came out of that: moving Run Audit inside the digest card, simplifying its
+            toggle, and fixing empty-list CSS bugs.
+          </p>
+        </div>
+
+        <div class="rp-step">
+          <p class="rp-step-n">03 — Everywhere else</p>
+          <h3>The same system, off the screen.</h3>
+          <p>
+            A reskinned digest email, a rebranded marketing site, and a live launch booth —
+            printed table runners, die-cut mark stickers in four colourways, and two reels
+            looping on the screens behind the table.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="rp-media-grid">
+        <div>
+          <div class="rp-media">
+            <img src="/feeds/feeds-ui-articles.webp" alt="The Feeds article list after the brand refresh, showing inline CVE, malware and actor chips extracted locally at view time." loading="lazy" />
+          </div>
+          <p class="rp-caption">The product UI after the refresh — I wrote this front-end.</p>
+        </div>
+        <div>
+          <div class="rp-media">
+            <img src="/feeds/feeds-booth.webp" alt="The Feeds booth during the showcase — table runners carrying the mark and tagline, a laptop looping the brand identity reel, and the live product site on the screen behind." loading="lazy" />
+          </div>
+          <p class="rp-caption">The launch booth, printed from the same brand kit.</p>
+        </div>
+      </div>
+
+      <p class="rp-note">
+        Worth being precise about ownership: the Go engine, the architecture and the core
+        product logic are the engineer's. The identity, the guidelines, the applied
+        front-end, the email, the marketing site and the launch are mine.
+      </p>
+    </section>
+
+    <div class="rp-divider"></div>
+
+    <!-- ═══════════════════════════════ ABOUT / CTA ═══════════════════════════════ -->
+    <section id="about" class="rp-section" style="min-height: 90vh;">
+      <p class="rp-section-label">About</p>
+      <h2 class="rp-h2">Where I am,<br>plainly.</h2>
+      <p class="rp-lede">
+        Vancouver-based. I hold a Bachelor of Creative
+        Industries and a Diploma in Digital Design &amp; Development, both from BCIT.
+        Before that I studied cognitive science, philosophy and digital humanities at the
+        University of Toronto — which is where I picked up the habit of asking how people
+        actually think before deciding what they should see.
+      </p>
+      <p class="rp-lede">
+        I'm earlier than the two years your posting asks for, and I'd rather name that than
+        inflate it. What I have instead is work that shipped and got used: a product tested
+        with real users and redesigned on what they said, a design system living in someone
+        else's repository, and clients whose businesses depended on the thing being right.
+      </p>
+      <p class="rp-lede">
+        I use Claude daily in my own practice — for research, for building, for
+        pressure-testing my own decisions. An AI-forward studio isn't a leap for me; it's
+        already what my workflow looks like.
+      </p>
+
+      <div class="rp-cta-links">
+        <a href="mailto:hello@rawanaladdin.com" class="main-link">hello@rawanaladdin.com &#8599;</a>
+        <a href="https://www.linkedin.com/in/rawan-aladdin" target="_blank" rel="noopener" class="main-link">linkedin &#8599;</a>
+        <a href="/projects.html" class="main-link">full portfolio &#8599;</a>
+      </div>
+
+      <p class="rp-footnote">
+        Made for Robots &amp; Pencils — August 2026. Built in Astro, by me.
+      </p>
+    </section>
+
+  </main>
+</BaseLayout>
