@@ -1,0 +1,523 @@
+/* ============================================================
+   Monks — Designer, Social & Brand — mini-portfolio
+   Scoped under body.mk-pitch
+   Brand: Rawan Aladdin — #FF6701 / #1E293B / #000
+
+   Argument first, per the rule from robots-and-pencils.
+
+   The Loblaw page argued six disciplines, so its spine was a
+   discipline-to-artefact matrix. This posting argues one thing
+   eleven ways: can you hold a brand steady across formats, fast.
+   So the spine here is .mk-formats — a format rail. Each card is
+   one surface, tagged by format, carrying its own media and one
+   line about what it cost. It reads the way the job reads: same
+   system, different container, four times over.
+
+   .mk-map survives from the Loblaw page because the posting
+   enumerates essentials and they still need answering, but it is
+   the opening move here rather than the argument.
+
+   New: .mk-list (the tool-by-tool motion inventory — a claim about
+   motion needs an inventory, not an adjective) and video support
+   inside .mk-media, since two of the four surfaces are moving.
+   ============================================================ */
+
+body.mk-pitch {
+  overflow-x: hidden;
+}
+
+/* ── Section base ── */
+.mk-section {
+  padding: 7rem 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+  font-weight: 300;
+  max-width: 1180px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.mk-divider {
+  width: 40px;
+  height: 1px;
+  background: #FF6701;
+  margin: 0 auto;
+  opacity: 0.5;
+}
+
+/* ── Labels & headings ── */
+.mk-hero-label,
+.mk-section-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  margin-bottom: 1.2rem;
+  font-weight: 400;
+}
+.mk-hero-label { color: #FF6701; }
+.mk-section-label { color: rgba(255, 255, 255, 0.45); }
+
+.mk-hero-h1 {
+  font-size: clamp(2.6rem, 7.5vw, 6.6rem);
+  font-weight: 300;
+  line-height: 1.02;
+  text-transform: uppercase;
+  margin: 0 0 1.75rem;
+  color: #fff;
+}
+
+.mk-h2 {
+  font-size: clamp(1.9rem, 4.2vw, 3.6rem);
+  font-weight: 300;
+  text-transform: uppercase;
+  line-height: 1.05;
+  margin: 0 0 1.5rem;
+  color: #fff;
+}
+
+.mk-hero-sub {
+  font-size: clamp(1rem, 1.8vw, 1.28rem);
+  font-weight: 300;
+  opacity: 0.82;
+  line-height: 1.65;
+  max-width: 700px;
+  margin-bottom: 2.5rem;
+}
+
+.mk-lede {
+  font-size: 1.02rem;
+  font-weight: 300;
+  opacity: 0.78;
+  line-height: 1.75;
+  max-width: 690px;
+  margin: 0 0 1.6rem;
+}
+.mk-lede:last-of-type { margin-bottom: 2.5rem; }
+
+.mk-hero-links,
+.mk-cta-links {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.mk-cta-links { margin-top: 2rem; }
+
+/* ── Essentials matrix — the opening move, not the spine ── */
+.mk-map {
+  margin: 2.5rem 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.mk-map-row {
+  display: grid;
+  grid-template-columns: 15.5rem 1fr;
+  gap: 2.5rem;
+  padding: 1.7rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  align-items: start;
+}
+
+.mk-map-k {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #FF6701;
+  font-weight: 400;
+  line-height: 1.55;
+  margin: 0;
+  padding-top: 0.15rem;
+}
+
+.mk-map-v {
+  font-size: 0.98rem;
+  font-weight: 300;
+  opacity: 0.82;
+  line-height: 1.75;
+  margin: 0;
+  max-width: 660px;
+}
+
+.mk-map-v strong { font-weight: 500; opacity: 1; }
+
+/* ── Format rail — the spine.
+   One surface per card: format tag, the artefact, one line. The point
+   is legible before the prose is, which is the same point the job makes. ── */
+.mk-formats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.75rem 1.5rem;
+  margin: 3rem 0 0;
+}
+
+.mk-format {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.mk-format-k {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #FF6701;
+  font-weight: 400;
+  margin: 0 0 0.9rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.mk-format .mk-media { margin-top: 0; }
+
+/* One shape for all four cards. The point of the section is that the system
+   survives a change of container, which only reads if the containers match. */
+.mk-format .mk-media {
+  aspect-ratio: 16 / 10;
+}
+.mk-format .mk-media img,
+.mk-format .mk-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* The booth is the one portrait source. Centre-cropping it loses the printed
+   runners along the bottom, which are the reason the photo is here. */
+.mk-format .mk-media img.mk-crop-low { object-position: 50% 78%; }
+/* A 9:16 frame has no honest 16:10 crop — a face or the subtitles, never both.
+   Letterboxing it inside the card keeps the uniform shape and shows the format. */
+.mk-format .mk-media img.mk-contain { object-fit: contain; background: #100b0d; }
+
+.mk-format-v {
+  font-size: 0.93rem;
+  font-weight: 300;
+  opacity: 0.75;
+  line-height: 1.7;
+  margin: 1rem 0 0;
+}
+
+/* ── Project heads ── */
+.mk-project-head {
+  display: flex;
+  align-items: baseline;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.9rem;
+}
+
+.mk-project-title {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 300;
+  text-transform: uppercase;
+  line-height: 1;
+  margin: 0;
+  color: #fff;
+}
+
+.mk-meta {
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #FF6701;
+  font-weight: 400;
+}
+
+.mk-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin: 1.25rem 0 2rem;
+}
+
+.mk-tag {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.4rem 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 100px;
+  opacity: 0.8;
+}
+
+/* ── Body blocks ── */
+.mk-block {
+  margin: 2.5rem 0 0;
+  max-width: 690px;
+}
+
+.mk-block h3 {
+  font-size: 1.18rem;
+  font-weight: 500;
+  margin: 0 0 0.7rem;
+  line-height: 1.35;
+  color: #fff;
+}
+
+.mk-block-n {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #FF6701;
+  font-weight: 400;
+  margin: 0 0 0.5rem;
+}
+
+.mk-block p {
+  font-size: 0.97rem;
+  font-weight: 300;
+  opacity: 0.78;
+  line-height: 1.75;
+  margin: 0 0 0.8rem;
+}
+.mk-block p:last-child { margin-bottom: 0; }
+
+.mk-block strong { font-weight: 500; opacity: 1; }
+
+/* ── Decision callout ── */
+.mk-decision {
+  border-left: 2px solid #FF6701;
+  background: rgba(255, 103, 1, 0.045);
+  border-radius: 0 10px 10px 0;
+  padding: 1.5rem 1.75rem;
+  margin: 1.5rem 0 0;
+  max-width: 700px;
+}
+
+.mk-decision-k {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #FF6701;
+  margin: 0 0 0.7rem;
+  font-weight: 400;
+}
+
+.mk-decision p {
+  font-size: 1rem;
+  line-height: 1.75;
+  margin: 0;
+  font-weight: 300;
+  opacity: 0.9;
+}
+
+/* ── Honest callout — deliberately not orange.
+   A gap stated plainly should read as fact, never as a highlight. ── */
+.mk-honest {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+  padding: 1.75rem 1.9rem;
+  margin: 1.5rem 0 0;
+  max-width: 720px;
+}
+
+.mk-honest-k {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0 0 0.8rem;
+  font-weight: 400;
+}
+
+.mk-honest p {
+  font-size: 1rem;
+  line-height: 1.75;
+  margin: 0 0 0.9rem;
+  font-weight: 300;
+  opacity: 0.85;
+}
+.mk-honest p:last-child { margin-bottom: 0; }
+
+/* ── Inventory list — motion, tool by tool ── */
+.mk-list {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0 0;
+  max-width: 720px;
+}
+
+.mk-list li {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 1rem;
+  font-size: 0.97rem;
+  font-weight: 300;
+  opacity: 0.8;
+  line-height: 1.7;
+}
+.mk-list li:last-child { margin-bottom: 0; }
+
+.mk-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  width: 9px;
+  height: 9px;
+  border: 1px solid #FF6701;
+  border-radius: 2px;
+  background: rgba(255, 103, 1, 0.35);
+}
+
+.mk-list strong { font-weight: 500; opacity: 1; color: #fff; }
+
+/* ── Spec strip ── */
+.mk-spec {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 2.5rem 0 0;
+}
+
+.mk-spec div {
+  background: #1a1013;
+  padding: 1.6rem 1.4rem;
+}
+
+.mk-spec-n {
+  font-size: 1.9rem;
+  font-weight: 300;
+  color: #FF6701;
+  line-height: 1;
+}
+
+/* The ratio cell carries four numbers, so it has to be allowed to shrink
+   rather than push the grid wider. */
+.mk-spec div:last-child .mk-spec-n { font-size: 1.35rem; letter-spacing: -0.01em; }
+
+.mk-spec-l {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  opacity: 0.6;
+  margin-top: 0.6rem;
+  line-height: 1.5;
+}
+
+/* ── Stats — SyriaTek's numbers, including the one that was missed ── */
+.mk-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 0.5rem 0 0;
+}
+
+.mk-stats div { background: #1a1013; padding: 1.6rem 1.4rem; }
+
+.mk-stat-n {
+  font-size: 1.9rem;
+  font-weight: 300;
+  color: #FF6701;
+  line-height: 1;
+}
+
+/* The follower cell carries the miss. It reads as fact, not as a headline. */
+.mk-stats div:last-child .mk-stat-n { color: rgba(255, 255, 255, 0.75); }
+
+.mk-stat-l {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  opacity: 0.6;
+  margin-top: 0.6rem;
+  line-height: 1.5;
+}
+
+/* ── Media ── */
+.mk-media {
+  margin: 2.5rem 0 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.mk-media img,
+.mk-media video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.mk-media-narrow { max-width: 620px; }
+/* Reserve the box from the source ratio. A <video> with no metadata yet
+   defaults to 150px tall, which collapses the layout on a slow first paint. */
+.mk-media-narrow video { aspect-ratio: 1200 / 706; object-fit: cover; }
+
+.mk-media-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+.mk-media-grid .mk-media { margin-top: 0; }
+
+/* A grid that pairs a portrait source with a landscape one needs a shared
+   shape, or the row reads as a mistake. */
+.mk-media-grid.mk-even .mk-media { aspect-ratio: 4 / 3; }
+.mk-media-grid.mk-even .mk-media img { width: 100%; height: 100%; object-fit: cover; }
+.mk-media-grid.mk-even .mk-media img.mk-crop-mid { object-position: 50% 45%; }
+
+.mk-caption {
+  font-size: 0.8rem;
+  opacity: 0.55;
+  line-height: 1.6;
+  margin: 0.7rem 0 0;
+  font-weight: 300;
+}
+
+/* ── Note ── */
+.mk-note {
+  border-left: 2px solid rgba(255, 255, 255, 0.25);
+  padding: 0.3rem 0 0.3rem 1.25rem;
+  margin: 2.5rem 0 0;
+  font-size: 0.92rem;
+  line-height: 1.75;
+  opacity: 0.72;
+  font-weight: 300;
+  max-width: 690px;
+}
+
+.mk-footnote {
+  font-size: 0.8rem;
+  opacity: 0.45;
+  margin-top: 3rem;
+  font-weight: 300;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .mk-section { padding: 4.5rem 1.75rem; }
+  .mk-media-grid { grid-template-columns: 1fr; }
+  .mk-formats { grid-template-columns: 1fr; gap: 2.25rem; }
+  .mk-spec, .mk-stats { grid-template-columns: repeat(2, 1fr); }
+  .mk-map-row {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+    padding: 1.4rem 0;
+  }
+  .mk-map-k { padding-top: 0; }
+  .mk-decision { padding: 1.25rem 1.35rem; }
+  .mk-honest { padding: 1.35rem 1.4rem; }
+}
+
+@media (max-width: 520px) {
+  .mk-spec, .mk-stats { grid-template-columns: 1fr; }
+}
+
+/* ── Reduced motion ──
+   CSS cannot pause a <video>, so the actual pausing is done by the inline
+   script at the bottom of monks.astro. This only removes the transitions. */
+@media (prefers-reduced-motion: reduce) {
+  .mk-decision, .mk-honest, .mk-format { transition: none; }
+}
