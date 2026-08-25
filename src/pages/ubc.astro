@@ -352,14 +352,53 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         sourcing of photography. I have done that job from either side of it.
       </p>
 
-      <div class="ub-media-grid ub-even">
-        <div class="ub-media">
-          <img src="/syriatek/syriatek-frame-1.webp" class="ub-contain" alt="A vertical frame from a SyriaTek pilot: the presenter on camera with Arabic and English subtitles stacked beneath." loading="lazy" decoding="async" />
+      <!-- The two pilots, playing. Each blockquote carries a real card as its
+           contents — Instagram's script replaces it on success, and it stands
+           on its own if the script is blocked. -->
+      <div class="ub-ig-grid">
+
+        <div class="ub-ig">
+          <p class="ub-ig-k">Pilot one — Welcome</p>
+          <blockquote
+            class="instagram-media"
+            data-instgrm-permalink="https://www.instagram.com/reel/DbNR4HenYQQ/?utm_source=ig_embed"
+            data-instgrm-version="14"
+          >
+            <div class="ub-ig-fallback">
+              <img src="/syriatek/syriatek-frame-1.webp" alt="A frame from the SyriaTek Welcome pilot: the presenter on camera with Arabic and English subtitles stacked beneath." loading="lazy" decoding="async" />
+              <div class="ub-ig-fb-body">
+                <p class="ub-ig-fb-t">SyriaTek — Welcome</p>
+                <p class="ub-ig-fb-p">Vertical, 1080&nbsp;×&nbsp;1920, cut in CapCut and subtitled in Arabic and English.</p>
+                <a href="https://www.instagram.com/reel/DbNR4HenYQQ/" target="_blank" rel="noopener" class="main-link">watch on instagram &#8599;</a>
+              </div>
+            </div>
+          </blockquote>
         </div>
-        <div class="ub-media">
-          <img src="/syriatek/syriatek-timeline.webp" alt="The SyriaTek edit timeline in CapCut, showing the B-roll clips against two separate caption tracks." loading="lazy" decoding="async" />
+
+        <div class="ub-ig">
+          <p class="ub-ig-k">Pilot two — Digital Skills</p>
+          <blockquote
+            class="instagram-media"
+            data-instgrm-permalink="https://www.instagram.com/reel/DbPvv6KhE3K/?utm_source=ig_embed"
+            data-instgrm-version="14"
+          >
+            <div class="ub-ig-fallback">
+              <img src="/syriatek/syriatek-broll-2.webp" alt="A B-roll frame shot for SyriaTek: a street in Syria at dusk, with shopfronts, a food stall and people walking past." loading="lazy" decoding="async" />
+              <div class="ub-ig-fb-body">
+                <p class="ub-ig-fb-t">SyriaTek — Digital Skills</p>
+                <p class="ub-ig-fb-p">Presenter footage cut against street B-roll, same format, same two caption tracks.</p>
+                <a href="https://www.instagram.com/reel/DbPvv6KhE3K/" target="_blank" rel="noopener" class="main-link">watch on instagram &#8599;</a>
+              </div>
+            </div>
+          </blockquote>
         </div>
+
       </div>
+      <p class="ub-caption">
+        Both published 25 July 2026 to instagram.com/syria.tek. Between them, 3,823
+        views and 1,556 unique viewers in fifteen days, with roughly 92% of the reach
+        coming from people who did not follow the account.
+      </p>
 
       <div class="ub-block">
         <p class="ub-block-n">Directing</p>
@@ -387,6 +426,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           outside the account's own followers.
         </p>
       </div>
+
+      <div class="ub-media ub-media-narrow">
+        <img src="/syriatek/syriatek-timeline.webp" alt="The SyriaTek edit timeline in CapCut, showing the B-roll clips against two separate caption tracks." loading="lazy" decoding="async" />
+      </div>
+      <p class="ub-caption">The edit, with the Arabic and English caption tracks running separately.</p>
 
       <div class="ub-decision">
         <p class="ub-decision-k">The decision I would bring up in an interview</p>
@@ -445,6 +489,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
        page is exactly what it was before — every image still visible, nothing
        broken, no empty dialog in the DOM. The argument never depends on this.
   ═══════════════════════════════════════════════════════════════════════════ -->
+  <!-- Instagram's embed script. async, and nothing on the page waits on it:
+       if it never arrives, each blockquote keeps the card it already contains. -->
+  <script is:inline async src="https://www.instagram.com/embed.js"></script>
+
   <script is:inline>
     (function () {
       var imgs = [].slice.call(document.querySelectorAll('.ub-thumb img, .ub-media img'));

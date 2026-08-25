@@ -476,6 +476,110 @@ body.ub-pitch {
 }
 
 /* ============================================================
+   INSTAGRAM EMBEDS
+   Added 2026-08-25. Rawan asked for the SyriaTek pilots to be
+   playable rather than represented by a still frame, and chose
+   the real Instagram embed over a self-hosted mp4 so the live
+   account is attached to the evidence.
+
+   The known cost: embed.js is a third-party script and an iframe
+   from instagram.com, and institutional networks block both. So
+   the blockquote carries a real fallback — poster frame, title,
+   link — which Instagram's script replaces on success and which
+   stands on its own on failure. A blocked network gets a card,
+   never an empty box.
+
+   Fallback styling is scoped to .ub-ig-fallback, an element of
+   ours INSIDE the blockquote, because embed.js replaces the
+   blockquote itself with an <iframe class="instagram-media">.
+   Anything styled on .instagram-media therefore has to be true
+   of both the pre-render card and the rendered iframe.
+   ============================================================ */
+
+.ub-ig-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin: 2.5rem 0 0;
+  /* Stretch, so the two "watch on instagram" links sit on the same line even
+     when one description wraps and the other does not. */
+  align-items: stretch;
+}
+
+.ub-ig { min-width: 0; display: flex; flex-direction: column; }
+
+.ub-ig-k {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #FF6701;
+  font-weight: 400;
+  margin: 0 0 0.9rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+/* embed.js writes inline width/min-width onto the element it renders, so these
+   need !important to keep a 540px-minded embed inside a 480px column. */
+.ub-ig .instagram-media {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  margin: 0 !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
+  background: #14090d !important;
+  overflow: hidden !important;
+}
+
+/* The pre-render card stretches to the row. The rendered iframe must NOT —
+   embed.js sets its height and stretching it would distort the player. */
+.ub-ig blockquote.instagram-media { display: flex; flex-direction: column; flex: 1 1 auto; }
+.ub-ig iframe.instagram-media { display: block; }
+
+.ub-ig-fallback { padding: 0; display: flex; flex-direction: column; flex: 1 1 auto; }
+
+.ub-ig-fallback img {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* Reserve roughly the shape the player will take, so the page does not
+     jump when the iframe arrives. */
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  border-radius: 11px 11px 0 0;
+}
+
+.ub-ig-fb-body {
+  padding: 1.2rem 1.3rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
+.ub-ig-fb-t {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #fff;
+  margin: 0 0 0.45rem;
+  line-height: 1.4;
+}
+
+.ub-ig-fb-p {
+  font-size: 0.86rem;
+  font-weight: 300;
+  opacity: 0.72;
+  line-height: 1.65;
+  margin: 0 0 0.9rem;
+  flex: 1 1 auto;
+}
+
+@media (max-width: 900px) {
+  .ub-ig-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+/* ============================================================
    LIGHTBOX
    Added 2026-08-25. Rawan asked that images open full size —
    the thumbnails in the ledger are all object-fit: cover, so a
