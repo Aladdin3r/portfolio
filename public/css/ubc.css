@@ -475,6 +475,30 @@ body.ub-pitch {
   .ub-decision, .ub-row, .ub-thumb { transition: none; }
 }
 
+/* ── Arabic inline in English prose ──
+   Two fixes, both needed.
+
+   <bdi> isolates each Arabic word from the bidi algorithm, so the
+   parenthesised transliteration that follows it cannot get pulled
+   to the wrong side of the word. Without it, "موصول (mawsool)"
+   can render with the bracket on the wrong end.
+
+   Satoshi carries no Arabic, so these words fall back to a system
+   Arabic face that sits optically smaller than the Latin around
+   it at the same font-size. The bump evens them up. ── */
+[lang="ar"] {
+  font-size: 1.12em;
+  line-height: 1;
+}
+
+/* The transliteration is a reading aid, not the sentence. Set it back
+   a step so it supports the Arabic instead of competing with it. */
+.ub-tr {
+  opacity: 0.62;
+  font-style: normal;
+  white-space: nowrap;
+}
+
 /* ============================================================
    INSTAGRAM EMBEDS
    Added 2026-08-25. Rawan asked for the SyriaTek pilots to be
