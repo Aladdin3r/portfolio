@@ -1,0 +1,476 @@
+/* ============================================================
+   UBC — Communications Designer, Development and Alumni
+   Engagement (JR25772) — mini-portfolio
+   Scoped under body.ub-pitch
+   Brand: Rawan Aladdin — #FF6701 / #1E293B / #000
+
+   Argument first, per the rule from robots-and-pencils.
+
+   Robots & Pencils argued process, so its spine was a ladder.
+   Loblaw argued six named practice areas, so its spine was a
+   discipline-to-artefact matrix. Monks argued one system across
+   containers, so its spine was a format rail.
+
+   This posting is different in kind. It does not name disciplines
+   or platforms — it names OBJECTS: invitations, programs,
+   stewardship reports, milestone reports, major gift proposals,
+   presidential communications, advertising, web page elements.
+   The reviewer's real question is whether this person can make
+   those specific things. Rawan has not made those specific
+   things. She has made close analogues, and the persuasive move
+   is to say so object by object rather than to blur it.
+
+   So the spine is .ub-ledger — an equivalence ledger. Each row
+   is one deliverable in UBC's own words, the nearest artefact
+   she has actually produced, and a thumbnail of it. The honesty
+   of the transfer is the component: it is legible before any
+   prose is, and it never claims the two things are the same.
+
+   No .ub-honest callout on this page. Rawan asked (2026-08-25)
+   that the three-years-of-experience shortfall not be raised;
+   the ledger's "closest thing I have made" framing carries the
+   transfer honestly without turning it into a headline.
+   ============================================================ */
+
+body.ub-pitch {
+  overflow-x: hidden;
+}
+
+/* ── Section base ── */
+.ub-section {
+  padding: 7rem 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+  font-weight: 300;
+  max-width: 1180px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ub-divider {
+  width: 40px;
+  height: 1px;
+  background: #FF6701;
+  margin: 0 auto;
+  opacity: 0.5;
+}
+
+/* ── Labels & headings ── */
+.ub-hero-label,
+.ub-section-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  margin-bottom: 1.2rem;
+  font-weight: 400;
+}
+.ub-hero-label { color: #FF6701; }
+.ub-section-label { color: rgba(255, 255, 255, 0.45); }
+
+.ub-hero-h1 {
+  font-size: clamp(2.6rem, 7.5vw, 6.6rem);
+  font-weight: 300;
+  line-height: 1.02;
+  text-transform: uppercase;
+  margin: 0 0 1.75rem;
+  color: #fff;
+}
+
+.ub-h2 {
+  font-size: clamp(1.9rem, 4.2vw, 3.6rem);
+  font-weight: 300;
+  text-transform: uppercase;
+  line-height: 1.05;
+  margin: 0 0 1.5rem;
+  color: #fff;
+}
+
+.ub-hero-sub {
+  font-size: clamp(1rem, 1.8vw, 1.28rem);
+  font-weight: 300;
+  opacity: 0.82;
+  line-height: 1.65;
+  max-width: 720px;
+  margin-bottom: 2.5rem;
+}
+
+.ub-lede {
+  font-size: 1.02rem;
+  font-weight: 300;
+  opacity: 0.78;
+  line-height: 1.75;
+  max-width: 700px;
+  margin: 0 0 1.6rem;
+}
+.ub-lede:last-of-type { margin-bottom: 2.5rem; }
+
+.ub-hero-links,
+.ub-cta-links {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.ub-cta-links { margin-top: 2rem; }
+
+/* ── Equivalence ledger — the spine.
+   Three columns: what the posting asks for, the nearest thing
+   actually made, and a picture of it. The thumbnail is what stops
+   the middle column reading as a claim — every row can be checked
+   against an object. ── */
+.ub-ledger {
+  margin: 3rem 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.ub-row {
+  display: grid;
+  grid-template-columns: 14rem 1fr 11rem;
+  gap: 2.25rem;
+  padding: 1.9rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  align-items: start;
+}
+
+.ub-row-k {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #FF6701;
+  font-weight: 400;
+  line-height: 1.55;
+  margin: 0;
+  padding-top: 0.15rem;
+}
+
+.ub-row-v {
+  font-size: 0.97rem;
+  font-weight: 300;
+  opacity: 0.82;
+  line-height: 1.75;
+  margin: 0;
+  min-width: 0;
+}
+
+.ub-row-v strong { font-weight: 500; opacity: 1; color: #fff; }
+
+/* The artefact name sits on its own line above the sentence so the row
+   can be read as a table by someone skimming the left column. */
+.ub-row-a {
+  display: block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 400;
+  margin-bottom: 0.55rem;
+}
+
+.ub-thumb {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.03);
+  aspect-ratio: 4 / 3;
+}
+
+.ub-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* The booth photo is the one portrait source in the rail. A centre crop
+   loses the printed table runners along the bottom, which are the whole
+   reason it is in a row about printed event collateral. */
+.ub-thumb img.ub-crop-low { object-position: 50% 74%; }
+/* A 9:16 pilot frame has no honest 4:3 crop — the face or the subtitles,
+   never both — so it is letterboxed inside the shared shape instead. */
+.ub-thumb img.ub-contain { object-fit: contain; background: #100b0d; }
+
+/* ── Project heads ── */
+.ub-project-head {
+  display: flex;
+  align-items: baseline;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.9rem;
+}
+
+.ub-project-title {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 300;
+  text-transform: uppercase;
+  line-height: 1;
+  margin: 0;
+  color: #fff;
+}
+
+.ub-meta {
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #FF6701;
+  font-weight: 400;
+}
+
+.ub-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin: 1.25rem 0 2rem;
+}
+
+.ub-tag {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.4rem 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 100px;
+  opacity: 0.8;
+}
+
+/* ── Body blocks ── */
+.ub-block {
+  margin: 2.5rem 0 0;
+  max-width: 700px;
+}
+
+.ub-block h3 {
+  font-size: 1.18rem;
+  font-weight: 500;
+  margin: 0 0 0.7rem;
+  line-height: 1.35;
+  color: #fff;
+}
+
+.ub-block-n {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #FF6701;
+  font-weight: 400;
+  margin: 0 0 0.5rem;
+}
+
+.ub-block p {
+  font-size: 0.97rem;
+  font-weight: 300;
+  opacity: 0.78;
+  line-height: 1.75;
+  margin: 0 0 0.8rem;
+}
+.ub-block p:last-child { margin-bottom: 0; }
+
+.ub-block strong { font-weight: 500; opacity: 1; }
+
+/* ── Decision callout ── */
+.ub-decision {
+  border-left: 2px solid #FF6701;
+  background: rgba(255, 103, 1, 0.045);
+  border-radius: 0 10px 10px 0;
+  padding: 1.5rem 1.75rem;
+  margin: 1.75rem 0 0;
+  max-width: 720px;
+}
+
+.ub-decision-k {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #FF6701;
+  margin: 0 0 0.7rem;
+  font-weight: 400;
+}
+
+.ub-decision p {
+  font-size: 1rem;
+  line-height: 1.75;
+  margin: 0;
+  font-weight: 300;
+  opacity: 0.9;
+}
+
+/* ── Their rules, side by side with mine.
+   Two columns of plain facts. Neither is styled as the winner — the
+   point of the section is that the two documents are the same kind
+   of object, so they get the same treatment. ── */
+.ub-rules {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 2.5rem 0 0;
+}
+
+.ub-rules > div { background: #1a1013; padding: 1.9rem 1.8rem; }
+
+.ub-rules h4 {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #FF6701;
+  font-weight: 400;
+  margin: 0 0 1.1rem;
+}
+
+.ub-rules ul { list-style: none; padding: 0; margin: 0; }
+
+.ub-rules li {
+  font-size: 0.92rem;
+  font-weight: 300;
+  opacity: 0.8;
+  line-height: 1.6;
+  padding: 0.55rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.ub-rules li:first-child { border-top: 0; padding-top: 0; }
+
+.ub-rules code {
+  font-family: inherit;
+  font-size: 0.86rem;
+  letter-spacing: 0.02em;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  opacity: 0.95;
+}
+
+/* ── Spec strip ── */
+.ub-spec {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 2.5rem 0 0;
+}
+
+.ub-spec div { background: #1a1013; padding: 1.6rem 1.4rem; }
+
+.ub-spec-n {
+  font-size: 1.9rem;
+  font-weight: 300;
+  color: #FF6701;
+  line-height: 1;
+}
+
+.ub-spec-l {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  opacity: 0.6;
+  margin-top: 0.6rem;
+  line-height: 1.5;
+}
+
+/* ── Media ── */
+.ub-media {
+  margin: 2.5rem 0 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.ub-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.ub-media-narrow { max-width: 640px; }
+
+.ub-media-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+.ub-media-grid .ub-media { margin-top: 0; }
+
+/* A grid pairing a portrait source with a landscape one needs a shared
+   shape, or the row reads as a mistake. */
+.ub-media-grid.ub-even .ub-media { aspect-ratio: 4 / 3; }
+.ub-media-grid.ub-even .ub-media img { width: 100%; height: 100%; object-fit: cover; }
+.ub-media-grid.ub-even .ub-media img.ub-crop-low { object-position: 50% 74%; }
+.ub-media-grid.ub-even .ub-media img.ub-contain { object-fit: contain; background: #100b0d; }
+
+/* The four guidelines pages are portrait scans and belong at their own
+   ratio, two up, so the type scale on page 07 stays readable. */
+.ub-pages {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+.ub-pages .ub-media { margin-top: 0; }
+
+.ub-caption {
+  font-size: 0.8rem;
+  opacity: 0.55;
+  line-height: 1.6;
+  margin: 0.7rem 0 0;
+  font-weight: 300;
+}
+
+/* ── Note ── */
+.ub-note {
+  border-left: 2px solid rgba(255, 255, 255, 0.25);
+  padding: 0.3rem 0 0.3rem 1.25rem;
+  margin: 2.5rem 0 0;
+  font-size: 0.92rem;
+  line-height: 1.75;
+  opacity: 0.72;
+  font-weight: 300;
+  max-width: 700px;
+}
+
+.ub-footnote {
+  font-size: 0.8rem;
+  opacity: 0.45;
+  margin-top: 3rem;
+  font-weight: 300;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1000px) {
+  .ub-row { grid-template-columns: 12rem 1fr 9rem; gap: 1.5rem; }
+}
+
+@media (max-width: 900px) {
+  .ub-section { padding: 4.5rem 1.75rem; }
+  .ub-media-grid,
+  .ub-pages { grid-template-columns: 1fr; }
+  .ub-rules { grid-template-columns: 1fr; }
+  .ub-spec { grid-template-columns: repeat(2, 1fr); }
+  .ub-row {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+    padding: 1.6rem 0;
+  }
+  .ub-row-k { padding-top: 0; }
+  /* Stacked, the thumbnail reads as the row's illustration rather than as
+     a column, so it is capped instead of running the full width. */
+  .ub-thumb { max-width: 15rem; }
+  .ub-decision { padding: 1.25rem 1.35rem; }
+  .ub-rules > div { padding: 1.4rem 1.4rem; }
+}
+
+@media (max-width: 520px) {
+  .ub-spec { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ub-decision, .ub-row, .ub-thumb { transition: none; }
+}
