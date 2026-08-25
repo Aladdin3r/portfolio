@@ -474,3 +474,242 @@ body.ub-pitch {
 @media (prefers-reduced-motion: reduce) {
   .ub-decision, .ub-row, .ub-thumb { transition: none; }
 }
+
+/* ============================================================
+   LIGHTBOX
+   Added 2026-08-25. Rawan asked that images open full size —
+   the thumbnails in the ledger are all object-fit: cover, so a
+   reviewer was seeing crops of the very artefacts the row exists
+   to evidence.
+
+   Progressive enhancement: the .ub-zoom buttons do not exist in
+   the markup. The inline script at the foot of ubc.astro wraps
+   each image in one on load, so with JS off or broken the page
+   is exactly what it was — images, visible, uncropped nowhere but
+   also unharmed. Nothing here is load-bearing for the argument.
+   ============================================================ */
+
+/* The wrapper the script injects around each image. It has to be
+   transparent to the existing layout: every rule on this page
+   targets images with a DESCENDANT selector (.ub-thumb img, not
+   .ub-thumb > img), so they keep matching through the button. */
+.ub-zoom {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  line-height: 0;
+  cursor: zoom-in;
+  position: relative;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.ub-zoom:focus-visible {
+  outline: 2px solid #FF6701;
+  outline-offset: 3px;
+}
+
+/* A corner badge, so the affordance is discoverable rather than
+   something a visitor has to guess at. Hidden from assistive tech;
+   the button already carries a label. */
+.ub-zoom::after {
+  content: "";
+  position: absolute;
+  right: 0.55rem;
+  bottom: 0.55rem;
+  width: 1.55rem;
+  height: 1.55rem;
+  border-radius: 5px;
+  background: rgba(10, 6, 8, 0.72) center / 0.85rem 0.85rem no-repeat
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FF6701' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='10.5' cy='10.5' r='6.5'/%3E%3Cpath d='M10.5 7.6v5.8M7.6 10.5h5.8M15.4 15.4 20 20'/%3E%3C/svg%3E");
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  opacity: 0;
+  transition: opacity 0.18s ease;
+  pointer-events: none;
+}
+
+.ub-zoom:hover::after,
+.ub-zoom:focus-visible::after { opacity: 1; }
+
+/* Touch has no hover, so the badge would never appear. Show it. */
+@media (hover: none) {
+  .ub-zoom::after { opacity: 0.9; }
+}
+
+.ub-zoom-hint {
+  font-size: 0.78rem;
+  opacity: 0.5;
+  font-weight: 300;
+  margin: 1.4rem 0 0;
+  letter-spacing: 0.01em;
+}
+
+/* ── The overlay ──
+   Appended to <body>, never inside <main>, so <main> can be made
+   inert while it is open. */
+.ub-lb {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  background: rgba(8, 5, 6, 0.94);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  visibility: hidden;
+  /* Do NOT write `transition: visibility 0.22s`. Measured 2026-08-25: at
+     transition progress 0 the computed value is still `hidden`, so the script's
+     closeBtn.focus() on open lands on nothing and focus falls back to <body> —
+     forcing a reflow and retrying on rAF both failed, because neither advances
+     the transition clock. Delaying the visibility switch instead makes it
+     instant on open and deferred to the end of the fade on close. */
+  transition: opacity 0.22s ease, visibility 0s linear 0.22s;
+}
+
+.ub-lb[data-open="true"] {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.22s ease, visibility 0s linear 0s;
+}
+
+.ub-lb-stage {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4.25rem 4.5rem 0.75rem;
+}
+
+/* max-height on the image plus min-height:0 on the flex parent is
+   what stops a tall source (the guidelines pages are 1002x1400)
+   from pushing the caption off the bottom of the screen. */
+.ub-lb-img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 6px;
+  background: #100b0d;
+}
+
+.ub-lb-foot {
+  flex: 0 0 auto;
+  padding: 0.75rem 4.5rem 1.6rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.ub-lb-cap {
+  font-size: 0.85rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0;
+  max-width: 62ch;
+}
+
+.ub-lb-count {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #FF6701;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+/* ── Controls ── */
+.ub-lb button {
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  border-radius: 100px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.18s ease, border-color 0.18s ease;
+  font: inherit;
+  padding: 0;
+}
+
+.ub-lb button:hover {
+  background: rgba(255, 103, 1, 0.22);
+  border-color: rgba(255, 103, 1, 0.6);
+}
+
+.ub-lb button:focus-visible {
+  outline: 2px solid #FF6701;
+  outline-offset: 3px;
+}
+
+.ub-lb-close {
+  top: 1.4rem;
+  right: 1.6rem;
+  width: 2.75rem;
+  height: 2.75rem;
+}
+
+.ub-lb-close::before,
+.ub-lb-close::after {
+  content: "";
+  position: absolute;
+  width: 1.05rem;
+  height: 1.5px;
+  background: currentColor;
+}
+.ub-lb-close::before { transform: rotate(45deg); }
+.ub-lb-close::after { transform: rotate(-45deg); }
+
+.ub-lb-prev,
+.ub-lb-next {
+  top: 50%;
+  width: 3rem;
+  height: 3rem;
+  margin-top: -1.5rem;
+}
+.ub-lb-prev { left: 1.1rem; }
+.ub-lb-next { right: 1.1rem; }
+
+.ub-lb-prev::before,
+.ub-lb-next::before {
+  content: "";
+  width: 0.72rem;
+  height: 0.72rem;
+  border-top: 1.5px solid currentColor;
+  border-right: 1.5px solid currentColor;
+}
+.ub-lb-prev::before { transform: rotate(-135deg); margin-left: 4px; }
+.ub-lb-next::before { transform: rotate(45deg); margin-right: 4px; }
+
+/* Scroll lock. body is the scroll container on this site (html and
+   body are height:100%), so overflow:hidden here resets scrollTop to
+   0 — the script saves the offset and restores it on close. */
+body.ub-lb-open { overflow: hidden; }
+
+@media (max-width: 900px) {
+  .ub-lb-stage { padding: 3.75rem 1rem 0.5rem; }
+  .ub-lb-foot { padding: 0.6rem 1.25rem 1.25rem; flex-direction: column; gap: 0.5rem; }
+  .ub-lb-prev, .ub-lb-next { width: 2.5rem; height: 2.5rem; margin-top: -1.25rem; }
+  .ub-lb-prev { left: 0.4rem; }
+  .ub-lb-next { right: 0.4rem; }
+  .ub-lb-close { top: 0.8rem; right: 0.8rem; width: 2.4rem; height: 2.4rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ub-lb,
+  .ub-lb button,
+  .ub-zoom::after { transition: none; }
+}

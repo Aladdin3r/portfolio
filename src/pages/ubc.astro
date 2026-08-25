@@ -45,6 +45,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         donor. Below is the closest thing I have made to each one, with a picture
         of it so the comparison can be checked.
       </p>
+      <p class="ub-zoom-hint">Every image on this page opens full size — the thumbnails here are crops.</p>
 
       <div class="ub-ledger">
 
@@ -73,7 +74,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <strong>InDesign and taken through to print</strong>.
           </p>
           <div class="ub-thumb">
-            <img src="/studio/retrospect.jpg" alt="Ancient Retrospect — the cover and an interior spread of a printed publication on the mosaics of the Hagia Sophia." loading="lazy" decoding="async" />
+            <img src="/studio/retrospect.jpg" data-full="/playground-retrospect.webp" alt="Ancient Retrospect — the cover and an interior spread of a printed publication on the mosaics of the Hagia Sophia." loading="lazy" decoding="async" />
           </div>
         </div>
 
@@ -254,7 +255,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </p>
 
       <div class="ub-media ub-media-narrow">
-        <img src="/studio/retrospect.jpg" alt="Ancient Retrospect: the cover, showing the Hagia Sophia dome under letterspaced display capitals, beside an open interior spread with a full-bleed photograph of a carved capital." loading="lazy" decoding="async" />
+        <img src="/studio/retrospect.jpg" data-full="/playground-retrospect.webp" alt="Ancient Retrospect: the cover, showing the Hagia Sophia dome under letterspaced display capitals, beside an open interior spread with a full-bleed photograph of a carved capital." loading="lazy" decoding="async" />
       </div>
 
       <div class="ub-block">
@@ -433,4 +434,136 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </section>
 
   </main>
+
+  <!-- ═══════════════════════════════ LIGHTBOX ═══════════════════════════════
+       Rawan asked for images that open full size. Every thumbnail in the ledger
+       is object-fit: cover, so a reviewer was seeing a crop of the very artefact
+       the row exists to evidence.
+
+       Progressive enhancement on purpose: the buttons and the overlay are built
+       here at runtime rather than shipped in the markup, so with JS blocked the
+       page is exactly what it was before — every image still visible, nothing
+       broken, no empty dialog in the DOM. The argument never depends on this.
+  ═══════════════════════════════════════════════════════════════════════════ -->
+  <script is:inline>
+    (function () {
+      var imgs = [].slice.call(document.querySelectorAll('.ub-thumb img, .ub-media img'));
+      if (!imgs.length) return;
+
+      var lb = document.createElement('div');
+      lb.className = 'ub-lb';
+      lb.setAttribute('role', 'dialog');
+      lb.setAttribute('aria-modal', 'true');
+      lb.setAttribute('aria-label', 'Image viewer');
+      lb.setAttribute('data-open', 'false');
+      lb.innerHTML =
+        '<div class="ub-lb-stage"><img class="ub-lb-img" alt=""></div>' +
+        '<div class="ub-lb-foot"><p class="ub-lb-cap"></p><p class="ub-lb-count"></p></div>' +
+        '<button type="button" class="ub-lb-close" aria-label="Close image viewer"></button>' +
+        '<button type="button" class="ub-lb-prev" aria-label="Previous image"></button>' +
+        '<button type="button" class="ub-lb-next" aria-label="Next image"></button>';
+      document.body.appendChild(lb);
+
+      var stage = lb.querySelector('.ub-lb-stage');
+      var foot = lb.querySelector('.ub-lb-foot');
+      var imgEl = lb.querySelector('.ub-lb-img');
+      var capEl = lb.querySelector('.ub-lb-cap');
+      var countEl = lb.querySelector('.ub-lb-count');
+      var closeBtn = lb.querySelector('.ub-lb-close');
+      var prevBtn = lb.querySelector('.ub-lb-prev');
+      var nextBtn = lb.querySelector('.ub-lb-next');
+      var main = document.querySelector('main');
+
+      var current = -1, lastFocus = null, savedBody = 0, savedDoc = 0;
+
+      // Wrap each image in a real <button>, so this is reachable by keyboard and
+      // announced as a control rather than being a click handler on a picture.
+      var items = imgs.map(function (img, i) {
+        var label = img.getAttribute('alt') || 'Image';
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'ub-zoom';
+        btn.setAttribute('aria-label', 'View full size: ' + label);
+        img.parentNode.insertBefore(btn, img);
+        btn.appendChild(img);
+        btn.addEventListener('click', function () { open(i, btn); });
+        // data-full points at a larger original where one exists; the page
+        // itself only needs the smaller file.
+        return {
+          src: img.getAttribute('data-full') || img.getAttribute('src'),
+          cap: label
+        };
+      });
+
+      if (items.length < 2) { prevBtn.remove(); nextBtn.remove(); }
+
+      function show(i) {
+        current = (i + items.length) % items.length;
+        imgEl.src = items[current].src;
+        imgEl.alt = items[current].cap;
+        capEl.textContent = items[current].cap;
+        countEl.textContent = (current + 1) + ' / ' + items.length;
+      }
+
+      function open(i, trigger) {
+        // Take the trigger explicitly. Relying on document.activeElement is
+        // wrong for any click that does not focus its target.
+        lastFocus = trigger || document.activeElement;
+        // body is the scroll container on this site — html is overflow:hidden
+        // and both are height:100%, so document.scrollingElement reports
+        // documentElement and window.scrollY stays 0. Measured 2026-08-25.
+        // Save both and restore both rather than picking one with ||.
+        savedBody = document.body.scrollTop;
+        savedDoc = document.documentElement.scrollTop;
+        show(i);
+        lb.setAttribute('data-open', 'true');
+        document.body.classList.add('ub-lb-open');
+        if (main && 'inert' in main) main.inert = true;
+        // The dialog is visibility:hidden until this style change is recalculated,
+        // and a hidden element cannot take focus. Flush layout, then focus, and
+        // keep a frame in reserve in case the flush was not enough.
+        void lb.offsetHeight;
+        closeBtn.focus();
+        if (document.activeElement !== closeBtn) {
+          requestAnimationFrame(function () { closeBtn.focus(); });
+        }
+      }
+
+      function close() {
+        if (lb.getAttribute('data-open') !== 'true') return;
+        lb.setAttribute('data-open', 'false');
+        document.body.classList.remove('ub-lb-open');
+        if (main && 'inert' in main) main.inert = false;
+        // Restore only after the scroll lock is lifted, or it is a no-op.
+        document.body.scrollTop = savedBody;
+        document.documentElement.scrollTop = savedDoc;
+        if (lastFocus && lastFocus.focus) lastFocus.focus();
+      }
+
+      closeBtn.addEventListener('click', close);
+      prevBtn.addEventListener('click', function () { show(current - 1); });
+      nextBtn.addEventListener('click', function () { show(current + 1); });
+
+      // Clicking the surround closes; clicking the image itself does not.
+      lb.addEventListener('click', function (e) {
+        if (e.target === lb || e.target === stage || e.target === foot) close();
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (lb.getAttribute('data-open') !== 'true') return;
+        if (e.key === 'Escape') { e.preventDefault(); close(); return; }
+        if (items.length > 1 && e.key === 'ArrowRight') { e.preventDefault(); show(current + 1); return; }
+        if (items.length > 1 && e.key === 'ArrowLeft') { e.preventDefault(); show(current - 1); return; }
+        if (e.key === 'Tab') {
+          // Keep focus inside the dialog. <main> is inert, but the browser
+          // chrome and anything else in <body> is not.
+          var f = [closeBtn, prevBtn, nextBtn].filter(function (b) { return b.isConnected; });
+          var at = f.indexOf(document.activeElement);
+          e.preventDefault();
+          f[e.shiftKey ? (at <= 0 ? f.length - 1 : at - 1)
+                       : (at === f.length - 1 || at === -1 ? 0 : at + 1)].focus();
+        }
+      });
+    })();
+  </script>
 </BaseLayout>
