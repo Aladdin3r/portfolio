@@ -1,0 +1,149 @@
+---
+// Curated print & packaging page for the ORONIA application. noindex.
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+<BaseLayout
+  title="Rawan Aladdin — Print & packaging for ORONIA"
+  description="A curated view of the print, packaging and brand work of Rawan Aladdin, gathered for ORONIA."
+  noindex={true}
+  bodyClass="or-pitch"
+>
+  <Fragment slot="head">
+    <link rel="stylesheet" href="/css/oronia.css" />
+  </Fragment>
+  <main class="or-main">
+    <section class="or-hero">
+      <hr class="or-rule" />
+      <h1>Where the print work lives.</h1>
+      <p>I'm a designer across brand identity, print, and digital. On my main site the printed and packaging pieces sit inside the projects they belong to, so this page pulls them together &#8212; the physical work first, then the systems and screens that carry it.</p>
+    </section>
+
+    <section class="or-sec">
+      <p class="or-label">Print &amp; packaging</p>
+      <div class="or-shelf">
+        <article class="or-piece">
+          <div class="or-thumb"><img src="/playground-companion.webp" alt="The Companion beverage packaging with airmail borders and postage-stamp flavour marks" loading="lazy" /></div>
+          <h3>The Companion &#8212; beverage packaging system</h3>
+          <p>Airmail borders, postage-stamp flavour marks, duotone city photography, bilingual English/French. Built to Canadian retail standards with a compliant nutrition panel.</p>
+          <span class="or-tag">Portfolio study</span>
+        </article>
+        <article class="or-piece">
+          <div class="or-thumb"><img src="/playground-retrospect.webp" alt="Ancient Retrospect publication cover on the mosaics of the Hagia Sophia" loading="lazy" /></div>
+          <h3>Ancient Retrospect &#8212; self-directed publication</h3>
+          <p>The mosaics of the Hagia Sophia: a cover system, small-caps captioning, and full-bleed spreads on one grid. Laid out in InDesign and taken to print.</p>
+          <span class="or-tag">Self-directed</span>
+        </article>
+        <article class="or-piece">
+          <div class="or-thumb"><img src="/playground-metropolis.webp" alt="Metropolis reissue poster with hand-drawn Art Deco lettering" loading="lazy" /></div>
+          <h3>Metropolis &#8212; reissue poster</h3>
+          <p>Hand-drawn Art Deco letterforms for a Fritz Lang reissue, the O doubling as the Maschinenmensch&#8217;s halo, with a full period credit block.</p>
+          <span class="or-tag">Self-directed</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="or-sec">
+      <p class="or-label">Brand to production, one system</p>
+      <h2>Feeds &#8212; identity carried the whole way</h2>
+      <p>Feeds is where a brand goes end to end. I built the identity, applied it into the product interface, and carried it into a launch campaign and a physical booth &#8212; die-cut stickers in four colourways and printed table runners &#8212; documented in an 11-page guideline set that a printer or teammate can work from.</p>
+      <ul class="or-spec"><li>11 guideline pages</li><li>5-step type scale</li><li>15 custom icons</li><li>AA-contrast floor</li></ul>
+      <div class="or-grid4">
+        <div class="or-thumb"><img src="/feeds/guidelines-05.webp" alt="Feeds guidelines, logo usage page" loading="lazy" /></div>
+        <div class="or-thumb"><img src="/feeds/guidelines-06.webp" alt="Feeds guidelines, colour palette page" loading="lazy" /></div>
+        <div class="or-thumb"><img src="/feeds/guidelines-07.webp" alt="Feeds guidelines, typography page" loading="lazy" /></div>
+        <div class="or-thumb"><img src="/feeds/guidelines-08.webp" alt="Feeds guidelines, iconography page" loading="lazy" /></div>
+      </div>
+    </section>
+
+    <section class="or-sec">
+      <p class="or-label">In your context</p>
+      <h2>One brand across shelf and screen</h2>
+      <p>ORONIA runs one identity across packaging, labels, point-of-sale for the Burnaby store, a Shopify storefront, and seasonal campaigns. I design responsive web and product layouts &#8212; the Feeds product interface and the Surface Fixer site are both mine &#8212; so I&#8217;d get up to speed on your Shopify theme and templates quickly and keep the print and digital sides looking like one brand.</p>
+      <div class="or-wide">
+        <div class="or-thumb"><img src="/surfacefixer-cover.webp" alt="Surface Fixer identity, the crossed-bandage mark replacing the X" loading="lazy" /></div>
+      </div>
+    </section>
+
+    <section class="or-sec or-honest">
+      <h2>A straight answer on packaging</h2>
+      <p>The Companion is the strongest packaging piece here, and it&#8217;s a coursework study that never went to print. What it did do is meet what a Canadian shelf requires &#8212; bilingual French/English labelling and a compliant nutrition panel. For work that reached a press, the Feeds booth collateral and Ancient Retrospect are the real production evidence.</p>
+    </section>
+
+    <section class="or-sec or-about">
+      <p class="or-label">About</p>
+      <p>I&#8217;m Rawan Aladdin, a designer based in Surrey &#8212; minutes from your 52nd Ave studio and available to work on-site. <a href="https://rawanaladdin.com">rawanaladdin.com</a> &#183; hello@rawanaladdin.com</p>
+    </section>
+  </main>
+  <script is:inline>
+    (function () {
+      var imgs = Array.prototype.slice.call(document.querySelectorAll('.or-thumb img'));
+      if (!imgs.length) return;
+      var lb = document.createElement('div');
+      lb.className = 'or-lb';
+      lb.setAttribute('role', 'dialog');
+      lb.setAttribute('aria-modal', 'true');
+      lb.setAttribute('aria-label', 'Image viewer');
+      lb.innerHTML =
+        '<button class="or-lb-close" type="button" aria-label="Close">×</button>' +
+        '<button class="or-lb-prev" type="button" aria-label="Previous image">‹</button>' +
+        '<figure class="or-lb-fig"><img alt=""><figcaption class="or-lb-cap"></figcaption></figure>' +
+        '<button class="or-lb-next" type="button" aria-label="Next image">›</button>';
+      document.body.appendChild(lb);
+      var lbImg = lb.querySelector('img');
+      var lbCap = lb.querySelector('.or-lb-cap');
+      var closeBtn = lb.querySelector('.or-lb-close');
+      var prevBtn = lb.querySelector('.or-lb-prev');
+      var nextBtn = lb.querySelector('.or-lb-next');
+      var main = document.querySelector('main');
+      var idx = -1, lastTrigger = null, sb = 0, sd = 0;
+      function order() { return [closeBtn, prevBtn, nextBtn]; }
+      function show(i) {
+        idx = (i + imgs.length) % imgs.length;
+        var src = imgs[idx];
+        lbImg.src = src.getAttribute('data-full') || src.currentSrc || src.src;
+        lbImg.alt = src.alt || '';
+        lbCap.textContent = src.alt || '';
+      }
+      function openLb(i, trigger) {
+        lastTrigger = trigger || null;
+        sb = document.body.scrollTop; sd = document.documentElement.scrollTop;
+        show(i);
+        lb.setAttribute('data-open', 'true');
+        if (main) main.setAttribute('inert', '');
+        document.body.style.overflow = 'hidden';
+        closeBtn.focus();
+      }
+      function closeLb() {
+        lb.removeAttribute('data-open');
+        if (main) main.removeAttribute('inert');
+        document.body.style.overflow = '';
+        document.body.scrollTop = sb; document.documentElement.scrollTop = sd;
+        if (lastTrigger) lastTrigger.focus();
+      }
+      imgs.forEach(function (img, i) {
+        var btn = document.createElement('button');
+        btn.className = 'or-zoom';
+        btn.type = 'button';
+        btn.setAttribute('aria-label', 'Open full size' + (img.alt ? ': ' + img.alt : ''));
+        img.parentNode.insertBefore(btn, img);
+        btn.appendChild(img);
+        btn.addEventListener('click', function () { openLb(i, btn); });
+      });
+      closeBtn.addEventListener('click', closeLb);
+      prevBtn.addEventListener('click', function () { show(idx - 1); });
+      nextBtn.addEventListener('click', function () { show(idx + 1); });
+      lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
+      document.addEventListener('keydown', function (e) {
+        if (lb.getAttribute('data-open') !== 'true') return;
+        if (e.key === 'Escape') { e.preventDefault(); closeLb(); }
+        else if (e.key === 'ArrowLeft') { e.preventDefault(); show(idx - 1); }
+        else if (e.key === 'ArrowRight') { e.preventDefault(); show(idx + 1); }
+        else if (e.key === 'Tab') {
+          var f = order(), first = f[0], last = f[f.length - 1];
+          if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+          else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+        }
+      });
+    })();
+  </script>
+</BaseLayout>
