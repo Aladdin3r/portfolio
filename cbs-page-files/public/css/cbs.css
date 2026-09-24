@@ -1,0 +1,827 @@
+/* ============================================================
+   Canadian Blood Services — Graphic Designer/Multimedia Designer,
+   Integrated Marketing (posting 9225) — mini-portfolio
+   Scoped under body.cb-pitch
+   Brand: Rawan Aladdin — #FF6701 / #1E293B / #000
+
+   Built on the /ubc stylesheet: same tokens, same components,
+   prefix cb- renamed cb-.
+
+   UBC's posting named OBJECTS, so its spine was an equivalence
+   ledger. This posting names CHANNELS — social, web, collateral,
+   event and engagement materials, motion and video — plus one
+   thing the others never asked for: templates in editable formats
+   and a resource library for teams across the country. So the
+   ledger returns keyed by channel, and the second section is about
+   work made for somebody else to keep using.
+   ============================================================ */
+
+body.cb-pitch {
+  overflow-x: hidden;
+}
+
+/* ── Section base ── */
+.cb-section {
+  padding: 7rem 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+  font-weight: 300;
+  max-width: 1180px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.cb-divider {
+  width: 40px;
+  height: 1px;
+  background: #FF6701;
+  margin: 0 auto;
+  opacity: 0.5;
+}
+
+/* ── Labels & headings ── */
+.cb-hero-label,
+.cb-section-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  margin-bottom: 1.2rem;
+  font-weight: 400;
+}
+.cb-hero-label { color: #FF6701; }
+.cb-section-label { color: rgba(255, 255, 255, 0.45); }
+
+.cb-hero-h1 {
+  font-size: clamp(2.6rem, 7.5vw, 6.6rem);
+  font-weight: 300;
+  line-height: 1.02;
+  text-transform: uppercase;
+  margin: 0 0 1.75rem;
+  color: #fff;
+}
+
+.cb-h2 {
+  font-size: clamp(1.9rem, 4.2vw, 3.6rem);
+  font-weight: 300;
+  text-transform: uppercase;
+  line-height: 1.05;
+  margin: 0 0 1.5rem;
+  color: #fff;
+}
+
+.cb-hero-sub {
+  font-size: clamp(1rem, 1.8vw, 1.28rem);
+  font-weight: 300;
+  opacity: 0.82;
+  line-height: 1.65;
+  max-width: 720px;
+  margin-bottom: 2.5rem;
+}
+
+.cb-lede {
+  font-size: 1.02rem;
+  font-weight: 300;
+  opacity: 0.78;
+  line-height: 1.75;
+  max-width: 700px;
+  margin: 0 0 1.6rem;
+}
+.cb-lede:last-of-type { margin-bottom: 2.5rem; }
+
+.cb-hero-links,
+.cb-cta-links {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.cb-cta-links { margin-top: 2rem; }
+
+/* ── Equivalence ledger — the spine.
+   Three columns: what the posting asks for, the nearest thing
+   actually made, and a picture of it. The thumbnail is what stops
+   the middle column reading as a claim — every row can be checked
+   against an object. ── */
+.cb-ledger {
+  margin: 3rem 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.cb-row {
+  display: grid;
+  grid-template-columns: 14rem 1fr 11rem;
+  gap: 2.25rem;
+  padding: 1.9rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  align-items: start;
+}
+
+.cb-row-k {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #FF6701;
+  font-weight: 400;
+  line-height: 1.55;
+  margin: 0;
+  padding-top: 0.15rem;
+}
+
+.cb-row-v {
+  font-size: 0.97rem;
+  font-weight: 300;
+  opacity: 0.82;
+  line-height: 1.75;
+  margin: 0;
+  min-width: 0;
+}
+
+.cb-row-v strong { font-weight: 500; opacity: 1; color: #fff; }
+
+/* The artefact name sits on its own line above the sentence so the row
+   can be read as a table by someone skimming the left column. */
+.cb-row-a {
+  display: block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 400;
+  margin-bottom: 0.55rem;
+}
+
+.cb-thumb {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.03);
+  aspect-ratio: 4 / 3;
+}
+
+.cb-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* The booth photo is the one portrait source in the rail. A centre crop
+   loses the printed table runners along the bottom, which are the whole
+   reason it is in a row about printed event collateral. */
+.cb-thumb img.cb-crop-low { object-position: 50% 74%; }
+/* A 9:16 pilot frame has no honest 4:3 crop — the face or the subtitles,
+   never both — so it is letterboxed inside the shared shape instead. */
+.cb-thumb img.cb-contain { object-fit: contain; background: #100b0d; }
+
+/* ── Project heads ── */
+.cb-project-head {
+  display: flex;
+  align-items: baseline;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.9rem;
+}
+
+.cb-project-title {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 300;
+  text-transform: uppercase;
+  line-height: 1;
+  margin: 0;
+  color: #fff;
+}
+
+.cb-meta {
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #FF6701;
+  font-weight: 400;
+}
+
+.cb-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin: 1.25rem 0 2rem;
+}
+
+.cb-tag {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.4rem 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 100px;
+  opacity: 0.8;
+}
+
+/* ── Body blocks ── */
+.cb-block {
+  margin: 2.5rem 0 0;
+  max-width: 700px;
+}
+
+.cb-block h3 {
+  font-size: 1.18rem;
+  font-weight: 500;
+  margin: 0 0 0.7rem;
+  line-height: 1.35;
+  color: #fff;
+}
+
+.cb-block-n {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #FF6701;
+  font-weight: 400;
+  margin: 0 0 0.5rem;
+}
+
+.cb-block p {
+  font-size: 0.97rem;
+  font-weight: 300;
+  opacity: 0.78;
+  line-height: 1.75;
+  margin: 0 0 0.8rem;
+}
+.cb-block p:last-child { margin-bottom: 0; }
+
+.cb-block strong { font-weight: 500; opacity: 1; }
+
+/* ── Decision callout ── */
+.cb-decision {
+  border-left: 2px solid #FF6701;
+  background: rgba(255, 103, 1, 0.045);
+  border-radius: 0 10px 10px 0;
+  padding: 1.5rem 1.75rem;
+  margin: 1.75rem 0 0;
+  max-width: 720px;
+}
+
+.cb-decision-k {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #FF6701;
+  margin: 0 0 0.7rem;
+  font-weight: 400;
+}
+
+.cb-decision p {
+  font-size: 1rem;
+  line-height: 1.75;
+  margin: 0;
+  font-weight: 300;
+  opacity: 0.9;
+}
+
+/* ── Their rules, side by side with mine.
+   Two columns of plain facts. Neither is styled as the winner — the
+   point of the section is that the two documents are the same kind
+   of object, so they get the same treatment. ── */
+.cb-rules {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 2.5rem 0 0;
+}
+
+.cb-rules > div { background: #1a1013; padding: 1.9rem 1.8rem; }
+
+.cb-rules h4 {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #FF6701;
+  font-weight: 400;
+  margin: 0 0 1.1rem;
+}
+
+.cb-rules ul { list-style: none; padding: 0; margin: 0; }
+
+.cb-rules li {
+  font-size: 0.92rem;
+  font-weight: 300;
+  opacity: 0.8;
+  line-height: 1.6;
+  padding: 0.55rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.cb-rules li:first-child { border-top: 0; padding-top: 0; }
+
+.cb-rules code {
+  font-family: inherit;
+  font-size: 0.86rem;
+  letter-spacing: 0.02em;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  opacity: 0.95;
+}
+
+/* ── Spec strip ── */
+.cb-spec {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 2.5rem 0 0;
+}
+
+.cb-spec div { background: #1a1013; padding: 1.6rem 1.4rem; }
+
+.cb-spec-n {
+  font-size: 1.9rem;
+  font-weight: 300;
+  color: #FF6701;
+  line-height: 1;
+}
+
+.cb-spec-l {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  opacity: 0.6;
+  margin-top: 0.6rem;
+  line-height: 1.5;
+}
+
+/* ── Media ── */
+.cb-media {
+  margin: 2.5rem 0 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.cb-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.cb-media-narrow { max-width: 640px; }
+
+.cb-media-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+.cb-media-grid .cb-media { margin-top: 0; }
+
+/* A grid pairing a portrait source with a landscape one needs a shared
+   shape, or the row reads as a mistake. */
+.cb-media-grid.cb-even .cb-media { aspect-ratio: 4 / 3; }
+.cb-media-grid.cb-even .cb-media img { width: 100%; height: 100%; object-fit: cover; }
+.cb-media-grid.cb-even .cb-media img.cb-crop-low { object-position: 50% 74%; }
+.cb-media-grid.cb-even .cb-media img.cb-contain { object-fit: contain; background: #100b0d; }
+
+/* The four guidelines pages are portrait scans and belong at their own
+   ratio, two up, so the type scale on page 07 stays readable. */
+.cb-pages {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+.cb-pages .cb-media { margin-top: 0; }
+
+.cb-caption {
+  font-size: 0.8rem;
+  opacity: 0.55;
+  line-height: 1.6;
+  margin: 0.7rem 0 0;
+  font-weight: 300;
+}
+
+/* ── Note ── */
+.cb-note {
+  border-left: 2px solid rgba(255, 255, 255, 0.25);
+  padding: 0.3rem 0 0.3rem 1.25rem;
+  margin: 2.5rem 0 0;
+  font-size: 0.92rem;
+  line-height: 1.75;
+  opacity: 0.72;
+  font-weight: 300;
+  max-width: 700px;
+}
+
+.cb-footnote {
+  font-size: 0.8rem;
+  opacity: 0.45;
+  margin-top: 3rem;
+  font-weight: 300;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1000px) {
+  .cb-row { grid-template-columns: 12rem 1fr 9rem; gap: 1.5rem; }
+}
+
+@media (max-width: 900px) {
+  .cb-section { padding: 4.5rem 1.75rem; }
+  .cb-media-grid,
+  .cb-pages { grid-template-columns: 1fr; }
+  .cb-rules { grid-template-columns: 1fr; }
+  .cb-spec { grid-template-columns: repeat(2, 1fr); }
+  .cb-row {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+    padding: 1.6rem 0;
+  }
+  .cb-row-k { padding-top: 0; }
+  /* Stacked, the thumbnail reads as the row's illustration rather than as
+     a column, so it is capped instead of running the full width. */
+  .cb-thumb { max-width: 15rem; }
+  .cb-decision { padding: 1.25rem 1.35rem; }
+  .cb-rules > div { padding: 1.4rem 1.4rem; }
+}
+
+@media (max-width: 520px) {
+  .cb-spec { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cb-decision, .cb-row, .cb-thumb { transition: none; }
+}
+
+/* ── Arabic inline in English prose ──
+   Two fixes, both needed.
+
+   <bdi> isolates each Arabic word from the bidi algorithm, so the
+   parenthesised transliteration that follows it cannot get pulled
+   to the wrong side of the word. Without it, "موصول (mawsool)"
+   can render with the bracket on the wrong end.
+
+   Satoshi carries no Arabic, so these words fall back to a system
+   Arabic face that sits optically smaller than the Latin around
+   it at the same font-size. The bump evens them up. ── */
+[lang="ar"] {
+  font-size: 1.12em;
+  line-height: 1;
+}
+
+/* The transliteration is a reading aid, not the sentence. Set it back
+   a step so it supports the Arabic instead of competing with it. */
+.cb-tr {
+  opacity: 0.62;
+  font-style: normal;
+  white-space: nowrap;
+}
+
+/* ============================================================
+   INSTAGRAM EMBEDS
+   Added 2026-08-25. Rawan asked for the SyriaTek pilots to be
+   playable rather than represented by a still frame, and chose
+   the real Instagram embed over a self-hosted mp4 so the live
+   account is attached to the evidence.
+
+   The known cost: embed.js is a third-party script and an iframe
+   from instagram.com, and institutional networks block both. So
+   the blockquote carries a real fallback — poster frame, title,
+   link — which Instagram's script replaces on success and which
+   stands on its own on failure. A blocked network gets a card,
+   never an empty box.
+
+   Fallback styling is scoped to .cb-ig-fallback, an element of
+   ours INSIDE the blockquote, because embed.js replaces the
+   blockquote itself with an <iframe class="instagram-media">.
+   Anything styled on .instagram-media therefore has to be true
+   of both the pre-render card and the rendered iframe.
+   ============================================================ */
+
+.cb-ig-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin: 2.5rem 0 0;
+  /* Stretch, so the two "watch on instagram" links sit on the same line even
+     when one description wraps and the other does not. */
+  align-items: stretch;
+}
+
+.cb-ig { min-width: 0; display: flex; flex-direction: column; }
+
+.cb-ig-k {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #FF6701;
+  font-weight: 400;
+  margin: 0 0 0.9rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+/* embed.js writes inline width/min-width onto the element it renders, so these
+   need !important to keep a 540px-minded embed inside a 480px column. */
+.cb-ig .instagram-media {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  margin: 0 !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
+  background: #14090d !important;
+  overflow: hidden !important;
+}
+
+/* The pre-render card stretches to the row. The rendered iframe must NOT —
+   embed.js sets its height and stretching it would distort the player. */
+.cb-ig blockquote.instagram-media { display: flex; flex-direction: column; flex: 1 1 auto; }
+.cb-ig iframe.instagram-media { display: block; }
+
+.cb-ig-fallback { padding: 0; display: flex; flex-direction: column; flex: 1 1 auto; }
+
+.cb-ig-fallback img {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* Reserve roughly the shape the player will take, so the page does not
+     jump when the iframe arrives. */
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  border-radius: 11px 11px 0 0;
+}
+
+.cb-ig-fb-body {
+  padding: 1.2rem 1.3rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
+.cb-ig-fb-t {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #fff;
+  margin: 0 0 0.45rem;
+  line-height: 1.4;
+}
+
+.cb-ig-fb-p {
+  font-size: 0.86rem;
+  font-weight: 300;
+  opacity: 0.72;
+  line-height: 1.65;
+  margin: 0 0 0.9rem;
+  flex: 1 1 auto;
+}
+
+@media (max-width: 900px) {
+  .cb-ig-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+/* ============================================================
+   LIGHTBOX
+   Added 2026-08-25. Rawan asked that images open full size —
+   the thumbnails in the ledger are all object-fit: cover, so a
+   reviewer was seeing crops of the very artefacts the row exists
+   to evidence.
+
+   Progressive enhancement: the .cb-zoom buttons do not exist in
+   the markup. The inline script at the foot of ubc.astro wraps
+   each image in one on load, so with JS off or broken the page
+   is exactly what it was — images, visible, uncropped nowhere but
+   also unharmed. Nothing here is load-bearing for the argument.
+   ============================================================ */
+
+/* The wrapper the script injects around each image. It has to be
+   transparent to the existing layout: every rule on this page
+   targets images with a DESCENDANT selector (.cb-thumb img, not
+   .cb-thumb > img), so they keep matching through the button. */
+.cb-zoom {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  line-height: 0;
+  cursor: zoom-in;
+  position: relative;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.cb-zoom:focus-visible {
+  outline: 2px solid #FF6701;
+  outline-offset: 3px;
+}
+
+/* A corner badge, so the affordance is discoverable rather than
+   something a visitor has to guess at. Hidden from assistive tech;
+   the button already carries a label. */
+.cb-zoom::after {
+  content: "";
+  position: absolute;
+  right: 0.55rem;
+  bottom: 0.55rem;
+  width: 1.55rem;
+  height: 1.55rem;
+  border-radius: 5px;
+  background: rgba(10, 6, 8, 0.72) center / 0.85rem 0.85rem no-repeat
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FF6701' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='10.5' cy='10.5' r='6.5'/%3E%3Cpath d='M10.5 7.6v5.8M7.6 10.5h5.8M15.4 15.4 20 20'/%3E%3C/svg%3E");
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  opacity: 0;
+  transition: opacity 0.18s ease;
+  pointer-events: none;
+}
+
+.cb-zoom:hover::after,
+.cb-zoom:focus-visible::after { opacity: 1; }
+
+/* Touch has no hover, so the badge would never appear. Show it. */
+@media (hover: none) {
+  .cb-zoom::after { opacity: 0.9; }
+}
+
+.cb-zoom-hint {
+  font-size: 0.78rem;
+  opacity: 0.5;
+  font-weight: 300;
+  margin: 1.4rem 0 0;
+  letter-spacing: 0.01em;
+}
+
+/* ── The overlay ──
+   Appended to <body>, never inside <main>, so <main> can be made
+   inert while it is open. */
+.cb-lb {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  background: rgba(8, 5, 6, 0.94);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  visibility: hidden;
+  /* Do NOT write `transition: visibility 0.22s`. Measured 2026-08-25: at
+     transition progress 0 the computed value is still `hidden`, so the script's
+     closeBtn.focus() on open lands on nothing and focus falls back to <body> —
+     forcing a reflow and retrying on rAF both failed, because neither advances
+     the transition clock. Delaying the visibility switch instead makes it
+     instant on open and deferred to the end of the fade on close. */
+  transition: opacity 0.22s ease, visibility 0s linear 0.22s;
+}
+
+.cb-lb[data-open="true"] {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.22s ease, visibility 0s linear 0s;
+}
+
+.cb-lb-stage {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4.25rem 4.5rem 0.75rem;
+}
+
+/* max-height on the image plus min-height:0 on the flex parent is
+   what stops a tall source (the guidelines pages are 1002x1400)
+   from pushing the caption off the bottom of the screen. */
+.cb-lb-img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 6px;
+  background: #100b0d;
+}
+
+.cb-lb-foot {
+  flex: 0 0 auto;
+  padding: 0.75rem 4.5rem 1.6rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.cb-lb-cap {
+  font-size: 0.85rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0;
+  max-width: 62ch;
+}
+
+.cb-lb-count {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #FF6701;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+/* ── Controls ── */
+.cb-lb button {
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  border-radius: 100px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.18s ease, border-color 0.18s ease;
+  font: inherit;
+  padding: 0;
+}
+
+.cb-lb button:hover {
+  background: rgba(255, 103, 1, 0.22);
+  border-color: rgba(255, 103, 1, 0.6);
+}
+
+.cb-lb button:focus-visible {
+  outline: 2px solid #FF6701;
+  outline-offset: 3px;
+}
+
+.cb-lb-close {
+  top: 1.4rem;
+  right: 1.6rem;
+  width: 2.75rem;
+  height: 2.75rem;
+}
+
+.cb-lb-close::before,
+.cb-lb-close::after {
+  content: "";
+  position: absolute;
+  width: 1.05rem;
+  height: 1.5px;
+  background: currentColor;
+}
+.cb-lb-close::before { transform: rotate(45deg); }
+.cb-lb-close::after { transform: rotate(-45deg); }
+
+.cb-lb-prev,
+.cb-lb-next {
+  top: 50%;
+  width: 3rem;
+  height: 3rem;
+  margin-top: -1.5rem;
+}
+.cb-lb-prev { left: 1.1rem; }
+.cb-lb-next { right: 1.1rem; }
+
+.cb-lb-prev::before,
+.cb-lb-next::before {
+  content: "";
+  width: 0.72rem;
+  height: 0.72rem;
+  border-top: 1.5px solid currentColor;
+  border-right: 1.5px solid currentColor;
+}
+.cb-lb-prev::before { transform: rotate(-135deg); margin-left: 4px; }
+.cb-lb-next::before { transform: rotate(45deg); margin-right: 4px; }
+
+/* Scroll lock. body is the scroll container on this site (html and
+   body are height:100%), so overflow:hidden here resets scrollTop to
+   0 — the script saves the offset and restores it on close. */
+body.cb-lb-open { overflow: hidden; }
+
+@media (max-width: 900px) {
+  .cb-lb-stage { padding: 3.75rem 1rem 0.5rem; }
+  .cb-lb-foot { padding: 0.6rem 1.25rem 1.25rem; flex-direction: column; gap: 0.5rem; }
+  .cb-lb-prev, .cb-lb-next { width: 2.5rem; height: 2.5rem; margin-top: -1.25rem; }
+  .cb-lb-prev { left: 0.4rem; }
+  .cb-lb-next { right: 0.4rem; }
+  .cb-lb-close { top: 0.8rem; right: 0.8rem; width: 2.4rem; height: 2.4rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cb-lb,
+  .cb-lb button,
+  .cb-zoom::after { transition: none; }
+}
