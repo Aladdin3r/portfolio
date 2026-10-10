@@ -1,0 +1,105 @@
+/* /flexalighting — curated page for the Flexalighting application. noindex. Scoped to body.fl-pitch. */
+body.fl-pitch { background:#ffffff; color:#111110; }
+/* The site-wide dynamic-gradient canvas is inserted as a fixed, z-index:-11
+   body child, and body's own background paints below it (root-background
+   propagation), so it bleeds through this page's transparent sections.
+   Pin an opaque white layer above the canvas but below all normal content. */
+body.fl-pitch::before { content:""; position:fixed; inset:0; background:#ffffff; z-index:-1; }
+/* The site-wide `main { color: white; display:flex; ... }` rule (style.css)
+   matches this element directly, so it wins over the inherited color from
+   body.fl-pitch regardless of that selector's specificity. Pin both back. */
+.fl-main { max-width:1060px; margin:0 auto; padding:64px 24px 96px; display:block; color:#111110; }
+.fl-main h1,.fl-main h2,.fl-main h3,.fl-main p,.fl-main ul,.fl-main li{ margin:0; }
+
+.fl-rule { height:3px; background:#FF6701; border:0; width:64px; margin:0 0 28px; }
+.fl-label { font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#8a8a86; font-weight:700; margin-bottom:14px; }
+
+.fl-hero { margin-bottom:64px; }
+.fl-hero h1 { font-size:clamp(30px,5vw,52px); line-height:1.05; font-weight:700; letter-spacing:-.01em; margin-bottom:18px; }
+.fl-hero p { font-size:clamp(16px,2.1vw,19px); line-height:1.55; max-width:60ch; color:#2b2b28; }
+
+.fl-sec { margin-bottom:72px; }
+.fl-sec > h2 { font-size:clamp(22px,3vw,30px); font-weight:700; letter-spacing:-.01em; margin-bottom:16px; }
+.fl-sec > p { font-size:16.5px; line-height:1.6; max-width:66ch; color:#2b2b28; margin-bottom:22px; }
+
+.fl-shelf { display:grid; grid-template-columns:repeat(3,1fr); gap:30px 26px; }
+.fl-piece { display:flex; flex-direction:column; }
+.fl-thumb { background:#f3f3f1; border:1px solid #e6e6e2; border-radius:10px; overflow:hidden; aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; }
+.fl-thumb img { width:100%; height:100%; object-fit:contain; display:block; }
+.fl-piece h3 { font-size:17px; font-weight:700; margin:15px 0 6px; }
+.fl-piece p { font-size:14px; line-height:1.5; color:#3a3a36; }
+.fl-tag { display:inline-block; margin-top:9px; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:#8a8a86; font-weight:700; }
+
+.fl-spec { display:flex; flex-wrap:wrap; gap:10px; margin:0 0 24px; padding:0; list-style:none; }
+.fl-spec li { font-size:12.5px; font-weight:700; letter-spacing:.02em; background:#111110; color:#fff; padding:7px 12px; border-radius:999px; }
+.fl-grid4 { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+.fl-grid4 .fl-thumb { aspect-ratio:1/1.29; }
+
+.fl-wide { max-width:640px; margin-top:6px; }
+.fl-wide .fl-thumb { aspect-ratio:16/9; }
+
+.fl-honest { border-left:4px solid #1E293B; background:#f6f7f9; border-radius:6px; padding:22px 24px; max-width:70ch; }
+.fl-honest h2 { font-size:18px; font-weight:700; margin-bottom:10px; }
+.fl-honest p { font-size:15.5px; line-height:1.6; color:#26303f; }
+
+.fl-about p { font-size:16px; line-height:1.6; }
+.fl-about a { color:#111110; }
+
+/* Lightbox — injected at runtime; nothing below is in the markup. */
+.fl-zoom { display:block; width:100%; height:100%; padding:0; margin:0; border:0; background:none; cursor:zoom-in; }
+.fl-zoom:focus-visible { outline:3px solid #FF6701; outline-offset:2px; }
+.fl-lb { position:fixed; inset:0; z-index:1000; display:flex; align-items:center; justify-content:center; gap:8px; background:rgba(12,12,12,.92); padding:24px; opacity:0; visibility:hidden; transition:opacity .22s ease, visibility 0s linear .22s; }
+.fl-lb[data-open="true"] { opacity:1; visibility:visible; transition:opacity .22s ease, visibility 0s linear 0s; }
+.fl-lb-fig { margin:0; display:flex; flex-direction:column; align-items:center; gap:12px; max-width:92vw; max-height:88vh; }
+.fl-lb-fig img { max-width:92vw; max-height:80vh; width:auto; height:auto; object-fit:contain; background:#fff; border-radius:4px; }
+.fl-lb-cap { color:#e7e7e2; font-size:13px; text-align:center; max-width:60ch; line-height:1.4; }
+.fl-lb button { flex:0 0 auto; background:rgba(255,255,255,.14); color:#fff; border:0; border-radius:999px; cursor:pointer; }
+.fl-lb button:hover { background:rgba(255,255,255,.24); }
+.fl-lb-close { position:absolute; top:16px; right:18px; width:40px; height:40px; font-size:22px; line-height:1; }
+.fl-lb-prev, .fl-lb-next { width:44px; height:44px; font-size:26px; line-height:1; }
+.fl-lb button:focus-visible { outline:2px solid #FF6701; outline-offset:2px; }
+@media (max-width:720px){
+  .fl-lb-prev,.fl-lb-next{ position:absolute; bottom:18px; }
+  .fl-lb-prev{ left:24px } .fl-lb-next{ right:24px }
+}
+@media (prefers-reduced-motion: reduce){
+  .fl-lb{ transition:visibility 0s linear .01s } .fl-lb[data-open="true"]{ transition:visibility 0s }
+}
+
+@media (max-width:860px){ .fl-shelf { grid-template-columns:1fr 1fr; } }
+@media (max-width:720px){
+  .fl-main { padding:44px 18px 72px; }
+  .fl-shelf { grid-template-columns:1fr; gap:26px; }
+  .fl-grid4 { grid-template-columns:1fr 1fr; }
+  .fl-sec { margin-bottom:56px; }
+  .fl-hero { margin-bottom:48px; }
+}
+
+/* Flexalighting additions */
+.fl-main .fl-meta { font-size:13.5px; color:#6b6b66; margin:-8px 0 16px; }
+.fl-main .fl-sub { font-size:19px; font-weight:700; margin:40px 0 6px; }
+.fl-contrib { display:grid; grid-template-columns:200px 1fr; gap:0; max-width:820px; margin:6px 0 20px; border-top:1px solid #e6e6e2; }
+.fl-contrib dt, .fl-contrib dd { margin:0; padding:13px 0; border-bottom:1px solid #e6e6e2; font-size:15px; line-height:1.55; }
+.fl-contrib dt { font-weight:700; color:#111110; padding-right:18px; }
+.fl-contrib dd { color:#2b2b28; }
+.fl-main .fl-result { font-size:15.5px; line-height:1.6; max-width:66ch; color:#2b2b28; margin:0 0 18px; }
+.fl-result b { color:#111110; }
+.fl-two { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; max-width:820px; margin-bottom:8px; }
+.fl-two .fl-thumb { aspect-ratio:4/3; }
+.fl-ig-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px; max-width:820px; margin:18px 0 10px; }
+.fl-main .fl-ig-k { font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:#8a8a86; font-weight:700; margin-bottom:8px; }
+.fl-ig .instagram-media { margin:0 !important; min-width:0 !important; width:100% !important; }
+.fl-ig-fallback { border:1px solid #e6e6e2; border-radius:10px; overflow:hidden; background:#f3f3f1; }
+.fl-ig-fallback img { width:100%; aspect-ratio:9/16; object-fit:cover; display:block; max-height:520px; }
+.fl-ig-fb-body { padding:12px 14px 14px; font-size:14px; line-height:1.5; color:#2b2b28; }
+.fl-ig-fb-body a { color:#111110; font-weight:700; }
+@media (max-width:720px){
+  .fl-contrib { grid-template-columns:1fr; }
+  .fl-contrib dt { padding-bottom:0; border-bottom:0; }
+  .fl-ig-grid, .fl-two { grid-template-columns:1fr; }
+}
+
+.fl-hero a { color:#111110; text-decoration:underline; text-decoration-color:#FF6701; text-underline-offset:3px; }
+.fl-main .fl-sub { margin-top:56px; }
+.fl-wide + .fl-sub, .fl-two + .fl-sub { margin-top:56px; }
+.fl-main .fl-label { margin-bottom:14px; }
